@@ -3,3 +3,4 @@
 # And to apply that details import this file into your program as a module
 
 MongoDB_URI = "mongodb+srv://prashant:varshney@cluster0-jv09r.mongodb.net/test?retryWrites=true&w=majority"
+Database_Name = "atom_db"
