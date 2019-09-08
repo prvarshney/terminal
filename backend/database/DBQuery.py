@@ -10,6 +10,7 @@ try:
 except:
 	print('[ Error ] Unable to create connection with Database')
 	sys.exit(0)
+
 ## Start of Faculty's Profile Collection API
 ## --------------------------------------------------------------------------
 ## This faculty class used for the following functions :
@@ -77,13 +78,18 @@ class faculty:
 	def remove(self,query_parameter,query_value):
 		# This remove function inputs query parameter like faculty_id, name, etc. and query value
 		# to search documents in collection. After that remove them from collection
+
 		status = db[config.Faculty_Profile_Collection].delete_many({ f'{query_parameter}':f'{query_value}' })
 		print(f'[ INFO  ] {status}')
 
 	def update(self,faculty_id,updation_param,updation_value):
+		# This update function inputs the faculty_id to check which document needs to update
+		# and then updates the updation_param with updation_value
+
 		searching_values = {'faculty_id':f'{faculty_id}'}
 		updating_values = {f'{updation_param}':f'{updation_value}'}
-		db[config.Faculty_Profile_Collection].update_one(searching_values, {'$set':updating_values})
+		status = db[config.Faculty_Profile_Collection].update_one(searching_values, {'$set':updating_values})
+		print(f'[ INFO  ] {status}')
 
 
 ## Start of Student's Profile Collection API
@@ -147,19 +153,28 @@ class student:
 			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
 			return True
 
-		def remove(self,query_parameter,query_value):
-			# This remove function inputs query parameter like enrollment, name, etc. and query value
-			# to search documents in collection. After that remove them from collection
-			status = db[config.Student_Profile_Collection].delete_many({ f'{query_parameter}':f'{query_value}' })
-			print(f'[ INFO  ] {status}')
+	def query(self,query_parameter,query_value):
+		# This query function inputs query parameter like enrollment_id, name, etc. and query value
+		# to search documents in collection. After successful search it returns
+		# rest of the details to the user.
+		return list(db[config.Student_Profile_Collection].find({ f'{query_parameter}':f'{query_value}' }))
 
-		#This update() function inputs the enrollment to check whether a student of this enrollment number
-		# is present or not and then it updates the values
-		def update(self,enrollment,updation_param,updation_value):
-			searching_values = {'enrollment':f'{enrollment}'}
-			updating_values = {f'{updation_param}':f'{updation_value}'}
-			db[config.Student_Profile_Collection].update_one(searching_values, {'$set':updating_values})
 
+	def remove(self,query_parameter,query_value):
+		# This remove function inputs query parameter like enrollment, name, etc. and query value
+		# to search documents in collection. After that remove them from collection
+		
+		status = db[config.Student_Profile_Collection].delete_many({ f'{query_parameter}':f'{query_value}' })
+		print(f'[ INFO  ] {status}')
+
+	def update(self,enrollment,updation_param,updation_value):
+		# This update function inputs the enrollment to check which document needs to update
+		# and then, updates the updation_param with updation_value
+
+		searching_values = {'enrollment':f'{enrollment}'}
+		updating_values = {f'{updation_param}':f'{updation_value}'}
+		status = db[config.Student_Profile_Collection].update_one(searching_values, {'$set':updating_values})
+		print(f'[ INFO  ] {status}')
 
 
 
@@ -213,4 +228,9 @@ class attendance:
 
 if __name__ == '__main__':
 	# Enter testing code here
-  pass
+	print('---------------------------------------------------------')
+	print('[ INFO ] Program running in Debug Mode')
+	print('[ INFO ] Printing Student\'s Details')
+	student = student()
+	query = student.query('enrollment','03620802717')
+	print(query)
