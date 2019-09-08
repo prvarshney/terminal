@@ -231,8 +231,8 @@ class attendance:
 		# This method use to update attendance of a particular date with attendance_dictionary
 		# object
 		searching_values = { 'date':date }
-		updation_value = { 'attendance':attendance_dictionary }
-		status = self.collection.update_one(searching_values, {'$set':updating_values})
+		updation_value = attendance_dictionary 
+		status = self.collection.update_many(searching_values, {'$set':updation_value})
 
 
 
@@ -280,15 +280,18 @@ class feedback:
 
 
 if __name__ == '__main__':
-	# Enter testing code here
+	# This code is used to perform some CRUD operations on API created above
+	# You can comment this out if you wants to avoid its running
+	# Enter testing code below this code
 	print('---------------------------------------------------------')
 	print('[ INFO  ] Program running in Debug Mode')
+	print('---------------------------------------------------------')
 	print('\n[ INFO  ] Checking Faculty API')
 	print('[ INFO  ] Inserting a Faculty Profile')
 	faculty = faculty()
 	faculty.insert(
 		id='F364A',
-		name='Deepali Vermani',
+		name={'f_name':'Deepali','m_name':'','l_name':'Virmani'},
 		dob={ 'day':'04','month':'06','year':'1998' },
 		phone_numbers=['011-27883979','7428306355'],
 		email=['cse_hod@gmail.com'],
@@ -315,7 +318,94 @@ if __name__ == '__main__':
 		ratings='4.3'
 		)
 	# waiting for key dump to continue
-	input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Faculty_Profile_Collection} Collection')
+	input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Faculty_Profile_Collection} Collection ')
+	
+	print(f'[ INFO  ] Querying  in {config.Faculty_Profile_Collection} Collection ')
+	res = faculty.query('faculty_id','F364A')
+	print('[ INFO  ] Received Documents : ')
+	print(res)
+	
+	print('[ INFO  ] Checking Update Method')
+	faculty.update('F364A','name',{'f_name':'Meenakshi','m_name':'','l_name':''})
+	input(f'[ INFO  ] Check on MongoDB Server for any Updation in {config.Faculty_Profile_Collection} Collection ')
+
 	print(f'[ INFO  ] Removing Inserted Document from {config.Faculty_Profile_Collection} Collection')
 	faculty.remove('faculty_id','F364A')
+	input(f'[ INFO  ] Check on MongoDB Server for any Deletion in {config.Faculty_Profile_Collection} Collection ')
+
+	print('\n---------------------------------------------------------')
+	print('[ INFO  ] Checking Student API')
+	student = student()
+	print('[ INFO  ] Inserting a Student Profile')
+	student.insert(
+		enrollment='03620802717',
+		name={'f_name':'Prashant','m_name':'','l_name':'Varshney'},
+		phone_numbers=['7428206355','7982068083'],
+		email=['pv03158@gmail.com','varshney.prashant98@gmail.com'],
+		father_name={'f_name':'Girish','m_name':'Chandra','l_name':'Varshney'},
+		year_of_join='2017',
+		year_of_pass='2021',
+		programme='btech',
+		branch='cse',
+		section='a',
+		gender='m',
+		dob={ 'day':'04','month':'06','year':'1998' },
+		temp_address='Samaypur, Delhi - 110042',
+		perm_address='CD Block, Pitampura'
+		)
+	# waiting for key dump to continue
+	input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Student_Profile_Collection} Collection ')
+	
+	print(f'[ INFO  ] Querying  in {config.Student_Profile_Collection} Collection ')
+	res = student.query('enrollment','03620802717')
+	print('[ INFO  ] Received Documents : ')
+	print(res)
+	
+	print('[ INFO  ] Checking Update Method')
+	student.update('03620802717','name',{'f_name':'Preeti','m_name':'','l_name':'Yadav'})
+	input(f'[ INFO  ] Check on MongoDB Server for any Updation in {config.Student_Profile_Collection} Collection ')
+
+	print(f'[ INFO  ] Removing Inserted Document from {config.Student_Profile_Collection} Collection')
+	student.remove('enrollment','03620802717')
+	input(f'[ INFO  ] Check on MongoDB Server for any Deletion in {config.Student_Profile_Collection} Collection ')
+
+	print('\n---------------------------------------------------------')
+	print('[ INFO  ] Checking Attendance API')
+	attendance = attendance('F364A','btech','cse','a','2021')
+	print('[ INFO  ] Inserting a Attendance Document')
+	attendance.mark({
+					'date':	{ 'day':'04','month':'06','year':'1998' },
+					'attendance': {
+							'03620802717':'P',       
+							'03720802717':'A',			 
+							'05520802717':'P'
+								}
+					})
+	input(f'[ INFO  ] Check on MongoDB Server for any Creation of Attendance Collection ')
+
+	print(f'[ INFO  ] Querying  in Attendance Collection ')
+	res = attendance.show()
+	print('[ INFO  ] Received Documents : ')
+	print(res)
+
+	print(f'[ INFO  ] Querying  in Attendance Collection for date : 04-06-1998')
+	res = attendance.show_on({ 'day':'04','month':'06','year':'1998' })
+	print('[ INFO  ] Received Documents : ')
+	print(res)
+
+	print(f'[ INFO  ] Updation in Attendance Collection ')
+	attendance.update(
+					{ 'day':'04','month':'06','year':'1998' },
+					{
+					'date':	{ 'day':'04','month':'06','year':'1998' },
+					'attendance': {
+							'03620802717':'P',       
+							'03720802717':'P',			 
+							'05520802717':'P'
+								}
+					})
+	input(f'[ INFO  ] Check on MongoDB Server for any Updation in Attendance Collection ')
+	print(f'[ INFO  ] Dropping Attendance Collection')
+	attendance.remove()
+	input(f'[ INFO  ] Check on MongoDB Server for any Deletion in Attendance Collection ')
 
