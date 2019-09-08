@@ -107,7 +107,7 @@ class student:
 		# parameters and then inserts it into database if it is not present in DB.
 
 		# Data structure of input parameters:-
-		# id --> string
+		# enrollment --> string
 		# name --> dictionary
 		# dob --> dictionary
 		# phone_numbers --> list of string
@@ -224,6 +224,52 @@ class attendance:
 	def show_on(self,query_date):
 		# This method inputs date dictionary and returns list of attendance on that particular date
 		return list(self.collection.find({ 'date': query_date }))
+
+
+
+
+
+## Start of Feedback Collection API
+## ----------------------------------------------------------------
+## This feedback class is used for the following functions:-
+## 1. Adding a feedback for a particular teacher with method name - add_message
+## 2. Listing all the feedbacks with a teacher with method name -show_all
+## 3. Removing a feedback for a teacher with method name - remove
+class feedback:
+    def __init__(self,enrollment,message,faculty_id):
+        #Constructor of feedback accepts the following parameters:-
+        # enrollment --> enrollment id of student --> string
+        #message --> the feedback message --> string
+        #faculty_id --> Unique_ID of faculty -->string
+
+        #Creating a collection in database with identifier like 05520802717_message_036
+        #This collection object is gonna be used further for any operation like:-
+        #adding the feedback, show_all,etc.
+        self.collection = db[f'{enrollment}_message_{faculty_id}']
+
+    def add_message(self,feedback_dictionary):
+        #feedback_dictionary contains a dictionary of that stores date on which the
+        #feedback was given , the faculty_id of the teacher to wchich the feedback was
+        #given and the message with the student's enrollment number.
+        #for example:
+        #feedback_dictionary = {
+        #                       'date': {'day': 07,'month':11,'year':2000},
+        #                       'faculty_id':faculty_id
+        #                       'feedback': {
+        #                                   '05520802717':'nice methods used by ma'am',
+        #                                   '03720802717':'excellent'
+        #                                   }
+        #                       }
+        status = self.collection.insert_one(feedback_dictionary)
+        print (f'[INFO]{status}') #Printing status of result of query
+        return True
+
+    def show_all(self):
+        #This method doesn't inputs any parameter and returns the list of all the
+        #available documents inside collection for which the feedback constructor is initialized.
+        return list(self.collection.find({}))
+
+
 
 
 if __name__ == '__main__':
