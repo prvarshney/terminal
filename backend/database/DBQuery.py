@@ -21,7 +21,7 @@ except:
 
 class faculty:
 	def insert(self,id,name,dob,phone_numbers,email,subjects,qualifications=[],
-		time_table={},classes=[],ratings=5,reviews=[]):
+		time_table={},classes=[],ratings=5):
 		# This insert method inputs necessary details of faculty through input parameters and then
 		# insert it into database if it doesn't presents in DB
 		#
@@ -36,7 +36,6 @@ class faculty:
 		# timetable --> dictionary
 		# classes --> list of string
 		# ratings --> float
-		# reviews --> list of strings
 		
 		# Important Points :
 		# 	*qualifications, time-table, classes, ratings, reviews are optional parameters if not
@@ -56,7 +55,6 @@ class faculty:
 			    "time-table":time_table,
 			    "classes":classes,
 			    "ratings":ratings,
-			    "reviews":reviews
 	    		}
 
 	    # Checking whether any faculty with same faculty_id is present in database
@@ -177,8 +175,6 @@ class student:
 		print(f'[ INFO  ] {status}')
 
 
-
-
 ## Start of Attendance Collection API
 ## --------------------------------------------------------------------------
 ## This attendance class is used for the following functions:-
@@ -186,6 +182,7 @@ class student:
 ## 2. Show whole attendance collection with method name - show
 ## 3. Show attendance of any particular date with method name - show_on
 ## 4. Remove attendance collection with method name - remove
+## 5. Update attendance of any particular date with method name - update
 class attendance:
 	def __init__(self,faculty_id,programme,branch,section,year_of_pass):
 		# Constructor of attendance accepts the following parameters :
@@ -225,16 +222,26 @@ class attendance:
 		# This method inputs date dictionary and returns list of attendance on that particular date
 		return list(self.collection.find({ 'date': query_date }))
 
+	def remove(self):
+		# This method removes the collection of attendance of that particular faculty_id for
+		# which class object is intialised.
+		self.collection.drop()
 
+	def update(self,date,attendance_dictionary):
+		# This method use to update attendance of a particular date with attendance_dictionary
+		# object
+		searching_values = { 'date':date }
+		updation_value = { 'attendance':attendance_dictionary }
+		status = self.collection.update_one(searching_values, {'$set':updating_values})
 
 
 
 ## Start of Feedback Collection API
-## ----------------------------------------------------------------
+## ------------------------------------------------------------------------------------------
 ## This feedback class is used for the following functions:-
 ## 1. Adding a feedback for a particular teacher with method name - add_message
-## 2. Listing all the feedbacks with a teacher with method name -show_all
-## 3. Removing a feedback for a teacher with method name - remove
+## 2. Listing all the feedbacks of a teacher with method name - show_all
+## 3. Removing a feedback of a teacher with method name - remove
 class feedback:
     def __init__(self,enrollment,message,faculty_id):
         #Constructor of feedback accepts the following parameters:-
@@ -275,8 +282,40 @@ class feedback:
 if __name__ == '__main__':
 	# Enter testing code here
 	print('---------------------------------------------------------')
-	print('[ INFO ] Program running in Debug Mode')
-	print('[ INFO ] Printing Student\'s Details')
-	student = student()
-	query = student.query('enrollment','03620802717')
-	print(query)
+	print('[ INFO  ] Program running in Debug Mode')
+	print('\n[ INFO  ] Checking Faculty API')
+	print('[ INFO  ] Inserting a Faculty Profile')
+	faculty = faculty()
+	faculty.insert(
+		id='F364A',
+		name='Deepali Vermani',
+		dob={ 'day':'04','month':'06','year':'1998' },
+		phone_numbers=['011-27883979','7428306355'],
+		email=['cse_hod@gmail.com'],
+		subjects=['Networking','Machine Learning','Artificial Intelligence'],
+		qualifications=['Btech CSE','Mtech CSE','Phd. AI'],
+		time_table={
+				'monday':['cse-a-2021','cse-b-2021','un-scheduled',
+						'un-scheduled','cse-a-2021-lab','cse-a-2021',
+						'un-scheduled'],
+				'tuesday':['cse-a-2021','cse-b-2021','un-scheduled',
+						'un-scheduled','cse-a-2021-lab','cse-a-2021',
+						'un-scheduled'],
+				'wednesday':['cse-a-2021','cse-b-2021','un-scheduled',
+						'un-scheduled','cse-a-2021-lab','cse-a-2021',
+						'un-scheduled'],
+				'thursday':['cse-a-2021','cse-b-2021','un-scheduled',
+						'un-scheduled','cse-a-2021-lab','cse-a-2021',
+						'un-scheduled'],
+				'friday':['cse-a-2021','cse-b-2021','un-scheduled',
+						'un-scheduled','cse-a-2021-lab','cse-a-2021',
+						'un-scheduled'],				
+				},
+		classes=['cse-a-2012','cse-b-2021'],
+		ratings='4.3'
+		)
+	# waiting for key dump to continue
+	input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Faculty_Profile_Collection} Collection')
+	print(f'[ INFO  ] Removing Inserted Document from {config.Faculty_Profile_Collection} Collection')
+	faculty.remove('faculty_id','F364A')
+
