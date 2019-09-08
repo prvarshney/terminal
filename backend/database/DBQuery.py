@@ -185,26 +185,16 @@ class attendance:
 		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
 		return True		
 
+	def show(self):
+		# This method doesn't inputs any parameter and returns the list of all the available
+		# documents inside collection for which attendance constructor is initialised
+		return list(self.collection.find({}))
+
+	def show_on(self,query_date):
+		# This method inputs date dictionary and returns list of attendance on that particular date
+		return list(self.collection.find({ 'date': query_date }))
 
 
 if __name__ == '__main__':
 	# Enter testing code here
-	# id = '055'
-	# name = {'f_name':'Somya','m_name':'','l_name':'Singhal'}
-	# dob = {'day':'4','month':'06','year':'1998'}
-	# p_num = ['7982068084']
-	# email = ['ssomya@gmail.com','ss3482@gmail.com']
-	# sub = ['Physics','Comp. Science']
-
-	# faculty = faculty()
-	# faculty.insert(id,name,dob,p_num,email,sub)
-	attendance_dictionary = {
-								'date':	{ 'day':'04','month':'06','year':'1998' },
-								'attendance': {
-										'03620802717':'P',      
-										'03720802717':'A',
-										'05520802717':'P'
-									}
-								}
-	atten = attendance('037','btech','cse','a','2021')
-	atten.mark(attendance_dictionary)
+	pass
