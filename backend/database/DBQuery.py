@@ -38,7 +38,7 @@ class faculty:
 		# reviews --> list of strings
 		
 		# Important Points :
-		# 	*qualifications, time-table, classes, ratings, reviews are optional parameters if not 
+		# 	*qualifications, time-table, classes, ratings, reviews are optional parameters if not
 		# 	 provided default values are used
 		# 	*id is the primary key for faculty profile collections
 		# 	*collection name that is going to be used : faculty_profile
@@ -57,7 +57,7 @@ class faculty:
 			    "ratings":ratings,
 			    "reviews":reviews
 	    		}
-	    
+
 	    # Checking whether any faculty with same faculty_id is present in database
 	    duplicate_entry = db[config.Faculty_Profile_Collection].find_one({ f'faculty_id':f'{id}' })
 	    if duplicate_entry != None:
@@ -67,10 +67,10 @@ class faculty:
 		    status = db[config.Faculty_Profile_Collection].insert_one(document)
 		    print(f'[ INFO  ] {status}') 	# Printing Status of result of query
 		    return True
-	
+
 	def query(self,query_parameter,query_value):
 		# This query function inputs query parameter like faculty_id, name, etc. and query value
-		# to search documents in collection. After successful search it returns 
+		# to search documents in collection. After successful search it returns
 		# rest of the details to the user.
 		return list(db[config.Faculty_Profile_Collection].find({ f'{query_parameter}':f'{query_value}' }))
 
@@ -111,7 +111,7 @@ class student:
 		# year_of_pass --> integer
 		# branch --> string
 		# section --> string
-		# gender --> string		
+		# gender --> string
 		# temp_address --> string
 		# perm_address --> string
 
@@ -136,7 +136,7 @@ class student:
 				"temp_address": temp_address,
 				"perm_address": perm_address
 			}
-		
+
 		# Checking whether any student is already present in database with same enrollment
 		duplicate_entry = db[config.Student_Profile_Collection].find_one({ f'enrollment':f'{enrollment}' })
 		if duplicate_entry != None:
@@ -145,7 +145,23 @@ class student:
 		else:
 			status = db[config.Student_Profile_Collection].insert_one(document)
 			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
-			return True		
+			return True
+
+		def remove(self,query_parameter,query_value):
+			# This remove function inputs query parameter like enrollment, name, etc. and query value
+			# to search documents in collection. After that remove them from collection
+			status = db[config.Student_Profile_Collection].delete_many({ f'{query_parameter}':f'{query_value}' })
+			print(f'[ INFO  ] {status}')
+
+		#This update() function inputs the enrollment to check whether a student of this enrollment number
+		# is present or not and then it updates the values
+		def update(self,enrollment,updation_param,updation_value):
+			searching_values = {'enrollment':f'{enrollment}'}
+			updating_values = {f'{updation_param}':f'{updation_value}'}
+			db[config.Student_Profile_Collection].update_one(searching_values, {'$set':updating_values})
+
+
+
 
 
 ## Start of Attendance Collection API
@@ -197,4 +213,4 @@ class attendance:
 
 if __name__ == '__main__':
 	# Enter testing code here
-	pass
+  pass
