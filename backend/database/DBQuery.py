@@ -275,33 +275,100 @@ class marksheet:
 		status = self.collection.insert_one(marksheet_dictionary)
 		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
 		return True
+ 
+  def show_on(self,enrollment):
+      # This method inputs marksheet dictionary and returns marks of that particular enrollment Id
+      return list(self.collection.find({ 'enrollment': enrollment }))
 
+  def remove(self,enrollment):
+    # This method removes the collection of marks of that particular enrollment for
+    # which class object is intialised.
+    self.collection.delete_many({'enrollment':enrollment})
+
+  def update(self,enrollment,marksheet_dictionary):
+    # This method use to update marks of a particular enrollment with marksheet_dictionary
+    # object
+    searching_values = { 'enrollment':enrollment }
+    updation_value = marksheet_dictionary
+    status = self.collection.update_many(searching_values, {'$set':updation_value})
+
+  
+## Start of Feedback Collection API
+## ------------------------------------------------------------------------------------------
+## This feedback class is used for the following functions:-
+## 1. Adding a feedback for a particular teacher with method name - add_message
+## 2. Listing all the feedbacks of a teacher with method name - show_all
+## 3. Removing a feedback of a teacher with method name - remove
+class feedback:
+	def __init__(self,faculty_id,subject,programme,branch,section,semester,year_of_pass):
+		#Constructor of feedback accepts the following parameters:-
+		#faculty_id --> Unique_ID of faculty -->string
+		#subject --> Mathematics, COA,etc. -->string
+		#programme --> e.g.Bt.Tech,BBA -->string
+		#branch --> like CSE, IT, etc. -->string
+		#section --> string
+		#semester --> string
+		#year_of_pass --> string
+
+		#Creating a collection in database with identifier like 036_feedback_sheet_
+		# COA_B.tECH_CSE_A_4_2021
+		#This collection object is gonna be used further for any operation like:-
+		#adding the feedback, show_all,etc.
+		self.collection = db[f'{faculty_id}_feedback_sheet_{subject}_{programme}_{branch}_{section}_{semester}_{year_of_pass}']
+
+	def insert(self,feedback_dictionary,enrollment):
+		# This method is used to add a feedback.
+		#feedback_dictionary contains a dictionary of that stores date on which the
+		#feedback was given , the faculty_id of the teacher to wchich the feedback was
+		#given and the message with the student's enrollment number.
+		#for example:
+		#feedback_dictionary = {
+		#                       'date': {'day': 07,'month':11,'year':2000},
+		#                       'enrollment': enrollment,
+		#                       'feedback': feedback
+		#                       }
+		duplicate_entry = db.collection.find_one({f'enrollment':f'{enrollment}'})
+		if duplicate_entry != None:
+			print('[ INFO  ] Feedback of this student already exists!')
+		else:
+			status = self.collection.insert_one(feedback_dictionary)
+			print (f'[INFO]{status}') #Printing status of result of query
+
+	def show_all(self):
+		#This method doesn't inputs any parameter and returns the list of all the
+		#available documents inside collection for which the feedback constructor is initialized.
+		# This method displays all the feedbacks of a particular faculty.
+		return list(self.collection.find({}))
+
+	def remove_all(self):
+		# This method removes the collection of feedback of that particular faculty_id for
+		# which class object is initialized.
+		#For example:- if any teacher has left, then all the feedbacks of that particular
+		#faculty must be deleted.
+		self.collection.drop()
+
+	def remove_particular(self,enrollment):
+		# This method is used to remove all the feedback by a student for the faculty.
+		status = self.collection.delete_one({'enrollment':f'{enrollment}'})
+		print(f'[ INFO  ]{status}')
+
+	def update(self,enrollment,feedback_dictionary):
+		# This update method inputs the enrollment to check which document needs to be updated and then,
+		# updates the updation_param into the updation_value.
+		searching_values = {'enrollment':f'{enrollment}'}
+		updating_values = feedback_dictionary
+		status = self.collection.update_one(searching_values, {'$set':updating_values})
+    
 	def show(self):
 		# This method doesn't inputs any parameter and returns the list of all the available enrollments
 		# documents inside collection for which marksheet constructor is initialised
 		return list(self.collection.find({}))
-
-	def show_on(self,enrollment):
-		# This method inputs marksheet dictionary and returns marks of that particular enrollment Id
-		return list(self.collection.find({ 'enrollment': enrollment }))
-
-	def remove(self,enrollment):
-		# This method removes the collection of marks of that particular enrollment for
-		# which class object is intialised.
-		self.collection.delete_many({'enrollment':enrollment})
-
-	def update(self,enrollment,marksheet_dictionary):
-		# This method use to update marks of a particular enrollment with marksheet_dictionary
-		# object
-		searching_values = { 'enrollment':enrollment }
-		updation_value = marksheet_dictionary
-		status = self.collection.update_many(searching_values, {'$set':updation_value})
-
+  
 if __name__ == '__main__':
 	if DEBUG_STATUS:
-		This code is used to perform some CRUD operations on API created above
-		You can comment this out if you wants to avoid its running
-		Enter testing code below END OF DEBUG CODE
+		# This code is used to perform some CRUD operations on API created above
+		# You can comment this out if you wants to avoid its running
+		# Enter testing code below END OF DEBUG CODE
 		print('---------------------------------------------------------')
 		print('[ INFO  ] Program running in Debug Mode')
 		print('---------------------------------------------------------')
@@ -460,4 +527,35 @@ if __name__ == '__main__':
 		marksheet.remove('03720802717')
 		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in Marksheet Collection ')
 
+  print('\n---------------------------------------------------------------------')
+		print('[ INFO  ] Checking Feedback API')
+		feedback = feedback('A401', 'COA', 'B.tech', 'CSE', 'A', '3', '2021')
+		print('[ INFO  ] Inserting a feedback document')
+		feedback.insert({
+			'date': {'day': '04', 'month': '06', 'year': '1998'},
+			'enrollment': '05520802717',
+			'feedback': 'nice work'
+		}, '05520802717')
+		input(f'[ INFO  ] Check on MongoDB Server for any creation of Feedback Collection ')
+	
+		print(f'[ INFO  ] Querying in Feedback Collection')
+		res = feedback.show_all()
+		print('[ INFO  ] Recieved Documents : ')
+		print(res)
+
+		print('[ INFO  ] Updation in Feedback Collection. ')
+		feedback.update('05520802717', { 
+				'date': {'day': '04' , 'month':'06','year':'2000'},
+				'enrollment':'05520802717',
+				'feedback': 'lol'
+		 		})
+
+		input(f'[ INFO  ] Check on MongoDB Server for any Updation in Feedback Collection ')
+		print('[ INFO  ] Deleting a particular feedback ')
+		feedback.remove_particular('05520802717')
+		print('[ INFO  ] Feedback deleted of this student.')
+
+		print('[ INFO  ] Dropping the feedback_sheet for the particular faculty. ')
+		feedback.remove_all()
+		print('[ INFO  ] Check on Mongo DB Server for any deletion in Feedback Collection.')
 	################################ END OF DEBUG CODE ########################################
