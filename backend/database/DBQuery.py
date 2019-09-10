@@ -4,7 +4,7 @@ import config
 import sys
 
 # Global variables
-DEBUG_STATUS = False	# Change this Debug Status to True for debugging and checking APIs
+DEBUG_STATUS = True	# Change this Debug Status to True for debugging and checking APIs
 
 # Creating connection with the mongodb database
 try:
@@ -187,18 +187,20 @@ class student:
 ## 4. Remove attendance collection with method name - remove
 ## 5. Update attendance of any particular date with method name - update
 class attendance:
-	def __init__(self,faculty_id,programme,branch,section,year_of_pass):
+	def __init__(self,faculty_id,programme,subject,branch,section,semester,year_of_pass):
 		# Constructor of attendance accepts the following parameters :
 		# faculty_id --> Unique_ID of faculty --> string
 		# programme --> Programme of class whose attendance needs to mark like BBA, BTech --> string
+		# subject --> String 
 		# branch --> like CSE, IT, etc. --> string
 		# section --> string
+		# semester --> string
 		# year_of_pass --> string
 
 		# Creating a collection in database with identifier like 036_attendance_sheet_btech_a_2021
 		# This collection object is gonna be used further for any operation like :-
 		# Marking attendance, show, etc.
-		self.collection = db[f'{faculty_id}_attendance_sheet_{programme}_{branch}_{section}_{year_of_pass}']
+		self.collection = db[f'{faculty_id}_attendance_sheet_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
 
 	def mark(self,attendance_dictionary):
 		# Attendance_dictionary object contains a dictionary of that stores date on which attendance 
@@ -236,50 +238,6 @@ class attendance:
 		searching_values = { 'date':date }
 		updation_value = attendance_dictionary 
 		status = self.collection.update_many(searching_values, {'$set':updation_value})
-
-
-
-## Start of Feedback Collection API
-## ------------------------------------------------------------------------------------------
-## This feedback class is used for the following functions:-
-## 1. Adding a feedback for a particular teacher with method name - add_message
-## 2. Listing all the feedbacks of a teacher with method name - show_all
-## 3. Removing a feedback of a teacher with method name - remove
-class feedback:
-    def __init__(self,enrollment,message,faculty_id):
-        #Constructor of feedback accepts the following parameters:-
-        # enrollment --> enrollment id of student --> string
-        #message --> the feedback message --> string
-        #faculty_id --> Unique_ID of faculty -->string
-
-        #Creating a collection in database with identifier like 05520802717_message_036
-        #This collection object is gonna be used further for any operation like:-
-        #adding the feedback, show_all,etc.
-        self.collection = db[f'{enrollment}_message_{faculty_id}']
-
-    def add_message(self,feedback_dictionary):
-        #feedback_dictionary contains a dictionary of that stores date on which the
-        #feedback was given , the faculty_id of the teacher to wchich the feedback was
-        #given and the message with the student's enrollment number.
-        #for example:
-        #feedback_dictionary = {
-        #                       'date': {'day': 07,'month':11,'year':2000},
-        #                       'faculty_id':faculty_id
-        #                       'feedback': {
-        #                                   '05520802717':'nice methods used by ma'am',
-        #                                   '03720802717':'excellent'
-        #                                   }
-        #                       }
-        status = self.collection.insert_one(feedback_dictionary)
-        print (f'[INFO]{status}') #Printing status of result of query
-        return True
-
-    def show_all(self):
-        #This method doesn't inputs any parameter and returns the list of all the
-        #available documents inside collection for which the feedback constructor is initialized.
-        return list(self.collection.find({}))
-
-
 
 
 if __name__ == '__main__':
@@ -357,7 +315,7 @@ if __name__ == '__main__':
 			temp_address='Samaypur, Delhi - 110042',
 			perm_address='CD Block, Pitampura'
 			)
-		# waiting for key dump to continue
+		# waiting for key dump to continues
 		input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Student_Profile_Collection} Collection ')
 		
 		print(f'[ INFO  ] Querying  in {config.Student_Profile_Collection} Collection ')
@@ -375,7 +333,7 @@ if __name__ == '__main__':
 
 		print('\n---------------------------------------------------------')
 		print('[ INFO  ] Checking Attendance API')
-		attendance = attendance('F364A','btech','cse','a','2021')
+		attendance = attendance('F364A','btech','machine_learning','cse','a','5','2021')
 		print('[ INFO  ] Inserting a Attendance Document')
 		attendance.mark({
 						'date':	{ 'day':'04','month':'06','year':'1998' },
