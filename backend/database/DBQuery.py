@@ -39,7 +39,7 @@ class faculty:
 		# timetable --> dictionary
 		# classes --> list of string
 		# ratings --> float
-		
+
 		# Important Points :
 		# 	*qualifications, time-table, classes, ratings, reviews are optional parameters if not
 		# 	 provided default values are used
@@ -164,7 +164,7 @@ class student:
 	def remove(self,query_parameter,query_value):
 		# This remove function inputs query parameter like enrollment, name, etc. and query value
 		# to search documents in collection. After that remove them from collection
-		
+
 		status = db[config.Student_Profile_Collection].delete_many({ f'{query_parameter}':f'{query_value}' })
 		print(f'[ INFO  ] {status}')
 
@@ -191,7 +191,7 @@ class attendance:
 		# Constructor of attendance accepts the following parameters :
 		# faculty_id --> Unique_ID of faculty --> string
 		# programme --> Programme of class whose attendance needs to mark like BBA, BTech --> string
-		# subject --> String 
+		# subject --> String
 		# branch --> like CSE, IT, etc. --> string
 		# section --> string
 		# semester --> string
@@ -203,7 +203,7 @@ class attendance:
 		self.collection = db[f'{faculty_id}_attendance_sheet_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
 
 	def mark(self,attendance_dictionary):
-		# Attendance_dictionary object contains a dictionary of that stores date on which attendance 
+		# Attendance_dictionary object contains a dictionary of that stores date on which attendance
 		# taken and the present status of students with their enrollment number
 		# for example :
 		# attendance_dictionary = {
@@ -213,10 +213,10 @@ class attendance:
 		#								'03720802717':'A',			# Here A stands for Absent
 		#								'05520802717':'P'
 		#							}
-		#						}		
+		#						}
 		status = self.collection.insert_one(attendance_dictionary)
 		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
-		return True		
+		return True
 
 	def show(self):
 		# This method doesn't inputs any parameter and returns the list of all the available
@@ -236,15 +236,72 @@ class attendance:
 		# This method use to update attendance of a particular date with attendance_dictionary
 		# object
 		searching_values = { 'date':date }
-		updation_value = attendance_dictionary 
+		updation_value = attendance_dictionary
 		status = self.collection.update_many(searching_values, {'$set':updation_value})
 
+## Start of Marksheet Collection API
+## --------------------------------------------------------------------------
+## This marksheet class is used for the following functions:-
+## 1. Uploading marks with method name - marks
+## 2. Show whole marks collection with method name - show
+## 3. Show marks of any particular student using their enrollment number with method name - show_on
+## 4. Remove marks collection with method name - remove
+## 5. Update marks of any particular student with method name - update
+class marksheet:
+	def __init__(self, faculty_id, programme, subject, branch, section, semester, year_of_pass):
+		## Constructor of marksheet accepts the following parameters:
+		# faculty_id --> Unique Id of faculty --> string
+		# programme --> programme of the class whose marks are provided here --> string
+		# subject --> subject name taught by the given faculty --> string
+		# branch --> like cse, IT etc --> string
+		# section --> string
+		# semester --> string
+		# year_of_pass --> string
+
+		# Creating a collection in database with identifier like 037_BTech_Maths_CSE_A_2021
+		# This collection object is gonna be used further for any operation like :-
+		# providing marks, show, etc.
+		self.collection = db[f'{faculty_id}_marksheet_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
+
+	def insert(self,marksheet_dictionary):
+		# marksheet_dictionary object contains a dictionary of that stores the enrollment id
+		#whose marks are provided by that faculty
+		# for example :
+		# marksheet_dictionary = {
+		#						'enrollment' :	'03720802717' ,
+		#						'marks' :  '29'
+		#						'assessment':'8'
+		#						}
+		status = self.collection.insert_one(marksheet_dictionary)
+		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		return True
+
+	def show(self):
+		# This method doesn't inputs any parameter and returns the list of all the available enrollments
+		# documents inside collection for which marksheet constructor is initialised
+		return list(self.collection.find({}))
+
+	def show_on(self,enrollment):
+		# This method inputs marksheet dictionary and returns marks of that particular enrollment Id
+		return list(self.collection.find({ 'enrollment': enrollment }))
+
+	def remove(self,enrollment):
+		# This method removes the collection of marks of that particular enrollment for
+		# which class object is intialised.
+		self.collection.delete_many({'enrollment':enrollment})
+
+	def update(self,enrollment,marksheet_dictionary):
+		# This method use to update marks of a particular enrollment with marksheet_dictionary
+		# object
+		searching_values = { 'enrollment':enrollment }
+		updation_value = marksheet_dictionary
+		status = self.collection.update_many(searching_values, {'$set':updation_value})
 
 if __name__ == '__main__':
 	if DEBUG_STATUS:
-		# This code is used to perform some CRUD operations on API created above
-		# You can comment this out if you wants to avoid its running
-		# Enter testing code below END OF DEBUG CODE
+		This code is used to perform some CRUD operations on API created above
+		You can comment this out if you wants to avoid its running
+		Enter testing code below END OF DEBUG CODE
 		print('---------------------------------------------------------')
 		print('[ INFO  ] Program running in Debug Mode')
 		print('---------------------------------------------------------')
@@ -274,19 +331,19 @@ if __name__ == '__main__':
 							'un-scheduled'],
 					'friday':['cse-a-2021','cse-b-2021','un-scheduled',
 							'un-scheduled','cse-a-2021-lab','cse-a-2021',
-							'un-scheduled'],				
+							'un-scheduled'],
 					},
 			classes=['cse-a-2012','cse-b-2021'],
 			ratings='4.3'
 			)
 		# waiting for key dump to continue
 		input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Faculty_Profile_Collection} Collection ')
-		
+
 		print(f'[ INFO  ] Querying  in {config.Faculty_Profile_Collection} Collection ')
 		res = faculty.query('faculty_id','F364A')
 		print('[ INFO  ] Received Documents : ')
 		print(res)
-		
+
 		print('[ INFO  ] Checking Update Method')
 		faculty.update('F364A','name',{'f_name':'Meenakshi','m_name':'','l_name':''})
 		input(f'[ INFO  ] Check on MongoDB Server for any Updation in {config.Faculty_Profile_Collection} Collection ')
@@ -317,12 +374,12 @@ if __name__ == '__main__':
 			)
 		# waiting for key dump to continues
 		input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Student_Profile_Collection} Collection ')
-		
+
 		print(f'[ INFO  ] Querying  in {config.Student_Profile_Collection} Collection ')
 		res = student.query('enrollment','03620802717')
 		print('[ INFO  ] Received Documents : ')
 		print(res)
-		
+
 		print('[ INFO  ] Checking Update Method')
 		student.update('03620802717','name',{'f_name':'Preeti','m_name':'','l_name':'Yadav'})
 		input(f'[ INFO  ] Check on MongoDB Server for any Updation in {config.Student_Profile_Collection} Collection ')
@@ -335,13 +392,13 @@ if __name__ == '__main__':
 		print('[ INFO  ] Checking Attendance API')
 		attendance = attendance('F364A','btech','machine_learning','cse','a','5','2021')
 		print('[ INFO  ] Inserting a Attendance Document')
-		attendance.mark({
+		attendance.insert({
 						'date':	{ 'day':'04','month':'06','year':'1998' },
 						'attendance': {
-								'03620802717':'P',       
-								'03720802717':'A',			 
+								'03620802717':'P',
+								'03720802717':'A',
 								'05520802717':'P'
-									}
+								}
 						})
 		input(f'[ INFO  ] Check on MongoDB Server for any Creation of Attendance Collection ')
 
@@ -361,8 +418,8 @@ if __name__ == '__main__':
 						{
 						'date':	{ 'day':'04','month':'06','year':'1998' },
 						'attendance': {
-								'03620802717':'P',       
-								'03720802717':'P',			 
+								'03620802717':'P',
+								'03720802717':'P',
 								'05520802717':'P'
 									}
 						})
@@ -370,4 +427,37 @@ if __name__ == '__main__':
 		print(f'[ INFO  ] Dropping Attendance Collection')
 		attendance.remove()
 		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in Attendance Collection ')
+
+		print('\n---------------------------------------------------------')
+		print('[ INFO  ] Checking Marksheet API')
+		marksheet = marksheet('F364A','btech','maths','cse','a','5','2021')
+		print('[ INFO  ] Inserting a Marksheet Document')
+		marksheet.insert({
+						'enrollment':	'03720802717' ,
+						'marks': '29',
+						'assessment':'8'
+						})
+		input(f'[ INFO  ] Check on MongoDB Server for any Creation of Marksheet Collection ')
+
+		print(f'[ INFO  ] Querying  in Marksheet Collection ')
+		res = marksheet.show()
+		print('[ INFO  ] Received Documents : ')
+		print(res)
+
+		print(f'[ INFO  ] Querying  in Marksheet Collection for enrollment: 03720802717')
+		res = marksheet.show_on('03720802717')
+		print('[ INFO  ] Received Documents : ')
+		print(res)
+		print(f'[ INFO  ] Updation in Marksheet Collection ')
+		marksheet.update(
+		 				 '03720802717',
+		 				 {'enrollment':'03720802717',
+						  'marks': '27',
+						  'assessment':'8'
+						  })
+		input(f'[ INFO  ] Check on MongoDB Server for any Updation in Marksheet Collection ')
+		print(f'[ INFO  ] Dropping Marksheet Collection')
+		marksheet.remove('03720802717')
+		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in Marksheet Collection ')
+
 	################################ END OF DEBUG CODE ########################################
