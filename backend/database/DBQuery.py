@@ -202,7 +202,7 @@ class attendance:
 		# Marking attendance, show, etc.
 		self.collection = db[f'{faculty_id}_attendance_sheet_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
 
-	def mark(self,attendance_dictionary):
+	def insert(self,attendance_dictionary):
 		# Attendance_dictionary object contains a dictionary of that stores date on which attendance 
 		# taken and the present status of students with their enrollment number
 		# for example :
@@ -239,6 +239,59 @@ class attendance:
 		updation_value = attendance_dictionary 
 		status = self.collection.update_many(searching_values, {'$set':updation_value})
 
+
+
+## Start of studymaterial Collection API
+## --------------------------------------------------------------------------
+## This notes class is used for the following functions:-
+## 1. Insert Notes/Assignment with method name - insert
+## 2. Show whole Notes/Assignment collection with method name - show
+## 3. Remove whole studymaterial collection with method name - remove_all
+## 5. Remove a particular Notes/Assignment of any particular title with method name - remove
+class studymaterial:
+	def __init__(self,faculty_id,programme,subject,branch,section,semester,year_of_pass):
+		# Constructor of studymaterial accepts the following parameters :
+		# faculty_id --> Unique_ID of faculty --> string
+		# programme --> Programme of class whose attendance needs to mark like BBA, BTech --> string
+		# subject --> String 
+		# branch --> like CSE, IT, etc. --> string
+		# section --> string
+		# semester --> string
+		# year_of_pass --> string
+
+		# Creating a collection in database with identifier like 036_notes_btech_java_a_5_2021
+		# This collection object is gonna be used further for any operation like :-
+		# Inserting notes, show_all, etc.
+		self.collection = db[f'{faculty_id}_notes_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
+	
+	def insert(self,title,date,path):
+		# DataStructures of the input parameters are :
+		# title --> stores the title of the note --> string 
+		# date --> stores the date on which note is stored on database --> dictionary
+		# path --> path of the note/assignment file stored in database --> string
+
+		# here primary key is path of the notes/assignment
+		duplicate_entry = self.collection.find_one({ 'path':path })		# checks whether the path of notes is already in db
+		if duplicate_entry != None:
+			print('[ Error ] Object of this title already present in Database')
+			return False
+		else:
+			self.collection.insert_one({ 
+				'date': date,
+				'title':title,
+				'path':path
+				})
+			return True
+
+	def show_all(self):
+		return list(self.collection.find_many({}))
+
+	def remove(self,title):
+		status = self.collection.delete_many({ 'title':title })
+		print(f'[ INFO  ] {status}')
+
+	def remove_all(self):
+		status = self.collection.drop()
 
 if __name__ == '__main__':
 	if DEBUG_STATUS:
@@ -335,7 +388,7 @@ if __name__ == '__main__':
 		print('[ INFO  ] Checking Attendance API')
 		attendance = attendance('F364A','btech','machine_learning','cse','a','5','2021')
 		print('[ INFO  ] Inserting a Attendance Document')
-		attendance.mark({
+		attendance.insert({
 						'date':	{ 'day':'04','month':'06','year':'1998' },
 						'attendance': {
 								'03620802717':'P',       
