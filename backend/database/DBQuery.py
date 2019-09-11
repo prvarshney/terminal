@@ -539,200 +539,145 @@ class feedback:
 		searching_values = { 'enrollment':feedback_dictionary['enrollment'] }
 		updating_values = feedback_dictionary
 		status = self.collection.update_one(searching_values, {'$set':updating_values})
+
+
+## Start of current_classes_sheet API
+## ------------------------------------------------------
+## This current_classes_sheet API is used to store the different subjects that a faculty
+## takes for different classes.
+## This current_classes_sheet is used for the following functions:-
+## 1. Inseting the different classes with their subjects with method name - insert
+## 2. Updating or editing the class name or the subject name with method name - update
+## 3. Removing the particular class or subject with method name - remove
+## 4. Removing all the classes or subjects for the faculty with method name - remove_all
+## 5. To display all the subjects taught by a faculty for the classes with method name
+##  - show_all
+##
+class current_classes_sheet:
+	def __init__(self,faculty_id):
+		# Constructor of current_classes_sheet accept the following parameters:
+		# faculty_id --> Unique ID of faculty --> string
+		#
+		# Creating a collection in database with identifier like :-
+		# 036_current_classes
+		# This collection object is gonna be used for further operation like-
+		# Inserting, updating or removing the subjects from the faculty list.
+		#
+		self.collection = db[f'{faculty_id}_current_classes']
+
+	def insert(self,subject,semester,programme,branch,section,year_of_pass):
+		# current_classes_dictionary object contains a dictionary that stores the present
+		# subject with the current semester and the current class name and batch.
+		# ----------------------------------------------------------------------
+		# Data Structure of input parameters:-
+		# subject --> string
+		# semester --> string
+		# programme --> string
+		# branch --> string
+		# section --> string
+		# year_of_pass --> string
+		#      
+		# Creating dictionary of the document that is to be inserted in DB.
+		# 
+		current_classes_dictionary = {
+			"subject" : subject,
+			"semster" : semester,
+			"current_batch" : f'batch_{programme}_{branch}_{section}_{year_of_pass}'
+		}
+		duplicate_entry = self.collection.find_one({'current_batch':current_classes_dictionary
+		['current_batch']})
+		if duplicate_entry != None:
+			print('[ ERROR ] This subject and class is already present in database '
+				  'for this faculty')
+		else:
+			status = self.collection.insert_one(current_classes_dictionary)
+			print (f'[INFO]{status}') #Printing status of result of query
+
+	def update(self,programme,branch,section,year_of_pass,new_subject,new_semester,
+	new_programme,new_branch,new_section,new_year_of_pass):
+		# This method is used to update the classes or subjects of a faculty.
+		# ------------------------------------------------------------------
+		# Data Structure of input parameters:-
+		# programme --> string
+		# branch --> string
+		# section --> string
+		# year_of_pass --> string
+		# new_subject --> string
+		# new_semester --> string
+		# new_programme --> string
+		# new_branch --> string
+		# new_section --> string
+		# new_year_of_pass --> string
+		#
+		# Creating current_batch -
+		#
+		current_batch = f'batch_{programme}_{branch}_{section}_{year_of_pass}'
+		# Creating dictionary of the updated current_class:-
+		#
+		current_classes_dictionary = {
+			"subject" : new_subject,
+			"semester" : new_semester,
+			"current_batch" : f'batch_{new_programme}_{new_branch}_{new_section}_'
+			f'{new_year_of_pass}'
+		}
+		searching_values = {'current_batch': current_batch}
+		updation_value = current_classes_dictionary
+		status = self.collection.update_one(searching_values, {'$set':updation_value})
+
+	def remove(self,programme,branch,section,year_of_pass):
+		# This method removes the record of that class from the faculty
+		# current class list.
+		# --------------------------------------------------------------
+		# Data Structure of input parameter:-
+		# current_batch --> string
+		#
+		status = self.collection.delete_many({'current_batch':f'batch_{programme}_'
+		f'{branch}_{section}_{year_of_pass}'})
+		print(f'[ INFO  ]{status}')      #Printing status of result of query
+
+	def remove_all(self):
+		# This method removes all the subjects and classes of the faculty.
+		#  e.g. Suppose a faculty leaves the college
+		#  so there is no need to maintain the current class sheet for that
+		#  faculty.
+		# 
+		self.collection.drop()
+
+	def show_all(self):
+		# This method doesn't take any input parameter.
+		# It returns the list of all the available documents inside
+		# collection for which the current_classes constructor has ben
+		#  initialized.
+		#
+		return list(self.collection.find({}))
     
  
 if __name__ == '__main__':
 	if DEBUG_STATUS:
-		# This code is used to perform some CRUD operations on API created above
-		# You can comment this out if you wants to avoid its running
-		# Enter testing code below END OF DEBUG CODE
-		print('---------------------------------------------------------')
-		print('[ INFO  ] Program running in Debug Mode')
-		print('---------------------------------------------------------')
-		print('\n[ INFO  ] Checking Faculty API')
-		print('[ INFO  ] Inserting a Faculty Profile')
-		faculty = faculty()
-		faculty.insert(
-			id='F364A',
-			name={'f_name':'Deepali','m_name':'','l_name':'Virmani'},
-			dob={ 'day':'04','month':'06','year':'1998' },
-			phone_numbers=['011-27883979','7428306355'],
-			email=['cse_hod@gmail.com'],
-			subjects=['Networking','Machine Learning','Artificial Intelligence'],
-			qualifications=['Btech CSE','Mtech CSE','Phd. AI'],
-			time_table={
-					'monday':['cse-a-2021','cse-b-2021','un-scheduled',
-							'un-scheduled','cse-a-2021-lab','cse-a-2021',
-							'un-scheduled'],
-					'tuesday':['cse-a-2021','cse-b-2021','un-scheduled',
-							'un-scheduled','cse-a-2021-lab','cse-a-2021',
-							'un-scheduled'],
-					'wednesday':['cse-a-2021','cse-b-2021','un-scheduled',
-							'un-scheduled','cse-a-2021-lab','cse-a-2021',
-							'un-scheduled'],
-					'thursday':['cse-a-2021','cse-b-2021','un-scheduled',
-							'un-scheduled','cse-a-2021-lab','cse-a-2021',
-							'un-scheduled'],
-					'friday':['cse-a-2021','cse-b-2021','un-scheduled',
-							'un-scheduled','cse-a-2021-lab','cse-a-2021',
-							'un-scheduled'],
-					},
-			classes=['cse-a-2012','cse-b-2021'],
-			ratings='4.3'
-			)
-		# waiting for key dump to continue
-		input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Faculty_Profile_Collection} Collection ')
+		print('--------------------------------------------------------------')
+		print('[ INFO  ] Checking current_classes_sheet API')
+		current_classes_sheet = current_classes_sheet('A016')
+		print(' [INFO  ] Inserting a current_classes document.')
+		current_classes_sheet.insert('toc','4','btech','cse','a','2021')
+		input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
+			  f' Collection.')
 
-		print(f'[ INFO  ] Querying  in {config.Faculty_Profile_Collection} Collection ')
-		res = faculty.query('faculty_id','F364A')
-		print('[ INFO  ] Received Documents : ')
+		print(f'[ INFO  ] Querying in Current Class Collection.')
+		res = current_classes_sheet.show_all()
+		print('[ INFO  ] Recieved documents..')
 		print(res)
 
-		print('[ INFO  ] Checking Update Method')
-		faculty.update('F364A','name',{'f_name':'Meenakshi','m_name':'','l_name':''})
-		input(f'[ INFO  ] Check on MongoDB Server for any Updation in {config.Faculty_Profile_Collection} Collection ')
+		print('[ INFO  ] Updation in Current Classes Collection..')
+		current_classes_sheet.update('btech','cse','a','2021','ds','3','btech','ece','a','2022')
 
-		print(f'[ INFO  ] Removing Inserted Document from {config.Faculty_Profile_Collection} Collection')
-		faculty.remove('faculty_id','F364A')
-		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in {config.Faculty_Profile_Collection} Collection ')
+		input(f'[ INFO  ] Check on Mongo DB Server for any Updation in current_classes_sheet'
+			  f' Collection.')
+		print('[ INFO  ] Deleting a particular class.')
+		current_classes_sheet.remove('btech','ece','a','2021')
+		print('[ INFO  ] Current class deleted from the sheet.')
 
-		print('\n---------------------------------------------------------')
-		print('[ INFO  ] Checking Student API')
-		student = student()
-		print('[ INFO  ] Inserting a Student Profile')
-		student.insert(
-			enrollment='03620802717',
-			name={'f_name':'Prashant','m_name':'','l_name':'Varshney'},
-			phone_numbers=['7428206355','7982068083'],
-			email=['pv03158@gmail.com','varshney.prashant98@gmail.com'],
-			father_name={'f_name':'Girish','m_name':'Chandra','l_name':'Varshney'},
-			year_of_join='2017',
-			year_of_pass='2021',
-			programme='btech',
-			branch='cse',
-			section='a',
-			gender='m',
-			dob={ 'day':'04','month':'06','year':'1998' },
-			temp_address='Samaypur, Delhi - 110042',
-			perm_address='CD Block, Pitampura'
-			)
-		# waiting for key dump to continues
-		input(f'[ INFO  ] Check on MongoDB Server for any Insertion in {config.Student_Profile_Collection} Collection ')
-
-		print(f'[ INFO  ] Querying  in {config.Student_Profile_Collection} Collection ')
-		res = student.query('enrollment','03620802717')
-		print('[ INFO  ] Received Documents : ')
-		print(res)
-
-		print('[ INFO  ] Checking Update Method')
-		student.update('03620802717','name',{'f_name':'Preeti','m_name':'','l_name':'Yadav'})
-		input(f'[ INFO  ] Check on MongoDB Server for any Updation in {config.Student_Profile_Collection} Collection ')
-
-		print(f'[ INFO  ] Removing Inserted Document from {config.Student_Profile_Collection} Collection')
-		student.remove('enrollment','03620802717')
-		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in {config.Student_Profile_Collection} Collection ')
-
-		print('\n---------------------------------------------------------')
-		print('[ INFO  ] Checking Attendance API')
-		attendance = attendance('F364A','btech','machine_learning','cse','a','5','2021')
-		print('[ INFO  ] Inserting a Attendance Document')
-		attendance.insert({
-						'date':	{ 'day':'04','month':'06','year':'1998' },
-						'attendance': {
-								'03620802717':'P',
-								'03720802717':'A',
-								'05520802717':'P'
-								}
-						})
-		input(f'[ INFO  ] Check on MongoDB Server for any Creation of Attendance Collection ')
-
-		print(f'[ INFO  ] Querying  in Attendance Collection ')
-		res = attendance.show()
-		print('[ INFO  ] Received Documents : ')
-		print(res)
-
-		print(f'[ INFO  ] Querying  in Attendance Collection for date : 04-06-1998')
-		res = attendance.show_on({ 'day':'04','month':'06','year':'1998' })
-		print('[ INFO  ] Received Documents : ')
-		print(res)
-
-		print(f'[ INFO  ] Updation in Attendance Collection ')
-		attendance.update(
-						{ 'day':'04','month':'06','year':'1998' },
-						{
-						'date':	{ 'day':'04','month':'06','year':'1998' },
-						'attendance': {
-								'03620802717':'P',
-								'03720802717':'P',
-								'05520802717':'P'
-									}
-						})
-		input(f'[ INFO  ] Check on MongoDB Server for any Updation in Attendance Collection ')
-		print(f'[ INFO  ] Dropping Attendance Collection')
-		attendance.remove()
-		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in Attendance Collection ')
-
-		print('\n---------------------------------------------------------')
-		print('[ INFO  ] Checking Marksheet API')
-		marksheet = marksheet('F364A','btech','maths','cse','a','5','2021')
-		print('[ INFO  ] Inserting a Marksheet Document')
-		marksheet.insert({
-						'enrollment':	'03720802717' ,
-						'marks': '29',
-						'assessment':'8'
-						})
-		input(f'[ INFO  ] Check on MongoDB Server for any Creation of Marksheet Collection ')
-
-		print(f'[ INFO  ] Querying  in Marksheet Collection ')
-		res = marksheet.show()
-		print('[ INFO  ] Received Documents : ')
-		print(res)
-
-		print(f'[ INFO  ] Querying  in Marksheet Collection for enrollment: 03720802717')
-		res = marksheet.show_on('03720802717')
-		print('[ INFO  ] Received Documents : ')
-		print(res)
-		print(f'[ INFO  ] Updation in Marksheet Collection ')
-		marksheet.update(
-		 				 '03720802717',
-		 				 {'enrollment':'03720802717',
-						  'marks': '27',
-						  'assessment':'8'
-						  })
-		input(f'[ INFO  ] Check on MongoDB Server for any Updation in Marksheet Collection ')
-		print(f'[ INFO  ] Dropping Marksheet Collection')
-		marksheet.remove('03720802717')
-		input(f'[ INFO  ] Check on MongoDB Server for any Deletion in Marksheet Collection ')
-
-  print('\n---------------------------------------------------------------------')
-		print('[ INFO  ] Checking Feedback API')
-		feedback = feedback('A401', 'COA', 'B.tech', 'CSE', 'A', '3', '2021')
-		print('[ INFO  ] Inserting a feedback document')
-		feedback.insert({
-			'date': {'day': '04', 'month': '06', 'year': '1998'},
-			'enrollment': '05520802717',
-			'feedback': 'nice work'
-		}, '05520802717')
-		input(f'[ INFO  ] Check on MongoDB Server for any creation of Feedback Collection ')
-	
-		print(f'[ INFO  ] Querying in Feedback Collection')
-		res = feedback.show_all()
-		print('[ INFO  ] Recieved Documents : ')
-		print(res)
-
-		print('[ INFO  ] Updation in Feedback Collection. ')
-		feedback.update('05520802717', { 
-				'date': {'day': '04' , 'month':'06','year':'2000'},
-				'enrollment':'05520802717',
-				'feedback': 'lol'
-		 		})
-
-		input(f'[ INFO  ] Check on MongoDB Server for any Updation in Feedback Collection ')
-		print('[ INFO  ] Deleting a particular feedback ')
-		feedback.remove_particular('05520802717')
-		print('[ INFO  ] Feedback deleted of this student.')
-
-		print('[ INFO  ] Dropping the feedback_sheet for the particular faculty. ')
-		feedback.remove_all()
-		print('[ INFO  ] Check on Mongo DB Server for any deletion in Feedback Collection.')
+		print('[ INFO  ] Dropping the current_classes_sheet for the particular faculty.')
+		current_classes_sheet.remove_all()
+		print('[ INFO  ] Check on Mongo DB Server for any deletion in current_classes_sheet'
+			  ' Collection.')
 	################################ END OF DEBUG CODE ########################################
