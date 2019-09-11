@@ -1,0 +1,145 @@
+[33mcommit 49552c9e5497a6c3138dc369bb4aeeb7ce381b43[m[33m ([m[1;36mHEAD -> [m[1;32mfix_issue[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Mon Sep 9 04:44:21 2019 +0530
+
+    added test debug and check status functionality
+
+[33mcommit 831e3c698ecb8aa9ad5b354fff02aa4c5638aeb6[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Mon Sep 9 04:37:49 2019 +0530
+
+    added test functionality
+
+[33mcommit 15be47283e97bfce6601ebe8620da8c8f9ccdd90[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Mon Sep 9 02:49:37 2019 +0530
+
+    added attendance.update and attendance.remove methods
+
+[33mcommit 1f754bd8584ffcf081954d9fc6445ac6c94d058a[m
+Merge: ccfd2fd c238832
+Author: Prashant Varshney <30349784+pv03158@users.noreply.github.com>
+Date:   Sun Sep 8 17:54:08 2019 +0530
+
+    Merge pull request #4 from pv03158/feedback
+    
+    feedback
+
+[33mcommit ccfd2fd98e70c4a1b1f172e5a4e0bb09d1a4c81a[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sun Sep 8 22:06:05 2019 +0530
+
+    removed bugs created by preeti
+
+[33mcommit c2388329301799adbe75fff641b327965095f93c[m
+Author: somya <ssomya352@gmail.com>
+Date:   Sun Sep 8 17:50:32 2019 +0530
+
+    feedback
+
+[33mcommit 9f6c1671941971219f12ae3fa55734e3aeaaf006[m
+Merge: 331c6b3 2564e1d
+Author: Prashant Varshney <30349784+pv03158@users.noreply.github.com>
+Date:   Sun Sep 8 14:46:56 2019 +0530
+
+    Merge pull request #3 from pv03158/fix_issue
+    
+    issue in student profile method
+
+[33mcommit 2564e1d51adf2e0b0edab1ee039e7f60f64bbedd[m
+Merge: 5c04aaa 331c6b3
+Author: Prashant Varshney <30349784+pv03158@users.noreply.github.com>
+Date:   Sun Sep 8 14:45:19 2019 +0530
+
+    Merge branch 'master' into fix_issue
+
+[33mcommit 5c04aaa0ed25487fe6f47b13c354e715141bf2d2[m[33m ([m[1;31morigin/fix_issue[m[33m)[m
+Author: preeti09011999 <preeti09011999@gmail.com>
+Date:   Sun Sep 8 14:29:31 2019 +0530
+
+    issue in student profile method
+
+[33mcommit 331c6b3faf5c19b21142ff3ab04e76b00c96ecd3[m
+Merge: 775343e 38a7209
+Author: Prashant Varshney <30349784+pv03158@users.noreply.github.com>
+Date:   Sun Sep 8 13:23:01 2019 +0530
+
+    Merge pull request #2 from pv03158/attendance.show
+    
+    added attendance.show and attendance.show_on method
+
+[33mcommit 38a72092ca423f84a7c64cc091483d698b360d5f[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sun Sep 8 18:49:14 2019 +0530
+
+    added attendance.show and attendance.show_on method
+
+[33mcommit 775343e0cccd476310796a3f28e149649eac3f04[m
+Merge: cf2dee8 74751bb
+Author: Prashant Varshney <30349784+pv03158@users.noreply.github.com>
+Date:   Sun Sep 8 12:14:59 2019 +0530
+
+    Merge pull request #1 from pv03158/attendance_sheet
+    
+    Added attendance.mark method
+
+[33mcommit 74751bb72927d0725494cf84045c96fc9f47b18b[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sun Sep 8 17:39:49 2019 +0530
+
+    Added attendance.mark method
+
+[33mcommit cf2dee869fcb3a24a924e95937918ab632aeb39c[m[33m ([m[1;32mmaster[m[33m)[m
+Merge: cffb676 5c9c9e1
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sun Sep 8 07:22:43 2019 +0530
+
+    created all CRUD methods for faculty_profile
+
+[33mcommit cffb676ae80ace64d5c9871fde1af71818a13315[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sun Sep 8 06:04:21 2019 +0530
+
+    added faculty.query and faculty.remove method
+
+[33mcommit 5c9c9e19609e3229dfcb6866478c7c1768cbca09[m
+Author: somya <ssomya352@gmail.com>
+Date:   Sun Sep 8 00:30:26 2019 +0530
+
+    dekh
+
+[33mcommit d68e42e1ccbc3dc6278e83feb351f439ad91e060[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sun Sep 8 00:08:21 2019 +0530
+
+    added faculty.insert method
+
+[33mcommit 541316374e3cea9c493f7e130ccbeb4ad0a64aac[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sat Sep 7 02:33:13 2019 +0530
+
+    added database
+
+[33mcommit d130e31742d0b0be0d7bbf49610076c60e58209e[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sat Sep 7 01:33:44 2019 +0530
+
+    created conn with mongo db
+
+[33mcommit bf8e89c35aebec0e8938fee7178dc2e5bf7a320f[m
+Author: Prashant Varshney <pv03158@gmail.com>
+Date:   Sat Sep 7 01:10:27 2019 +0530
+
+    structured a folder named database for db queries
+
+[33mcommit 713b44512a822ec65b1ceb2638b2c1c6855b05a9[m
+Author: somya <ssomya352@gmail.com>
+Date:   Fri Sep 6 08:53:13 2019 +0530
+
+    second commit
+
+[33mcommit 89a2d4806a7a0a5119eb0ccce4239915be76798f[m
+Author: Prashant Varshney <30349784+pv03158@users.noreply.github.com>
+Date:   Fri Sep 6 13:41:31 2019 +0530
+
+    Initial commit
