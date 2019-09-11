@@ -539,7 +539,117 @@ class feedback:
 		updating_values = feedback_dictionary
 		status = self.collection.update_one(searching_values, {'$set':updating_values})
 
+    
+## Start of current_classes_sheet API
+## ------------------------------------------------------
+## This current_classes_sheet API is used to store the different subjects that a faculty
+## takes for different classes.
+## This current_classes_sheet is used for the following functions:-
+## 1. Inseting the different classes with their subjects with method name - insert
+## 2. Updating or editing the class name or the subject name with method name - update
+## 3. Removing the particular class or subject with method name - remove
+## 4. Removing all the classes or subjects for the faculty with method name - remove_all
+## 5. To display all the subjects taught by a faculty for the classes with method name
+##  - show_all
+##
+class current_classes_sheet:
+	def __init__(self,faculty_id):
+		# Constructor of current_classes_sheet accept the following parameters:
+		# faculty_id --> Unique ID of faculty --> string
+		#
+		# Creating a collection in database with identifier like :-
+		# 036_current_classes
+		# This collection object is gonna be used for further operation like-
+		# Inserting, updating or removing the subjects from the faculty list.
+		#
+		self.collection = db[f'{faculty_id}_current_classes']
 
+	def insert(self,subject,semester,programme,branch,section,year_of_pass):
+		# current_classes_dictionary object contains a dictionary that stores the present
+		# subject with the current semester and the current class name and batch.
+		# ----------------------------------------------------------------------
+		# Data Structure of input parameters:-
+		# subject --> string
+		# semester --> string
+		# programme --> string
+		# branch --> string
+		# section --> string
+		# year_of_pass --> string
+		#      
+		# Creating dictionary of the document that is to be inserted in DB.
+		# 
+		current_classes_dictionary = {
+			"subject" : subject,
+			"semster" : semester,
+			"current_batch" : f'batch_{programme}_{branch}_{section}_{year_of_pass}'
+		}
+		duplicate_entry = self.collection.find_one({'current_batch':current_classes_dictionary
+		['current_batch']})
+		if duplicate_entry != None:
+			print('[ ERROR ] This subject and class is already present in database '
+				  'for this faculty')
+		else:
+			status = self.collection.insert_one(current_classes_dictionary)
+			print (f'[INFO]{status}') #Printing status of result of query
+
+	def update(self,programme,branch,section,year_of_pass,new_subject,new_semester,
+	new_programme,new_branch,new_section,new_year_of_pass):
+		# This method is used to update the classes or subjects of a faculty.
+		# ------------------------------------------------------------------
+		# Data Structure of input parameters:-
+		# programme --> string
+		# branch --> string
+		# section --> string
+		# year_of_pass --> string
+		# new_subject --> string
+		# new_semester --> string
+		# new_programme --> string
+		# new_branch --> string
+		# new_section --> string
+		# new_year_of_pass --> string
+		#
+		# Creating current_batch -
+		#
+		current_batch = f'batch_{programme}_{branch}_{section}_{year_of_pass}'
+		# Creating dictionary of the updated current_class:-
+		#
+		current_classes_dictionary = {
+			"subject" : new_subject,
+			"semester" : new_semester,
+			"current_batch" : f'batch_{new_programme}_{new_branch}_{new_section}_'
+			f'{new_year_of_pass}'
+		}
+		searching_values = {'current_batch': current_batch}
+		updation_value = current_classes_dictionary
+		status = self.collection.update_one(searching_values, {'$set':updation_value})
+
+	def remove(self,programme,branch,section,year_of_pass):
+		# This method removes the record of that class from the faculty
+		# current class list.
+		# --------------------------------------------------------------
+		# Data Structure of input parameter:-
+		# current_batch --> string
+		#
+		status = self.collection.delete_many({'current_batch':f'batch_{programme}_'
+		f'{branch}_{section}_{year_of_pass}'})
+		print(f'[ INFO  ]{status}')      #Printing status of result of query
+
+	def remove_all(self):
+		# This method removes all the subjects and classes of the faculty.
+		#  e.g. Suppose a faculty leaves the college
+		#  so there is no need to maintain the current class sheet for that
+		#  faculty.
+		# 
+		self.collection.drop()
+
+	def show_all(self):
+		# This method doesn't take any input parameter.
+		# It returns the list of all the available documents inside
+		# collection for which the current_classes constructor has ben
+		#  initialized.
+		#
+		return list(self.collection.find({}))
+    
 ## Start of Batch Collection API
 ## ------------------------------------------------------------------------------------------
 ## This Batch class is used for the following functions:-
@@ -610,3 +720,31 @@ if __name__ == '__main__':
 						date={'day':'04','month':'06','year':'1998'},
 						
 						)
+ 
+  print('--------------------------------------------------------------')
+  print('[ INFO  ] Checking current_classes_sheet API')
+  current_classes_sheet = current_classes_sheet('A016')
+  print(' [INFO  ] Inserting a current_classes document.')
+  current_classes_sheet.insert('toc','4','btech','cse','a','2021')
+  input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
+      f' Collection.')
+
+  print(f'[ INFO  ] Querying in Current Class Collection.')
+  res = current_classes_sheet.show_all()
+  print('[ INFO  ] Recieved documents..')
+  print(res)
+
+  print('[ INFO  ] Updation in Current Classes Collection..')
+  current_classes_sheet.update('btech','cse','a','2021','ds','3','btech','ece','a','2022')
+
+  input(f'[ INFO  ] Check on Mongo DB Server for any Updation in current_classes_sheet'
+      f' Collection.')
+  print('[ INFO  ] Deleting a particular class.')
+  current_classes_sheet.remove('btech','ece','a','2021')
+  print('[ INFO  ] Current class deleted from the sheet.')
+
+  print('[ INFO  ] Dropping the current_classes_sheet for the particular faculty.')
+  current_classes_sheet.remove_all()
+  print('[ INFO  ] Check on Mongo DB Server for any deletion in current_classes_sheet'
+      ' Collection.')
+################################ END OF DEBUG CODE ########################################
