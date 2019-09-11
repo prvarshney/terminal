@@ -28,7 +28,7 @@ except:
 class faculty:
 	def insert(self,id,name,dob,phone_numbers,email,subjects,qualifications=[],
 		time_table={},classes=[],ratings=5):
-		# This insert method inputs necessary details of faculty through 
+		# This insert method inputs necessary details of faculty through
 		# input parameters and then insert it into database if it doesn't presents in DB
 		#--------------------------------------------------------------------------------
 		# Datastructure of input parameters :
@@ -195,7 +195,7 @@ class student:
 		#------------------------------------------------------------------------------------
 		# Data Structures of input parameters :-
 		# query_parameter --> string
-		# query_value --> list, string, dictionary 
+		# query_value --> list, string, dictionary
 		#
 		status = db[config.Student_Profile_Collection].delete_many({ query_parameter:query_value })
 		print(f'[ INFO  ] {status}')
@@ -235,16 +235,16 @@ class attendance:
 		# semester --> string
 		# year_of_pass --> string
 		#
-		# Creating a collection in database with identifier like 
+		# Creating a collection in database with identifier like
 		# F45A_btech_java_cse_a_5_2021
 		# This collection object is gonna be used further for any operation like :-
 		# Marking attendance, show, etc.
 		#
 		self.collection = db[f'{faculty_id}_attendance_sheet_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
-    
+
 
 	def insert(self,attendance_dictionary):
-		# Attendance_dictionary object contains a dictionary, that stores date on which attendance 
+		# Attendance_dictionary object contains a dictionary, that stores date on which attendance
 		# taken and the present status of students with their enrollment number
 		# ------------------------------------------------------------------------------------
 		# for example :
@@ -270,7 +270,7 @@ class attendance:
 
 
 	def show_on(self,query_date):
-		# This method inputs date dictionary and returns list of attendance on that 
+		# This method inputs date dictionary and returns list of attendance on that
 		# particular date
 		# ------------------------------------------------------------------------------------
 		# Data Structures of input parameter :-
@@ -320,11 +320,11 @@ class marksheet:
 		# semester --> string
 		# year_of_pass --> string
 		#
-		# Creating a collection in database with identifier like 
-		# "037_marksheet_btech_maths_cse_a_4_2021". 
+		# Creating a collection in database with identifier like
+		# "037_marksheet_btech_maths_cse_a_4_2021".
 		#
 		self.collection = db[f'{faculty_id}_marksheet_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
-   
+
 
 	def insert(self,marksheet_dictionary):
 		# inserts marksheet dictionary that contains enrollment, marks and assessment
@@ -337,8 +337,8 @@ class marksheet:
 		#							'assessment':'8'
 		#						}
 		#
-		duplicate_entry = self.collection.find_one({ 
-				'enrollment':marksheet_dictionary['enrollment'] 
+		duplicate_entry = self.collection.find_one({
+				'enrollment':marksheet_dictionary['enrollment']
 				})
 		if duplicate_entry != None:
 			print('[ Error ] Object of this Enrollment Number already present in Database')
@@ -365,18 +365,18 @@ class marksheet:
 
 
 	def remove(self,enrollment):
-		# This method removes the collection of marks of a particular 
+		# This method removes the collection of marks of a particular
 		# enrollment from the class.
 		# ----------------------------------------------------------------------------------
 		# Data Structures of input parameter :-
-		# enrollment --> string 
+		# enrollment --> string
 		#
 		status = self.collection.delete_many({ 'enrollment':enrollment })
 		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
 
 
 	def update(self,enrollment,marksheet_dictionary):
-		# This method use to update marks of a particular enrollment 
+		# This method use to update marks of a particular enrollment
 		# with marksheet_dictionary object
 		# --------------------------------------------------------------------------------
 		# Data Structures of the input parameters :-
@@ -402,7 +402,7 @@ class studymaterial:
 		# Constructor of studymaterial accepts the following parameters :
 		# faculty_id --> Unique_ID of faculty --> string
 		# programme --> Programme of class whose attendance needs to mark like BBA, BTech --> string
-		# subject --> String 
+		# subject --> String
 		# branch --> like CSE, IT, etc. --> string
 		# section --> string
 		# semester --> string
@@ -414,13 +414,13 @@ class studymaterial:
 		#
 		self.collection = db[f'{faculty_id}_study_material_{programme}_{subject}_{branch}_{section}_{semester}_{year_of_pass}']
 
-	
+
 	def insert(self,title,date,path):
 		# This method is used to insert absolute path of notes/assignment document
 		# in the server.
 		# -------------------------------------------------------------------------
 		# DataStructures of the input parameters are :
-		# title --> stores the title of the note --> string 
+		# title --> stores the title of the note --> string
 		# date --> stores the date on which note is stored on database --> dictionary
 		# path --> path of the note/assignment file stored in database --> string
 		#
@@ -430,7 +430,7 @@ class studymaterial:
 			print('[ Error ] Object of this title already present in Database')
 			return False
 		else:
-			self.collection.insert_one({ 
+			self.collection.insert_one({
 				'date': date,
 				'title':title,
 				'path':path
@@ -441,7 +441,7 @@ class studymaterial:
 	def show_all(self):
 		# This method used to fetch whole collection of studymaterial
 		# It doesn't inputs any parameter and returns a list of dictionaries
-		# 
+		#
 		return list(self.collection.find({}))
 
 
@@ -539,7 +539,116 @@ class feedback:
 		updating_values = feedback_dictionary
 		status = self.collection.update_one(searching_values, {'$set':updating_values})
 
-    
+##Start of previous_class_sheet API
+##----------------------------------------------------------------------
+##This previous_class_sheet stores the different subjects that the faculty
+##had taught in the previous semesters
+##This previous_class_sheet is used for the following functions:
+##1.Inserting different classes with their subjects  using the method name - insert
+##2.Updating the subject name or the class name using the method name - update
+##3.Removing a particular class or subject with method name - remove
+##4.Removing all the classes or the subjects for the faculty with method name - remove_all
+##5.To display all the subjects taught by a faculty for the classes with method name - show_all
+##
+class previous_class_sheet:
+	def __init__(self, faculty_id):
+        #Constructor of previous_class_sheet accepts the following parameters:
+        #faculty_id --> unique ID for the faculty --> string
+        #
+        #Creating a collection in database with identifier like :-
+        #037_previous_classes
+        # This collection object is gonna be used for further operation like-
+		# Inserting, updating or removing the subjects from the faculty list.
+		#
+        self.collection = db[f'{faculty_id}_previous_classes']
+
+    def insert(self,subject,semester,programme,branch,section,year_of_pass):
+        # previous_classes_dictionary object contains a dictionary that stores the previous
+		# subject with the previous semester and the previous class name and batch.
+        #------------------------------------------------------------------------------------
+        #Data structure of input parameters :-
+        # subject --> string
+		# semester --> string
+		# programme --> string
+		# branch --> string
+		# section --> string
+		# year_of_pass --> string
+		#
+		# Creating dictionary of the document that is to be inserted in DB.
+		#
+		previous_classes_dictionary = {
+			"subject" : subject,
+			"semster" : semester,
+			"previous_batch" : f'batch_{programme}_{branch}_{section}_{year_of_pass}'
+		}
+		duplicate_entry = self.collection.find_one({'previous_batch':previous_classes_dictionary['previous_batch']})
+		if duplicate_entry != None:
+			print('[ ERROR ] This subject and class is already present in database '
+				  'for this faculty')
+		else:
+			status = self.collection.insert_one(previous_classes_dictionary)
+			print (f'[INFO]{status}') #Printing status of result of query
+
+    def update(self,programme,branch,section,year_of_pass,new_semester,new_subject,
+    new_programme,new_branch,new_section,new_year_of_pass):
+        # This method is used to update the classes or subjects of a faculty.
+		# ------------------------------------------------------------------
+		# Data Structure of input parameters:-
+		# programme --> string
+		# branch --> string
+		# section --> string
+		# year_of_pass --> string
+		# new_subject --> string
+		# new_semester --> string
+		# new_programme --> string
+		# new_branch --> string
+		# new_section --> string
+		# new_year_of_pass --> string
+		#
+		# Creating previous_batch -
+		#
+        previous_batch = f'batch_{programme}_{branch}_{section}_{year_of_pass}'
+		# Creating dictionary of the updated previous_class:-
+		#
+		previous_classes_dictionary = {
+			"subject" : new_subject,
+			"semester" : new_semester,
+			"previous_batch" : f'batch_{new_programme}_{new_branch}_{new_section}_'
+			f'{new_year_of_pass}'
+		}
+		searching_values = {'previous_batch': previous_batch}
+		updation_value = previous_classes_dictionary
+		status = self.collection.update_one(searching_values, {'$set':updation_value})
+
+    def remove(self,programme,branch,section,year_of_pass):
+		# This method removes the record of that class from the faculty
+		# previous class list.
+		# ----------------------------------------------------------------------
+		# Data Structure of input parameter:-
+		# previous_batch --> string
+		#
+		status = self.collection.delete_many({'previous_batch':f'batch_{programme}_'
+		f'{branch}_{section}_{year_of_pass}'})
+		print(f'[ INFO  ]{status}')      #Printing status of result of query
+
+    def remove_all(self):
+		# This method removes all the subjects and classes of the faculty.
+		#  e.g. Suppose a faculty leaves the college
+		#  so there is no need to maintain the previous class sheet for that
+		#  faculty.
+		#
+		self.collection.drop()
+
+    def show_all(self):
+		# This method doesn't take any input parameter.
+		# It returns the list of all the available documents inside
+		# collection for which the previous_classes constructor has been
+		#  initialized.
+		#
+		return list(self.collection.find({}))
+
+
+
 ## Start of current_classes_sheet API
 ## ------------------------------------------------------
 ## This current_classes_sheet API is used to store the different subjects that a faculty
@@ -575,9 +684,9 @@ class current_classes_sheet:
 		# branch --> string
 		# section --> string
 		# year_of_pass --> string
-		#      
+		#
 		# Creating dictionary of the document that is to be inserted in DB.
-		# 
+		#
 		current_classes_dictionary = {
 			"subject" : subject,
 			"semster" : semester,
@@ -639,17 +748,17 @@ class current_classes_sheet:
 		#  e.g. Suppose a faculty leaves the college
 		#  so there is no need to maintain the current class sheet for that
 		#  faculty.
-		# 
+		#
 		self.collection.drop()
 
 	def show_all(self):
 		# This method doesn't take any input parameter.
 		# It returns the list of all the available documents inside
-		# collection for which the current_classes constructor has ben
+		# collection for which the current_classes constructor has been
 		#  initialized.
 		#
 		return list(self.collection.find({}))
-    
+
 ## Start of Batch Collection API
 ## ------------------------------------------------------------------------------------------
 ## This Batch class is used for the following functions:-
@@ -663,7 +772,7 @@ class batch:
 		# This constructor is used to create a required collection
 		# in database. For Example :- batch_btech_cse_a_2021
 		#
-		self.collection = db[ f'batch_{programme}_{branch}_{section}_{year_of_pass}' ] 
+		self.collection = db[ f'batch_{programme}_{branch}_{section}_{year_of_pass}' ]
 
 
 	def insert(self,enrollment):
@@ -697,7 +806,7 @@ class batch:
 		# Used to remove whole collection for which batch class
 		# Object is initialised.
 		# ----------------------------------------------------------------------------
-		# 
+		#
 		status = self.collection.drop()
 		print(f'[ INFO  ] {status}')
 
@@ -706,45 +815,49 @@ class batch:
 		return list(self.collection.find({}))
 
 if __name__ == '__main__':
-	studymaterial = studymaterial(
-							faculty_id='F1U5K',
-							programme='btech',
-							subject='java',
-							branch='cse',
-							section='a',
-							semester='5',
-							year_of_pass='2021'
-							)
-	studymaterial.insert(
-						title='chapter_3_notes',
-						date={'day':'04','month':'06','year':'1998'},
-						
-						)
- 
-  print('--------------------------------------------------------------')
-  print('[ INFO  ] Checking current_classes_sheet API')
-  current_classes_sheet = current_classes_sheet('A016')
-  print(' [INFO  ] Inserting a current_classes document.')
-  current_classes_sheet.insert('toc','4','btech','cse','a','2021')
-  input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
-      f' Collection.')
+	# studymaterial = studymaterial(
+	# 						faculty_id='F1U5K',
+	# 						programme='btech',
+	# 						subject='java',
+	# 						branch='cse',
+	# 						section='a',
+	# 						semester='5',
+	# 						year_of_pass='2021'
+	# 						)
+	# studymaterial.insert(
+	# 					title='chapter_3_notes',
+	# 					date={'day':'04','month':'06','year':'1998'},
+  #
+	# 					)
+  #
+  # print('--------------------------------------------------------------')
+  # print('[ INFO  ] Checking current_classes_sheet API')
+  # current_classes_sheet = current_classes_sheet('A016')
+  # print(' [INFO  ] Inserting a current_classes document.')
+  # current_classes_sheet.insert('toc','4','btech','cse','a','2021')
+  # input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
+  #     f' Collection.')
+  #
+  # print(f'[ INFO  ] Querying in Current Class Collection.')
+  # res = current_classes_sheet.show_all()
+  # print('[ INFO  ] Recieved documents..')
+  # print(res)
+  #
+  # print('[ INFO  ] Updation in Current Classes Collection..')
+  # current_classes_sheet.update('btech','cse','a','2021','ds','3','btech','ece','a','2022')
+  #
+  # input(f'[ INFO  ] Check on Mongo DB Server for any Updation in current_classes_sheet'
+  #     f' Collection.')
+  # print('[ INFO  ] Deleting a particular class.')
+  # current_classes_sheet.remove('btech','ece','a','2021')
+  # print('[ INFO  ] Current class deleted from the sheet.')
+  #
+  # print('[ INFO  ] Dropping the current_classes_sheet for the particular faculty.')
+  # current_classes_sheet.remove_all()
+  # print('[ INFO  ] Check on Mongo DB Server for any deletion in current_classes_sheet'
+  #     ' Collection.')
 
-  print(f'[ INFO  ] Querying in Current Class Collection.')
-  res = current_classes_sheet.show_all()
-  print('[ INFO  ] Recieved documents..')
-  print(res)
-
-  print('[ INFO  ] Updation in Current Classes Collection..')
-  current_classes_sheet.update('btech','cse','a','2021','ds','3','btech','ece','a','2022')
-
-  input(f'[ INFO  ] Check on Mongo DB Server for any Updation in current_classes_sheet'
-      f' Collection.')
-  print('[ INFO  ] Deleting a particular class.')
-  current_classes_sheet.remove('btech','ece','a','2021')
-  print('[ INFO  ] Current class deleted from the sheet.')
-
-  print('[ INFO  ] Dropping the current_classes_sheet for the particular faculty.')
-  current_classes_sheet.remove_all()
-  print('[ INFO  ] Check on Mongo DB Server for any deletion in current_classes_sheet'
-      ' Collection.')
+	previous_class_sheet.insert('maths','2','btech','cse','a','2021')
+	input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
+    	f' Collection.')
 ################################ END OF DEBUG CODE ########################################
