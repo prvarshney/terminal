@@ -9,7 +9,6 @@ import sys
 # Global variables
 DEBUG_STATUS = True	# Change this Debug Status to True for debugging and checking APIs
 
-
 # Creating connection with the mongodb database
 try:
 	client = MongoClient(config.MongoDB_URI)        # Use this client object to query database
@@ -501,12 +500,12 @@ class feedback:
 		#                       'feedback': 'best teacher'
 		#                       }
 		#
-		duplicate_entry = db.collection.find_one({ 'enrollment':feedback_dictionary[enrollment] })
+		duplicate_entry = self.collection.find_one({ 'enrollment':feedback_dictionary['enrollment'] })
 		if duplicate_entry != None:
 			print('[ ERROR ] Feedback of this student already present in database for this faculty')
 		else:
 			status = self.collection.insert_one(feedback_dictionary)
-			print (f'[INFO]{status}') #Printing status of result of query
+			print (f'[ INFO  ]{status}') #Printing status of result of query
 
 	def show_all(self):
 		# This method doesn't inputs any parameter and returns a list of all the
@@ -540,7 +539,7 @@ class feedback:
 		updating_values = feedback_dictionary
 		status = self.collection.update_one(searching_values, {'$set':updating_values})
 
-
+    
 ## Start of current_classes_sheet API
 ## ------------------------------------------------------
 ## This current_classes_sheet API is used to store the different subjects that a faculty
@@ -651,33 +650,101 @@ class current_classes_sheet:
 		#
 		return list(self.collection.find({}))
     
- 
+## Start of Batch Collection API
+## ------------------------------------------------------------------------------------------
+## This Batch class is used for the following functions:-
+## 1. Adding a new batch with method name - insert
+## 2. Listing all the students enrolled in a batch with method name - show_all
+## 3. Removing all the enrolled students from batch with method name - remove_all
+## 4. Remove any single student enrolled with method name - remove
+##
+class batch:
+	def __init__(self,programme,branch,section,year_of_pass):
+		# This constructor is used to create a required collection
+		# in database. For Example :- batch_btech_cse_a_2021
+		#
+		self.collection = db[ f'batch_{programme}_{branch}_{section}_{year_of_pass}' ] 
+
+
+	def insert(self,enrollment):
+		# Used to insert enrollment of a student in the required collection
+		# ---------------------------------------------------------------------------
+		# Data Structures of enrolled_students :-
+		# enrollment --> string
+		#
+		# Checking for any duplicate entry in the collection
+		duplicate_entry = self.collection.find_one({ 'enrollment':enrollment })
+		print(duplicate_entry)
+		if duplicate_entry != None:
+			print('[ ERROR ] This Student Already Present in Database')
+			return False
+		else:
+			status = self.collection.insert_one({ 'enrollment':enrollment })
+			print(f'[ INFO  ] {status}')
+			return False
+
+	def remove(self,enrollment):
+		# Used to remove enrollment of a particular student from batch collection
+		# ----------------------------------------------------------------------------
+		# Data Structures of input parameter :-
+		# enrollment --> string
+		#
+		status = self.collection.delete_one({ 'enrollment':enrollment })
+		print(f'[ INFO  ] {status}')
+
+
+	def remove_all(self):
+		# Used to remove whole collection for which batch class
+		# Object is initialised.
+		# ----------------------------------------------------------------------------
+		# 
+		status = self.collection.drop()
+		print(f'[ INFO  ] {status}')
+
+	def show_all(self):
+		# Used to display a list of all the enrolled students in a class
+		return list(self.collection.find({}))
+
 if __name__ == '__main__':
-	if DEBUG_STATUS:
-		print('--------------------------------------------------------------')
-		print('[ INFO  ] Checking current_classes_sheet API')
-		current_classes_sheet = current_classes_sheet('A016')
-		print(' [INFO  ] Inserting a current_classes document.')
-		current_classes_sheet.insert('toc','4','btech','cse','a','2021')
-		input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
-			  f' Collection.')
+	studymaterial = studymaterial(
+							faculty_id='F1U5K',
+							programme='btech',
+							subject='java',
+							branch='cse',
+							section='a',
+							semester='5',
+							year_of_pass='2021'
+							)
+	studymaterial.insert(
+						title='chapter_3_notes',
+						date={'day':'04','month':'06','year':'1998'},
+						
+						)
+ 
+  print('--------------------------------------------------------------')
+  print('[ INFO  ] Checking current_classes_sheet API')
+  current_classes_sheet = current_classes_sheet('A016')
+  print(' [INFO  ] Inserting a current_classes document.')
+  current_classes_sheet.insert('toc','4','btech','cse','a','2021')
+  input(f'[ INFO  ] Check on MongoDB Server for any creation of Current class'
+      f' Collection.')
 
-		print(f'[ INFO  ] Querying in Current Class Collection.')
-		res = current_classes_sheet.show_all()
-		print('[ INFO  ] Recieved documents..')
-		print(res)
+  print(f'[ INFO  ] Querying in Current Class Collection.')
+  res = current_classes_sheet.show_all()
+  print('[ INFO  ] Recieved documents..')
+  print(res)
 
-		print('[ INFO  ] Updation in Current Classes Collection..')
-		current_classes_sheet.update('btech','cse','a','2021','ds','3','btech','ece','a','2022')
+  print('[ INFO  ] Updation in Current Classes Collection..')
+  current_classes_sheet.update('btech','cse','a','2021','ds','3','btech','ece','a','2022')
 
-		input(f'[ INFO  ] Check on Mongo DB Server for any Updation in current_classes_sheet'
-			  f' Collection.')
-		print('[ INFO  ] Deleting a particular class.')
-		current_classes_sheet.remove('btech','ece','a','2021')
-		print('[ INFO  ] Current class deleted from the sheet.')
+  input(f'[ INFO  ] Check on Mongo DB Server for any Updation in current_classes_sheet'
+      f' Collection.')
+  print('[ INFO  ] Deleting a particular class.')
+  current_classes_sheet.remove('btech','ece','a','2021')
+  print('[ INFO  ] Current class deleted from the sheet.')
 
-		print('[ INFO  ] Dropping the current_classes_sheet for the particular faculty.')
-		current_classes_sheet.remove_all()
-		print('[ INFO  ] Check on Mongo DB Server for any deletion in current_classes_sheet'
-			  ' Collection.')
-	################################ END OF DEBUG CODE ########################################
+  print('[ INFO  ] Dropping the current_classes_sheet for the particular faculty.')
+  current_classes_sheet.remove_all()
+  print('[ INFO  ] Check on Mongo DB Server for any deletion in current_classes_sheet'
+      ' Collection.')
+################################ END OF DEBUG CODE ########################################
