@@ -27,9 +27,7 @@ class Attendance:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
-			print('[ INFO  ] Attendance_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Attendance_DB')
 			sys.exit(0)
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
@@ -54,7 +52,6 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-			print(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
 			return True
 		except:
 			return False
@@ -92,7 +89,7 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-			print(f'[ INFO  ] {status}')
+			print(f'[  INFO  ] {status}')
 			return True
 		except:
 			return False

@@ -12,12 +12,14 @@ SUBJECTS = ['machine_learning','artificial_intelligence','computer_networks','co
             'web_development']
 FACULTY_IDS = [ 'F'+'{num:03d}'.format(num=i)+'BPIT' for i in range(1,100) ]
 ENROLLMENT_NOS = [ "{enrollment:011d}".format(enrollment=int(suffix))
-        for suffix in [ str(prefix)+'20802717' for prefix in range(0,500) ] ]
+        for suffix in [ str(prefix)+'20802717' for prefix in range(0,5) ] ]
 PROGRAMMES = ['btech','mtech','bca','mca','phd','bsc','msc']
 BRANCHES = ['cse','ece','eee','it','mech']
 SECTIONS = ['a','b','c','d','e']
 YEAR_OF_PASS = list(range(2021,2025))
 SEMESTERS = list(range(1,6))
+MULTI_TEST_SiZE = 500
+CLASS_STRENGTH = 200
 
 def generate_attendance_dictionary(count=100):
     global ENROLLMENT_NOS
@@ -61,30 +63,104 @@ def main_menu():
 """)
 
 if __name__ == "__main__":
+    errors_list = []
     main_menu()
     main_selection = int(input('[ Select Option ] '))
     if main_selection == 1:
         # PERFORMING SINGLE ENTRY TEST FOR ALL APIS
+        print('----------------------------------------------------------------------------------------------------------')
         print("[  INFO  ] Starting Single Entry Testing Engine ")
         print("[  INFO  ] Testing Attendance API Functionality ")  
-        attendance = db.Attendance(
-            faculty_id=random.choice(FACULTY_IDS),
-            subject=random.choice(SUBJECTS),
-            programme=random.choice(PROGRAMMES),
-            branch=random.choice(BRANCHES),
-            section=random.choice(SECTIONS),
-            year_of_pass=random.choice(YEAR_OF_PASS),
-            semester=random.choice(SEMESTERS)
-        )
-        dictionary = generate_attendance_dictionary(1)
-        status = attendance.insert(dictionary)
-        print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Database")
-        print(f'[ STATUS ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-        input("[  HALT  ] Check For Any Discrepancy In Database ")
+        print('----------------------------------------------------------------------------------------------------------')
+        ######################################### TESTING OF ATTENDANCE API STARTED ######################################################
+        faculty_id=random.choice(FACULTY_IDS)
+        subject=random.choice(SUBJECTS)
+        programme=random.choice(PROGRAMMES)
+        branch=random.choice(BRANCHES)
+        section=random.choice(SECTIONS)
+        year_of_pass=random.choice(YEAR_OF_PASS)
+        semester=random.choice(SEMESTERS)
 
-    elif main_selection == 2:
+        attendance = db.Attendance(faculty_id,subject,programme,branch,section,year_of_pass,semester)
+        print(f'[  INFO  ] Working On Collection : {faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}')
+
+        ## TESTING INSERTION METHOD ##
+        dictionary = generate_attendance_dictionary(2)  ## FIRST ENTRY IN ATTENDANCE_DB
+        status = attendance.insert(dictionary[0])
+        print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count : 1 )")
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
+        status = attendance.insert(dictionary[1])   ## SECOND ENTRY IN ATTENDANCE_DB
+        print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count : 2 )")
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Attendance - Insertion Method')
+        dictionary = dictionary[0]      ## AS WE ARE GOING TO CHANGE FIRST INSERTED ELEMENT
+        ## TESTING SHOW_ON METHOD ##
+        print('\n[  INFO  ] Fetching Attendance Marked On {}/{}/{}'.format(dictionary['date']['day'],dictionary['date']['month'],dictionary['date']['year']))
+        response = attendance.show_on(dictionary['date'])
+        for res in response:
+            print(res['date'])
+            for i in res['attendance']:
+                print(i+':'+res['attendance'][i])
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Attendance - Show_On Method')
+        ## TESTING SHOW_ALL METHOD ##
+        print('\n[  INFO  ] Fetching Attendance Of All The Days ')
+        res = attendance.show_all()
+        for subres in res:
+            print(subres['date'])
+            for i in subres['attendance']:
+                print(i+':'+subres['attendance'][i])
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Attendance - Show_All Method')
+        ## TESTING UPDATE METHOD ##
+        print('\n[  INFO  ] Updating Attendance Marked On {}/{}/{}'.format(dictionary['date']['day'],dictionary['date']['month'],dictionary['date']['year']))
+        status = attendance.update(dictionary['date'],generate_attendance_dictionary(1))
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Attendance - Update Method')
+        ## TESTING REMOVE_ALL METHOD ##
+        print('\n[  INFO  ] Removing Dummy Attendance Sheet ')
+        status = attendance.remove_all()
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Attendance - Remove_All Method')
+        ## LISTING ERRORS FOUND IN WHOLE TEST ##
+        print('----------------------------------------------------------------------------------------------------------')
+        print('[  INFO  ] Errors In Attendance API : {} '.format(len(errors_list)))
+        print('----------------------------------------------------------------------------------------------------------')
+        print(*errors_list,sep='\n')
+        ###################################### TESTING OF ATTENDANCE API FINISHED #############################################################
+        ###################################### TESTING OF BATCH API STARTED ###################################################################
+        # print('\n----------------------------------------------------------------------------------------------------------')
+        # print("[  INFO  ] Testing Batch API Functionality ")  
+        # print('----------------------------------------------------------------------------------------------------------')
+
+    elif main_selection == 2: 
         # PERFORMING MULTIPLE ENTRY TEST FOR ALL APIS
-        pass
+        print("[  INFO  ] Starting Multiple Entry Testing Engine ")
+        print("[  INFO  ] Testing Attendance API Functionality ")  
+        attendance = db.Attendance(
+                faculty_id=random.choice(FACULTY_IDS),
+                subject=random.choice(SUBJECTS),
+                programme=random.choice(PROGRAMMES),
+                branch=random.choice(BRANCHES),
+                section=random.choice(SECTIONS),
+                year_of_pass=random.choice(YEAR_OF_PASS),
+                semester=random.choice(SEMESTERS)
+            )
+        for i in range(MULTI_TEST_SiZE):
+            dictionaries = generate_attendance_dictionary(MULTI_TEST_SiZE)
+            status = attendance.insert(dictionaries[i])
+            print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count: {} ) ".format(i+1))
+            print(f'[ STATUS ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+        input("[  HALT  ] Check For Any Discrepancy In Attendance_DB ")
+        
     elif main_selection == 3:
         # PERFORMING MULTIPLE CONNECTION TEST
         pass
