@@ -30,10 +30,13 @@ class Feedback:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Feedback_DB]
 			print('[ INFO  ] Feedback_DB Connected Successfully')
+
 		except:
 			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
-			sys.exit(0)
+			return 599
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
+		return 200
+
 
 	def insert(self,feedback_dictionary):
 		# THIS METHOD IS USED TO ADD A FEEDBACK OF ANY FACULTY BY A PARTICULAR CLASS.
@@ -50,11 +53,11 @@ class Feedback:
 		duplicate_entry = self.collection.find_one({ 'enrollment':feedback_dictionary['enrollment'] })
 		if duplicate_entry != None:
 			print('[ ERROR ] Feedback Of This Student Already Present In Database For This Faculty')
-			return False
+			return 417
 		else:
 			status = self.collection.insert_one(feedback_dictionary)
 			print (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
-			return True
+			return 201
 
 	def show_all(self):
 		# THIS METHOD DOESN'T INPUTS ANY PARAMETER AND RETURNS A LIST OF ALL THE
@@ -62,7 +65,19 @@ class Feedback:
 		# THIS METHOD DISPLAYS ALL THE FEEDBACKS OF A PARTICULAR FACULTY GIVEN BY A PARTICULAR CLASS
 		# STUDENT
 		#
-		return list(self.collection.find({}))
+		try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+		return response
+
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF FEEDBACK OF THAT PARTICULAR FACULTY_ID FOR
@@ -70,14 +85,24 @@ class Feedback:
 		# FOR EXAMPLE:- IF ANY TEACHER HAS LEFT, THEN ALL THE FEEDBACKS OF THAT PARTICULAR
 		# FACULTY MUST BE DELETED.
 		#
-		self.collection.drop()
-		print(f'[ INFO  ] Requested Collection Dropped')
+		try:
+			self.collection.drop()
+			print(f'[ INFO  ] Requested Collection Dropped')
+			return 512
+		except:
+			return 400
+
 
 	def remove(self,enrollment):
 		# THIS METHOD IS USED TO REMOVE THE FEEDBACK BY A STUDENT FOR A PARTICULAR FACULTY.
 		#
-		status = self.collection.delete_one({ 'enrollment':enrollment })
-		print(f'[ INFO  ] {status}')
+		try:
+			status = self.collection.delete_one({ 'enrollment':enrollment })
+			print(f'[ INFO  ] {status}')
+			return 220
+		except:
+			return 203
+
 
 	def update(self,feedback_dictionary):
 		# THIS UPDATE METHOD INPUTS THE FEEDBACK_DICTIONARY TO CHECK WHICH DOCUMENT NEEDS
@@ -88,9 +113,9 @@ class Feedback:
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
 			print(f'[ INFO  ] {status}')
-			return True
+			return 301
 		except:
-			return False
+			return 204
 
 	def __del__(self):
 		self.client.close()

@@ -18,8 +18,9 @@ class Faculty:
 			print('[ INFO  ] Faculty_DB connected successfully')
 		except:
 			print('[ Error ] Unable to create connection with Current_Batches_DB')
-			sys.exit(0)
+			return 599
 		self.collection = db[config.Faculty_Profile_Collection]
+		return 200
 
 	def insert(self,id,name,dob,phone_numbers,email,password,subjects,qualifications=[],
 		time_table={},classes=[],ratings=5):
@@ -65,11 +66,11 @@ class Faculty:
 	    duplicate_entry = self.collection.find_one({ 'faculty_id':id })
 	    if duplicate_entry != None:		# RUN WHEN THEIR PRESENTS ANY DUPLICATE FACULTY_ID IN DB
 	    	print('[ Error ] Object of this ID already present in database')
-	    	return False
+	    	return 417
 	    else:			# RUNS WHEN THERE DOESN'T PRESENT ANY DUPLICATE ENTRY
 		    status = self.collection.insert_one(document)
 		    print(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-		    return True
+		    return 201
 
 	def query(self,query_parameter,query_value):
 		# THIS QUERY FUNCTION INPUTS QUERY PARAMETER LIKE FACULTY_ID, NAME, ETC. AND QUERY VALUE
@@ -80,7 +81,18 @@ class Faculty:
 		# QUERY_PARAMETER --> STRING
 		# QUERY_VALUE --> STRING, DICTIONARY, LIST
 		#
-		return list(self.collection.find({ query_parameter:query_value }))
+		try:
+			res = list(self.collection.find({ query_parameter:query_value }))
+			response = {
+				'status':'212',
+				'res': res
+			}
+		except:
+			response = {
+				'status':'206',
+				'res':res
+			}
+		return response
 
 	def remove(self,query_parameter,query_value):
 		# THIS REMOVE FUNCTION DELETES THOSE DOCUMENTS FROM COLLECTION WHICH HAVE QUERY_PARAMETER
@@ -90,8 +102,12 @@ class Faculty:
 		# QUERY_PARAMETER --> STRING
 		# QUERY_VALUE --> STRING,DICTIONARY OR LIST
 		#
-		status = self.collection.delete_many({ query_parameter:query_value })
-		print(f'[ INFO  ] {status}')
+		try:
+			status = self.collection.delete_many({ query_parameter:query_value })
+			print(f'[ INFO  ] {status}')
+			return 220
+		except:
+			return 203
 
 	def update(self,faculty_id,updation_param,updation_value):
 		# THIS UPDATE FUNCTION INPUTS THE FACULTY_ID TO CHECK WHICH DOCUMENT NEEDS TO UPDATE
@@ -109,9 +125,9 @@ class Faculty:
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
 			print(f'[ INFO  ] {status}')
-			return True
+			return 301
 		except:
-			return False
+			return 204
 
 	def __del__(self):
 		self.collection.close()

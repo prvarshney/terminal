@@ -29,8 +29,9 @@ class PreviousBatches:
 			print('[ INFO  ] Previous_Batches_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With Previous_Batches_DB')
-			sys.exit(0)
+			return 599
 		self.collection = db[f'{faculty_id}']
+		return 200
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
 		# PREVIOUS_CLASSES_DICTIONARY OBJECT CONTAINS A DICTIONARY THAT STORES THE PREVIOUS
@@ -54,9 +55,11 @@ class PreviousBatches:
 		duplicate_entry = self.collection.find_one({'batch':previous_batches_dictionary['batch']})
 		if duplicate_entry != None:
 			print('[ ERROR ] This Batch Is Already Present In Database')
+			return 417
 		else:
 			status = self.collection.insert_one(previous_batches_dictionary)
 			print (f'[ INFO ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			return 201
 
 	def remove(self,programme,branch,section,year_of_pass):
 		# THIS METHOD REMOVES THE RECORD OF THAT CLASS FROM THE FACULTY
@@ -65,9 +68,13 @@ class PreviousBatches:
 		# DATA STRUCTURE OF INPUT PARAMETER:-
 		# PREVIOUS_BATCH --> STRING
 		#
-		status = self.collection.delete_many(
-			{ 'batch':f'{programme}_{branch}_{section}_{year_of_pass}' })
-		print(f'[ INFO  ] {status}')      #PRINTING STATUS OF RESULT OF QUERY
+		try:
+			status = self.collection.delete_many(
+				{ 'batch':f'{programme}_{branch}_{section}_{year_of_pass}' })
+			print(f'[ INFO  ] {status}')      #PRINTING STATUS OF RESULT OF QUERY
+			return 220
+		except:
+			return 203
 
 	def remove_all(self):
 		# THIS METHOD REMOVES ALL THE SUBJECTS AND CLASSES OF THE FACULTY.
@@ -75,8 +82,12 @@ class PreviousBatches:
 		#  SO THERE IS NO NEED TO MAINTAIN THE PREVIOUS CLASS SHEET FOR THAT
 		#  FACULTY.
 		#
-		self.collection.drop()
-		print(f'[ INFO  ] Requested Collection Dropped')
+		try:
+			self.collection.drop()
+			print(f'[ INFO  ] Requested Collection Dropped')
+			return 512
+		except:
+			return 400
 
 	def show_all(self):
 		# THIS METHOD DOESN'T TAKE ANY INPUT PARAMETER.
@@ -84,7 +95,19 @@ class PreviousBatches:
 		# COLLECTION FOR WHICH THE PREVIOUS_CLASSES CONSTRUCTOR HAS BEEN
 		#  INITIALIZED.
 		#
-		return list(self.collection.find({}))
+		try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+		return response
+
 
 	def __del__(self):
 		self.client.close()

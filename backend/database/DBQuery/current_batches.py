@@ -30,7 +30,9 @@ class CurrentBatches:
 		except:
 			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
 			sys.exit(0)
+			return 599
 		self.collection = db[faculty_id]
+		return 200
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
 		# CURRENT_BATCHES_DICTIONARY OBJECT CONTAINS A DICTIONARY THAT STORES THE PRESENT
@@ -53,11 +55,11 @@ class CurrentBatches:
 		duplicate_entry = self.collection.find_one({ 'batch':current_batches_dictionary['batch'] })
 		if duplicate_entry != None:
 			print('[ ERROR ] This Batch Is Already Present In Database For This Faculty')
-			return False
+			return 417
 		else:
 			status = self.collection.insert_one(current_batches_dictionary)
 			print (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
-			return True
+			return 201
 
 	def remove(self,programme,branch,section,year_of_pass):
 		# THIS METHOD REMOVES THE RECORD OF THAT CLASS FROM THE FACULTY
@@ -66,9 +68,13 @@ class CurrentBatches:
 		# DATA STRUCTURE OF INPUT PARAMETER:-
 		# CURRENT_BATCH --> STRING
 		#
-		status = self.collection.delete_many({ 'batch':
-									f'{programme}_{branch}_{section}_{year_of_pass}' })
-		print(f'[ INFO  ] {status}')
+		try:
+			status = self.collection.delete_many({ 'batch':
+										f'{programme}_{branch}_{section}_{year_of_pass}' })
+			print(f'[ INFO  ] {status}')
+			return 220
+		except:
+			return 203
 
 	def remove_all(self):
 		# THIS METHOD REMOVES ALL THE BATCHES ANY FACULTY IS CURRENTLY TAKING.
@@ -76,7 +82,11 @@ class CurrentBatches:
 		# 				SO THERE IS NO NEED TO MAINTAIN THE CURRENT CLASS
 		# 				SHEET FOR THAT FACULTY.
 		#
-		self.collection.drop()
+		try:
+			self.collection.drop()
+			return 512
+		except:
+			return 400
 
 	def show_all(self):
 		# THIS METHOD DOESN'T TAKE ANY INPUT PARAMETER.

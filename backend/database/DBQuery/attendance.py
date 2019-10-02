@@ -28,13 +28,15 @@ class Attendance:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
 		except:
-			sys.exit(0)
+			print('[ Error ] Unable To Create Connection With Attendance_DB')
+			return 599
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
 		# MARKING ATTENDANCE, SHOW, ETC.
 		#
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
+		return 200
 
 	def insert(self,attendance_dictionary):
 		# ATTENDANCE_DICTIONARY OBJECT CONTAINS A DICTIONARY, THAT STORES DATE ON WHICH ATTENDANCE
@@ -52,15 +54,26 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-			return True
+			return 201
 		except:
-			return False
+			return 417
 
 	def show_all(self):
 		# THIS METHOD DOESN'T INPUTS ANY PARAMETER AND RETURNS THE LIST OF ALL THE AVAILABLE
 		# DOCUMENTS INSIDE COLLECTION FOR WHICH ATTENDANCE CONSTRUCTOR IS INITIALISED
 		#
-		return list(self.collection.find({}))
+		try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+		return response
 
 	def show_on(self,query_date):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
@@ -69,13 +82,28 @@ class Attendance:
 		# DATA STRUCTURES OF INPUT PARAMETER :-
 		# QUERY_DATE --> DICTIONARY
 		#
-		return list(self.collection.find({ 'date': query_date }))
+		try:
+			res = list(self.collection.find({ 'date': query_date }))
+			response = {
+				'status':'202',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'404',
+				'res':'NA'
+			}
+		return response
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF ATTENDANCE OF THAT PARTICULAR FACULTY_ID FOR
 		# WHICH CLASS OBJECT IS INTIALISED.
 		#
-		self.collection.drop()
+		try:
+			self.collection.drop()
+			return 512
+		except:
+			return 400
 
 	def update(self,date,attendance_dictionary):
 		# THIS METHOD USE TO UPDATE ATTENDANCE OF A PARTICULAR DATE WITH ATTENDANCE_DICTIONARY
@@ -89,14 +117,13 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-			print(f'[  INFO  ] {status}')
-			return True
+			return 301
 		except:
-			return False
+			return 204
 
 	def __del__(self):
 		# THIS DESTRUCTOR CLOSES CONNECTION OPENED BY THE OBJECT OF THIS CLASS
-		self.client.close() 
+		self.client.close()
 
 
 if __name__ == "__main__":

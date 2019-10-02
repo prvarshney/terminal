@@ -31,8 +31,9 @@ class StudyMaterial:
 			print('[ INFO  ] StudyMaterial_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With StudyMaterial_DB')
-			sys.exit(0)
+			return 599
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
+		return 200
 
 	def insert(self,title,date,path):
 		# THIS METHOD IS USED TO INSERT ABSOLUTE PATH OF NOTES/ASSIGNMENT DOCUMENT
@@ -47,7 +48,7 @@ class StudyMaterial:
 		duplicate_entry = self.collection.find_one({ 'path':path })		# CHECKS WHETHER THE PATH OF NOTES IS ALREADY IN DB
 		if duplicate_entry != None:
 			print('[ Error ] Object of this title already present in Database')
-			return False
+			return 417
 		else:
 			status = self.collection.insert_one({
 				'date': date,
@@ -55,13 +56,25 @@ class StudyMaterial:
 				'path':path
 				})
 			print(f'[ INFO  ] {status}')
-			return True
+			return 201
 
 	def show_all(self):
 		# THIS METHOD USED TO FETCH WHOLE COLLECTION OF STUDYMATERIAL
 		# IT DOESN'T INPUTS ANY PARAMETER AND RETURNS A LIST OF DICTIONARIES
 		#
-		return list(self.collection.find({}))
+		try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+		return response
+
 
 	def remove(self,title):
 		# THIS METHOD USED TO REMOVE A DOCUMENT FROM STUDY_MATERIAL COLLECTION OF THE
@@ -70,14 +83,23 @@ class StudyMaterial:
 		# DATA STRUCTURE OF INPUT PARAMETER :
 		# TITLE --> STRING
 		#
-		status = self.collection.delete_many({ 'title':title })
-		print(f'[ INFO  ] {status}')
+		try:
+			status = self.collection.delete_many({ 'title':title })
+			print(f'[ INFO  ] {status}')
+			return 220
+		except:
+			return 203
+
 
 	def remove_all(self):
 		# THIS METHOD REMOVES WHOLE COLLECTION OF THAT FACULTY STUDYMATERIAL COLLECTION
 		# FOR WHICH ITS OBJECT IS INITIALISED.
 		#
-		status = self.collection.drop()
+		try:
+			status = self.collection.drop()
+			return 512
+		except:
+			return 400
 
 	def __del__(self):
 		self.client.close()
@@ -85,4 +107,3 @@ class StudyMaterial:
 if __name__== "__main__":
 	# TEST CODE COMES HERE
 	pass
-

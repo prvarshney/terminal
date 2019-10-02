@@ -31,8 +31,10 @@ class Marksheet:
 			print('[ INFO  ] Marksheet_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With Marksheet_DB')
-			sys.exit(0)
+			return 599
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
+		return 200
+
 
 	def insert(self,marksheet_dictionary):
 		# inserts marksheet dictionary that contains enrollment, marks and assessment
@@ -50,11 +52,11 @@ class Marksheet:
 				})
 		if duplicate_entry != None:
 			print('[ Error ] Object of this Enrollment Number already present in Database')
-			return False
+			return 417
 		else:
 			status = self.collection.insert_one(marksheet_dictionary)
 			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
-			return True
+			return 201
 
 	def show_of(self,enrollment):
 		# This method inputs enrollment and returns marks of that particular enrollment.
@@ -62,13 +64,37 @@ class Marksheet:
 		# Data Structures of input parameter :-
 		# enrollment --> string
 		#
-		return self.collection.find({ 'enrollment': enrollment })
+		try:
+			res = self.collection.find({ 'enrollment': enrollment })
+			response = {
+				'status':'202',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'404',
+				'res':'NA'
+			}
+		return response
+
 
 	def show_all(self):
 		# This method doesn't takes any input and returns marks of all students.
 		# -------------------------------------------------------------------------------
 		#
-		return list(self.collection.find({}))
+		try:
+			res =  list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+		return response
+
 
 	def remove(self,enrollment):
 		# This method removes the collection of marks of a particular
@@ -77,8 +103,13 @@ class Marksheet:
 		# Data Structures of input parameter :-
 		# enrollment --> string
 		#
-		status = self.collection.delete_many({ 'enrollment':enrollment })
-		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		try:
+			status = self.collection.delete_many({ 'enrollment':enrollment })
+			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			return 220
+		except:
+			return 203
+
 
 	def update(self,enrollment,marksheet_dictionary):
 		# This method use to update marks of a particular enrollment
@@ -90,8 +121,13 @@ class Marksheet:
 		#
 		searching_values = { 'enrollment':enrollment }
 		updation_value = marksheet_dictionary
-		status = self.collection.update_many( searching_values, {'$set':updation_value} )
-		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		try:
+			status = self.collection.update_many( searching_values, {'$set':updation_value} )
+			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			return 301
+		except:
+			return 204
+
 
 	def __del__(self):
 		self.client.close()
