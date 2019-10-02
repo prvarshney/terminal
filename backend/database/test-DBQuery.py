@@ -63,7 +63,6 @@ def main_menu():
 """)
 
 if __name__ == "__main__":
-    errors_list = []
     main_menu()
     main_selection = int(input('[ Select Option ] '))
     if main_selection == 1:
@@ -73,6 +72,7 @@ if __name__ == "__main__":
         print("[  INFO  ] Testing Attendance API Functionality ")  
         print('----------------------------------------------------------------------------------------------------------')
         ######################################### TESTING OF ATTENDANCE API STARTED ######################################################
+        errors_list = []
         faculty_id=random.choice(FACULTY_IDS)
         subject=random.choice(SUBJECTS)
         programme=random.choice(PROGRAMMES)
@@ -80,17 +80,17 @@ if __name__ == "__main__":
         section=random.choice(SECTIONS)
         year_of_pass=random.choice(YEAR_OF_PASS)
         semester=random.choice(SEMESTERS)
-
+        ##
         attendance = db.Attendance(faculty_id,subject,programme,branch,section,year_of_pass,semester)
         print(f'[  INFO  ] Working On Collection : {faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}')
-
+        ##
         ## TESTING INSERTION METHOD ##
         dictionary = generate_attendance_dictionary(2)  ## FIRST ENTRY IN ATTENDANCE_DB
         status = attendance.insert(dictionary[0])
-        print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count : 1 )")
+        print("[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count : 1 )")
         print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
         status = attendance.insert(dictionary[1])   ## SECOND ENTRY IN ATTENDANCE_DB
-        print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count : 2 )")
+        print("[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count : 2 )")
         print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
         error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
         if error_status in ['y','Y']:
@@ -130,16 +130,65 @@ if __name__ == "__main__":
         error_status = input("[  HALT  ] Check For Any Discrepancy In Attendance_DB (Y/N) : ")
         if error_status in ['y','Y']:
             errors_list.append('Attendance - Remove_All Method')
-        ## LISTING ERRORS FOUND IN WHOLE TEST ##
+        ## LISTING ERRORS FOUND IN ATTENDANCE API TEST ##
         print('----------------------------------------------------------------------------------------------------------')
         print('[  INFO  ] Errors In Attendance API : {} '.format(len(errors_list)))
         print('----------------------------------------------------------------------------------------------------------')
         print(*errors_list,sep='\n')
         ###################################### TESTING OF ATTENDANCE API FINISHED #############################################################
         ###################################### TESTING OF BATCH API STARTED ###################################################################
-        # print('\n----------------------------------------------------------------------------------------------------------')
-        # print("[  INFO  ] Testing Batch API Functionality ")  
-        # print('----------------------------------------------------------------------------------------------------------')
+        print('\n----------------------------------------------------------------------------------------------------------')
+        print("[  INFO  ] Testing Batch API Functionality ")  
+        print('----------------------------------------------------------------------------------------------------------')
+        errors_list.clear()
+        programme = random.choice(PROGRAMMES)
+        branch = random.choice(BRANCHES)
+        section = random.choice(SECTIONS)
+        year_of_pass = random.choice(YEAR_OF_PASS)
+        ##
+        batch = db.Batch(programme,branch,section,year_of_pass)
+        print(f'[  INFO  ] Working On Collection : {programme}_{branch}_{section}_{year_of_pass}\n')
+        ##
+        ############################################ TESTING INSERT METHOD ###################################################################
+        for enrollment in ENROLLMENT_NOS:
+            print(f'[  INFO  ] Inserting - {enrollment}')
+            status = batch.insert(enrollment)
+            print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF INSERT METHOD
+        enrollment = random.choice(ENROLLMENT_NOS)
+        print(f'[  INFO  ] Trying To Insert Duplicate Entry - {enrollment}')
+        status = batch.insert(enrollment)
+        print(f'[ STATUS ] {status}')      ## PRINTING STATUS OF DUPLICATE INSERTION
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Batch_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Batch - Insert Method')
+        ############################################# TESTING SHOW_ALL METHOD ###############################################################
+        print('\n[  INFO  ] Fetching Enrollment Numbers Of Students Enrolled For The Current Batch')
+        res = batch.show_all()
+        print(*res,sep='\n')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Batch_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Batch - Show_All Method')
+        ############################################# TESTING REMOVE METHOD #################################################################
+        enrollment = random.choice(ENROLLMENT_NOS)
+        print(f'\n[  INFO  ] Removing Enrollment - {enrollment} From Batch_DB')
+        status = batch.remove(enrollment)
+        print(f'[ STATUS ] {status}')       ## PRINTING STATUS OF REMOVE METHOD
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Batch_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Batch - Remove Method')
+        ############################################# TESTING REMOVE_ALL METHOD #############################################################
+        print('\n[  INFO  ] Removing Whole Collection ')
+        status = batch.remove_all()
+        print(f'[ STATUS ] {status}')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Batch_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Batch - Remove_ALL Method')
+        ## LISTING ERRORS FOUND IN BATCH API TEST ##
+        print('----------------------------------------------------------------------------------------------------------')
+        print('[  INFO  ] Errors In Batch API : {} '.format(len(errors_list)))
+        print('----------------------------------------------------------------------------------------------------------')
+        print(*errors_list,sep='\n')
+        ###################################### TESTING OF BATCH API FINISHED #############################################################
 
     elif main_selection == 2: 
         # PERFORMING MULTIPLE ENTRY TEST FOR ALL APIS

@@ -18,9 +18,7 @@ class Batch:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Batch_DB]
-			print('[ INFO  ] Batch_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Batch_DB')
 			sys.exit(0)
 		self.collection = db[ f'{programme}_{branch}_{section}_{year_of_pass}' ]
 
@@ -33,11 +31,9 @@ class Batch:
 		# CHECKING FOR ANY DUPLICATE ENTRY IN THE COLLECTION
 		duplicate_entry = self.collection.find_one({ 'enrollment':enrollment })
 		if duplicate_entry != None:
-			print('[ ERROR ] This Student Already Present in Database')
 			return False
 		else:
 			status = self.collection.insert_one({ 'enrollment':enrollment })
-			print(f'[ INFO  ] {status}')
 			return True
 
 	def remove(self,enrollment):
@@ -47,7 +43,6 @@ class Batch:
 		# ENROLLMENT --> STRING
 		#
 		status = self.collection.delete_one({ 'enrollment':enrollment })
-		print(f'[ INFO  ] {status}')
 
 	def remove_all(self):
 		# USED TO REMOVE WHOLE COLLECTION FOR WHICH BATCH CLASS
