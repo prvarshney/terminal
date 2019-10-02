@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import sys
 import config
+from logger import log
 
 ## START OF FEEDBACK COLLECTION API
 ## ------------------------------------------------------------------------------------------
@@ -29,9 +30,9 @@ class Feedback:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Feedback_DB]
-			print('[ INFO  ] Feedback_DB Connected Successfully')
+			log('[ INFO  ] Feedback_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
+			log('[ Error ] Unable To Create Connection With Feedback_DB')
 			sys.exit(0)
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
 
@@ -49,11 +50,12 @@ class Feedback:
 		#
 		duplicate_entry = self.collection.find_one({ 'enrollment':feedback_dictionary['enrollment'] })
 		if duplicate_entry != None:
-			print('[ ERROR ] Feedback Of This Student Already Present In Database For This Faculty')
+			log('[ ERROR ] Feedback Of This Student Already Present In Database For This Faculty')
 			return False
 		else:
 			status = self.collection.insert_one(feedback_dictionary)
-			print (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log('[ INFO  ] Feedback successfully inserted in Feedback_DB.')
 			return True
 
 	def show_all(self):
@@ -63,6 +65,7 @@ class Feedback:
 		# STUDENT
 		#
 		return list(self.collection.find({}))
+		log('[ INFO  ] All feedbacks of the faculty has been displayed.')
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF FEEDBACK OF THAT PARTICULAR FACULTY_ID FOR
@@ -71,13 +74,14 @@ class Feedback:
 		# FACULTY MUST BE DELETED.
 		#
 		self.collection.drop()
-		print(f'[ INFO  ] Requested Collection Dropped')
+		log(f'[ INFO  ] Requested Collection Dropped')
 
 	def remove(self,enrollment):
 		# THIS METHOD IS USED TO REMOVE THE FEEDBACK BY A STUDENT FOR A PARTICULAR FACULTY.
 		#
 		status = self.collection.delete_one({ 'enrollment':enrollment })
-		print(f'[ INFO  ] {status}')
+		log(f'[ INFO  ] {status}')
+		log('[ INFO  ] Feedback of a particular student for a particular faculty has been removed.')
 
 	def update(self,feedback_dictionary):
 		# THIS UPDATE METHOD INPUTS THE FEEDBACK_DICTIONARY TO CHECK WHICH DOCUMENT NEEDS
@@ -87,9 +91,11 @@ class Feedback:
 		updating_values = feedback_dictionary
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+			log('Faculty_DB has been updated successfully.')
 			return True
 		except:
+			log('[ ERROR  ] Faculty_DB failed to update.')
 			return False
 
 	def __del__(self):
@@ -97,4 +103,18 @@ class Feedback:
 
 if __name__ == "__main__":
 	# TEST CODE COMES HERE
+	Feedback = Feedback(faculty_id="06A",
+	subject="toc",
+	programme="btech",branch="cse",
+	section="A",year_of_pass="2021",
+	semester="five")
+	Feedback.show_all()
+	Feedback.remove('05520802717')
+	Feedback.remove_all()
+	Feedback.insert({
+		'date':{'day':'06','month':'08','year':'2008'},
+		'enrollment':'05530802717',
+		'feedback':'best teacher'
+	})
+	Feedback.show_all()
 	pass

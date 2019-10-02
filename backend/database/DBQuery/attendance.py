@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import sys
 import config
-
+from logger import log
 
 ## START OF ATTENDANCE COLLECTION API
 ## --------------------------------------------------------------------------
@@ -27,9 +27,9 @@ class Attendance:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
-			print('[ INFO  ] Attendance_DB Connected Successfully')
+			log('[ INFO  ] Attendance_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Attendance_DB')
+			log('[ Error ] Unable To Create Connection With Attendance_DB')
 			sys.exit(0)
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
@@ -54,9 +54,11 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-			print(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log('[ INFO  ] Attendance inserted of a particular date. ')
 			return True
 		except:
+			log('[ ERROR  ] Unable to insert attendance in Attendance_DB. ')
 			return False
 
 	def show_all(self):
@@ -64,6 +66,7 @@ class Attendance:
 		# DOCUMENTS INSIDE COLLECTION FOR WHICH ATTENDANCE CONSTRUCTOR IS INITIALISED
 		#
 		return list(self.collection.find({}))
+		log('[ INFO  ] All the attendance collection displayed.')
 
 	def show_on(self,query_date):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
@@ -73,12 +76,14 @@ class Attendance:
 		# QUERY_DATE --> DICTIONARY
 		#
 		return list(self.collection.find({ 'date': query_date }))
+		log('[ INFO  ] Attendance of a particular date showed. ')
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF ATTENDANCE OF THAT PARTICULAR FACULTY_ID FOR
 		# WHICH CLASS OBJECT IS INTIALISED.
 		#
 		self.collection.drop()
+		log('[ INFO  ] Attendance of particular faculty_id dropped. ')
 
 	def update(self,date,attendance_dictionary):
 		# THIS METHOD USE TO UPDATE ATTENDANCE OF A PARTICULAR DATE WITH ATTENDANCE_DICTIONARY
@@ -92,9 +97,11 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+			log('[ INFO  ] Attendance of a particular date is updated. ')
 			return True
 		except:
+			log('[ ERROR  ] Attendance unable to update.')
 			return False
 
 	def __del__(self):
@@ -104,4 +111,22 @@ class Attendance:
 
 if __name__ == "__main__":
 	# TESTING SCRIPT
-	pass
+	Attendance = Attendance(
+		faculty_id="F036A",
+		subject="ethical_hacking",
+		programme="btech",
+		branch="cse",
+		section="A",
+		year_of_pass="2021",
+		semester="5"
+		)
+	Attendance.insert(
+		{
+			'date':{'day':'04', 'month':'06', 'year':'1998'},
+			'attendance': {
+				'05520802717': 'P',
+				'05620802717' : 'A'
+			}
+		}
+	)
+	Attendance.remove_all()

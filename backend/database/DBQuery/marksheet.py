@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import sys
 import config
+from logger import log
 
 ## Start of Marksheet Collection API
 ## --------------------------------------------------------------------------
@@ -28,9 +29,9 @@ class Marksheet:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Marksheet_DB]
-			print('[ INFO  ] Marksheet_DB Connected Successfully')
+			log('[ INFO  ] Marksheet_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Marksheet_DB')
+			log('[ Error ] Unable To Create Connection With Marksheet_DB')
 			sys.exit(0)
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
 
@@ -49,11 +50,12 @@ class Marksheet:
 				'enrollment':marksheet_dictionary['enrollment']
 				})
 		if duplicate_entry != None:
-			print('[ Error ] Object of this Enrollment Number already present in Database')
+			log('[ Error ] Object of this Enrollment Number already present in Database')
 			return False
 		else:
 			status = self.collection.insert_one(marksheet_dictionary)
-			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			log(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			log('[ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.')
 			return True
 
 	def show_of(self,enrollment):
@@ -63,12 +65,14 @@ class Marksheet:
 		# enrollment --> string
 		#
 		return self.collection.find({ 'enrollment': enrollment })
+		log('[ INFO  ] Marks of the enrollment has been displayed.')
 
 	def show_all(self):
 		# This method doesn't takes any input and returns marks of all students.
 		# -------------------------------------------------------------------------------
 		#
 		return list(self.collection.find({}))
+		log('[ INFO  ] Marks of all the students has been successfully displayed.')
 
 	def remove(self,enrollment):
 		# This method removes the collection of marks of a particular
@@ -78,7 +82,8 @@ class Marksheet:
 		# enrollment --> string
 		#
 		status = self.collection.delete_many({ 'enrollment':enrollment })
-		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		log(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		log('[ INFO  ] Marks of particular enrollment has been removed.')
 
 	def update(self,enrollment,marksheet_dictionary):
 		# This method use to update marks of a particular enrollment
@@ -91,11 +96,27 @@ class Marksheet:
 		searching_values = { 'enrollment':enrollment }
 		updation_value = marksheet_dictionary
 		status = self.collection.update_many( searching_values, {'$set':updation_value} )
-		print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		log(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		log('[ INFO  ] Marksheet_DB has been updated.')
 
 	def __del__(self):
 		self.client.close()
 
 if __name__ == "__main__":
 	# TEST CODE COMES HERE
+	Marksheet = Marksheet(faculty_id="06A", 
+	subject="toc",
+	 programme="btech",
+	  branch="cse",
+	   section="A",
+	    year_of_pass="2022",
+		 semester="5")
+	Marksheet.insert({
+			 'enrollment':"0552082717",
+			 'marks':"27",
+			 'assessment':"08"
+	})
+	Marksheet.show_of('05520802717')
+	Marksheet.show_all()
+	Marksheet.remove('05520802717')
 	pass
