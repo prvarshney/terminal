@@ -27,8 +27,6 @@ class Attendance:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
-			print('[ INFO  ] Attendance_DB Connected Successfully')
-
 		except:
 			print('[ Error ] Unable To Create Connection With Attendance_DB')
 			return 599
@@ -56,7 +54,6 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-			print(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
 			return 201
 		except:
 			return 417
@@ -120,7 +117,6 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-			print(f'[ INFO  ] {status}')
 			return 301
 		except:
 			return 204
