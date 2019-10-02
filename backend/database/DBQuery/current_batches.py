@@ -30,9 +30,7 @@ class CurrentBatches:
 		except:
 			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
 			sys.exit(0)
-			return 599
 		self.collection = db[faculty_id]
-		return 200
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
 		# CURRENT_BATCHES_DICTIONARY OBJECT CONTAINS A DICTIONARY THAT STORES THE PRESENT

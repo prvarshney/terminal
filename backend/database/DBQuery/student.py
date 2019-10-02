@@ -18,9 +18,7 @@ class Student:
 			print('[ INFO  ] Student_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With Student_DB')
-			return 599
 		self.collection = db[config.Student_Profile_Collection]
-		return 200
 
 	def insert(self, enrollment, name, phone_numbers, email,password, father_name, year_of_join,year_of_pass,
 	 programme,branch, section, gender, dob, temp_address, perm_address):

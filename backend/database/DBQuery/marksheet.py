@@ -31,10 +31,7 @@ class Marksheet:
 			print('[ INFO  ] Marksheet_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With Marksheet_DB')
-			return 599
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
-		return 200
-
 
 	def insert(self,marksheet_dictionary):
 		# inserts marksheet dictionary that contains enrollment, marks and assessment

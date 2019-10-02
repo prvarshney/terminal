@@ -29,9 +29,7 @@ class PreviousBatches:
 			print('[ INFO  ] Previous_Batches_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With Previous_Batches_DB')
-			return 599
 		self.collection = db[f'{faculty_id}']
-		return 200
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
 		# PREVIOUS_CLASSES_DICTIONARY OBJECT CONTAINS A DICTIONARY THAT STORES THE PREVIOUS

@@ -18,9 +18,7 @@ class Faculty:
 			print('[ INFO  ] Faculty_DB connected successfully')
 		except:
 			print('[ Error ] Unable to create connection with Current_Batches_DB')
-			return 599
 		self.collection = db[config.Faculty_Profile_Collection]
-		return 200
 
 	def insert(self,id,name,dob,phone_numbers,email,password,subjects,qualifications=[],
 		time_table={},classes=[],ratings=5):

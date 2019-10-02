@@ -99,7 +99,8 @@ if __name__ == "__main__":
         ## TESTING SHOW_ON METHOD ##
         print('\n[  INFO  ] Fetching Attendance Marked On {}/{}/{}'.format(dictionary['date']['day'],dictionary['date']['month'],dictionary['date']['year']))
         response = attendance.show_on(dictionary['date'])
-        for res in response:
+        print(f'[ STATUS ] {response["status"]}')
+        for res in response['res']:
             print(res['date'])
             for i in res['attendance']:
                 print(i+':'+res['attendance'][i])
@@ -108,8 +109,9 @@ if __name__ == "__main__":
             errors_list.append('Attendance - Show_On Method')
         ## TESTING SHOW_ALL METHOD ##
         print('\n[  INFO  ] Fetching Attendance Of All The Days ')
-        res = attendance.show_all()
-        for subres in res:
+        response = attendance.show_all()
+        print(f'[ STATUS ] {response["status"]}')
+        for subres in response["res"]:
             print(subres['date'])
             for i in subres['attendance']:
                 print(i+':'+subres['attendance'][i])
@@ -163,8 +165,9 @@ if __name__ == "__main__":
             errors_list.append('Batch - Insert Method')
         ############################################# TESTING SHOW_ALL METHOD ###############################################################
         print('\n[  INFO  ] Fetching Enrollment Numbers Of Students Enrolled For The Current Batch')
-        res = batch.show_all()
-        print(*res,sep='\n')
+        response = batch.show_all()
+        print(f'[ STATUS ] {response["status"]}')
+        print(*response['res'],sep='\n')
         error_status = input("[  HALT  ] Check For Any Discrepancy In Batch_DB (Y/N) : ")
         if error_status in ['y','Y']:
             errors_list.append('Batch - Show_All Method')

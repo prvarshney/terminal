@@ -19,9 +19,8 @@ class Batch:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Batch_DB]
 		except:
-			return 599
+			sys.exit(0)
 		self.collection = db[ f'{programme}_{branch}_{section}_{year_of_pass}' ]
-		return 200
 
 	def insert(self,enrollment):
 		# USED TO INSERT ENROLLMENT OF A STUDENT IN THE REQUIRED COLLECTION

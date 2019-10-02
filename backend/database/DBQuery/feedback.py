@@ -33,9 +33,7 @@ class Feedback:
 
 		except:
 			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
-			return 599
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
-		return 200
 
 
 	def insert(self,feedback_dictionary):

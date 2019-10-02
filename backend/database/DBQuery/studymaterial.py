@@ -31,9 +31,7 @@ class StudyMaterial:
 			print('[ INFO  ] StudyMaterial_DB Connected Successfully')
 		except:
 			print('[ Error ] Unable To Create Connection With StudyMaterial_DB')
-			return 599
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
-		return 200
 
 	def insert(self,title,date,path):
 		# THIS METHOD IS USED TO INSERT ABSOLUTE PATH OF NOTES/ASSIGNMENT DOCUMENT

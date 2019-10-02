@@ -28,15 +28,13 @@ class Attendance:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
 		except:
-			print('[ Error ] Unable To Create Connection With Attendance_DB')
-			return 599
+			sys.exit(0)
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
 		# MARKING ATTENDANCE, SHOW, ETC.
 		#
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
-		return 200
 
 	def insert(self,attendance_dictionary):
 		# ATTENDANCE_DICTIONARY OBJECT CONTAINS A DICTIONARY, THAT STORES DATE ON WHICH ATTENDANCE
@@ -71,7 +69,7 @@ class Attendance:
 		except:
 			response = {
 				'status':'598',
-				'res':'NA'
+				'res':{}
 			}
 		return response
 
@@ -91,7 +89,7 @@ class Attendance:
 		except:
 			response = {
 				'status':'404',
-				'res':'NA'
+				'res':{}
 			}
 		return response
 
