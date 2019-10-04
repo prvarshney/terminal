@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import config
 import sys
+from logger import log
 
 ## START OF FACULTY'S PROFILE COLLECTION API
 ## --------------------------------------------------------------------------
@@ -15,9 +16,10 @@ class Faculty:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Faculty_DB]
-			print('[ INFO  ] Faculty_DB connected successfully')
+			log('[ INFO  ] Faculty_DB connected successfully')
 		except:
-			print('[ Error ] Unable to create connection with Current_Batches_DB')
+			log('[ Error ] Unable to create connection with Faculty_DB')
+			sys.exit(0)
 		self.collection = db[config.Faculty_Profile_Collection]
 
 	def insert(self,id,name,dob,phone_numbers,email,password,subjects,qualifications=[],
@@ -46,28 +48,28 @@ class Faculty:
 		#	*ALWAYS STORE PASSWORD IN ENCRYPTED FORM IN ORDER TO PROTECT USER'S PASSWORDS
 		#
 		# CREATING DICTIONARY OF THE DOCUMENT THAT IS REQUIRED TO INSERT IN DB
-	    document = {
-			    "faculty_id":id,
-			    "name":name,
-			    "date_of_birth":dob,
-			    "phone_numbers":phone_numbers,
-			    "email":email,
-			    "password":password,
-			    "subjects":subjects,
-			    "qualifications":qualifications,
-			    "time-table":time_table,
-			    "classes":classes,
-			    "ratings":ratings,
-	    		}
-
+		document = {
+				"faculty_id":id,
+				"name":name,
+				"date_of_birth":dob,
+				"phone_numbers":phone_numbers,
+				"email":email,
+				"password":password,
+				"subjects":subjects,
+				"qualifications":qualifications,
+				"time-table":time_table,
+				"classes":classes,
+				"ratings":ratings,
+				}
 	    # CHECKING WHETHER ANY FACULTY WITH SAME FACULTY_ID IS PRESENT IN DATABASE
 	    duplicate_entry = self.collection.find_one({ 'faculty_id':id })
 	    if duplicate_entry != None:		# RUN WHEN THEIR PRESENTS ANY DUPLICATE FACULTY_ID IN DB
-	    	print('[ Error ] Object of this ID already present in database')
+	    	log('[ Error ] Object of this ID already present in database')
 	    	return 417
 	    else:			# RUNS WHEN THERE DOESN'T PRESENT ANY DUPLICATE ENTRY
 		    status = self.collection.insert_one(document)
-		    print(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+		    log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			  log('[ INFO  ] A faculty has been inserted in Faculty_DB.')
 		    return 201
 
 	def query(self,query_parameter,query_value):
@@ -90,6 +92,7 @@ class Faculty:
 				'status':'206',
 				'res':res
 			}
+    log('[ INFO  ] The search query is successfully completed.')
 		return response
 
 	def remove(self,query_parameter,query_value):
@@ -102,7 +105,8 @@ class Faculty:
 		#
 		try:
 			status = self.collection.delete_many({ query_parameter:query_value })
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+		  log('[ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.')
 			return 220
 		except:
 			return 203
@@ -122,13 +126,15 @@ class Faculty:
 		updating_values = { updation_param:updation_value }
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+			log('[ INFO  ] Faculty_DB has been updated.')
 			return 301
 		except:
+      log('[ ERROR  ] Updation failed.')
 			return 204
 
 	def __del__(self):
-		self.collection.close()
+		self.client.close()
 
 
 if __name__ == "__main__":

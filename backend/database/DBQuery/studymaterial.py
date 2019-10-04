@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from logger import log
 import sys
 import config
 
@@ -28,9 +29,10 @@ class StudyMaterial:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.StudyMaterial_DB]
-			print('[ INFO  ] StudyMaterial_DB Connected Successfully')
+			log('[ INFO  ] StudyMaterial_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With StudyMaterial_DB')
+			log('[ Error ] Unable To Create Connection With StudyMaterial_DB')
+			sys.exit(0)
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
 
 	def insert(self,title,date,path):
@@ -45,22 +47,25 @@ class StudyMaterial:
 		# HERE PRIMARY KEY IS PATH OF THE NOTES/ASSIGNMENT
 		duplicate_entry = self.collection.find_one({ 'path':path })		# CHECKS WHETHER THE PATH OF NOTES IS ALREADY IN DB
 		if duplicate_entry != None:
-			print('[ Error ] Object of this title already present in Database')
+			log('[ Error ] Object of this title already present in Database')
 			return 417
+			print('[ Error ] Object of this title already present in Database')
 		else:
 			status = self.collection.insert_one({
 				'date': date,
 				'title':title,
 				'path':path
 				})
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+			log('[ INFO  ] New document being inserted.')
 			return 201
 
 	def show_all(self):
 		# THIS METHOD USED TO FETCH WHOLE COLLECTION OF STUDYMATERIAL
 		# IT DOESN'T INPUTS ANY PARAMETER AND RETURNS A LIST OF DICTIONARIES
 		#
-		try:
+		log('[ INFO  ] All collection of study_material displayed.')
+    try:
 			res = list(self.collection.find({}))
 			response = {
 				'status':'302',
@@ -72,7 +77,7 @@ class StudyMaterial:
 				'res':'NA'
 			}
 		return response
-
+  
 
 	def remove(self,title):
 		# THIS METHOD USED TO REMOVE A DOCUMENT FROM STUDY_MATERIAL COLLECTION OF THE
@@ -81,9 +86,10 @@ class StudyMaterial:
 		# DATA STRUCTURE OF INPUT PARAMETER :
 		# TITLE --> STRING
 		#
-		try:
+    try:
 			status = self.collection.delete_many({ 'title':title })
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+      log('[ INFO  ] A single document is removed.')
 			return 220
 		except:
 			return 203
@@ -95,6 +101,7 @@ class StudyMaterial:
 		#
 		try:
 			status = self.collection.drop()
+      log('[ INFO  ] All study material collection is removed.')
 			return 512
 		except:
 			return 400

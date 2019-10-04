@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import sys
 import config
+from logger import log
 
 ## Start of Marksheet Collection API
 ## --------------------------------------------------------------------------
@@ -28,9 +29,10 @@ class Marksheet:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Marksheet_DB]
-			print('[ INFO  ] Marksheet_DB Connected Successfully')
+			log('[ INFO  ] Marksheet_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Marksheet_DB')
+			log('[ Error ] Unable To Create Connection With Marksheet_DB')
+			sys.exit(0)
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
 
 	def insert(self,marksheet_dictionary):
@@ -48,11 +50,12 @@ class Marksheet:
 				'enrollment':marksheet_dictionary['enrollment']
 				})
 		if duplicate_entry != None:
-			print('[ Error ] Object of this Enrollment Number already present in Database')
+			log('[ Error ] Object of this Enrollment Number already present in Database')
 			return 417
 		else:
 			status = self.collection.insert_one(marksheet_dictionary)
-			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			log(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			log('[ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.')
 			return 201
 
 	def show_of(self,enrollment):
@@ -63,6 +66,7 @@ class Marksheet:
 		#
 		try:
 			res = self.collection.find({ 'enrollment': enrollment })
+      log('[ INFO  ] Marks of the enrollment has been displayed.')
 			response = {
 				'status':'202',
 				'res':res
@@ -74,13 +78,13 @@ class Marksheet:
 			}
 		return response
 
-
 	def show_all(self):
 		# This method doesn't takes any input and returns marks of all students.
 		# -------------------------------------------------------------------------------
 		#
 		try:
 			res =  list(self.collection.find({}))
+      log('[ INFO  ] Marks of all the students has been successfully displayed.')
 			response = {
 				'status':'302',
 				'res':res
@@ -92,7 +96,6 @@ class Marksheet:
 			}
 		return response
 
-
 	def remove(self,enrollment):
 		# This method removes the collection of marks of a particular
 		# enrollment from the class.
@@ -102,11 +105,11 @@ class Marksheet:
 		#
 		try:
 			status = self.collection.delete_many({ 'enrollment':enrollment })
-			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			log(f'[ INFO  ] {status}') 	# Printing Status of result of query
+  		log('[ INFO  ] Marks of particular enrollment has been removed.')
 			return 220
 		except:
 			return 203
-
 
 	def update(self,enrollment,marksheet_dictionary):
 		# This method use to update marks of a particular enrollment
@@ -120,7 +123,8 @@ class Marksheet:
 		updation_value = marksheet_dictionary
 		try:
 			status = self.collection.update_many( searching_values, {'$set':updation_value} )
-			print(f'[ INFO  ] {status}') 	# Printing Status of result of query
+			log(f'[ INFO  ] {status}') 	# Printing Status of result of query
+		  log('[ INFO  ] Marksheet_DB has been updated.')
 			return 301
 		except:
 			return 204

@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import sys
 import config
+from logger import log
 
 ## START OF CURRENT_BATCHES API
 ## ------------------------------------------------------
@@ -26,9 +27,9 @@ class CurrentBatches:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Current_Batches_DB]
-			print('[ INFO  ] Current_Batches_DB Connected Successfully')
+			log('[ INFO  ] Current_Batches_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
+			log('[ Error ] Unable To Create Connection With Current_Batches_DB')
 			sys.exit(0)
 		self.collection = db[faculty_id]
 
@@ -52,11 +53,12 @@ class CurrentBatches:
 		}
 		duplicate_entry = self.collection.find_one({ 'batch':current_batches_dictionary['batch'] })
 		if duplicate_entry != None:
-			print('[ ERROR ] This Batch Is Already Present In Database For This Faculty')
+			log('[ ERROR ] This Batch Is Already Present In Database For This Faculty')
 			return 417
 		else:
 			status = self.collection.insert_one(current_batches_dictionary)
-			print (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log(f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log('[ INFO  ] A new batch for the particular faculty has been created.')
 			return 201
 
 	def remove(self,programme,branch,section,year_of_pass):
@@ -69,7 +71,8 @@ class CurrentBatches:
 		try:
 			status = self.collection.delete_many({ 'batch':
 										f'{programme}_{branch}_{section}_{year_of_pass}' })
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+		  log('[ INFO  ] Record of that class has been removed from the Current_Batches_DB.')
 			return 220
 		except:
 			return 203
@@ -82,6 +85,7 @@ class CurrentBatches:
 		#
 		try:
 			self.collection.drop()
+      log('[ INFO  ] Current_Batches_DB has been removed for the particular faculty.')
 			return 512
 		except:
 			return 400
@@ -92,6 +96,7 @@ class CurrentBatches:
 		# COLLECTION FOR WHICH THE CURRENT_BATCHES CONSTRUCTOR HAS BEEN
 		# INITIALIZED.
 		#
+		log('[ INFO  ] All the current batches has been displayed.')
 		return list(self.collection.find({}))
 
 	def __del__(self):
@@ -101,3 +106,4 @@ class CurrentBatches:
 if __name__ == "__main__":
 	# TEST CODE COMES HERE
 	pass
+

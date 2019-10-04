@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import sys
 import config
+from logger import log
 
 ## START OF FEEDBACK COLLECTION API
 ## ------------------------------------------------------------------------------------------
@@ -29,10 +30,10 @@ class Feedback:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Feedback_DB]
-			print('[ INFO  ] Feedback_DB Connected Successfully')
-
+			log('[ INFO  ] Feedback_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Current_Batches_DB')
+			log('[ Error ] Unable To Create Connection With Feedback_DB')
+			sys.exit(0)
 		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
 
 
@@ -50,11 +51,12 @@ class Feedback:
 		#
 		duplicate_entry = self.collection.find_one({ 'enrollment':feedback_dictionary['enrollment'] })
 		if duplicate_entry != None:
-			print('[ ERROR ] Feedback Of This Student Already Present In Database For This Faculty')
+			log('[ ERROR ] Feedback Of This Student Already Present In Database For This Faculty')
 			return 417
 		else:
 			status = self.collection.insert_one(feedback_dictionary)
-			print (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log (f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log('[ INFO  ] Feedback successfully inserted in Feedback_DB.')
 			return 201
 
 	def show_all(self):
@@ -74,6 +76,7 @@ class Feedback:
 				'status':'598',
 				'res':'NA'
 			}
+    log('[ INFO  ] All feedbacks of the faculty has been displayed.')
 		return response
 
 
@@ -85,22 +88,21 @@ class Feedback:
 		#
 		try:
 			self.collection.drop()
-			print(f'[ INFO  ] Requested Collection Dropped')
+			log(f'[ INFO  ] Requested Collection Dropped')
 			return 512
 		except:
 			return 400
-
 
 	def remove(self,enrollment):
 		# THIS METHOD IS USED TO REMOVE THE FEEDBACK BY A STUDENT FOR A PARTICULAR FACULTY.
 		#
 		try:
 			status = self.collection.delete_one({ 'enrollment':enrollment })
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+		  log('[ INFO  ] Feedback of a particular student for a particular faculty has been removed.')
 			return 220
 		except:
 			return 203
-
 
 	def update(self,feedback_dictionary):
 		# THIS UPDATE METHOD INPUTS THE FEEDBACK_DICTIONARY TO CHECK WHICH DOCUMENT NEEDS
@@ -110,9 +112,11 @@ class Feedback:
 		updating_values = feedback_dictionary
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
-			print(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
+			log('Faculty_DB has been updated successfully.')
 			return 301
 		except:
+      log('[ ERROR  ] Faculty_DB failed to update.')
 			return 204
 
 	def __del__(self):

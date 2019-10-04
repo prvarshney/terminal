@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from logger import log
 import sys
 import config
 
@@ -26,9 +27,10 @@ class PreviousBatches:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Previous_Batches_DB]
-			print('[ INFO  ] Previous_Batches_DB Connected Successfully')
+			log('[ INFO  ] Previous_Batches_DB Connected Successfully')
 		except:
-			print('[ Error ] Unable To Create Connection With Previous_Batches_DB')
+			log('[ Error ] Unable To Create Connection With Previous_Batches_DB')
+      sys.exit(0)
 		self.collection = db[f'{faculty_id}']
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
@@ -52,11 +54,12 @@ class PreviousBatches:
 		}
 		duplicate_entry = self.collection.find_one({'batch':previous_batches_dictionary['batch']})
 		if duplicate_entry != None:
-			print('[ ERROR ] This Batch Is Already Present In Database')
+			log('[ ERROR ] This Batch Is Already Present In Database')
 			return 417
 		else:
 			status = self.collection.insert_one(previous_batches_dictionary)
-			print (f'[ INFO ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log(f'[ INFO ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+			log('[ INFO  ] A previous batch is added in Previous_Batches_DB.')
 			return 201
 
 	def remove(self,programme,branch,section,year_of_pass):
@@ -69,7 +72,8 @@ class PreviousBatches:
 		try:
 			status = self.collection.delete_many(
 				{ 'batch':f'{programme}_{branch}_{section}_{year_of_pass}' })
-			print(f'[ INFO  ] {status}')      #PRINTING STATUS OF RESULT OF QUERY
+			log(f'[ INFO  ] {status}')      #PRINTING STATUS OF RESULT OF QUERY
+  		log('[ INFO  ] Record of particular class from Previous_Batches_DB has been successfully removed.')
 			return 220
 		except:
 			return 203
@@ -82,7 +86,7 @@ class PreviousBatches:
 		#
 		try:
 			self.collection.drop()
-			print(f'[ INFO  ] Requested Collection Dropped')
+			log(f'[ INFO  ] Requested Collection Dropped')
 			return 512
 		except:
 			return 400
@@ -95,6 +99,7 @@ class PreviousBatches:
 		#
 		try:
 			res = list(self.collection.find({}))
+      log('[ INFO  ] All Collection of Previous_Classes has been displayed.')
 			response = {
 				'status':'302',
 				'res':res
@@ -105,8 +110,8 @@ class PreviousBatches:
 				'res':'NA'
 			}
 		return response
-
-
+  
+ 
 	def __del__(self):
 		self.client.close()
 
