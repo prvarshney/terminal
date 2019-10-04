@@ -30,7 +30,7 @@ class PreviousBatches:
 			log('[ INFO  ] Previous_Batches_DB Connected Successfully')
 		except:
 			log('[ Error ] Unable To Create Connection With Previous_Batches_DB')
-      sys.exit(0)
+			sys.exit(0)
 		self.collection = db[f'{faculty_id}']
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
@@ -73,7 +73,7 @@ class PreviousBatches:
 			status = self.collection.delete_many(
 				{ 'batch':f'{programme}_{branch}_{section}_{year_of_pass}' })
 			log(f'[ INFO  ] {status}')      #PRINTING STATUS OF RESULT OF QUERY
-  		log('[ INFO  ] Record of particular class from Previous_Batches_DB has been successfully removed.')
+			log('[ INFO  ] Record of particular class from Previous_Batches_DB has been successfully removed.')
 			return 220
 		except:
 			return 203
@@ -99,7 +99,7 @@ class PreviousBatches:
 		#
 		try:
 			res = list(self.collection.find({}))
-      log('[ INFO  ] All Collection of Previous_Classes has been displayed.')
+			log('[ INFO  ] All Collection of Previous_Classes has been displayed.')
 			response = {
 				'status':'302',
 				'res':res

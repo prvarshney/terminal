@@ -66,7 +66,7 @@ class Marksheet:
 		#
 		try:
 			res = self.collection.find({ 'enrollment': enrollment })
-      log('[ INFO  ] Marks of the enrollment has been displayed.')
+			log('[ INFO  ] Marks of the enrollment has been displayed.')
 			response = {
 				'status':'202',
 				'res':res
@@ -84,7 +84,7 @@ class Marksheet:
 		#
 		try:
 			res =  list(self.collection.find({}))
-      log('[ INFO  ] Marks of all the students has been successfully displayed.')
+			log('[ INFO  ] Marks of all the students has been successfully displayed.')
 			response = {
 				'status':'302',
 				'res':res
@@ -106,7 +106,7 @@ class Marksheet:
 		try:
 			status = self.collection.delete_many({ 'enrollment':enrollment })
 			log(f'[ INFO  ] {status}') 	# Printing Status of result of query
-  		log('[ INFO  ] Marks of particular enrollment has been removed.')
+			log('[ INFO  ] Marks of particular enrollment has been removed.')
 			return 220
 		except:
 			return 203
@@ -124,7 +124,7 @@ class Marksheet:
 		try:
 			status = self.collection.update_many( searching_values, {'$set':updation_value} )
 			log(f'[ INFO  ] {status}') 	# Printing Status of result of query
-		  log('[ INFO  ] Marksheet_DB has been updated.')
+			log('[ INFO  ] Marksheet_DB has been updated.')
 			return 301
 		except:
 			return 204

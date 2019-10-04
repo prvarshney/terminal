@@ -29,8 +29,8 @@ class Attendance:
 			db = self.client[config.Attendance_DB]
 			log('[ INFO  ] Attendance_DB Connected Successfully')
 		except:
-       log('[ Error ] Unable To Create Connection With Attendance_DB')
-			 sys.exit(0)
+			log('[ Error ] Unable To Create Connection With Attendance_DB')
+			sys.exit(0)
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
@@ -54,11 +54,11 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-      log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
 			log('[ INFO  ] Attendance inserted of a particular date. ')
 			return 201
 		except:
-      log('[ ERROR  ] Unable to insert attendance in Attendance_DB. ')
+			log('[ ERROR  ] Unable to insert attendance in Attendance_DB. ')
 			return 417
 
 	def show_all(self):
@@ -76,8 +76,8 @@ class Attendance:
 				'status':'598',
 				'res':{}
 			}
-    log('[ INFO  ] All the attendance collection displayed.')
-		return response
+			log('[ INFO  ] All the attendance collection displayed.')
+			return response
 
 	def show_on(self,query_date):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
@@ -97,8 +97,8 @@ class Attendance:
 				'status':'404',
 				'res':{}
 			}
-    log('[ INFO  ] Attendance of a particular date showed. ')
-		return response
+			log('[ INFO  ] Attendance of a particular date showed. ')
+			return response
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF ATTENDANCE OF THAT PARTICULAR FACULTY_ID FOR
@@ -106,7 +106,7 @@ class Attendance:
 		#
 		try:
 			self.collection.drop()
-      log('[ INFO  ] Attendance of particular faculty_id dropped. ')
+			log('[ INFO  ] Attendance of particular faculty_id dropped. ')
 			return 512
 		except:
 			return 400
@@ -123,11 +123,11 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-      log(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
 			log('[ INFO  ] Attendance of a particular date is updated. ')
 			return 301
 		except:
-      log('[ ERROR  ] Attendance unable to update.')
+			log('[ ERROR  ] Attendance unable to update.')
 			return 204
 
 	def __del__(self):

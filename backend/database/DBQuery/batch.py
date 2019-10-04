@@ -19,9 +19,9 @@ class Batch:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Batch_DB]
-      log('[ INFO  ] Batch_DB Connected Successfully')
+			log('[ INFO  ] Batch_DB Connected Successfully')
 		except:
-      log('[ Error ] Unable To Create Connection With Batch_DB')
+			log('[ Error ] Unable To Create Connection With Batch_DB')
 			sys.exit(0)
 		self.collection = db[ f'{programme}_{branch}_{section}_{year_of_pass}' ]
 
@@ -34,11 +34,11 @@ class Batch:
 		# CHECKING FOR ANY DUPLICATE ENTRY IN THE COLLECTION
 		duplicate_entry = self.collection.find_one({ 'enrollment':enrollment })
 		if duplicate_entry != None:
-      log('[ ERROR ] This Student Already Present in Database')
+			log('[ ERROR ] This Student Already Present in Database')
 			return 417
 		else:
 			status = self.collection.insert_one({ 'enrollment':enrollment })
-      log(f'[ INFO  ] {status}')
+			log(f'[ INFO  ] {status}')
 			log('[ INFo  ] A new batch has been successfully inserted.')
 			return 201
 
@@ -50,8 +50,8 @@ class Batch:
 		#
 		try:
 			status = self.collection.delete_one({ 'enrollment':enrollment })
-      log(f'[ INFO  ] {status}')
-		  log('[ INFo  ] Enrollment of a particular student has been removed from batch collection.')
+			log(f'[ INFO  ] {status}')
+			log('[ INFo  ] Enrollment of a particular student has been removed from batch collection.')
 			return 220
 		except:
 			return 203
@@ -63,7 +63,7 @@ class Batch:
 		#
 		try:
 			self.collection.drop()
-      log('[ INFO  ] Batch_DB has been removed.')
+			log('[ INFO  ] Batch_DB has been removed.')
 			return 512
 		except:
 			return 400
@@ -82,8 +82,8 @@ class Batch:
 				'status':'598',
 				'res':'NA'
 			}
-    log('[ INFO  ] All the enrolled students displayed.')
-		return response
+			log('[ INFO  ] All the enrolled students displayed.')
+			return response
 
 	def __del__(self):
 		# log('[ INFO  ] Connection closed successfully of Batch_DB.')

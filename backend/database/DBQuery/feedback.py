@@ -76,8 +76,8 @@ class Feedback:
 				'status':'598',
 				'res':'NA'
 			}
-    log('[ INFO  ] All feedbacks of the faculty has been displayed.')
-		return response
+			log('[ INFO  ] All feedbacks of the faculty has been displayed.')
+			return response
 
 
 	def remove_all(self):
@@ -99,7 +99,7 @@ class Feedback:
 		try:
 			status = self.collection.delete_one({ 'enrollment':enrollment })
 			log(f'[ INFO  ] {status}')
-		  log('[ INFO  ] Feedback of a particular student for a particular faculty has been removed.')
+			log('[ INFO  ] Feedback of a particular student for a particular faculty has been removed.')
 			return 220
 		except:
 			return 203
@@ -116,7 +116,7 @@ class Feedback:
 			log('Faculty_DB has been updated successfully.')
 			return 301
 		except:
-      log('[ ERROR  ] Faculty_DB failed to update.')
+			log('[ ERROR  ] Faculty_DB failed to update.')
 			return 204
 
 	def __del__(self):

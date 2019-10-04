@@ -61,16 +61,16 @@ class Faculty:
 				"classes":classes,
 				"ratings":ratings,
 				}
-	    # CHECKING WHETHER ANY FACULTY WITH SAME FACULTY_ID IS PRESENT IN DATABASE
-	    duplicate_entry = self.collection.find_one({ 'faculty_id':id })
-	    if duplicate_entry != None:		# RUN WHEN THEIR PRESENTS ANY DUPLICATE FACULTY_ID IN DB
-	    	log('[ Error ] Object of this ID already present in database')
-	    	return 417
-	    else:			# RUNS WHEN THERE DOESN'T PRESENT ANY DUPLICATE ENTRY
-		    status = self.collection.insert_one(document)
-		    log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			  log('[ INFO  ] A faculty has been inserted in Faculty_DB.')
-		    return 201
+		# CHECKING WHETHER ANY FACULTY WITH SAME FACULTY_ID IS PRESENT IN DATABASE
+		duplicate_entry = self.collection.find_one({ 'faculty_id':id })
+		if duplicate_entry != None:		# RUN WHEN THEIR PRESENTS ANY DUPLICATE FACULTY_ID IN DB
+			log('[ Error ] Object of this ID already present in database')
+			return 417
+		else:			# RUNS WHEN THERE DOESN'T PRESENT ANY DUPLICATE ENTRY
+			status = self.collection.insert_one(document)
+			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log('[ INFO  ] A faculty has been inserted in Faculty_DB.')
+			return 201
 
 	def query(self,query_parameter,query_value):
 		# THIS QUERY FUNCTION INPUTS QUERY PARAMETER LIKE FACULTY_ID, NAME, ETC. AND QUERY VALUE
@@ -92,7 +92,7 @@ class Faculty:
 				'status':'206',
 				'res':res
 			}
-    log('[ INFO  ] The search query is successfully completed.')
+		log('[ INFO  ] The search query is successfully completed.')
 		return response
 
 	def remove(self,query_parameter,query_value):
@@ -106,7 +106,7 @@ class Faculty:
 		try:
 			status = self.collection.delete_many({ query_parameter:query_value })
 			log(f'[ INFO  ] {status}')
-		  log('[ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.')
+			log('[ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.')
 			return 220
 		except:
 			return 203
@@ -130,7 +130,7 @@ class Faculty:
 			log('[ INFO  ] Faculty_DB has been updated.')
 			return 301
 		except:
-      log('[ ERROR  ] Updation failed.')
+			log('[ ERROR  ] Updation failed.')
 			return 204
 
 	def __del__(self):

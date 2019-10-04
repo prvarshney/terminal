@@ -88,7 +88,7 @@ class Student:
 		#
 		try:
 			res = list(self.collection.find({ query_parameter:query_value }))
-      log('[ INFO  ] Successful query in Student_DB.')
+			log('[ INFO  ] Successful query in Student_DB.')
 			response = {
 				'status':'212',
 				'res': res
@@ -111,7 +111,7 @@ class Student:
 		try:
 			status = self.collection.delete_many({ query_parameter:query_value })
 			log(f'[ INFO  ] {status}')
-		  log('[ INFo  ] A particular record of student is removed from Student_DB.')
+			log('[ INFo  ] A particular record of student is removed from Student_DB.')
 			return 220
 		except:
 			return 203
@@ -129,8 +129,8 @@ class Student:
 		updating_values = { updation_param:updation_value }
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
-      log(f'[ INFO  ] {status}')
-		  log('[ INFO  ] Student_DB has been successfully updated.')
+			log(f'[ INFO  ] {status}')
+			log('[ INFO  ] Student_DB has been successfully updated.')
 			print(f'[ INFO  ] {status}')
 			return 301
 		except:

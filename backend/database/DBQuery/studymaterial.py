@@ -65,7 +65,7 @@ class StudyMaterial:
 		# IT DOESN'T INPUTS ANY PARAMETER AND RETURNS A LIST OF DICTIONARIES
 		#
 		log('[ INFO  ] All collection of study_material displayed.')
-    try:
+		try:
 			res = list(self.collection.find({}))
 			response = {
 				'status':'302',

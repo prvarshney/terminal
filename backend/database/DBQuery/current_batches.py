@@ -72,7 +72,7 @@ class CurrentBatches:
 			status = self.collection.delete_many({ 'batch':
 										f'{programme}_{branch}_{section}_{year_of_pass}' })
 			log(f'[ INFO  ] {status}')
-		  log('[ INFO  ] Record of that class has been removed from the Current_Batches_DB.')
+			log('[ INFO  ] Record of that class has been removed from the Current_Batches_DB.')
 			return 220
 		except:
 			return 203
@@ -85,7 +85,7 @@ class CurrentBatches:
 		#
 		try:
 			self.collection.drop()
-      log('[ INFO  ] Current_Batches_DB has been removed for the particular faculty.')
+			log('[ INFO  ] Current_Batches_DB has been removed for the particular faculty.')
 			return 512
 		except:
 			return 400
