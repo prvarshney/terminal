@@ -19,9 +19,9 @@ class Batch:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Batch_DB]
-			log('[ INFO  ] Batch_DB Connected Successfully')
+      log('[ INFO  ] Batch_DB Connected Successfully')
 		except:
-			log('[ Error ] Unable To Create Connection With Batch_DB')
+      log('[ Error ] Unable To Create Connection With Batch_DB')
 			sys.exit(0)
 		self.collection = db[ f'{programme}_{branch}_{section}_{year_of_pass}' ]
 
@@ -34,13 +34,13 @@ class Batch:
 		# CHECKING FOR ANY DUPLICATE ENTRY IN THE COLLECTION
 		duplicate_entry = self.collection.find_one({ 'enrollment':enrollment })
 		if duplicate_entry != None:
-			log('[ ERROR ] This Student Already Present in Database')
-			return False
+      log('[ ERROR ] This Student Already Present in Database')
+			return 417
 		else:
 			status = self.collection.insert_one({ 'enrollment':enrollment })
-			log(f'[ INFO  ] {status}')
+      log(f'[ INFO  ] {status}')
 			log('[ INFo  ] A new batch has been successfully inserted.')
-			return True
+			return 201
 
 	def remove(self,enrollment):
 		# USED TO REMOVE ENROLLMENT OF A PARTICULAR STUDENT FROM BATCH COLLECTION
@@ -48,36 +48,48 @@ class Batch:
 		# DATA STRUCTURES OF INPUT PARAMETER :-
 		# ENROLLMENT --> STRING
 		#
-		status = self.collection.delete_one({ 'enrollment':enrollment })
-		log(f'[ INFO  ] {status}')
-		log('[ INFo  ] Enrollment of a particular student has been removed from batch collection.')
-
+		try:
+			status = self.collection.delete_one({ 'enrollment':enrollment })
+      log(f'[ INFO  ] {status}')
+		  log('[ INFo  ] Enrollment of a particular student has been removed from batch collection.')
+			return 220
+		except:
+			return 203
+    
 	def remove_all(self):
 		# USED TO REMOVE WHOLE COLLECTION FOR WHICH BATCH CLASS
 		# OBJECT IS INITIALISED.
 		# ----------------------------------------------------------------------------
 		#
-		self.collection.drop()
-		log('[ INFo  ] Batch_DB has been removed.')
+		try:
+			self.collection.drop()
+      log('[ INFO  ] Batch_DB has been removed.')
+			return 512
+		except:
+			return 400
+
 
 	def show_all(self):
 		# USED TO DISPLAY A LIST OF ALL THE ENROLLED STUDENTS IN A CLASS
-		log('[ INFO  ] All the enrolled students displayed.')
-		return list(self.collection.find({}))
+		try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+    log('[ INFO  ] All the enrolled students displayed.')
+		return response
 
 	def __del__(self):
 		# log('[ INFO  ] Connection closed successfully of Batch_DB.')
 		self.client.close()	# RELEASING OPEN CONNECTION WITH DATABASE
 
 
-
 if __name__ == "__main__":
 	# TESTING SCRIPT
-	Batch = Batch(programme="Btech"
-	,branch="cse"
-	,section="A",
-	year_of_pass="2021")
-	Batch.insert('2022')
-	Batch.remove_all()
-	Batch.show_all()
-	# pass
+	pass

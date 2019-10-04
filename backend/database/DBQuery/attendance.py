@@ -29,8 +29,8 @@ class Attendance:
 			db = self.client[config.Attendance_DB]
 			log('[ INFO  ] Attendance_DB Connected Successfully')
 		except:
-			log('[ Error ] Unable To Create Connection With Attendance_DB')
-			sys.exit(0)
+       log('[ Error ] Unable To Create Connection With Attendance_DB')
+			 sys.exit(0)
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
@@ -54,19 +54,30 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+      log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
 			log('[ INFO  ] Attendance inserted of a particular date. ')
-			return True
+			return 201
 		except:
-			log('[ ERROR  ] Unable to insert attendance in Attendance_DB. ')
-			return False
+      log('[ ERROR  ] Unable to insert attendance in Attendance_DB. ')
+			return 417
 
 	def show_all(self):
 		# THIS METHOD DOESN'T INPUTS ANY PARAMETER AND RETURNS THE LIST OF ALL THE AVAILABLE
 		# DOCUMENTS INSIDE COLLECTION FOR WHICH ATTENDANCE CONSTRUCTOR IS INITIALISED
 		#
-		log('[ INFO  ] All the attendance collection displayed.')
-		return list(self.collection.find({}))
+		try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':{}
+			}
+    log('[ INFO  ] All the attendance collection displayed.')
+		return response
 
 	def show_on(self,query_date):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
@@ -75,15 +86,30 @@ class Attendance:
 		# DATA STRUCTURES OF INPUT PARAMETER :-
 		# QUERY_DATE --> DICTIONARY
 		#
-		log('[ INFO  ] Attendance of a particular date showed. ')
-		return list(self.collection.find({ 'date': query_date }))
+		try:
+			res = list(self.collection.find({ 'date': query_date }))
+			response = {
+				'status':'202',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'404',
+				'res':{}
+			}
+    log('[ INFO  ] Attendance of a particular date showed. ')
+		return response
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF ATTENDANCE OF THAT PARTICULAR FACULTY_ID FOR
 		# WHICH CLASS OBJECT IS INTIALISED.
 		#
-		log('[ INFO  ] Attendance of particular faculty_id dropped. ')
-		self.collection.drop()
+		try:
+			self.collection.drop()
+      log('[ INFO  ] Attendance of particular faculty_id dropped. ')
+			return 512
+		except:
+			return 400
 
 	def update(self,date,attendance_dictionary):
 		# THIS METHOD USE TO UPDATE ATTENDANCE OF A PARTICULAR DATE WITH ATTENDANCE_DICTIONARY
@@ -97,38 +123,19 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-			log(f'[ INFO  ] {status}')
+      log(f'[ INFO  ] {status}')
 			log('[ INFO  ] Attendance of a particular date is updated. ')
-			return True
+			return 301
 		except:
-			log('[ ERROR  ] Attendance unable to update.')
-			return False
+      log('[ ERROR  ] Attendance unable to update.')
+			return 204
 
 	def __del__(self):
 		# THIS DESTRUCTOR CLOSES CONNECTION OPENED BY THE OBJECT OF THIS CLASS
-		self.client.close() 
+		self.client.close()
 
 
 if __name__ == "__main__":
 	# TESTING SCRIPT
-	attendance = Attendance(
-		faculty_id="F036A",
-		subject="ethical_hacking",
-		programme="btech",
-		branch="cse",
-		section="A",
-		year_of_pass="2021",
-		semester="5"
-		)
-	attendance.insert(
-		{
-			'date':{'day':'04', 'month':'06', 'year':'1998'},
-			'attendance': {
-				'05520802717': 'P',
-				'05620802717' : 'A'
-			}
-		}
-	)
-	attendance.remove_all()
-	attendance.show_all()
-	attendance.show_on({'day':'04','month':'06','year':'1998'})
+	pass
+

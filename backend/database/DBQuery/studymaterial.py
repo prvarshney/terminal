@@ -48,7 +48,8 @@ class StudyMaterial:
 		duplicate_entry = self.collection.find_one({ 'path':path })		# CHECKS WHETHER THE PATH OF NOTES IS ALREADY IN DB
 		if duplicate_entry != None:
 			log('[ Error ] Object of this title already present in Database')
-			return False
+			return 417
+			print('[ Error ] Object of this title already present in Database')
 		else:
 			status = self.collection.insert_one({
 				'date': date,
@@ -57,14 +58,26 @@ class StudyMaterial:
 				})
 			log(f'[ INFO  ] {status}')
 			log('[ INFO  ] New document being inserted.')
-			return True
+			return 201
 
 	def show_all(self):
 		# THIS METHOD USED TO FETCH WHOLE COLLECTION OF STUDYMATERIAL
 		# IT DOESN'T INPUTS ANY PARAMETER AND RETURNS A LIST OF DICTIONARIES
 		#
 		log('[ INFO  ] All collection of study_material displayed.')
-		return list(self.collection.find({}))
+    try:
+			res = list(self.collection.find({}))
+			response = {
+				'status':'302',
+				'res':res
+			}
+		except:
+			response = {
+				'status':'598',
+				'res':'NA'
+			}
+		return response
+  
 
 	def remove(self,title):
 		# THIS METHOD USED TO REMOVE A DOCUMENT FROM STUDY_MATERIAL COLLECTION OF THE
@@ -73,35 +86,29 @@ class StudyMaterial:
 		# DATA STRUCTURE OF INPUT PARAMETER :
 		# TITLE --> STRING
 		#
-		status = self.collection.delete_many({ 'title':title })
-		log(f'[ INFO  ] {status}')
-		log('[ INFO  ] A single document is removed.')
+    try:
+			status = self.collection.delete_many({ 'title':title })
+			log(f'[ INFO  ] {status}')
+      log('[ INFO  ] A single document is removed.')
+			return 220
+		except:
+			return 203
+
 
 	def remove_all(self):
 		# THIS METHOD REMOVES WHOLE COLLECTION OF THAT FACULTY STUDYMATERIAL COLLECTION
 		# FOR WHICH ITS OBJECT IS INITIALISED.
 		#
-		status = self.collection.drop()
-		log('[ INFO  ] All study material collection is removed.')
+		try:
+			status = self.collection.drop()
+      log('[ INFO  ] All study material collection is removed.')
+			return 512
+		except:
+			return 400
 
 	def __del__(self):
 		self.client.close()
 
 if __name__== "__main__":
 	# TEST CODE COMES HERE
-	StudyMaterial = StudyMaterial(
-		faculty_id="036A",
-		subject="toc",
-		programme="btech",
-		branch="cse",
-		section="A",
-		year_of_pass="2021",
-		semester="5"
-	)
-	StudyMaterial.insert('abc',{
-		'day':'04','month':'06','year':'1998'
-	},'heelo')
-	StudyMaterial.show_all()
-	StudyMaterial.remove('ac')
 	pass
-

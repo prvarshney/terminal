@@ -70,12 +70,12 @@ class Student:
 		duplicate_entry = self.collection.find_one({ 'enrollment':enrollment })
 		if duplicate_entry != None:
 			log('[ Error ] Object of this Enrollment Number already present in Database')
-			return False
+			return 417
 		else:
 			status = self.collection.insert_one(document)
 			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			log('[ INFo  ] A new student has been inserted into Student_DB.')
-			return True
+			log('[ INFO  ] A new student has been inserted into Student_DB.')
+			return 201
 
 	def query(self,query_parameter,query_value):
 		# THIS QUERY FUNCTION INPUTS QUERY PARAMETER LIKE ENROLLMENT_ID, NAME, ETC. AND QUERY VALUE
@@ -86,8 +86,19 @@ class Student:
 		# QUERY_PARAMETER --> STRING
 		# QUERY_VALUE --> STRING, DICTIONARY, LIST OF STRING
 		#
-		log('[ INFO  ] Successful query in Student_DB.')
-		return list(self.collection.find({ query_parameter:query_value }))
+		try:
+			res = list(self.collection.find({ query_parameter:query_value }))
+      log('[ INFO  ] Successful query in Student_DB.')
+			response = {
+				'status':'212',
+				'res': res
+			}
+		except:
+			response = {
+				'status':'206',
+				'res':res
+			}
+		return response
 
 	def remove(self,query_parameter,query_value):
 		# THIS FUNCTION REMOVES THOSE DOCUMENTS WHICH POSSESS QUERY_PARAMETER AS ANY KEY
@@ -97,9 +108,13 @@ class Student:
 		# QUERY_PARAMETER --> STRING
 		# QUERY_VALUE --> LIST, STRING, DICTIONARY
 		#
-		status = self.collection.delete_many({ query_parameter:query_value })
-		log(f'[ INFO  ] {status}')
-		log('[ INFo  ] A particular record of student is removed from Student_DB.')
+		try:
+			status = self.collection.delete_many({ query_parameter:query_value })
+			log(f'[ INFO  ] {status}')
+		  log('[ INFo  ] A particular record of student is removed from Student_DB.')
+			return 220
+		except:
+			return 203
 
 	def update(self,enrollment,updation_param,updation_value):
 		# THIS UPDATE FUNCTION INPUTS THE ENROLLMENT, TO CHECK WHICH DOCUMENT NEEDS TO UPDATE
@@ -112,9 +127,14 @@ class Student:
 		#
 		searching_values = {'enrollment':enrollment}
 		updating_values = { updation_param:updation_value }
-		status = self.collection.update_one(searching_values, {'$set':updating_values})
-		log(f'[ INFO  ] {status}')
-		log('[ INFO  ] Student_DB has been successfully updated.')
+		try:
+			status = self.collection.update_one(searching_values, {'$set':updating_values})
+      log(f'[ INFO  ] {status}')
+		  log('[ INFO  ] Student_DB has been successfully updated.')
+			print(f'[ INFO  ] {status}')
+			return 301
+		except:
+			return 204
 
 	def __del__(self):
 		self.client.close()

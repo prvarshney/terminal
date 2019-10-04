@@ -54,12 +54,12 @@ class CurrentBatches:
 		duplicate_entry = self.collection.find_one({ 'batch':current_batches_dictionary['batch'] })
 		if duplicate_entry != None:
 			log('[ ERROR ] This Batch Is Already Present In Database For This Faculty')
-			return False
+			return 417
 		else:
 			status = self.collection.insert_one(current_batches_dictionary)
 			log(f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
 			log('[ INFO  ] A new batch for the particular faculty has been created.')
-			return True
+			return 201
 
 	def remove(self,programme,branch,section,year_of_pass):
 		# THIS METHOD REMOVES THE RECORD OF THAT CLASS FROM THE FACULTY
@@ -68,10 +68,14 @@ class CurrentBatches:
 		# DATA STRUCTURE OF INPUT PARAMETER:-
 		# CURRENT_BATCH --> STRING
 		#
-		status = self.collection.delete_many({ 'batch':
-									f'{programme}_{branch}_{section}_{year_of_pass}' })
-		log(f'[ INFO  ] {status}')
-		log('[ INFO  ] Record of that class has been removed from the Current_Batches_DB.')
+		try:
+			status = self.collection.delete_many({ 'batch':
+										f'{programme}_{branch}_{section}_{year_of_pass}' })
+			log(f'[ INFO  ] {status}')
+		  log('[ INFO  ] Record of that class has been removed from the Current_Batches_DB.')
+			return 220
+		except:
+			return 203
 
 	def remove_all(self):
 		# THIS METHOD REMOVES ALL THE BATCHES ANY FACULTY IS CURRENTLY TAKING.
@@ -79,8 +83,12 @@ class CurrentBatches:
 		# 				SO THERE IS NO NEED TO MAINTAIN THE CURRENT CLASS
 		# 				SHEET FOR THAT FACULTY.
 		#
-		self.collection.drop()
-		log('[ INFO  ] Current_Batches_DB has been removed for the particular faculty.')
+		try:
+			self.collection.drop()
+      log('[ INFO  ] Current_Batches_DB has been removed for the particular faculty.')
+			return 512
+		except:
+			return 400
 
 	def show_all(self):
 		# THIS METHOD DOESN'T TAKE ANY INPUT PARAMETER.
@@ -97,15 +105,5 @@ class CurrentBatches:
 
 if __name__ == "__main__":
 	# TEST CODE COMES HERE
-	CurrentBatches = CurrentBatches('01234')
-	CurrentBatches.insert(subject = "maths"
-	,semester="5",
-	programme="btech",
-	branch="cse",
-	section="A",
-	year_of_pass="2021")
-	CurrentBatches.remove(programme="btech",
-	branch="cse",
-	section="A",
-	year_of_pass="2022")
 	pass
+
