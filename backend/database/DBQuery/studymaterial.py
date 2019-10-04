@@ -86,10 +86,10 @@ class StudyMaterial:
 		# DATA STRUCTURE OF INPUT PARAMETER :
 		# TITLE --> STRING
 		#
-    try:
+		try:
 			status = self.collection.delete_many({ 'title':title })
 			log(f'[ INFO  ] {status}')
-      log('[ INFO  ] A single document is removed.')
+			log('[ INFO  ] A single document is removed.')
 			return 220
 		except:
 			return 203
@@ -101,7 +101,7 @@ class StudyMaterial:
 		#
 		try:
 			status = self.collection.drop()
-      log('[ INFO  ] All study material collection is removed.')
+			log('[ INFO  ] All study material collection is removed.')
 			return 512
 		except:
 			return 400
