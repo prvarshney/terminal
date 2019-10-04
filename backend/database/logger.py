@@ -7,4 +7,4 @@ def log(info_msg):
         fd.write(date_string+info_msg+'\n')
 
 if __name__ == "__main__":
-    log("Hello Prashant")
+    pass

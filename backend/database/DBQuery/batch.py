@@ -82,8 +82,8 @@ class Batch:
 				'status':'598',
 				'res':'NA'
 			}
-			log('[ INFO  ] All the enrolled students displayed.')
-			return response
+		log('[ INFO  ] All the enrolled students displayed.')
+		return response
 
 	def __del__(self):
 		# log('[ INFO  ] Connection closed successfully of Batch_DB.')

@@ -76,8 +76,8 @@ class Attendance:
 				'status':'598',
 				'res':{}
 			}
-			log('[ INFO  ] All the attendance collection displayed.')
-			return response
+		log('[ INFO  ] All the attendance collection displayed.')
+		return response
 
 	def show_on(self,query_date):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
@@ -98,7 +98,7 @@ class Attendance:
 				'res':{}
 			}
 			log('[ INFO  ] Attendance of a particular date showed. ')
-			return response
+		return response
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF ATTENDANCE OF THAT PARTICULAR FACULTY_ID FOR
