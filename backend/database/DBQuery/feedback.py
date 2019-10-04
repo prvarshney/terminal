@@ -64,8 +64,8 @@ class Feedback:
 		# THIS METHOD DISPLAYS ALL THE FEEDBACKS OF A PARTICULAR FACULTY GIVEN BY A PARTICULAR CLASS
 		# STUDENT
 		#
-		return list(self.collection.find({}))
 		log('[ INFO  ] All feedbacks of the faculty has been displayed.')
+		return list(self.collection.find({}))
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF FEEDBACK OF THAT PARTICULAR FACULTY_ID FOR

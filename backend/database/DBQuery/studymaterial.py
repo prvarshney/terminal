@@ -63,8 +63,8 @@ class StudyMaterial:
 		# THIS METHOD USED TO FETCH WHOLE COLLECTION OF STUDYMATERIAL
 		# IT DOESN'T INPUTS ANY PARAMETER AND RETURNS A LIST OF DICTIONARIES
 		#
-		return list(self.collection.find({}))
 		log('[ INFO  ] All collection of study_material displayed.')
+		return list(self.collection.find({}))
 
 	def remove(self,title):
 		# THIS METHOD USED TO REMOVE A DOCUMENT FROM STUDY_MATERIAL COLLECTION OF THE

@@ -86,8 +86,8 @@ class Student:
 		# QUERY_PARAMETER --> STRING
 		# QUERY_VALUE --> STRING, DICTIONARY, LIST OF STRING
 		#
-		return list(self.collection.find({ query_parameter:query_value }))
 		log('[ INFO  ] Successful query in Student_DB.')
+		return list(self.collection.find({ query_parameter:query_value }))
 
 	def remove(self,query_parameter,query_value):
 		# THIS FUNCTION REMOVES THOSE DOCUMENTS WHICH POSSESS QUERY_PARAMETER AS ANY KEY

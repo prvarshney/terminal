@@ -64,15 +64,15 @@ class Marksheet:
 		# Data Structures of input parameter :-
 		# enrollment --> string
 		#
-		return self.collection.find({ 'enrollment': enrollment })
 		log('[ INFO  ] Marks of the enrollment has been displayed.')
+		return self.collection.find({ 'enrollment': enrollment })
 
 	def show_all(self):
 		# This method doesn't takes any input and returns marks of all students.
 		# -------------------------------------------------------------------------------
 		#
-		return list(self.collection.find({}))
 		log('[ INFO  ] Marks of all the students has been successfully displayed.')
+		return list(self.collection.find({}))
 
 	def remove(self,enrollment):
 		# This method removes the collection of marks of a particular

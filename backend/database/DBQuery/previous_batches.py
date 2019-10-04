@@ -87,8 +87,8 @@ class PreviousBatches:
 		# COLLECTION FOR WHICH THE PREVIOUS_CLASSES CONSTRUCTOR HAS BEEN
 		#  INITIALIZED.
 		#
-		return list(self.collection.find({}))
 		log('[ INFO  ] All Collection of Previous_Classes has been displayed.')
+		return list(self.collection.find({}))
 
 	def __del__(self):
 		self.client.close()

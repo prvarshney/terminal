@@ -62,8 +62,8 @@ class Batch:
 
 	def show_all(self):
 		# USED TO DISPLAY A LIST OF ALL THE ENROLLED STUDENTS IN A CLASS
-		return list(self.collection.find({}))
 		log('[ INFO  ] All the enrolled students displayed.')
+		return list(self.collection.find({}))
 
 	def __del__(self):
 		# log('[ INFO  ] Connection closed successfully of Batch_DB.')

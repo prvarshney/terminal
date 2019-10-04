@@ -65,8 +65,8 @@ class Attendance:
 		# THIS METHOD DOESN'T INPUTS ANY PARAMETER AND RETURNS THE LIST OF ALL THE AVAILABLE
 		# DOCUMENTS INSIDE COLLECTION FOR WHICH ATTENDANCE CONSTRUCTOR IS INITIALISED
 		#
-		return list(self.collection.find({}))
 		log('[ INFO  ] All the attendance collection displayed.')
+		return list(self.collection.find({}))
 
 	def show_on(self,query_date):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
@@ -75,15 +75,15 @@ class Attendance:
 		# DATA STRUCTURES OF INPUT PARAMETER :-
 		# QUERY_DATE --> DICTIONARY
 		#
-		return list(self.collection.find({ 'date': query_date }))
 		log('[ INFO  ] Attendance of a particular date showed. ')
+		return list(self.collection.find({ 'date': query_date }))
 
 	def remove_all(self):
 		# THIS METHOD REMOVES THE COLLECTION OF ATTENDANCE OF THAT PARTICULAR FACULTY_ID FOR
 		# WHICH CLASS OBJECT IS INTIALISED.
 		#
-		self.collection.drop()
 		log('[ INFO  ] Attendance of particular faculty_id dropped. ')
+		self.collection.drop()
 
 	def update(self,date,attendance_dictionary):
 		# THIS METHOD USE TO UPDATE ATTENDANCE OF A PARTICULAR DATE WITH ATTENDANCE_DICTIONARY
@@ -111,7 +111,7 @@ class Attendance:
 
 if __name__ == "__main__":
 	# TESTING SCRIPT
-	Attendance = Attendance(
+	attendance = Attendance(
 		faculty_id="F036A",
 		subject="ethical_hacking",
 		programme="btech",
@@ -120,7 +120,7 @@ if __name__ == "__main__":
 		year_of_pass="2021",
 		semester="5"
 		)
-	Attendance.insert(
+	attendance.insert(
 		{
 			'date':{'day':'04', 'month':'06', 'year':'1998'},
 			'attendance': {
@@ -129,4 +129,6 @@ if __name__ == "__main__":
 			}
 		}
 	)
-	Attendance.remove_all()
+	attendance.remove_all()
+	attendance.show_all()
+	attendance.show_on({'day':'04','month':'06','year':'1998'})
