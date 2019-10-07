@@ -76,8 +76,8 @@ class Feedback:
 				'status':'598',
 				'res':'NA'
 			}
-			log('[ INFO  ] All feedbacks of the faculty has been displayed.')
-			return response
+		log('[ INFO  ] All feedbacks of the faculty has been displayed.')
+		return response
 
 
 	def remove_all(self):

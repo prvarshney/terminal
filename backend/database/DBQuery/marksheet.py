@@ -42,7 +42,7 @@ class Marksheet:
 		# for example :
 		# marksheet_dictionary = {
 		#							'enrollment':'03720802717',
-		#							'marks' :  '29',
+		#							'marks' :  '29', 
 		#							'assessment':'8'
 		#						}
 		#
@@ -65,7 +65,7 @@ class Marksheet:
 		# enrollment --> string
 		#
 		try:
-			res = self.collection.find({ 'enrollment': enrollment })
+			res = list(self.collection.find({ 'enrollment': enrollment }))
 			log('[ INFO  ] Marks of the enrollment has been displayed.')
 			response = {
 				'status':'202',
