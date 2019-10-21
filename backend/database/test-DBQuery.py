@@ -105,7 +105,6 @@ if __name__ == "__main__":
         print("[  INFO  ] Starting Single Entry Testing Engine ")
         print("[  INFO  ] Testing Attendance API Functionality ")  
         print('----------------------------------------------------------------------------------------------------------')
-
         ######################################### TESTING OF ATTENDANCE API STARTED ######################################################
         errors_list = []
         faculty_id=random.choice(FACULTY_IDS)
@@ -173,7 +172,7 @@ if __name__ == "__main__":
         print('----------------------------------------------------------------------------------------------------------')
         print(*errors_list,sep='\n')
         ###################################### TESTING OF ATTENDANCE API FINISHED #############################################################
-        
+
         ###################################### TESTING OF BATCH API STARTED ###################################################################
         print('\n----------------------------------------------------------------------------------------------------------')
         print("[  INFO  ] Testing Batch API Functionality ")  
@@ -228,7 +227,7 @@ if __name__ == "__main__":
         print('----------------------------------------------------------------------------------------------------------')
         print(*errors_list,sep='\n')
         ###################################### TESTING OF BATCH API FINISHED #############################################################
-        
+
         #################################################TESTING OF FEEDBACK API STARTED##########################################
         print('\n--------------------------------------------------------------------------------------------')
         print("[  INFO  ] Testing Feedback API")
@@ -370,7 +369,59 @@ if __name__ == "__main__":
         print('----------------------------------------------------------------------------------------------------------')
         print(*errors_list,sep='\n')
         #######################################TESTING OF MARKSHEET API FINISHED##############################
-    
+        #################################### TESTING OF CURRENT_BATCHES API STARTED #################################################################
+        print('\n----------------------------------------------------------------------------------------------------------')
+        print("[  INFO  ] Testing CURRENT_Batch API Functionality ")  
+        print('----------------------------------------------------------------------------------------------------------')
+        errors_list.clear()
+        faculty_id = random.choice(FACULTY_IDS)
+        subject = random.choice(SUBJECTS)
+        semester = random.choice(SEMESTERS)
+        programme = random.choice(PROGRAMMES)
+        branch = random.choice(BRANCHES)
+        section = random.choice(SECTIONS)
+        year_of_pass = random.choice(YEAR_OF_PASS)
+        current_batches = db.CurrentBatches(faculty_id)
+        print(f'[  INFO  ] Working on collection : {faculty_id}\n')
+        ##
+        # # Testing Insert Method
+        print(f'[  INFO  ] Inserting - {subject}_{semester}_{programme}_{branch}_{section}_{year_of_pass}')
+        status = current_batches.insert(subject,semester,programme,branch,section,year_of_pass)
+        print(f'[  STATUS  ] {status}')        ## PRINTING STATUS OF INSERT METHOD
+        print(f'[  INFO  ] Trying To Insert Duplicate Entry - {subject}_{semester}_{programme}_{branch}_{section}_{year_of_pass}')
+        status = current_batches.insert(subject,semester,programme,branch,section,year_of_pass)
+        print(f'[  STATUS  ] {status}')        ## PRINTING STATUS OF DUPLICATE METHOD
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Batch - Insert Method')
+        # # Testing Show_All Method
+        print('\n[  INFO  ] Fetching all the batches of the faculty.')
+        response = current_batches.show_all()
+        print(f'[ STATUS ] {status}')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('CurrentBatches - Show_All Method')
+        # # Testing Remove Method
+        print(f'[  INFO  ] Removing record of class from faculty class list.')
+        status = current_batches.remove(programme,branch,section,year_of_pass)
+        print(f'[ STATUS ] {status}')       ## PRINTING STATUS OF REMOVE METHOD
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('CurrentBatches - Remove Method')
+        # # Testing Remove_All Method
+        print('\n[  INFO  ] Removing Whole Collection.')
+        status = current_batches.remove_all()
+        print(f'[ STATUS ] {status}')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('CurrentBatches - Remove_ALL Method')
+        print('----------------------------------------------------------------------------------------------------------')
+        print('[  INFO  ] Errors In CurrentBatches API : {} '.format(len(errors_list)))
+        print('----------------------------------------------------------------------------------------------------------')
+        print(*errors_list,sep='\n')
+        ###################################### TESTING OF CURRENTBATCHES API FINISHED ######################################################
+
+            
     elif main_selection == 2: 
         # PERFORMING MULTIPLE ENTRY TEST FOR ALL APIS
         print("[  INFO  ] Starting Multiple Entry Testing Engine ")

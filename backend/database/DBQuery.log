@@ -274,3 +274,96 @@
 [ 07-10-2019 :: 20:55:58 ] [ INFO  ] Marksheet_DB has been updated.
 [ 07-10-2019 :: 20:56:00 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7efff407c808>
 [ 07-10-2019 :: 20:56:00 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 16-10-2019 :: 16:33:52 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 16-10-2019 :: 16:33:58 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f738b0e09c8>
+[ 16-10-2019 :: 16:33:58 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 16-10-2019 :: 16:33:58 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 16-10-2019 :: 16:37:34 ] [ INFO  ] All the current batches has been displayed.
+[ 16-10-2019 :: 17:06:30 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 16-10-2019 :: 17:06:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f1ee6ac0788>
+[ 16-10-2019 :: 17:06:35 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 16-10-2019 :: 17:06:35 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 16-10-2019 :: 17:06:36 ] [ INFO  ] All the current batches has been displayed.
+[ 16-10-2019 :: 17:07:49 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 16-10-2019 :: 17:07:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f1c60ccb988>
+[ 16-10-2019 :: 17:07:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 16-10-2019 :: 17:07:52 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 16-10-2019 :: 17:07:53 ] [ INFO  ] All the current batches has been displayed.
+[ 16-10-2019 :: 17:08:48 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 16-10-2019 :: 17:08:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f392b681648>
+[ 16-10-2019 :: 17:08:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 16-10-2019 :: 17:08:52 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 16-10-2019 :: 17:08:55 ] [ INFO  ] All the current batches has been displayed.
+[ 16-10-2019 :: 17:08:56 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f392b681a88>
+[ 16-10-2019 :: 17:08:56 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 16-10-2019 :: 17:08:57 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 16-10-2019 :: 17:09:05 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 16-10-2019 :: 17:09:10 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f7fad213a08>
+[ 16-10-2019 :: 17:09:10 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 16-10-2019 :: 17:09:10 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 16-10-2019 :: 17:09:11 ] [ INFO  ] All the current batches has been displayed.
+[ 16-10-2019 :: 17:09:34 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f7fad213788>
+[ 16-10-2019 :: 17:09:34 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 16-10-2019 :: 17:09:36 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 21-10-2019 :: 11:55:49 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 21-10-2019 :: 11:55:55 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8760ae8ac8>
+[ 21-10-2019 :: 11:55:55 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 21-10-2019 :: 11:55:55 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 21-10-2019 :: 11:55:56 ] [ INFO  ] All the current batches has been displayed.
+[ 21-10-2019 :: 11:55:57 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8760ae8b48>
+[ 21-10-2019 :: 11:55:57 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 21-10-2019 :: 11:55:59 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 21-10-2019 :: 11:58:17 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 21-10-2019 :: 11:58:20 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda7f0f548>
+[ 21-10-2019 :: 11:58:20 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 21-10-2019 :: 11:58:20 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda7f0f688>
+[ 21-10-2019 :: 11:58:20 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 21-10-2019 :: 11:58:22 ] [ INFO  ] All the attendance collection displayed.
+[ 21-10-2019 :: 11:58:23 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fdda7f0f888>
+[ 21-10-2019 :: 11:58:23 ] [ INFO  ] Attendance of a particular date is updated. 
+[ 21-10-2019 :: 11:58:23 ] [ INFO  ] Attendance of particular faculty_id dropped. 
+[ 21-10-2019 :: 11:58:24 ] [ INFO  ] Batch_DB Connected Successfully
+[ 21-10-2019 :: 11:58:27 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda569ed48>
+[ 21-10-2019 :: 11:58:27 ] [ INFo  ] A new batch has been successfully inserted.
+[ 21-10-2019 :: 11:58:28 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda569e588>
+[ 21-10-2019 :: 11:58:28 ] [ INFo  ] A new batch has been successfully inserted.
+[ 21-10-2019 :: 11:58:28 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda569e648>
+[ 21-10-2019 :: 11:58:28 ] [ INFo  ] A new batch has been successfully inserted.
+[ 21-10-2019 :: 11:58:28 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda569e508>
+[ 21-10-2019 :: 11:58:28 ] [ INFo  ] A new batch has been successfully inserted.
+[ 21-10-2019 :: 11:58:29 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda7f0f708>
+[ 21-10-2019 :: 11:58:29 ] [ INFo  ] A new batch has been successfully inserted.
+[ 21-10-2019 :: 11:58:29 ] [ ERROR ] This Student Already Present in Database
+[ 21-10-2019 :: 11:58:29 ] [ INFO  ] All the enrolled students displayed.
+[ 21-10-2019 :: 11:58:32 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fdda569eec8>
+[ 21-10-2019 :: 11:58:32 ] [ INFo  ] Enrollment of a particular student has been removed from batch collection.
+[ 21-10-2019 :: 11:58:33 ] [ INFO  ] Batch_DB has been removed.
+[ 21-10-2019 :: 11:58:33 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 21-10-2019 :: 11:58:37 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda569eb88>
+[ 21-10-2019 :: 11:58:37 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 21-10-2019 :: 11:58:37 ] [ ERROR ] Feedback Of This Student Already Present In Database For This Faculty
+[ 21-10-2019 :: 11:58:40 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 21-10-2019 :: 11:58:41 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fdda7f0f7c8>
+[ 21-10-2019 :: 11:58:41 ] Faculty_DB has been updated successfully.
+[ 21-10-2019 :: 11:58:42 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fdda7f0f708>
+[ 21-10-2019 :: 11:58:42 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 21-10-2019 :: 11:58:44 ] [ INFO  ] Requested Collection Dropped
+[ 21-10-2019 :: 11:58:46 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 21-10-2019 :: 11:58:49 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda56bcec8>
+[ 21-10-2019 :: 11:58:49 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 21-10-2019 :: 11:58:50 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda56b4c48>
+[ 21-10-2019 :: 11:58:50 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 21-10-2019 :: 11:58:50 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 21-10-2019 :: 11:58:51 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 21-10-2019 :: 11:58:53 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fdda569e488>
+[ 21-10-2019 :: 11:58:53 ] [ INFO  ] Marksheet_DB has been updated.
+[ 21-10-2019 :: 11:58:55 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fdda7f0fa48>
+[ 21-10-2019 :: 11:58:55 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 21-10-2019 :: 11:58:57 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 21-10-2019 :: 11:59:00 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdda56bca48>
+[ 21-10-2019 :: 11:59:00 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 21-10-2019 :: 11:59:00 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 21-10-2019 :: 11:59:00 ] [ INFO  ] All the current batches has been displayed.
+[ 21-10-2019 :: 11:59:06 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fdda5687308>
+[ 21-10-2019 :: 11:59:06 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 21-10-2019 :: 11:59:13 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
