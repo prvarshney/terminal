@@ -232,7 +232,6 @@ if __name__ == "__main__":
         print('\n--------------------------------------------------------------------------------------------')
         print("[  INFO  ] Testing Feedback API")
         print('----------------------------------------------------------------------------------------------')
-        errors_list = []
         errors_list.clear()
         faculty_id = random.choice(FACULTY_IDS)
         subject = random.choice(SUBJECTS)
