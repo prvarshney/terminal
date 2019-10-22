@@ -33,7 +33,7 @@ class Admin:
         # QUERY_VALUE --> STRING
         #
         try:
-            res = self.collection.find({ query_parameter: query_value})
+            res = list(self.collection.find({ query_parameter: query_value}))
             response = {
                 'status': '212',
                 'res': res

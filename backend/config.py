@@ -3,7 +3,6 @@
 # And to apply that details import this file into your program as a module
 
 MongoDB_URI = "mongodb+srv://prashant:varshney@cluster0-jv09r.mongodb.net/test?retryWrites=true&w=majority"
-key = "w"
 
 # Database Identifiers
 Database_Name = "atom_db"
@@ -16,6 +15,8 @@ Marksheet_DB = "marksheet_db"
 Previous_Batches_DB = "previous_batches_db"
 Student_DB = "student_db"
 StudyMaterial_DB = "studymaterial_db"
+Admin_DB = "admin_db"
 
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
+Admin_Profile_Collection = "user_info"

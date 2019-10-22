@@ -15,6 +15,8 @@ Marksheet_DB = "marksheet_db"
 Previous_Batches_DB = "previous_batches_db"
 Student_DB = "student_db"
 StudyMaterial_DB = "studymaterial_db"
+Admin_DB = "admin_db"
 
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
+Admin_Profile_Collection = "user_info"
