@@ -40,6 +40,34 @@ def authentication():
             res = { "status":"Not Habibi" }
     return jsonify(res)
 
+@app.route("/admin/insert",methods=['POST'])
+def insert():
+    req = request.get_json()
+    batch = db.Batch(req['programme'],req['branch'],req['section'],req['year_of_pass'])
+    for enrollment in req['enrollment']:
+        db_res = batch.insert(enrollment)
+    res = { "status" : db_res}
+    return jsonify(res)
+
+@app.route("/faculty/insert_attendance",methods=['POST'])
+def insert_attendance():
+    req = request.get_json()
+    attendance = db.Attendance(req['faculty_id'],req['subject'],req['programme'],req['branch'],
+    req['section'],req['year_of_pass'],req['semester'])
+    db_res = attendance.insert(req['attendance_dictionary'])
+    res = {"status" : db_res}
+    return jsonify(res)
+
+@app.route("/faculty/show_attendance",methods=['POST'])
+def show_attendance():
+    req = request.get_json()
+    attendance = db.Attendance(req['faculty_id'],req['subject'],req['programme'],req['branch'],
+    req['section'],req['year_of_pass'],req['semester'])
+    db_res = attendance.show_all()
+    print(db_res["res"])
+    return db_res
+   
+
 if __name__ == '__main__':
     app.run(debug=True,port=5001,host="0.0.0.0")
     

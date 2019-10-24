@@ -13,3 +13,100 @@
 [ 22-10-2019 :: 16:10:57 ] [ INFO  ] The search query is successfully completed.
 [ 22-10-2019 :: 16:11:01 ] [  INFO  ] Admin_DB connected successfully.
 [ 22-10-2019 :: 16:11:11 ] [ INFO  ] The search query is successfully completed.
+[ 22-10-2019 :: 16:20:19 ] [  INFO  ] Admin_DB connected successfully.
+[ 22-10-2019 :: 16:20:28 ] [ INFO  ] The search query is successfully completed.
+[ 24-10-2019 :: 13:02:06 ] [  INFO  ] Admin_DB connected successfully.
+[ 24-10-2019 :: 13:02:10 ] [ INFO  ] The search query is successfully completed.
+[ 24-10-2019 :: 13:02:42 ] [  INFO  ] Admin_DB connected successfully.
+[ 24-10-2019 :: 13:02:46 ] [ INFO  ] The search query is successfully completed.
+[ 24-10-2019 :: 13:29:02 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:30:25 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:31:07 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:33:44 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:34:36 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:34:39 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f897e3d46c8>
+[ 24-10-2019 :: 13:34:39 ] [ INFo  ] A new batch has been successfully inserted.
+[ 24-10-2019 :: 13:34:39 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f897e3d4648>
+[ 24-10-2019 :: 13:34:39 ] [ INFo  ] A new batch has been successfully inserted.
+[ 24-10-2019 :: 13:34:40 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f897e3d4388>
+[ 24-10-2019 :: 13:34:40 ] [ INFo  ] A new batch has been successfully inserted.
+[ 24-10-2019 :: 13:36:05 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:36:08 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:36:08 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:36:08 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:36:32 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:36:35 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:36:36 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:36:36 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:13 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:41:16 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:16 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:16 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:29 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:41:32 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:32 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:33 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:43 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:41:46 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:46 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:41:46 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:42:20 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:42:24 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:42:24 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:42:24 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:45:21 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:45:25 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:45:25 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:45:25 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:45:47 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:45:50 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:45:50 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:45:50 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:47:24 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 13:47:28 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:47:28 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 13:47:28 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 14:04:13 ] [ INFO  ] Batch_DB Connected Successfully
+[ 24-10-2019 :: 14:04:16 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 14:04:16 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 14:04:17 ] [ ERROR ] This Student Already Present in Database
+[ 24-10-2019 :: 14:14:20 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:15:44 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:15:55 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:16:16 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:19:22 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:19:25 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f536380ea48>
+[ 24-10-2019 :: 14:19:25 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 24-10-2019 :: 14:23:37 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:23:40 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb114039c88>
+[ 24-10-2019 :: 14:23:40 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 24-10-2019 :: 14:39:42 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:39:45 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:44:20 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:44:25 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:46:40 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:46:44 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:49:25 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:49:28 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:49:51 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:49:54 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:50:09 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:50:12 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:50:45 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:50:50 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:51:04 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:51:08 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:52:33 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:52:36 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:53:10 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:53:13 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:54:23 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:54:26 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:55:34 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:55:37 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:56:12 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:56:15 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:56:43 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:56:46 ] [ INFO  ] All the attendance collection displayed.
+[ 24-10-2019 :: 14:57:19 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 24-10-2019 :: 14:57:22 ] [ INFO  ] All the attendance collection displayed.
