@@ -1,3 +1,3 @@
-./backend/__pycache__
-./backend/database/__pycache__
-./backend/database/DBQuery/__pycache__
+backend/__pycache__
+backend/database/__pycache__
+backend/database/DBQuery/__pycache__

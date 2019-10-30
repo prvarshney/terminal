@@ -20,3 +20,5 @@ Admin_DB = "admin_db"
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
 Admin_Profile_Collection = "user_info"
+
+ENCKEY = "BUCKMINSTERFULLERENE"

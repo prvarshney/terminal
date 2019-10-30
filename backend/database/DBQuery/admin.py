@@ -14,9 +14,9 @@ class Admin:
         try:
             self.client = MongoClient(config.MongoDB_URI)
             db = self.client[config.Admin_DB]
-            log('[  INFO  ] Admin_DB connected successfully.')
+            log('[  INFO  ] Admin_DB Connected Successfully.')
         except:
-            log('[  ERROR  ] Unable to create connection with Admin_DB.')
+            log('[  ERROR ] Unable To Create Connection With Admin_db.')
             sys.exit(0)
         self.collection = db[config.Admin_Profile_Collection]
         # document = {
@@ -32,18 +32,18 @@ class Admin:
         # QUERY_PARAMETER --> STRING
         # QUERY_VALUE --> STRING
         #
-        try:
-            res = list(self.collection.find({ query_parameter: query_value}))
+        res = self.collection.find({ query_parameter: query_value})
+        if res.count() > 0:     ## RUNS WHEN ANY RESULT COMES
             response = {
-                'status': '212',
+                'status': 212,
                 'res': res
-            } 
-        except:
-            response = {
-                'status':'206',
-                'res':res
             }
-        log('[ INFO  ] The search query is successfully completed.')
+        else: 
+            response = {
+                'status':206,
+                'res': None
+            }
+        log('[  INFO  ] The Search Query Is Successfully Completed.')
         return response
 
     def update_password(self,admin_id,password):
@@ -61,7 +61,7 @@ class Admin:
             log('[ INFO  ] Admin_DB has been updated.')
             return 301
         except:
-            log('[ ERROR  ] Updation failed.')
+            log('[ ERROR ] Updation failed.')
             return 204
 
     def __del__(self):
