@@ -1,87 +1,10 @@
-[ 25-10-2019 :: 05:05:02 ] [  ERROR  ] Unable To Create Connection With Admin_db.
-[ 25-10-2019 :: 05:08:41 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:08:45 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:09:06 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:09:10 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:37:50 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:37:56 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:40:16 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:40:22 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:40:40 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:40:44 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:43:41 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:43:46 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:51:38 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:51:43 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:53:07 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:53:11 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:54:34 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:54:42 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:54:45 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:54:51 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 05:55:10 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 05:55:15 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 11:08:03 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 11:08:07 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 11:08:31 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 11:08:35 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 11:09:44 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 11:09:47 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 11:10:58 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 11:11:03 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 11:11:28 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 11:11:32 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 25-10-2019 :: 11:11:38 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 25-10-2019 :: 11:11:43 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:05:44 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:07:16 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:07:20 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:07:35 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:07:38 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:07:49 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:07:52 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:16:46 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:16:49 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:20:31 ] [ INFO  ] Batch_DB Connected Successfully
-[ 31-10-2019 :: 00:20:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fabec0e8f00>
-[ 31-10-2019 :: 00:20:35 ] [ INFo  ] A new batch has been successfully inserted.
-[ 31-10-2019 :: 00:20:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fabec0e8f00>
-[ 31-10-2019 :: 00:20:35 ] [ INFo  ] A new batch has been successfully inserted.
-[ 31-10-2019 :: 00:20:36 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fabec0e4a00>
-[ 31-10-2019 :: 00:20:36 ] [ INFo  ] A new batch has been successfully inserted.
-[ 31-10-2019 :: 00:44:33 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:44:36 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:45:14 ] [ INFO  ] Batch_DB Connected Successfully
-[ 31-10-2019 :: 00:45:17 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:45:17 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:45:17 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:45:59 ] [ INFO  ] Batch_DB Connected Successfully
-[ 31-10-2019 :: 00:46:02 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:46:02 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fabec0d39b0>
-[ 31-10-2019 :: 00:46:02 ] [ INFo  ] A new batch has been successfully inserted.
-[ 31-10-2019 :: 00:46:03 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fabec28a280>
-[ 31-10-2019 :: 00:46:03 ] [ INFo  ] A new batch has been successfully inserted.
-[ 31-10-2019 :: 00:51:34 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:51:37 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:55:31 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:55:34 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:55:55 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:55:58 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:55:58 ] [ INFO  ] Batch_DB Connected Successfully
-[ 31-10-2019 :: 00:56:02 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:56:02 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:56:03 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:58:38 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 00:58:41 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 00:58:41 ] [ INFO  ] Batch_DB Connected Successfully
-[ 31-10-2019 :: 00:58:44 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:58:45 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 00:58:45 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 01:03:35 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 01:03:38 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 01:04:08 ] [  INFO  ] Admin_DB Connected Successfully.
-[ 31-10-2019 :: 01:04:11 ] [  INFO  ] The Search Query Is Successfully Completed.
-[ 31-10-2019 :: 01:04:11 ] [ INFO  ] Batch_DB Connected Successfully
-[ 31-10-2019 :: 01:04:14 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 01:04:14 ] [ ERROR ] This Student Already Present in Database
-[ 31-10-2019 :: 01:04:15 ] [ ERROR ] This Student Already Present in Database
+[ 01-11-2019 :: 00:55:07 ] [  INFO  ] admin_db Connected Successfully
+[ 01-11-2019 :: 00:55:10 ] [  INFO  ] The Search Query Completed Successfully in Admin_DB
+[ 01-11-2019 :: 00:55:42 ] [  INFO  ] admin_db Connected Successfully
+[ 01-11-2019 :: 00:55:45 ] [  INFO  ] The Search Query Completed Successfully in Admin_DB
+[ 01-11-2019 :: 00:55:45 ] [  INFO  ] batch_db Connected Successfully
+[ 01-11-2019 :: 00:55:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5f5061c780>
+[ 01-11-2019 :: 00:55:48 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at btech_cse_a_2021 Collection in batch_db
+[ 01-11-2019 :: 00:55:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5f5061c780>
+[ 01-11-2019 :: 00:55:49 ] [  INFO  ] 00520802717 Enrollment Inserted Successfully at btech_cse_a_2021 Collection in batch_db
+[ 01-11-2019 :: 00:55:49 ] [  ERROR ] Insertion in btech_cse_a_2021 Collection in Batch_DB failed - Duplicate Entry Found

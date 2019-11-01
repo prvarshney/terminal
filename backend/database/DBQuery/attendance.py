@@ -27,10 +27,9 @@ class Attendance:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
-			log('[ INFO  ] Attendance_DB Connected Successfully')
+			log('[  INFO  ] Attendance_DB Connected Successfully')
 		except:
-			log('[ Error ] Unable To Create Connection With Attendance_DB')
-			sys.exit(0)
+			log('[  ERROR ] Unable To Create Connection With Attendance_DB')
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
@@ -54,11 +53,11 @@ class Attendance:
 		#
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
-			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			log('[ INFO  ] Attendance inserted of a particular date. ')
+			log(f'[  INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log('[  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB')
 			return 201
 		except:
-			log('[ ERROR  ] Unable to insert attendance in Attendance_DB. ')
+			log('[  ERROR ] Insertion Operation Failed in Attendance_DB')
 			return 417
 
 	def show_all(self):
@@ -66,17 +65,24 @@ class Attendance:
 		# DOCUMENTS INSIDE COLLECTION FOR WHICH ATTENDANCE CONSTRUCTOR IS INITIALISED
 		#
 		try:
-			res = list(self.collection.find({}))
-			response = {
-				'status':'302',
-				'res':res
-			}
+			res = self.collection.find({})
+			if res.count() > 0:
+				response = {
+					'status':302,
+					'res':res
+				}
+			else:
+				response = {
+					'status':302,
+					'res':None
+				}
+			log('[  INFO  ] Attendence Collection Fetched From Attendance_DB')
 		except:
 			response = {
-				'status':'598',
-				'res':{}
+				'status':598,
+				'res':None
 			}
-		log('[ INFO  ] All the attendance collection displayed.')
+			log('[  ERROR ] Unable To Fetch Attendence Collection From Attendance_DB')
 		return response
 
 	def show_on(self,query_date):
@@ -87,17 +93,24 @@ class Attendance:
 		# QUERY_DATE --> DICTIONARY
 		#
 		try:
-			res = list(self.collection.find({ 'date': query_date }))
-			response = {
-				'status':'202',
-				'res':res
-			}
+			res = self.collection.find({ 'date': query_date })
+			if res.coutn() > 0:
+				response = {
+					'status':202,
+					'res':res
+				}
+			else:
+				response = {
+					'status':404,
+					'res':None
+				}
+			log('[  INFO  ] Attendance Of a Particular Date Fetched From Attendance_DB ')
 		except:
 			response = {
-				'status':'404',
-				'res':{}
+				'status':598,
+				'res':None
 			}
-			log('[ INFO  ] Attendance of a particular date showed. ')
+			log('[  ERROR ] Unable To Fetch Attendance Of a Particular Date From Attendance_DB ')
 		return response
 
 	def remove_all(self):
@@ -106,9 +119,10 @@ class Attendance:
 		#
 		try:
 			self.collection.drop()
-			log('[ INFO  ] Attendance of particular faculty_id dropped. ')
+			log('[  INFO  ] Attendance Collection Dropped Successfully from Attendance_DB')
 			return 512
 		except:
+			log('[  ERROR ] Unable To Drop Attendance Collection from Attendance_DB')
 			return 400
 
 	def update(self,date,attendance_dictionary):
@@ -123,11 +137,11 @@ class Attendance:
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
-			log(f'[ INFO  ] {status}')
-			log('[ INFO  ] Attendance of a particular date is updated. ')
+			log(f'[  INFO  ] {status}')
+			log('[  INFO  ] Attendance Of a Particular Day Updated Successfully in Attendance_DB ')
 			return 301
 		except:
-			log('[ ERROR  ] Attendance unable to update.')
+			log('[  ERROR ] Unable To Update Attendance Of A Particular Day in Attendance_DB')
 			return 204
 
 	def __del__(self):

@@ -14,10 +14,9 @@ class Admin:
         try:
             self.client = MongoClient(config.MongoDB_URI)
             db = self.client[config.Admin_DB]
-            log('[  INFO  ] Admin_DB Connected Successfully.')
+            log(f'[  INFO  ] {config.Admin_DB} Connected Successfully')
         except:
-            log('[  ERROR ] Unable To Create Connection With Admin_db.')
-            sys.exit(0)
+            log(f'[  ERROR ] Unable To Create Connection With {config.Admin_DB}')
         self.collection = db[config.Admin_Profile_Collection]
         # document = {
         #    'adminid': 'ADM0123456AXY',
@@ -43,7 +42,7 @@ class Admin:
                 'status':206,
                 'res': None
             }
-        log('[  INFO  ] The Search Query Is Successfully Completed.')
+        log('[  INFO  ] The Search Query Completed Successfully in {config.Admin_DB}')
         return response
 
     def update_password(self,admin_id,password):
@@ -57,11 +56,11 @@ class Admin:
         updating_values = { 'password':password }
         try:
             status = self.collection.update_one(searching_values, {'$set':updating_values})
-            log(f'[ INFO  ] {status}')
-            log('[ INFO  ] Admin_DB has been updated.')
+            log(f'[  INFO  ] {status}')
+            log('[  INFO  ] Password Updation Completed Successfully in {config.Admin_DB}')
             return 301
         except:
-            log('[ ERROR ] Updation failed.')
+            log('[  ERROR ] Password Updation Failed in {config.Admin_DB}')
             return 204
 
     def __del__(self):
@@ -70,7 +69,4 @@ class Admin:
 
 if __name__ == "__main__":
     # TEST CODE COMES HERE
-    admin = Admin()
-    admin.update_password('adm-123','efkwfwlwf')
-    admin.query('admin_id','adm-123')
     pass
