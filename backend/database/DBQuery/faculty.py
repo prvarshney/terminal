@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from flask_bcrypt import Bcrypt
 import config
 import sys
 from logger import log
@@ -48,13 +49,14 @@ class Faculty:
 		#	*ALWAYS STORE PASSWORD IN ENCRYPTED FORM IN ORDER TO PROTECT USER'S PASSWORDS
 		#
 		# CREATING DICTIONARY OF THE DOCUMENT THAT IS REQUIRED TO INSERT IN DB
+		bcrypt = Bcrypt()
 		document = {
 				"faculty_id":id,
 				"name":name,
 				"date_of_birth":dob,
 				"phone_numbers":phone_numbers,
 				"email":email,
-				"password":password,
+				"password":bcrypt.generate_password_hash(password).decode('utf-8'),
 				"subjects":subjects,
 				"qualifications":qualifications,
 				"time-table":time_table,
@@ -82,14 +84,14 @@ class Faculty:
 		# QUERY_VALUE --> STRING, DICTIONARY, LIST
 		#
 		try:
-			res = list(self.collection.find({ query_parameter:query_value }))
+			res = self.collection.find({ query_parameter:query_value })
 			response = {
-				'status':'212',
+				'status':212,
 				'res': res
 			}
 		except:
 			response = {
-				'status':'206',
+				'status':206,
 				'res':res
 			}
 		log('[ INFO  ] The search query is successfully completed.')
@@ -127,7 +129,7 @@ class Faculty:
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
 			log(f'[ INFO  ] {status}')
-			log('[ INFO  ] Faculty_DB has been updated.')
+			log(f'[ INFO  ] {faculty_id} Faculty_DB has been updated.')
 			return 301
 		except:
 			log('[ ERROR  ] Updation failed.')

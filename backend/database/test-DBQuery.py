@@ -2,6 +2,7 @@ import DBQuery as db
 import os
 import sys
 import random
+import string
 from datetime import datetime
 
 ## CREATING DUMMY OBJECTS FOR TESTING PURPOSE
@@ -22,6 +23,33 @@ MULTI_TEST_SiZE = 500
 CLASS_STRENGTH = 200
 MARKS = list(range(1,100))
 ASSESSMENT = list(range(1,100))
+NAMES = ['somya','preeti','tarun','prashant','lakshay']
+QUALIFICATIONS=['btech','mtech','bca','mca','phd','bsc','msc']
+CLASSES = ['cse-a','ece-a','cse-b','eee','it','mech']
+def generate_dob_dictionary():
+    day = random.randrange(1,32)
+    month = random.randrange(1,13)
+    year = random.randrange(1950,2022)
+    dob_dictionary = {
+        'date' : {'day': day, 'month':month , 'year':year }
+    }
+    return dob_dictionary
+
+stringLength = random.randint(1,20)
+domains = [ "hotmail.com", "gmail.com", "aol.com", "mail.com" , "mail.kz", "yahoo.com"]
+
+def generate_random_emails():
+    # Generate a random string of letters and digits
+    one_domain = str(domains[random.randint( 0, len(domains)-1)])
+    lettersAndDigits = string.ascii_letters + string.digits
+    one_name = str(''.join((random.choice(lettersAndDigits) for i in range(stringLength))))
+    return(one_name + '@' + one_domain)
+
+##For password
+# def generate_password(stringLength=10):
+#     password_characters = string.ascii_letters + string.digits + string.punctuation
+#     return ''.join(random.choice(password_characters) for i in range(stringLength))
+
 
 def generate_attendance_dictionary(count=100):
     global ENROLLMENT_NOS
@@ -103,10 +131,71 @@ if __name__ == "__main__":
         # PERFORMING SINGLE ENTRY TEST FOR ALL APIS
         print('----------------------------------------------------------------------------------------------------------')
         print("[  INFO  ] Starting Single Entry Testing Engine ")
+        print("[  INFO  ] Testing Faculty API Functionality ")  
+        print('----------------------------------------------------------------------------------------------------------')
+        ######################################TESTING OF FACULTY API ######################################
+        errors_list = []     
+        faculty_id = random.choice(FACULTY_IDS)
+        name = random.choice(NAMES)
+        dob = generate_dob_dictionary()
+        phone_numbers = random.randrange(1111111111,9999999999)
+        email = generate_random_emails()
+        # password = generate_password()
+        password = 'faculty'
+        subjects = random.choice(SUBJECTS)
+        qualifications = random.choice(QUALIFICATIONS)
+        time_table = []
+        classes = random.choice(CLASSES)
+        ratings = random.randint(1,5)
+        ##
+        faculty = db.Faculty()
+        print(f'[  INFO  ] Working on Faculty collection.')
+        ##
+        ## TESTING INSERTION METHOD ##
+        status = faculty.insert(faculty_id,name,dob,phone_numbers,email,password,subjects,qualifications,time_table,classes,ratings)   
+        print("[  INFO  ] Inserting Dummy Faculty in Faculty_DB ( Count : 1 )")
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
+        ## SECOND ENTRY IN FACULTY_DB
+        status = faculty.insert(faculty_id,name,dob,phone_numbers,email,password,subjects,qualifications,time_table,classes,ratings)   
+        print("[  INFO  ] Inserting Dummy Faculty Dictionary in Faculty_DB ( Count : 2 )")
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF RESULT OF QUERY
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Faculty_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Faculty - Insertion Method')
+        ## TESTING QUERY METHOD ##
+        print('\n[  INFO  ] Querying The Faculty API.')
+        response = faculty.query('faculty_id',faculty_id)
+        print(f'[ STATUS ] {response["status"]}')
+        print(*response['res'],sep='\n')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Faculty_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Faculty - Query Method')
+        ## TESTING UPDATE METHOD ##
+        print(f'\n Updating Fculty API for {faculty_id}.')
+        status = faculty.update(faculty_id,'name','sonam')
+        print(f'[ STATUS ] {status}')            ## PRINTING STATUS OF RESULT OF QUERY
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Faculty_DB (Y/N) : ")
+        if error_status in ['Y','y']:
+            errors_list.append('Faculty - Update Method')
+        ## TESTING REMOVE METHOD ##
+        print(f'\n[  INFO  ] Removing Faculty_ID - {faculty_id} From Faculty_DB')
+        status = faculty.remove('faculty_id',faculty_id)
+        print(f'[ STATUS ] {status}')       ## PRINTING STATUS OF REMOVE METHOD
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Faculty_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Faculty - Remove Method')        
+        ## LISTING ERRORS FOUND IN FACULTY API TEST ##
+        print('----------------------------------------------------------------------------------------------------------')
+        print('[  INFO  ] Errors In Faculty API : {} '.format(len(errors_list)))
+        print('----------------------------------------------------------------------------------------------------------')
+        print(*errors_list,sep='\n')
+        ###################################### TESTING OF FACULTY API FINISHED #############################################################
+
+        print('\n--------------------------------------------------------------------------------------------------------')
         print("[  INFO  ] Testing Attendance API Functionality ")  
         print('----------------------------------------------------------------------------------------------------------')
         ######################################### TESTING OF ATTENDANCE API STARTED ######################################################
-        errors_list = []
+        errors_list.clear()
         faculty_id=random.choice(FACULTY_IDS)
         subject=random.choice(SUBJECTS)
         programme=random.choice(PROGRAMMES)
