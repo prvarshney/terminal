@@ -1,10 +1,14 @@
-[ 01-11-2019 :: 00:55:07 ] [  INFO  ] admin_db Connected Successfully
-[ 01-11-2019 :: 00:55:10 ] [  INFO  ] The Search Query Completed Successfully in Admin_DB
-[ 01-11-2019 :: 00:55:42 ] [  INFO  ] admin_db Connected Successfully
-[ 01-11-2019 :: 00:55:45 ] [  INFO  ] The Search Query Completed Successfully in Admin_DB
-[ 01-11-2019 :: 00:55:45 ] [  INFO  ] batch_db Connected Successfully
-[ 01-11-2019 :: 00:55:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5f5061c780>
-[ 01-11-2019 :: 00:55:48 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at btech_cse_a_2021 Collection in batch_db
-[ 01-11-2019 :: 00:55:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5f5061c780>
-[ 01-11-2019 :: 00:55:49 ] [  INFO  ] 00520802717 Enrollment Inserted Successfully at btech_cse_a_2021 Collection in batch_db
-[ 01-11-2019 :: 00:55:49 ] [  ERROR ] Insertion in btech_cse_a_2021 Collection in Batch_DB failed - Duplicate Entry Found
+[ 01-11-2019 :: 11:48:38 ] [  INFO  ] admin_db Connected Successfully
+[ 01-11-2019 :: 11:48:41 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 01-11-2019 :: 11:49:57 ] [  INFO  ] admin_db Connected Successfully
+[ 01-11-2019 :: 11:50:15 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 01-11-2019 :: 11:50:15 ] [  INFO  ] batch_db Connected Successfully
+[ 01-11-2019 :: 11:50:19 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f80742c89b0>
+[ 01-11-2019 :: 11:50:19 ] [  INFO  ] 01220802717 Enrollment Inserted Successfully at btech_ece_a_2021 Collection in batch_db
+[ 01-11-2019 :: 11:50:19 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f80742c4be0>
+[ 01-11-2019 :: 11:50:19 ] [  INFO  ] 01320802717 Enrollment Inserted Successfully at btech_ece_a_2021 Collection in batch_db
+[ 01-11-2019 :: 11:51:46 ] [  INFO  ] admin_db Connected Successfully
+[ 01-11-2019 :: 11:51:55 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 01-11-2019 :: 11:51:55 ] [  INFO  ] batch_db Connected Successfully
+[ 01-11-2019 :: 11:51:58 ] [  ERROR ] 01220802717 Enrollment Insertion at btech_ece_a_2021 Collection in Batch_DB failed - Duplicate Entry Found
+[ 01-11-2019 :: 11:51:59 ] [  ERROR ] 01320802717 Enrollment Insertion at btech_ece_a_2021 Collection in Batch_DB failed - Duplicate Entry Found

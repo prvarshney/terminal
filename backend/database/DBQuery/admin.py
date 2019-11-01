@@ -42,7 +42,7 @@ class Admin:
                 'status':206,
                 'res': None
             }
-        log('[  INFO  ] The Search Query Completed Successfully in {config.Admin_DB}')
+        log(f'[  INFO  ] The Search Query Completed Successfully in {config.Admin_DB}')
         return response
 
     def update_password(self,admin_id,password):
@@ -57,10 +57,10 @@ class Admin:
         try:
             status = self.collection.update_one(searching_values, {'$set':updating_values})
             log(f'[  INFO  ] {status}')
-            log('[  INFO  ] Password Updation Completed Successfully in {config.Admin_DB}')
+            log(f'[  INFO  ] Password Updation Completed Successfully in {config.Admin_DB}')
             return 301
         except:
-            log('[  ERROR ] Password Updation Failed in {config.Admin_DB}')
+            log(f'[  ERROR ] Password Updation Failed in {config.Admin_DB}')
             return 204
 
     def __del__(self):
