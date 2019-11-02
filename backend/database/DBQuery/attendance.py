@@ -94,7 +94,7 @@ class Attendance:
 		#
 		try:
 			res = self.collection.find({ 'date': query_date })
-			if res.coutn() > 0:
+			if res.count() > 0:
 				response = {
 					'status':202,
 					'res':res

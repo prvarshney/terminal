@@ -1,0 +1,651 @@
+[ 31-10-2019 :: 15:54:31 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 31-10-2019 :: 15:54:36 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa85a063cc8>
+[ 31-10-2019 :: 15:54:36 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 31-10-2019 :: 15:54:36 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa85a063fc8>
+[ 31-10-2019 :: 15:54:36 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 31-10-2019 :: 16:37:56 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 31-10-2019 :: 16:38:00 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f438c5e6dc8>
+[ 31-10-2019 :: 16:38:00 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 31-10-2019 :: 16:38:00 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f438c5e6a48>
+[ 31-10-2019 :: 16:38:00 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 31-10-2019 :: 16:38:06 ] [ INFO  ] All the attendance collection displayed.
+[ 31-10-2019 :: 16:38:07 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f438c5e6d48>
+[ 31-10-2019 :: 16:38:07 ] [ INFO  ] Attendance of a particular date is updated. 
+[ 31-10-2019 :: 16:38:09 ] [ INFO  ] Attendance of particular faculty_id dropped. 
+[ 31-10-2019 :: 16:38:10 ] [ INFO  ] Batch_DB Connected Successfully
+[ 31-10-2019 :: 16:38:13 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d68d48>
+[ 31-10-2019 :: 16:38:13 ] [ INFo  ] A new batch has been successfully inserted.
+[ 31-10-2019 :: 16:38:13 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d68ac8>
+[ 31-10-2019 :: 16:38:13 ] [ INFo  ] A new batch has been successfully inserted.
+[ 31-10-2019 :: 16:38:14 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d68a48>
+[ 31-10-2019 :: 16:38:14 ] [ INFo  ] A new batch has been successfully inserted.
+[ 31-10-2019 :: 16:38:14 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d68cc8>
+[ 31-10-2019 :: 16:38:14 ] [ INFo  ] A new batch has been successfully inserted.
+[ 31-10-2019 :: 16:38:15 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d68a48>
+[ 31-10-2019 :: 16:38:15 ] [ INFo  ] A new batch has been successfully inserted.
+[ 31-10-2019 :: 16:38:15 ] [ ERROR ] This Student Already Present in Database
+[ 31-10-2019 :: 16:38:15 ] [ INFO  ] All the enrolled students displayed.
+[ 31-10-2019 :: 16:38:16 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f4389d4f748>
+[ 31-10-2019 :: 16:38:16 ] [ INFo  ] Enrollment of a particular student has been removed from batch collection.
+[ 31-10-2019 :: 16:38:16 ] [ INFO  ] Batch_DB has been removed.
+[ 31-10-2019 :: 16:38:16 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 31-10-2019 :: 16:38:19 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d683c8>
+[ 31-10-2019 :: 16:38:19 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 31-10-2019 :: 16:38:19 ] [ ERROR ] Feedback Of This Student Already Present In Database For This Faculty
+[ 31-10-2019 :: 16:38:21 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 31-10-2019 :: 16:38:21 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f4389d71148>
+[ 31-10-2019 :: 16:38:21 ] Faculty_DB has been updated successfully.
+[ 31-10-2019 :: 16:38:23 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f4389d68a48>
+[ 31-10-2019 :: 16:38:23 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 31-10-2019 :: 16:38:23 ] [ INFO  ] Requested Collection Dropped
+[ 31-10-2019 :: 16:38:24 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 31-10-2019 :: 16:38:27 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d86bc8>
+[ 31-10-2019 :: 16:38:27 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 31-10-2019 :: 16:38:27 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4389d86b08>
+[ 31-10-2019 :: 16:38:27 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 31-10-2019 :: 16:38:28 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 31-10-2019 :: 16:38:28 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 01-11-2019 :: 12:16:59 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 12:17:20 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 12:17:54 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 12:17:57 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f120dcd8dc8>
+[ 01-11-2019 :: 12:17:57 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 12:18:13 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 12:18:16 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0310762d48>
+[ 01-11-2019 :: 12:18:16 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 12:18:17 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 12:20:36 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 12:20:41 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8ef7d0a08>
+[ 01-11-2019 :: 12:20:41 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 12:20:41 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 12:20:51 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 12:20:54 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed649c8>
+[ 01-11-2019 :: 12:20:54 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 12:20:55 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed64c48>
+[ 01-11-2019 :: 12:20:55 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 12:20:56 ] [ INFO  ] All the attendance collection displayed.
+[ 01-11-2019 :: 12:20:59 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fc8eed649c8>
+[ 01-11-2019 :: 12:20:59 ] [ INFO  ] Attendance of a particular date is updated. 
+[ 01-11-2019 :: 12:21:00 ] [ INFO  ] Attendance of particular faculty_id dropped. 
+[ 01-11-2019 :: 12:21:00 ] [ INFO  ] Batch_DB Connected Successfully
+[ 01-11-2019 :: 12:21:03 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed8af88>
+[ 01-11-2019 :: 12:21:03 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 12:21:03 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed82048>
+[ 01-11-2019 :: 12:21:03 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 12:21:04 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed82b88>
+[ 01-11-2019 :: 12:21:04 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 12:21:04 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed82108>
+[ 01-11-2019 :: 12:21:04 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 12:21:05 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8eed82048>
+[ 01-11-2019 :: 12:21:05 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 12:21:05 ] [ ERROR ] This Student Already Present in Database
+[ 01-11-2019 :: 12:21:05 ] [ INFO  ] All the enrolled students displayed.
+[ 01-11-2019 :: 12:21:06 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fc8eed64548>
+[ 01-11-2019 :: 12:21:06 ] [ INFo  ] Enrollment of a particular student has been removed from batch collection.
+[ 01-11-2019 :: 12:21:06 ] [ INFO  ] Batch_DB has been removed.
+[ 01-11-2019 :: 12:21:06 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 01-11-2019 :: 12:21:09 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8ec6eddc8>
+[ 01-11-2019 :: 12:21:09 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 01-11-2019 :: 12:21:10 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc8ec6edb08>
+[ 01-11-2019 :: 12:21:10 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 01-11-2019 :: 12:21:10 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 01-11-2019 :: 12:21:10 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fc8eed64508>
+[ 01-11-2019 :: 12:21:10 ] Faculty_DB has been updated successfully.
+[ 01-11-2019 :: 12:21:10 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fc8eed8af48>
+[ 01-11-2019 :: 12:21:10 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 01-11-2019 :: 12:53:12 ] [ INFO  ] Requested Collection Dropped
+[ 01-11-2019 :: 12:53:23 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 12:53:26 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff46c90c608>
+[ 01-11-2019 :: 12:53:26 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 12:53:26 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 12:53:28 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 12:53:48 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7ff46bf40fc8>
+[ 01-11-2019 :: 12:53:48 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 12:53:49 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7ff46b4d4a08>
+[ 01-11-2019 :: 12:53:49 ] [ INFO  ] F039BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 12:53:52 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 12:53:56 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff46b4d4848>
+[ 01-11-2019 :: 12:53:56 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 12:53:56 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff46b4d4888>
+[ 01-11-2019 :: 12:53:56 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 13:02:13 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:02:17 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fe385eefd48>
+[ 01-11-2019 :: 13:02:17 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:02:17 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:02:22 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:05:45 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fe385496208>
+[ 01-11-2019 :: 13:05:45 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 13:05:51 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:06:26 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:06:30 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4feac8afc8>
+[ 01-11-2019 :: 13:06:30 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:06:30 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:06:34 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:08:42 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:08:47 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4205432bc8>
+[ 01-11-2019 :: 13:08:47 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:08:47 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:08:48 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:11:22 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:11:25 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f811a4d5e48>
+[ 01-11-2019 :: 13:11:25 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:11:25 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:11:29 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:20:56 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:21:00 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb68f364f08>
+[ 01-11-2019 :: 13:21:00 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:21:01 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:21:02 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:27:27 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:27:31 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f615ea11c88>
+[ 01-11-2019 :: 13:27:31 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:27:31 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:27:32 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:28:04 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:28:08 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f1d80f13e48>
+[ 01-11-2019 :: 13:28:08 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:28:08 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:28:10 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:32:06 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:32:11 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7febe5ceea48>
+[ 01-11-2019 :: 13:32:11 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:32:11 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:32:13 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:35:04 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 13:35:08 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6486ffc8>
+[ 01-11-2019 :: 13:35:08 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 13:35:08 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 13:35:09 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 13:35:17 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f4b6486fd08>
+[ 01-11-2019 :: 13:35:17 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 13:35:18 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f4b6486fb08>
+[ 01-11-2019 :: 13:35:18 ] [ INFO  ] F098BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 13:35:18 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 13:35:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6402fd88>
+[ 01-11-2019 :: 13:35:23 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 13:35:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6402fcc8>
+[ 01-11-2019 :: 13:35:23 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 13:35:24 ] [ INFO  ] All the attendance collection displayed.
+[ 01-11-2019 :: 13:35:24 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f4b64012988>
+[ 01-11-2019 :: 13:35:24 ] [ INFO  ] Attendance of a particular date is updated. 
+[ 01-11-2019 :: 13:35:24 ] [ INFO  ] Attendance of particular faculty_id dropped. 
+[ 01-11-2019 :: 13:35:24 ] [ INFO  ] Batch_DB Connected Successfully
+[ 01-11-2019 :: 13:35:28 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b64012d48>
+[ 01-11-2019 :: 13:35:28 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 13:35:28 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6486ff48>
+[ 01-11-2019 :: 13:35:28 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 13:35:29 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6403cf08>
+[ 01-11-2019 :: 13:35:29 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 13:35:29 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6403cf08>
+[ 01-11-2019 :: 13:35:29 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 13:35:29 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6403cf08>
+[ 01-11-2019 :: 13:35:29 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 13:35:30 ] [ ERROR ] This Student Already Present in Database
+[ 01-11-2019 :: 13:35:30 ] [ INFO  ] All the enrolled students displayed.
+[ 01-11-2019 :: 13:35:31 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f4b64012408>
+[ 01-11-2019 :: 13:35:31 ] [ INFo  ] Enrollment of a particular student has been removed from batch collection.
+[ 01-11-2019 :: 13:35:31 ] [ INFO  ] Batch_DB has been removed.
+[ 01-11-2019 :: 13:35:31 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 01-11-2019 :: 13:35:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6403c208>
+[ 01-11-2019 :: 13:35:35 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 01-11-2019 :: 13:35:36 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b6402fac8>
+[ 01-11-2019 :: 13:35:36 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 01-11-2019 :: 13:35:36 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 01-11-2019 :: 13:35:36 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f4b6402f648>
+[ 01-11-2019 :: 13:35:36 ] Faculty_DB has been updated successfully.
+[ 01-11-2019 :: 16:39:03 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 16:39:08 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f57252fcc08>
+[ 01-11-2019 :: 16:39:08 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 16:39:08 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 16:39:09 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 16:39:14 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f57252fcd08>
+[ 01-11-2019 :: 16:39:14 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 16:39:25 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f57252fcf48>
+[ 01-11-2019 :: 16:39:25 ] [ INFO  ] F048BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 16:39:29 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 16:39:32 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 16:39:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f57248ab5c8>
+[ 01-11-2019 :: 16:39:35 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 16:40:30 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 16:40:34 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8157f8fd08>
+[ 01-11-2019 :: 16:40:34 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 16:40:35 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 16:40:36 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 16:40:39 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8157f8fc08>
+[ 01-11-2019 :: 16:40:39 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 16:40:41 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8157f8fac8>
+[ 01-11-2019 :: 16:40:41 ] [ INFO  ] F099BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 16:40:41 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 16:40:42 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 16:40:44 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 16:40:46 ] [ INFO  ] Attendance of a particular date showed. 
+[ 01-11-2019 :: 16:40:50 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 16:40:55 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f5395507d88>
+[ 01-11-2019 :: 16:40:55 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 16:40:55 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 16:41:00 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 16:41:23 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f5395507c88>
+[ 01-11-2019 :: 16:41:23 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 16:41:26 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f5394caa588>
+[ 01-11-2019 :: 16:41:26 ] [ INFO  ] F053BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 16:41:31 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 16:41:33 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 16:41:33 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 16:41:44 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 16:41:48 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fd4ad967f08>
+[ 01-11-2019 :: 16:41:48 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 16:41:49 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 16:41:52 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 16:41:57 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fd4ad967f88>
+[ 01-11-2019 :: 16:41:57 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 16:42:01 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fd4ad967dc8>
+[ 01-11-2019 :: 16:42:01 ] [ INFO  ] F094BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 16:42:02 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 16:42:07 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fd4acef88c8>
+[ 01-11-2019 :: 16:42:07 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 16:42:08 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fd4acef8848>
+[ 01-11-2019 :: 16:42:08 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 16:42:15 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 16:42:20 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fad9b7e3cc8>
+[ 01-11-2019 :: 16:42:20 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 16:42:20 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 16:42:21 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 16:42:24 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fad9b7e3dc8>
+[ 01-11-2019 :: 16:42:24 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 16:42:26 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fad9b7e3d48>
+[ 01-11-2019 :: 16:42:26 ] [ INFO  ] F078BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 16:42:27 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 16:42:32 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fad9ad747c8>
+[ 01-11-2019 :: 16:42:32 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 16:42:32 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fad9b7e3d08>
+[ 01-11-2019 :: 16:42:32 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 16:42:33 ] [ INFO  ] All the attendance collection displayed.
+[ 01-11-2019 :: 20:29:10 ] [ Error ] Unable to create connection with Faculty_DB
+[ 01-11-2019 :: 20:30:38 ] [ Error ] Unable to create connection with Faculty_DB
+[ 01-11-2019 :: 20:40:20 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 20:40:25 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f45eeb1cfc8>
+[ 01-11-2019 :: 20:40:25 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 20:40:25 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 20:41:24 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 20:41:25 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f45ee2c1908>
+[ 01-11-2019 :: 20:41:25 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 20:42:54 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 20:42:59 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb7c4255f88>
+[ 01-11-2019 :: 20:42:59 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 20:42:59 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 20:43:01 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 20:43:01 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fb7c4255e48>
+[ 01-11-2019 :: 20:43:01 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 20:43:02 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fb7c4255c08>
+[ 01-11-2019 :: 20:43:02 ] [ INFO  ] F088BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 20:43:02 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 20:43:06 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb7c3805a48>
+[ 01-11-2019 :: 20:43:06 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 20:43:07 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb7c4255b08>
+[ 01-11-2019 :: 20:43:07 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 20:43:07 ] [ INFO  ] All the attendance collection displayed.
+[ 01-11-2019 :: 20:43:08 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fb7c37e8748>
+[ 01-11-2019 :: 20:43:08 ] [ INFO  ] Attendance of a particular date is updated. 
+[ 01-11-2019 :: 20:43:08 ] [ INFO  ] Attendance of particular faculty_id dropped. 
+[ 01-11-2019 :: 20:43:35 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 20:43:40 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f66492b1f88>
+[ 01-11-2019 :: 20:43:40 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 20:43:40 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 20:43:44 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 20:43:54 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f66492b1d08>
+[ 01-11-2019 :: 20:43:54 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 20:43:57 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f66492b1b08>
+[ 01-11-2019 :: 20:43:57 ] [ INFO  ] F003BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 20:43:59 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 20:44:03 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a6c908>
+[ 01-11-2019 :: 20:44:03 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 20:44:04 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a6cc48>
+[ 01-11-2019 :: 20:44:04 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 20:44:12 ] [ INFO  ] All the attendance collection displayed.
+[ 01-11-2019 :: 20:44:15 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f6648a6c308>
+[ 01-11-2019 :: 20:44:15 ] [ INFO  ] Attendance of a particular date is updated. 
+[ 01-11-2019 :: 20:44:16 ] [ INFO  ] Attendance of particular faculty_id dropped. 
+[ 01-11-2019 :: 20:44:17 ] [ INFO  ] Batch_DB Connected Successfully
+[ 01-11-2019 :: 20:44:21 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a6c148>
+[ 01-11-2019 :: 20:44:21 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 20:44:22 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a56248>
+[ 01-11-2019 :: 20:44:22 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 20:44:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a7e188>
+[ 01-11-2019 :: 20:44:23 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 20:44:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f66492b1f88>
+[ 01-11-2019 :: 20:44:23 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 20:44:24 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a6cf48>
+[ 01-11-2019 :: 20:44:24 ] [ INFo  ] A new batch has been successfully inserted.
+[ 01-11-2019 :: 20:44:24 ] [ ERROR ] This Student Already Present in Database
+[ 01-11-2019 :: 20:44:25 ] [ INFO  ] All the enrolled students displayed.
+[ 01-11-2019 :: 20:44:25 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6648a562c8>
+[ 01-11-2019 :: 20:44:25 ] [ INFo  ] Enrollment of a particular student has been removed from batch collection.
+[ 01-11-2019 :: 20:44:29 ] [ INFO  ] Batch_DB has been removed.
+[ 01-11-2019 :: 20:44:30 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 01-11-2019 :: 20:44:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f66481d9fc8>
+[ 01-11-2019 :: 20:44:35 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 01-11-2019 :: 20:44:35 ] [ ERROR ] Feedback Of This Student Already Present In Database For This Faculty
+[ 01-11-2019 :: 20:44:39 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 01-11-2019 :: 20:44:39 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f6648a56248>
+[ 01-11-2019 :: 20:44:39 ] Faculty_DB has been updated successfully.
+[ 01-11-2019 :: 20:44:39 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6648a85748>
+[ 01-11-2019 :: 20:44:39 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 01-11-2019 :: 20:44:40 ] [ INFO  ] Requested Collection Dropped
+[ 01-11-2019 :: 20:44:41 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 01-11-2019 :: 20:44:46 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a56b88>
+[ 01-11-2019 :: 20:44:46 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 01-11-2019 :: 20:44:46 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6648a85ec8>
+[ 01-11-2019 :: 20:44:46 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 01-11-2019 :: 20:44:47 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 01-11-2019 :: 20:44:47 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 01-11-2019 :: 20:45:00 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f6648a56348>
+[ 01-11-2019 :: 20:45:00 ] [ INFO  ] Marksheet_DB has been updated.
+[ 01-11-2019 :: 20:45:01 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f66481d9948>
+[ 01-11-2019 :: 20:45:01 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 01-11-2019 :: 20:45:02 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 01-11-2019 :: 20:45:06 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f66481e8348>
+[ 01-11-2019 :: 20:45:06 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 01-11-2019 :: 20:45:06 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 01-11-2019 :: 20:45:06 ] [ INFO  ] All the current batches has been displayed.
+[ 01-11-2019 :: 20:46:12 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6648a6c4c8>
+[ 01-11-2019 :: 20:46:12 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 01-11-2019 :: 20:46:14 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 01-11-2019 :: 20:46:19 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 20:46:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f04cbc86d08>
+[ 01-11-2019 :: 20:46:23 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 20:46:24 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 20:46:25 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 20:46:26 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f04cbc86ec8>
+[ 01-11-2019 :: 20:46:26 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 20:46:26 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f04cbc86d48>
+[ 01-11-2019 :: 20:46:26 ] [ INFO  ] F071BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 20:46:27 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 20:46:31 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f04cb237b88>
+[ 01-11-2019 :: 20:46:31 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 20:46:31 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f04cb219848>
+[ 01-11-2019 :: 20:46:31 ] [ INFO  ] Attendance inserted of a particular date. 
+[ 01-11-2019 :: 20:53:13 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 20:53:17 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa0e6b18cc8>
+[ 01-11-2019 :: 20:53:17 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 20:53:17 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 20:53:21 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 21:48:45 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 21:48:49 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0e0cfd5f88>
+[ 01-11-2019 :: 21:48:49 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 21:48:49 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 21:48:51 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 21:48:58 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f0e0cfd5e88>
+[ 01-11-2019 :: 21:48:58 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 21:48:59 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f0e0cfd5d48>
+[ 01-11-2019 :: 21:48:59 ] [ INFO  ] F024BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 21:51:18 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 21:51:22 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff36e25bd08>
+[ 01-11-2019 :: 21:51:22 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 21:51:23 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 21:51:29 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 21:51:46 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7ff36e25bfc8>
+[ 01-11-2019 :: 21:51:46 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 21:51:53 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7ff36e25bfc8>
+[ 01-11-2019 :: 21:51:53 ] [ INFO  ] F003BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 21:51:54 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 21:51:55 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 21:51:56 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 21:52:00 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 21:52:04 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6d1369ed48>
+[ 01-11-2019 :: 21:52:04 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 21:52:05 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 21:52:10 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 21:59:44 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 21:59:48 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f71e6921f48>
+[ 01-11-2019 :: 21:59:48 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 21:59:49 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 21:59:51 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 22:25:37 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 22:25:41 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc9d666c4c8>
+[ 01-11-2019 :: 22:25:41 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 22:25:41 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:11:04 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:11:08 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0313f97e08>
+[ 01-11-2019 :: 23:11:08 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:11:09 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:11:13 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:11:14 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f0313f97d08>
+[ 01-11-2019 :: 23:11:14 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:11:19 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f0313f97f08>
+[ 01-11-2019 :: 23:11:19 ] [ INFO  ] F015BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 23:11:19 ] [ INFO  ] Attendance_DB Connected Successfully
+[ 01-11-2019 :: 23:11:20 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 23:11:20 ] [ ERROR  ] Unable to insert attendance in Attendance_DB. 
+[ 01-11-2019 :: 23:11:21 ] [ INFO  ] Attendance of a particular date showed. 
+[ 01-11-2019 :: 23:12:07 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:12:12 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa86649ecc8>
+[ 01-11-2019 :: 23:12:12 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:12:12 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:12:14 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:12:22 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fa86649edc8>
+[ 01-11-2019 :: 23:12:22 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:13:40 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:13:45 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fe0d1e5bf88>
+[ 01-11-2019 :: 23:13:45 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:13:45 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:13:55 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:13:56 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fe0d1e5bc08>
+[ 01-11-2019 :: 23:13:56 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:15:06 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:15:11 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f15e3beaf88>
+[ 01-11-2019 :: 23:15:11 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:15:11 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:15:14 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:15:48 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:15:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa9ee5a8f48>
+[ 01-11-2019 :: 23:15:52 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:15:53 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:15:56 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:15:57 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fa9ee5a8dc8>
+[ 01-11-2019 :: 23:15:57 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:18:45 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:18:50 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4b8539dd48>
+[ 01-11-2019 :: 23:18:50 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:18:50 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:20:57 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:21:01 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f27efebdfc8>
+[ 01-11-2019 :: 23:21:01 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:21:02 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:21:06 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:21:06 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f27efebdc08>
+[ 01-11-2019 :: 23:21:06 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:21:52 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:21:56 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8397e70f88>
+[ 01-11-2019 :: 23:21:56 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:21:56 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:21:58 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:21:59 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8397e70508>
+[ 01-11-2019 :: 23:21:59 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:21:59 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8397e70cc8>
+[ 01-11-2019 :: 23:21:59 ] [ INFO  ] F004BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 23:24:07 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:24:11 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fed2b6a8fc8>
+[ 01-11-2019 :: 23:24:11 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:24:12 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:24:14 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:24:17 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fed2b6a8c08>
+[ 01-11-2019 :: 23:24:17 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:24:19 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fed2b6a8c88>
+[ 01-11-2019 :: 23:24:19 ] [ INFO  ] F055BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 23:27:12 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:27:16 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb89d0bde48>
+[ 01-11-2019 :: 23:27:16 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:27:16 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:27:24 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:28:22 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:28:26 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fccf0d04f08>
+[ 01-11-2019 :: 23:28:26 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:28:26 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:28:27 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:28:28 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fccf0d04bc8>
+[ 01-11-2019 :: 23:28:28 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:28:28 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fccf0d04c48>
+[ 01-11-2019 :: 23:28:28 ] [ INFO  ] F060BPIT Faculty_DB has been updated.
+[ 01-11-2019 :: 23:29:56 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:30:00 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff483161f88>
+[ 01-11-2019 :: 23:30:00 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:30:00 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:30:01 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:30:22 ] [ INFO  ] Faculty_DB connected successfully
+[ 01-11-2019 :: 23:30:26 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fae5fbeef48>
+[ 01-11-2019 :: 23:30:26 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 01-11-2019 :: 23:30:27 ] [ Error ] Object of this ID already present in database
+[ 01-11-2019 :: 23:30:33 ] [ INFO  ] The search query is successfully completed.
+[ 01-11-2019 :: 23:30:45 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fae5fbeec48>
+[ 01-11-2019 :: 23:30:45 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 01-11-2019 :: 23:30:59 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fae5fbeebc8>
+[ 01-11-2019 :: 23:30:59 ] [ INFO  ] F091BPIT Faculty_DB has been updated.
+[ 03-11-2019 :: 01:19:57 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:22:02 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:22:05 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x00000170F8D2DEC8>
+[ 03-11-2019 :: 01:22:05 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 03-11-2019 :: 01:22:06 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x00000170F8D2D188>
+[ 03-11-2019 :: 01:22:06 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 03-11-2019 :: 01:23:23 ] [ INFO  ] The search query is successfully completed.
+[ 03-11-2019 :: 01:23:33 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x00000170F8D2D188>
+[ 03-11-2019 :: 01:23:33 ] [ INFO  ] f081bpit Faculty_DB has been updated.
+[ 03-11-2019 :: 01:24:38 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x00000170F8D462C8>
+[ 03-11-2019 :: 01:24:38 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 03-11-2019 :: 01:25:00 ] [  INFO  ] Attendance_DB Connected Successfully
+[ 03-11-2019 :: 01:25:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x00000170F8D43CC8>
+[ 03-11-2019 :: 01:25:04 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 03-11-2019 :: 01:25:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x00000170F8D61F88>
+[ 03-11-2019 :: 01:25:04 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 03-11-2019 :: 01:25:07 ] [  ERROR ] Unable To Fetch Attendance Of a Particular Date From Attendance_DB 
+[ 03-11-2019 :: 01:26:31 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:26:34 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAAE5C88>
+[ 03-11-2019 :: 01:26:34 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 03-11-2019 :: 01:26:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAAE5E08>
+[ 03-11-2019 :: 01:26:35 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 03-11-2019 :: 01:26:36 ] [ INFO  ] The search query is successfully completed.
+[ 03-11-2019 :: 01:26:37 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x000001EFFAAC7588>
+[ 03-11-2019 :: 01:26:37 ] [ INFO  ] f067bpit Faculty_DB has been updated.
+[ 03-11-2019 :: 01:26:39 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x000001EFFAA668C8>
+[ 03-11-2019 :: 01:26:39 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 03-11-2019 :: 01:26:40 ] [  INFO  ] Attendance_DB Connected Successfully
+[ 03-11-2019 :: 01:26:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB19F08>
+[ 03-11-2019 :: 01:26:43 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 03-11-2019 :: 01:26:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAAE5848>
+[ 03-11-2019 :: 01:26:43 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 03-11-2019 :: 01:26:47 ] [  INFO  ] Attendance Of a Particular Date Fetched From Attendance_DB 
+[ 03-11-2019 :: 01:27:11 ] [  INFO  ] Attendence Collection Fetched From Attendance_DB
+[ 03-11-2019 :: 01:27:23 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x000001EFFAAFBE48>
+[ 03-11-2019 :: 01:27:23 ] [  INFO  ] Attendance Of a Particular Day Updated Successfully in Attendance_DB 
+[ 03-11-2019 :: 01:27:25 ] [  INFO  ] Attendance Collection Dropped Successfully from Attendance_DB
+[ 03-11-2019 :: 01:27:26 ] [  INFO  ] batch_db Connected Successfully
+[ 03-11-2019 :: 01:27:29 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB1D248>
+[ 03-11-2019 :: 01:27:29 ] [  INFO  ] 00020802717 Enrollment Inserted Successfully at mtech_eee_d_2024 Collection in batch_db
+[ 03-11-2019 :: 01:27:30 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB28F88>
+[ 03-11-2019 :: 01:27:30 ] [  INFO  ] 00120802717 Enrollment Inserted Successfully at mtech_eee_d_2024 Collection in batch_db
+[ 03-11-2019 :: 01:27:30 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB270C8>
+[ 03-11-2019 :: 01:27:30 ] [  INFO  ] 00220802717 Enrollment Inserted Successfully at mtech_eee_d_2024 Collection in batch_db
+[ 03-11-2019 :: 01:27:31 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB28F88>
+[ 03-11-2019 :: 01:27:31 ] [  INFO  ] 00320802717 Enrollment Inserted Successfully at mtech_eee_d_2024 Collection in batch_db
+[ 03-11-2019 :: 01:27:31 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB270C8>
+[ 03-11-2019 :: 01:27:31 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at mtech_eee_d_2024 Collection in batch_db
+[ 03-11-2019 :: 01:27:31 ] [  ERROR ] 00020802717 Enrollment Insertion at mtech_eee_d_2024 Collection in Batch_DB failed - Duplicate Entry Found
+[ 03-11-2019 :: 01:27:33 ] [  INFO  ] mtech_eee_d_2024 Collection Fetched From Batch_DB
+[ 03-11-2019 :: 01:27:36 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x000001EFFAAFBF48>
+[ 03-11-2019 :: 01:27:36 ] [  INFO  ] 00420802717 Enrollment Removed From mtech_eee_d_2024 Collection in Batch_DB
+[ 03-11-2019 :: 01:27:38 ] [  INFO  ] mtech_eee_d_2024 Collection Removed From Batch_DB
+[ 03-11-2019 :: 01:27:38 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 03-11-2019 :: 01:27:42 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB3B048>
+[ 03-11-2019 :: 01:27:42 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 03-11-2019 :: 01:27:42 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB19A88>
+[ 03-11-2019 :: 01:27:42 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 03-11-2019 :: 01:27:42 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 03-11-2019 :: 01:27:44 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x000001EFFAB08148>
+[ 03-11-2019 :: 01:27:44 ] Faculty_DB has been updated successfully.
+[ 03-11-2019 :: 01:27:45 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x000001EFFAB36808>
+[ 03-11-2019 :: 01:27:45 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 03-11-2019 :: 01:27:46 ] [ INFO  ] Requested Collection Dropped
+[ 03-11-2019 :: 01:27:46 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 03-11-2019 :: 01:27:50 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB1E6C8>
+[ 03-11-2019 :: 01:27:50 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 03-11-2019 :: 01:27:51 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFAB1B108>
+[ 03-11-2019 :: 01:27:51 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 03-11-2019 :: 01:27:51 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 03-11-2019 :: 01:27:52 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 03-11-2019 :: 01:27:54 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x000001EFFAB1DB48>
+[ 03-11-2019 :: 01:27:54 ] [ INFO  ] Marksheet_DB has been updated.
+[ 03-11-2019 :: 01:27:57 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x000001EFFAB1B288>
+[ 03-11-2019 :: 01:27:57 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 03-11-2019 :: 01:27:58 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 03-11-2019 :: 01:28:02 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001EFFB344E88>
+[ 03-11-2019 :: 01:28:02 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 03-11-2019 :: 01:28:02 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 03-11-2019 :: 01:28:02 ] [ INFO  ] All the current batches has been displayed.
+[ 03-11-2019 :: 01:28:03 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x000001EFFAB3E8C8>
+[ 03-11-2019 :: 01:28:03 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 03-11-2019 :: 01:28:21 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 03-11-2019 :: 01:37:14 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:37:17 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x0000017971371D48>
+[ 03-11-2019 :: 01:37:17 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 03-11-2019 :: 01:37:18 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001797210F408>
+[ 03-11-2019 :: 01:37:18 ] [ INFO  ] A faculty has been inserted in Faculty_DB.
+[ 03-11-2019 :: 01:37:22 ] [ INFO  ] The search query is successfully completed.
+[ 03-11-2019 :: 01:37:24 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x000001797214EE08>
+[ 03-11-2019 :: 01:37:24 ] [ INFO  ] f018bpit Faculty_DB has been updated.
+[ 03-11-2019 :: 01:37:26 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x000001797214EE08>
+[ 03-11-2019 :: 01:37:26 ] [ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.
+[ 03-11-2019 :: 01:37:29 ] [  INFO  ] Attendance_DB Connected Successfully
+[ 03-11-2019 :: 01:37:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001797216F948>
+[ 03-11-2019 :: 01:37:32 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 03-11-2019 :: 01:37:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x00000179721800C8>
+[ 03-11-2019 :: 01:37:32 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 03-11-2019 :: 01:37:35 ] [  INFO  ] Attendance Of a Particular Date Fetched From Attendance_DB 
+[ 03-11-2019 :: 01:37:37 ] [  INFO  ] Attendence Collection Fetched From Attendance_DB
+[ 03-11-2019 :: 01:37:38 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x0000017972180588>
+[ 03-11-2019 :: 01:37:38 ] [  INFO  ] Attendance Of a Particular Day Updated Successfully in Attendance_DB 
+[ 03-11-2019 :: 01:37:40 ] [  INFO  ] Attendance Collection Dropped Successfully from Attendance_DB
+[ 03-11-2019 :: 01:37:41 ] [  INFO  ] batch_db Connected Successfully
+[ 03-11-2019 :: 01:37:44 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001797218E748>
+[ 03-11-2019 :: 01:37:44 ] [  INFO  ] 00020802717 Enrollment Inserted Successfully at msc_ece_a_2021 Collection in batch_db
+[ 03-11-2019 :: 01:37:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x0000017972189B08>
+[ 03-11-2019 :: 01:37:45 ] [  INFO  ] 00120802717 Enrollment Inserted Successfully at msc_ece_a_2021 Collection in batch_db
+[ 03-11-2019 :: 01:37:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001797218E748>
+[ 03-11-2019 :: 01:37:45 ] [  INFO  ] 00220802717 Enrollment Inserted Successfully at msc_ece_a_2021 Collection in batch_db
+[ 03-11-2019 :: 01:37:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x0000017972189B08>
+[ 03-11-2019 :: 01:37:46 ] [  INFO  ] 00320802717 Enrollment Inserted Successfully at msc_ece_a_2021 Collection in batch_db
+[ 03-11-2019 :: 01:37:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x000001797216F0C8>
+[ 03-11-2019 :: 01:37:46 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at msc_ece_a_2021 Collection in batch_db
+[ 03-11-2019 :: 01:37:47 ] [  ERROR ] 00420802717 Enrollment Insertion at msc_ece_a_2021 Collection in Batch_DB failed - Duplicate Entry Found
+[ 03-11-2019 :: 01:37:47 ] [  INFO  ] msc_ece_a_2021 Collection Fetched From Batch_DB
+[ 03-11-2019 :: 01:37:48 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x0000017972190688>
+[ 03-11-2019 :: 01:37:48 ] [  INFO  ] 00220802717 Enrollment Removed From msc_ece_a_2021 Collection in Batch_DB
+[ 03-11-2019 :: 01:37:49 ] [  INFO  ] msc_ece_a_2021 Collection Removed From Batch_DB
+[ 03-11-2019 :: 01:37:50 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 03-11-2019 :: 01:37:53 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x000001797218E208>
+[ 03-11-2019 :: 01:37:53 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 03-11-2019 :: 01:37:53 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x0000017972180E48>
+[ 03-11-2019 :: 01:37:53 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 03-11-2019 :: 01:37:54 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 03-11-2019 :: 01:37:57 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x00000179721A7408>
+[ 03-11-2019 :: 01:37:57 ] Faculty_DB has been updated successfully.
+[ 03-11-2019 :: 01:37:58 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x00000179721A7948>
+[ 03-11-2019 :: 01:37:58 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 03-11-2019 :: 01:37:59 ] [ INFO  ] Requested Collection Dropped
+[ 03-11-2019 :: 01:38:00 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 03-11-2019 :: 01:38:03 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x00000179721A5C48>
+[ 03-11-2019 :: 01:38:03 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 03-11-2019 :: 01:38:04 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x0000017972190B08>
+[ 03-11-2019 :: 01:38:04 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 03-11-2019 :: 01:38:04 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 03-11-2019 :: 01:38:05 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 03-11-2019 :: 01:38:07 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x000001797214E708>
+[ 03-11-2019 :: 01:38:07 ] [ INFO  ] Marksheet_DB has been updated.
+[ 03-11-2019 :: 01:38:07 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x00000179721B5148>
+[ 03-11-2019 :: 01:38:07 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 03-11-2019 :: 01:38:08 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 03-11-2019 :: 01:38:11 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x00000179729C1F08>
+[ 03-11-2019 :: 01:38:11 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 03-11-2019 :: 01:38:12 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 03-11-2019 :: 01:38:13 ] [ INFO  ] All the current batches has been displayed.
+[ 03-11-2019 :: 01:38:14 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x000001797218BFC8>
+[ 03-11-2019 :: 01:38:14 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 03-11-2019 :: 01:38:14 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.

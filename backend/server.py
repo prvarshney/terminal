@@ -60,6 +60,28 @@ def insert():
         })
 ## ADMIN ROUTES --END
 
+## FACULTY ROUTES --START
+@app.route("/faculty/login",methods=['POST'])
+def faculty_authentication():
+    user_credentials = request.get_json()
+    faculty = db.Faculty()
+    ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED FACULTY_ID
+    db_res = faculty.query('faculty_id',user_credentials['user_id'])    
+    if db_res['status'] == 212:                  ## RUNS WHEN THERE IS SOME RESULT FOR THE ABOVE QUERY
+        ## MATCHING REQ PASSWORD WITH DB PASSWORD
+        for document in db_res['res']:
+            if bcrypt.check_password_hash(document['password'],user_credentials['password']):
+                ## JWT TOKEN GENERATION TAKES PLACE
+                access_token = create_access_token(identity=user_credentials['user_id'])
+                refresh_token = create_refresh_token(identity=user_credentials['user_id'])
+                return jsonify({ 
+                    'status':'200',
+                    'access-token':access_token,
+                    'refresh_token':refresh_token,
+                    'msg':'login-successful'
+                    })
+    return jsonify({ 'status':'401','msg':'Invalid UserID/Password' })    
+
 @app.route("/faculty/insert_attendance",methods=['POST'])
 def insert_attendance():
     req = request.get_json()

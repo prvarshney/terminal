@@ -12,3 +12,9 @@
 [ 01-11-2019 :: 11:51:55 ] [  INFO  ] batch_db Connected Successfully
 [ 01-11-2019 :: 11:51:58 ] [  ERROR ] 01220802717 Enrollment Insertion at btech_ece_a_2021 Collection in Batch_DB failed - Duplicate Entry Found
 [ 01-11-2019 :: 11:51:59 ] [  ERROR ] 01320802717 Enrollment Insertion at btech_ece_a_2021 Collection in Batch_DB failed - Duplicate Entry Found
+[ 03-11-2019 :: 01:44:53 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:44:53 ] [ INFO  ] The search query is successfully completed.
+[ 03-11-2019 :: 01:45:07 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:45:07 ] [ INFO  ] The search query is successfully completed.
+[ 03-11-2019 :: 01:45:21 ] [ INFO  ] Faculty_DB connected successfully
+[ 03-11-2019 :: 01:45:21 ] [ INFO  ] The search query is successfully completed.
