@@ -17,9 +17,9 @@ class Faculty:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Faculty_DB]
-			log('[ INFO  ] Faculty_DB connected successfully')
+			log(f'[  INFO  ] {config.Faculty_DB} Connected Successfully')
 		except:
-			log('[ Error ] Unable to create connection with Faculty_DB')
+			log('[  ERROR ] Unable To Create Connection With Faculty_DB')
 			sys.exit(0)
 		self.collection = db[config.Faculty_Profile_Collection]
 
@@ -66,12 +66,12 @@ class Faculty:
 		# CHECKING WHETHER ANY FACULTY WITH SAME FACULTY_ID IS PRESENT IN DATABASE
 		duplicate_entry = self.collection.find_one({ 'faculty_id':id })
 		if duplicate_entry != None:		# RUN WHEN THEIR PRESENTS ANY DUPLICATE FACULTY_ID IN DB
-			log('[ Error ] Object of this ID already present in database')
+			log('[  ERROR ] Object Of This Id Already Present In Database')
 			return 417
 		else:			# RUNS WHEN THERE DOESN'T PRESENT ANY DUPLICATE ENTRY
 			status = self.collection.insert_one(document)
-			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			log('[ INFO  ] A faculty has been inserted in Faculty_DB.')
+			log(f'[  INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log(f'[  INFO  ] Faculty - {id} Inserted in {config.Faculty_DB}')
 			return 201
 
 	def query(self,query_parameter,query_value):
@@ -94,7 +94,7 @@ class Faculty:
 				'status':206,
 				'res':res
 			}
-		log('[ INFO  ] The search query is successfully completed.')
+		log(f'[  INFO  ] The Search Query Completed Successfully in {config.Faculty_DB}')
 		return response
 
 	def remove(self,query_parameter,query_value):
@@ -107,8 +107,8 @@ class Faculty:
 		#
 		try:
 			status = self.collection.delete_many({ query_parameter:query_value })
-			log(f'[ INFO  ] {status}')
-			log('[ INFO  ] The faculty with the given query has been successfully removed from Faculty_DB.')
+			log(f'[  INFO  ] {status}')
+			log(f'[  INFO  ] Faculty - {query_parameter}:{query_value} Removed Successfully from {config.Faculty_DB}')
 			return 220
 		except:
 			return 203
@@ -128,11 +128,11 @@ class Faculty:
 		updating_values = { updation_param:updation_value }
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
-			log(f'[ INFO  ] {status}')
-			log(f'[ INFO  ] {faculty_id} Faculty_DB has been updated.')
+			log(f'[  INFO  ] {status}')
+			log(f'[  INFO  ] Faculty - {faculty_id} Updated With - {updation_param}:{updation_value} in {config.Faculty_DB}')
 			return 301
 		except:
-			log('[ ERROR  ] Updation failed.')
+			log(f'[ ERROR  ] Updation failed while Updating Faculty - {faculty_id} With - {updation_param}:{updation_value} in {config.Faculty_DB}')
 			return 204
 
 	def __del__(self):

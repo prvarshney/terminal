@@ -1,6 +1,6 @@
 from database import DBQuery as db
 from flask import (Flask, jsonify, request)
-from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required ) 
+from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
 import config
 import os
@@ -35,13 +35,17 @@ def admin_authentication():
                 ## JWT TOKEN GENERATION TAKES PLACE
                 access_token = create_access_token(identity=user_credentials['user_id'])
                 refresh_token = create_refresh_token(identity=user_credentials['user_id'])
-                return jsonify({ 
+                return jsonify({
                     'status':'200',
                     'access-token':access_token,
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
                     })
+<<<<<<< HEAD
+    return jsonify({ 'status':'401','msg':'Invalid UserID/Password' })
+=======
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })    
+>>>>>>> master
 
 @app.route('/admin/reset',methods=['POST'])
 @jwt_required
@@ -271,4 +275,3 @@ def faculty_show_attendance():
 
 if __name__ == '__main__':
     app.run(debug=True,port=5001,host="0.0.0.0")
-    

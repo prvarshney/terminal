@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from logger import log
 import sys
 import config
+from flask_bcrypt import Bcrypt
 
 ## START OF STUDENT'S PROFILE COLLECTION API
 ## --------------------------------------------------------------------------
@@ -49,12 +50,13 @@ class Student:
 		# 3. PASSWORD SHOULD BE ENCRYPTED FIRST BEFORE STORING IN DATABASE.
 		#
 		# CREATING DICTIONARY OF THE DOCUMENT THAT IS GOING TO INSERT IN DB.
+		bcrypt = Bcrypt()
 		document = {
 				"enrollment": enrollment,
 				"name": name,
 				"phone_numbers": phone_numbers,
 				"email": email,
-				"password": password,
+				"password": bcrypt.generate_password_hash(password).decode('utf-8'),
 				"father_name": father_name,
 				"year_of_join": year_of_join,
 				"year_of_pass": year_of_pass,
