@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from flask_bcrypt import Bcrypt
 import config
 import sys
 from logger import log
@@ -52,8 +53,9 @@ class Admin:
         # UPDATION_PARAM --> STRING
         # PASSWORD --> STRING
         #
+        bcrypt = Bcrypt()
         searching_values = { 'admin_id':admin_id }
-        updating_values = { 'password':password }
+        updating_values = { 'password':bcrypt.generate_password_hash(password).decode('utf-8')  }
         try:
             status = self.collection.update_one(searching_values, {'$set':updating_values})
             log(f'[  INFO  ] {status}')
