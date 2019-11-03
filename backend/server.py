@@ -217,6 +217,15 @@ def admin_batch_remove_all():
             'status':401,
             'msg':'unauthorized user'
         })
+
+@app.route('/admin/aboutus',methods=['GET'])
+def admin_aboutus():
+    ## THIS ROUTE DOESN'T REQUIRES ANY JSON OR DATA FROM USER
+    return jsonify({
+        'developers':'the three musketers group',
+        'msg':'for the community by the community',
+        'status':'200'
+    })
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START
