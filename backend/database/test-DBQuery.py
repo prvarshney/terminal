@@ -2,6 +2,7 @@ import DBQuery as db
 import os
 import sys
 import random
+import string
 from datetime import datetime
 
 ## CREATING DUMMY OBJECTS FOR TESTING PURPOSE
@@ -22,6 +23,13 @@ MULTI_TEST_SiZE = 500
 CLASS_STRENGTH = 200
 MARKS = list(range(1,100))
 ASSESSMENT = list(range(1,100))
+NAME = ['prashant','somya','preeti']
+GENDER = ['m','f']
+TEMP_ADDRESS = ['sec-17 rohini','sec-16 rohini','sec-11 rohini']
+PERM_ADDRESS = ['sec-17 rohini','sec-16 rohini','sec-11 rohini']
+DOMAINS = ['hotmail.com','gmail.com','aol.com','mail.com','mail.iz','yahoo.com']
+LETTERS = string.ascii_lowercase[:12]
+FATHER_NAME = ['Tinku Pandey','Chunky Pandey','Pandey Ji']
 
 def generate_attendance_dictionary(count=100):
     global ENROLLMENT_NOS
@@ -75,6 +83,26 @@ def generate_markseet_dictionary(count = 100):
             dictionary_list.append(dictionary)
     return dictionary_list
 
+def generate_dob():
+    date = random.randrange(1,32)
+    month = random.randrange(1,13)
+    year = random.randrange(1952,2022)
+    dob_dictionary = {'date':date,'month':month,'year':year}
+    return dob_dictionary
+
+def get_one_random_domain(DOMAINS):
+    return random.choice(DOMAINS)
+
+def get_one_random_name(LETTERS):
+    return ''.join(random.choice(LETTERS) for i in range(7))
+
+def generate_email():
+    return get_one_random_name(LETTERS) + '@' + get_one_random_domain(DOMAINS)
+
+
+
+
+
 
 ## CLI MAIN MENU
 def main_menu():
@@ -103,7 +131,7 @@ if __name__ == "__main__":
         # PERFORMING SINGLE ENTRY TEST FOR ALL APIS
         print('----------------------------------------------------------------------------------------------------------')
         print("[  INFO  ] Starting Single Entry Testing Engine ")
-        print("[  INFO  ] Testing Attendance API Functionality ")  
+        print("[  INFO  ] Testing Attendance API Functionality ")
         print('----------------------------------------------------------------------------------------------------------')
         ######################################### TESTING OF ATTENDANCE API STARTED ######################################################
         errors_list = []
@@ -175,7 +203,7 @@ if __name__ == "__main__":
 
         ###################################### TESTING OF BATCH API STARTED ###################################################################
         print('\n----------------------------------------------------------------------------------------------------------')
-        print("[  INFO  ] Testing Batch API Functionality ")  
+        print("[  INFO  ] Testing Batch API Functionality ")
         print('----------------------------------------------------------------------------------------------------------')
         errors_list.clear()
         programme = random.choice(PROGRAMMES)
@@ -370,7 +398,7 @@ if __name__ == "__main__":
         #######################################TESTING OF MARKSHEET API FINISHED##############################
         #################################### TESTING OF CURRENT_BATCHES API STARTED #################################################################
         print('\n----------------------------------------------------------------------------------------------------------')
-        print("[  INFO  ] Testing CURRENT_Batch API Functionality ")  
+        print("[  INFO  ] Testing CURRENT_Batch API Functionality ")
         print('----------------------------------------------------------------------------------------------------------')
         errors_list.clear()
         faculty_id = random.choice(FACULTY_IDS)
@@ -420,11 +448,72 @@ if __name__ == "__main__":
         print(*errors_list,sep='\n')
         ###################################### TESTING OF CURRENTBATCHES API FINISHED ######################################################
 
-            
-    elif main_selection == 2: 
+        #####################################TESTING OF STUDENT API STARTED#################################################################
+        print('\n--------------------------------------------------------------------------------------------')
+        print("[  INFO  ] Testing STUDENT API")
+        print('----------------------------------------------------------------------------------------------')
+        errors_list = []
+        enrollment = random.choice(ENROLLMENT_NOS)
+        name = random.choice(NAME)
+        phone_numbers = random.randrange(1111111111, 9999999999)
+        email = generate_email()
+        password = 'preeti'
+        father_name = random.choice(FATHER_NAME)
+        year_of_join =  random.randrange(1952, 2022)
+        year_of_pass = year_of_join + 4
+        programme = random.choice(PROGRAMMES)
+        branch = random.choice(BRANCHES)
+        section = random.choice(SECTIONS)
+        gender = random.choice(GENDER)
+        dob = generate_dob()
+        temp_address = random.choice(TEMP_ADDRESS)
+        perm_address = random.choice(PERM_ADDRESS)
+        student = db.Student()
+        print('[  INFO  ] Working On Collection : user_info ')
+        ###################################TESTING INSERT METHOD############################################################################
+        print(f'[  INFO  ] Inserting - {enrollment}, {name}, {phone_numbers}, {email}, {password}, {father_name}, {year_of_join}, {year_of_pass}, {programme}, {branch}, {section}, {gender}, {dob}, {temp_address}, {perm_address}')
+        status = student.insert(enrollment, name, phone_numbers, email, password, father_name, year_of_join,year_of_pass,
+    	 programme, branch, section, gender, dob, temp_address, perm_address)
+        print(f'[ STATUS ] {status}') 	## PRINTING STATUS OF INSERT METHOD
+        print(f'[  INFO  ] Trying to insert Duplicate entry - {enrollment}, {name}, {phone_numbers}, {email},  {password}, {father_name}, {year_of_join}, {year_of_pass}, {programme}, {branch}, {section}, {gender}, {dob}, {temp_address}, {perm_address}')
+        status = student.insert(enrollment, name, phone_numbers, email, password, father_name, year_of_join,year_of_pass,
+    	 programme, branch, section, gender, dob, temp_address, perm_address)
+        print(f'[ STATUS ] {status}')  ## PRINTING STATUS OF INSERTION OF DUMMY ENTRY IN STUDENT API
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Student_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Student - Insert Method')
+        ###################################TESTING QUERY METHOD###############################################################################
+        print('[  INFO  ] Querying the Student API')
+        status = student.query('enrollment',enrollment)
+        print(f'[ STATUS ] {status}')  ## PRINTING STATUS OF QUERY RESULT IN STUDENT API
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Student_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Student - Query Method')
+        ###################################TESTING UPDATE METHOD###############################################################################
+        print('[  INFO  ] Updating the Student API')
+        status = student.update(enrollment, 'name', random.choice(NAME))
+        print(f'[ STATUS ] {status}')  ## PRINTING STATUS OF UPDATE API
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Student_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Student - Update Method')
+        ###################################TESTING REMOVE METHOD###############################################################################
+        print('[  INFO  ] Removal of entries in Student API')
+        status = student.remove('enrollment',enrollment)
+        print(f'[ STATUS ] {status}')  ## PRINTING STATUS OF REMOVE API
+        error_status = input("[  HALT  ] Check For Any Discrepancy In Student_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Student - Remove Method')
+        print('----------------------------------------------------------------------------------------------------------')
+        print('[  INFO  ] Errors In Student API : {} '.format(len(errors_list)))
+        print('----------------------------------------------------------------------------------------------------------')
+        print(*errors_list,sep='\n')
+        ###################################### TESTING OF STUDENT API FINISHED ################################################################
+
+
+    elif main_selection == 2:
         # PERFORMING MULTIPLE ENTRY TEST FOR ALL APIS
         print("[  INFO  ] Starting Multiple Entry Testing Engine ")
-        print("[  INFO  ] Testing Attendance API Functionality ")  
+        print("[  INFO  ] Testing Attendance API Functionality ")
         attendance = db.Attendance(
                 faculty_id=random.choice(FACULTY_IDS),
                 subject=random.choice(SUBJECTS),
@@ -440,7 +529,8 @@ if __name__ == "__main__":
             print("\n[  INFO  ] Inserting Dummy Attendance Dictionary in Attendance_DB ( Count: {} ) ".format(i+1))
             print(f'[ STATUS ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
         input("[  HALT  ] Check For Any Discrepancy In Attendance_DB ")
-        
+
+
     elif main_selection == 3:
         # PERFORMING MULTIPLE CONNECTION TEST
         pass

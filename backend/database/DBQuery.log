@@ -1,0 +1,61 @@
+[ 02-11-2019 :: 20:22:57 ] [  INFO  ] Attendance_DB Connected Successfully
+[ 02-11-2019 :: 20:23:00 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f34c534ec48>
+[ 02-11-2019 :: 20:23:00 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 02-11-2019 :: 20:23:01 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f34c534ea88>
+[ 02-11-2019 :: 20:23:01 ] [  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB
+[ 02-11-2019 :: 20:23:07 ] [  ERROR ] Unable To Fetch Attendance Of a Particular Date From Attendance_DB 
+[ 02-11-2019 :: 20:27:50 ] [ INFO  ] Student_DB Connected Successfully
+[ 02-11-2019 :: 20:29:19 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 18:12:28 ] [ Error ] Unable To Create Connection With Student_DB
+[ 03-11-2019 :: 18:13:51 ] [ Error ] Unable To Create Connection With Student_DB
+[ 03-11-2019 :: 18:15:21 ] [ Error ] Unable To Create Connection With Student_DB
+[ 03-11-2019 :: 18:25:11 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 18:25:15 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0d91c35a88>
+[ 03-11-2019 :: 18:25:15 ] [ INFO  ] A new student has been inserted into Student_DB.
+[ 03-11-2019 :: 18:25:16 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 18:27:47 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 18:27:50 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f5c144a8ec8>
+[ 03-11-2019 :: 18:27:50 ] [ INFO  ] A new student has been inserted into Student_DB.
+[ 03-11-2019 :: 18:27:51 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 18:33:47 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 18:33:50 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 18:33:51 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 18:36:26 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 18:36:29 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f019718c8c8>
+[ 03-11-2019 :: 18:36:29 ] [ INFO  ] A new student has been inserted into Student_DB.
+[ 03-11-2019 :: 18:36:30 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 19:11:45 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 19:11:48 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff7dc407908>
+[ 03-11-2019 :: 19:11:48 ] [ INFO  ] A new student has been inserted into Student_DB.
+[ 03-11-2019 :: 19:11:49 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 19:12:08 ] [ INFO  ] Successful query in Student_DB.
+[ 03-11-2019 :: 20:01:51 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:01:55 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f04dafe6e08>
+[ 03-11-2019 :: 20:01:55 ] [ INFO  ] A new student has been inserted into Student_DB.
+[ 03-11-2019 :: 20:01:55 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 20:02:19 ] [ INFO  ] Successful query in Student_DB.
+[ 03-11-2019 :: 20:02:36 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f04dafe6288>
+[ 03-11-2019 :: 20:02:36 ] [ INFO  ] Student_DB has been successfully updated.
+[ 03-11-2019 :: 20:17:38 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:17:54 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:17:57 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f95ea0cee08>
+[ 03-11-2019 :: 20:17:57 ] [ INFO  ] Student_DB has been successfully updated.
+[ 03-11-2019 :: 20:24:12 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:24:15 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc734beaf48>
+[ 03-11-2019 :: 20:24:15 ] [ INFO  ] A new student has been inserted into Student_DB.
+[ 03-11-2019 :: 20:24:16 ] [ Error ] Object of this Enrollment Number already present in Database
+[ 03-11-2019 :: 20:25:11 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:25:14 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7fda1c77cfc8>
+[ 03-11-2019 :: 20:25:14 ] [ INFO  ] Student_DB has been successfully updated.
+[ 03-11-2019 :: 20:25:51 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:25:54 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8e717eae48>
+[ 03-11-2019 :: 20:25:54 ] [ INFO  ] Student_DB has been successfully updated.
+[ 03-11-2019 :: 20:26:08 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:26:11 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f2b2b549fc8>
+[ 03-11-2019 :: 20:26:11 ] [ INFO  ] Student_DB has been successfully updated.
+[ 03-11-2019 :: 20:55:11 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 20:55:14 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f97c152afc8>
+[ 03-11-2019 :: 20:55:14 ] [ INFo  ] A particular record of student is removed from Student_DB.
+[ 03-11-2019 :: 21:01:09 ] [ INFO  ] Student_DB Connected Successfully
+[ 03-11-2019 :: 21:01:12 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fe493b97848>
+[ 03-11-2019 :: 21:01:12 ] [ INFo  ] A particular record of student is removed from Student_DB.
