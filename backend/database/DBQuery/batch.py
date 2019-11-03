@@ -86,7 +86,7 @@ class Batch:
 			else:
 				response = {
 					'status':302,
-					'res':None
+					'res':{}
 				}
 			log(f'[  INFO  ] {self._programme}_{self._branch}_{self._section}_{self._year_of_pass} Collection Fetched From Batch_DB')
 		except:
