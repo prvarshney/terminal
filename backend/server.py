@@ -41,11 +41,7 @@ def admin_authentication():
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
                     })
-<<<<<<< HEAD
-    return jsonify({ 'status':'401','msg':'Invalid UserID/Password' })
-=======
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })    
->>>>>>> master
 
 @app.route('/admin/reset',methods=['POST'])
 @jwt_required

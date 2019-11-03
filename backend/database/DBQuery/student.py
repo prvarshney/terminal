@@ -17,10 +17,9 @@ class Student:
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Student_DB]
-			log('[ INFO  ] Student_DB Connected Successfully')
+			log(f'[  INFO  ] {config.Student_DB} Connected Successfully')
 		except:
-			log('[ Error ] Unable To Create Connection With Student_DB')
-			sys.exit(0)
+			log(f'[  ERROR ] Unable To Create Connection With {config.Student_DB}')
 		self.collection = db[config.Student_Profile_Collection]
 
 	def insert(self, enrollment, name, phone_numbers, email,password, father_name, year_of_join,year_of_pass,
@@ -71,12 +70,12 @@ class Student:
 		# CHECKING WHETHER ANY STUDENT IS ALREADY PRESENT IN DATABASE WITH SAME ENROLLMENT
 		duplicate_entry = self.collection.find_one({ 'enrollment':enrollment })
 		if duplicate_entry != None:
-			log('[ Error ] Object of this Enrollment Number already present in Database')
+			log(f'[  ERROR ] Enrollment - {enrollment} Insertion at {config.Student_Profile_Collection} Collection in {config.Student_DB} failed - Duplicate Entry Found')
 			return 417
 		else:
 			status = self.collection.insert_one(document)
-			log(f'[ INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			log('[ INFO  ] A new student has been inserted into Student_DB.')
+			log(f'[  INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
+			log(f'[  ERROR ] Enrollment - {enrollment} Successfully Inserted at {config.Student_Profile_Collection} Collection in {config.Student_DB}')
 			return 201
 
 	def query(self,query_parameter,query_value):
@@ -89,16 +88,22 @@ class Student:
 		# QUERY_VALUE --> STRING, DICTIONARY, LIST OF STRING
 		#
 		try:
-			res = list(self.collection.find({ query_parameter:query_value }))
-			log('[ INFO  ] Successful query in Student_DB.')
-			response = {
-				'status':'212',
-				'res': res
-			}
+			res = self.collection.find({ query_parameter:query_value })
+			log(f'[  INFO  ] The Search Query With {query_parameter}:{query_value} Accomplished Successfully in {config.Student_DB}')
+			if res.count() > 0:
+				response = {
+					'status':212,
+					'res': res
+				}
+			else:
+				response = {
+					'status':212,
+					'res': {}
+				}
 		except:
 			response = {
-				'status':'206',
-				'res':res
+				'status':206,
+				'res':None
 			}
 		return response
 
@@ -112,8 +117,8 @@ class Student:
 		#
 		try:
 			status = self.collection.delete_many({ query_parameter:query_value })
-			log(f'[ INFO  ] {status}')
-			log('[ INFo  ] A particular record of student is removed from Student_DB.')
+			log(f'[  INFO  ] {status}')
+			log(f'[  INFO  ] Enrollment - {enrollment} Removed From {config.Student_Profile_Collection} Collection in {config.Student_DB}')
 			return 220
 		except:
 			return 203
@@ -131,11 +136,11 @@ class Student:
 		updating_values = { updation_param:updation_value }
 		try:
 			status = self.collection.update_one(searching_values, {'$set':updating_values})
-			log(f'[ INFO  ] {status}')
-			log('[ INFO  ] Student_DB has been successfully updated.')
-			print(f'[ INFO  ] {status}')
+			log(f'[  INFO  ] {status}')
+			log(f'[  INFO  ] Enrollment - {enrollment} Updated With - {updation_param}:{updation_value} in {config.Student_DB}')
 			return 301
 		except:
+			log(f'[  ERROR ] Failed to Update Enrollment - {enrollment} With - {updation_param}:{updation_value} in {config.Student_DB}')
 			return 204
 
 	def __del__(self):

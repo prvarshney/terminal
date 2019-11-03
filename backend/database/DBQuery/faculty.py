@@ -66,12 +66,12 @@ class Faculty:
 		# CHECKING WHETHER ANY FACULTY WITH SAME FACULTY_ID IS PRESENT IN DATABASE
 		duplicate_entry = self.collection.find_one({ 'faculty_id':id })
 		if duplicate_entry != None:		# RUN WHEN THEIR PRESENTS ANY DUPLICATE FACULTY_ID IN DB
-			log('[  ERROR ] Object Of This Id Already Present In Database')
+			log(f'[  ERROR ] Faculty - {id} Insertion at {config.Faculty_Profile_Collection} Collection in {config.Faculty_DB} failed - Duplicate Entry Found')
 			return 417
 		else:			# RUNS WHEN THERE DOESN'T PRESENT ANY DUPLICATE ENTRY
 			status = self.collection.insert_one(document)
 			log(f'[  INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			log(f'[  INFO  ] Faculty - {id} Inserted in {config.Faculty_DB}')
+			log(f'[  INFO  ] Faculty - {id} Inserted at {config.Faculty_Profile_Collection} Collection in {config.Faculty_DB}')
 			return 201
 
 	def query(self,query_parameter,query_value):
@@ -94,7 +94,7 @@ class Faculty:
 				'status':206,
 				'res':res
 			}
-		log(f'[  INFO  ] The Search Query Completed Successfully in {config.Faculty_DB}')
+		log(f'[  INFO  ] The Search Query With {query_parameter}:{query_value} Accomplished Successfully in {config.Faculty_DB}')
 		return response
 
 	def remove(self,query_parameter,query_value):
