@@ -8,3 +8,4 @@ from .previous_batches import PreviousBatches
 from .student import Student
 from .studymaterial import StudyMaterial
 from .admin import Admin
+from .otp import OTP
