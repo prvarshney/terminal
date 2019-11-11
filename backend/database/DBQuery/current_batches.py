@@ -95,9 +95,27 @@ class CurrentBatches:
 		# IT RETURNS THE LIST OF ALL THE AVAILABLE DOCUMENTS INSIDE
 		# COLLECTION FOR WHICH THE CURRENT_BATCHES CONSTRUCTOR HAS BEEN
 		# INITIALIZED.
-		#
-		log('[ INFO  ] All the current batches has been displayed.')
-		return list(self.collection.find({}))
+		#		
+		res = self.collection.find({})
+		try:
+			if res.count() > 0:
+				response = {
+					'status':302,
+					'res':res
+				}
+			else:
+				response = {
+					'status':302,
+					'res':{}
+				}
+			log('[ INFO  ] All the current batches has been displayed.')
+		except:
+			response = {
+				'status':598,
+				'res':None
+			}
+			log('[ ERROR  ] Unable to Fetch the current batches.')
+		return response
 
 	def __del__(self):
 		self.client.close()

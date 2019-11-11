@@ -24,12 +24,19 @@ class Attendance:
 		# SEMESTER --> STRING
 		#
 		# CREATING CLIENT OF MONGODB SERVER
+		self._faculty_id = faculty_id
+		self._subject = subject
+		self._programme = programme
+		self._branch = branch 
+		self._section = section
+		self._year_of_pass = year_of_pass
+		self._semester = semester
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
 			db = self.client[config.Attendance_DB]
-			log('[  INFO  ] Attendance_DB Connected Successfully')
+			log(f'[  INFO  ] {config.Attendance_DB} Connected Successfully')
 		except:
-			log('[  ERROR ] Unable To Create Connection With Attendance_DB')
+			log('[ ERROR  ] Unable To Create Connection With Attendance_DB')
 		# CREATING A COLLECTION IN DATABASE WITH IDENTIFIER LIKE
 		# F45A_JAVA_BTECH_CSE_A_2021_5
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
@@ -54,10 +61,10 @@ class Attendance:
 		try:
 			status = self.collection.insert_one(attendance_dictionary)
 			log(f'[  INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-			log('[  INFO  ] Insertion Operation Accomplished Successfully in Attendance_DB')
+			log(f'[  INFO  ] Inserted {attendance_dictionary} at {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection Successfully in {config.Attendance_DB}')
 			return 201
 		except:
-			log('[  ERROR ] Insertion Operation Failed in Attendance_DB')
+			log(f'[ ERROR  ] Insertion Of {attendance_dictionary} Operation Failed in {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection in {config.Attendance_DB}')
 			return 417
 
 	def show_all(self):
@@ -76,13 +83,13 @@ class Attendance:
 					'status':302,
 					'res':None
 				}
-			log('[  INFO  ] Attendence Collection Fetched From Attendance_DB')
+			log(f'[  INFO  ] Attendence from {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection Fetched From {config.Attendance_DB}.')
 		except:
 			response = {
 				'status':598,
 				'res':None
 			}
-			log('[  ERROR ] Unable To Fetch Attendence Collection From Attendance_DB')
+			log(f'[ ERROR  ] Unable To Fetch Attendence from {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection From {config.Attendance_DB}.')
 		return response
 
 	def show_on(self,query_date):
@@ -104,13 +111,13 @@ class Attendance:
 					'status':404,
 					'res':None
 				}
-			log('[  INFO  ] Attendance Of a Particular Date Fetched From Attendance_DB ')
+			log(f'[  INFO  ] Attendance Of {query_date} Date Fetched From {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection In {config.Attendance_DB}. ')
 		except:
 			response = {
 				'status':598,
 				'res':None
 			}
-			log('[  ERROR ] Unable To Fetch Attendance Of a Particular Date From Attendance_DB ')
+			log(f'[ ERROR  ] Unable To Fetch Attendance Of a {query_date} Date Fetched From {self._faculty_id}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection In {config.Attendance_DB}. ')
 		return response
 
 	def remove_all(self):
@@ -119,10 +126,10 @@ class Attendance:
 		#
 		try:
 			self.collection.drop()
-			log('[  INFO  ] Attendance Collection Dropped Successfully from Attendance_DB')
+			log(f'[  INFO  ] {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection Dropped Successfully from {config.Attendance_DB}.')
 			return 512
 		except:
-			log('[  ERROR ] Unable To Drop Attendance Collection from Attendance_DB')
+			log(f'[ ERROR  ] Unable To Drop {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection from Attendance_DB.')
 			return 400
 
 	def update(self,date,attendance_dictionary):
@@ -138,10 +145,10 @@ class Attendance:
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
 			log(f'[  INFO  ] {status}')
-			log('[  INFO  ] Attendance Of a Particular Day Updated Successfully in Attendance_DB ')
+			log(f'[  INFO  ] Attendance Of {date} Updated Successfully as {attendance_dictionary}in {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection In {config.Attendance_DB}. ')					
 			return 301
 		except:
-			log('[  ERROR ] Unable To Update Attendance Of A Particular Day in Attendance_DB')
+			log(f'[ ERROR  ] Unable To Update Attendance Of {date} in {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection In {config.Attendance_DB}.')
 			return 204
 
 	def __del__(self):
