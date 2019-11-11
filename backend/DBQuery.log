@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [ 06-11-2019 :: 11:32:36 ] [  INFO  ] admin_db Connected Successfully
 [ 06-11-2019 :: 11:41:47 ] [  INFO  ] faculty_db Connected Successfully
 [ 06-11-2019 :: 11:41:47 ] [  INFO  ] The Search Query With faculty_id:f001bpit Accomplished Successfully in faculty_db
@@ -106,3 +107,21 @@
 [ 11-11-2019 :: 12:10:32 ] [ INFO  ] All the current batches has been displayed.
 [ 11-11-2019 :: 12:11:00 ] [ INFO  ] Current_Batches_DB Connected Successfully
 [ 11-11-2019 :: 12:11:03 ] [ INFO  ] All the current batches has been displayed.
+=======
+[ 06-11-2019 :: 00:37:08 ] [  INFO  ] admin_db Connected Successfully
+[ 06-11-2019 :: 00:37:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 06-11-2019 :: 00:37:11 ] [  INFO  ] otp_db Connected Successfully
+[ 06-11-2019 :: 00:37:19 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fdfb8498e10>
+[ 06-11-2019 :: 00:37:19 ] [  INFO  ] For User_ID - adm-123 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 06-11-2019 :: 00:38:21 ] [  INFO  ] otp_db Connected Successfully
+[ 06-11-2019 :: 00:38:25 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 06-11-2019 :: 00:38:38 ] [  INFO  ] otp_db Connected Successfully
+[ 06-11-2019 :: 00:38:41 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 06-11-2019 :: 00:38:41 ] [  INFO  ] admin_db Connected Successfully
+[ 06-11-2019 :: 00:38:45 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fdfb8485a00>
+[ 06-11-2019 :: 00:38:45 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 06-11-2019 :: 00:38:45 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fdfb8485a00>
+[ 06-11-2019 :: 00:38:45 ] [  INFO  ] User_ID - adm-123 Removed Successfully from generated_otp Collection in otp_db
+[ 06-11-2019 :: 00:39:07 ] [  INFO  ] admin_db Connected Successfully
+[ 06-11-2019 :: 00:39:10 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+>>>>>>> master
