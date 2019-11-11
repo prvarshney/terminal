@@ -129,6 +129,70 @@ if __name__ == "__main__":
         print("[  INFO  ] Starting Single Entry Testing Engine ")
         print("[  INFO  ] Testing Faculty API Functionality ")  
         print('-------------------------------------------------------------------------------------------------------------------------------------')
+        ###################################################### TESTING OF CURRENT_BATCHES API STARTED ################################
+        print('\n-------------------------------------------------------------------------------------------------------------------------------------')
+        print("[  INFO  ] Testing Current_Batch API Functionality ")  
+        print('-------------------------------------------------------------------------------------------------------------------------------------')
+        errors_list = []
+        errors_list.clear()
+        faculty_id = random.choice(FACULTY_IDS)
+        subject = random.choice(SUBJECTS)
+        semester = random.choice(SEMESTERS)
+        programme = random.choice(PROGRAMMES)
+        branch = random.choice(BRANCHES)
+        section = random.choice(SECTIONS)
+        year_of_pass = random.choice(YEAR_OF_PASS)
+        current_batches = db.CurrentBatches(faculty_id)
+        print(f'[  INFO  ] Working on collection : {faculty_id}\n')
+        ## TESTING INSERT METHOD       
+        print(f'[  INFO  ] Inserting - {subject}_{semester}_{programme}_{branch}_{section}_{year_of_pass}')
+        print('[  INFO  ] Inserting Dummy Current_Batch in Current_Batches ( Count :1 )')
+        status = current_batches.insert(subject,semester,programme,branch,section,year_of_pass)
+        print(f'[ STATUS ] {status}')        ## PRINTING STATUS OF INSERT METHOD        
+        print('[  INFO  ] Inserting Dummy Current_Batch in Current_Batches ( Count :2 )')
+        status = current_batches.insert(
+            subject = random.choice(SUBJECTS),
+            semester = random.choice(SEMESTERS),
+            programme = random.choice(PROGRAMMES),
+            branch = random.choice(BRANCHES),
+            section = random.choice(SECTIONS),
+            year_of_pass = random.choice(YEAR_OF_PASS)    
+        )        
+        print(f'[ STATUS ] {status}')        ## PRINTING STATUS OF INSERT METHOD  
+        print(f'[  INFO  ] Trying To Insert Duplicate Entry - {subject}_{semester}_{programme}_{branch}_{section}_{year_of_pass}')
+        status = current_batches.insert(subject,semester,programme,branch,section,year_of_pass)
+        print(f'[ STATUS ] {status}')        ## PRINTING STATUS OF DUPLICATE METHOD
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('Batch - Insert Method')
+        ## TESTING SHOW_ALL METHOD
+        print('\n[  INFO  ] Fetching all the batches of the faculty.')
+        response = current_batches.show_all()
+        print(f'[ STATUS ] {status}')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('CurrentBatches - Show_All Method')
+        ## TESTING REMOVE METHOD
+        print(f'[  INFO  ] Removing record of class from faculty class list.')
+        status = current_batches.remove(programme,branch,section,year_of_pass)
+        print(f'[ STATUS ] {status}')       ## PRINTING STATUS OF REMOVE METHOD
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('CurrentBatches - Remove Method')
+        ## TESTING REMOVE_ALL METHOD
+        print('\n[  INFO  ] Removing Whole Collection.')
+        status = current_batches.remove_all()
+        print(f'[ STATUS ] {status}')
+        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
+        if error_status in ['y','Y']:
+            errors_list.append('CurrentBatches - Remove_ALL Method')
+        print('-------------------------------------------------------------------------------------------------------------------------------------')
+        print('[  INFO  ] Errors In CurrentBatches API : {} '.format(len(errors_list)))
+        print('-------------------------------------------------------------------------------------------------------------------------------------')
+        print(*errors_list,sep='\n')
+        ################################################### TESTING OF CURRENT_BATCHES API FINISHED #######################################
+
+        
         ######################################TESTING OF FACULTY API ######################################
         errors_list = []     
         faculty = db.Faculty()
@@ -469,57 +533,7 @@ if __name__ == "__main__":
         print(*errors_list,sep='\n')
         ###################################################### TESTING OF MARKSHEET API FINISHED #####################################
 
-        ###################################################### TESTING OF CURRENT_BATCHES API STARTED ################################
-        print('\n-------------------------------------------------------------------------------------------------------------------------------------')
-        print("[  INFO  ] Testing Current_Batch API Functionality ")  
-        print('-------------------------------------------------------------------------------------------------------------------------------------')
-        errors_list.clear()
-        faculty_id = random.choice(FACULTY_IDS)
-        subject = random.choice(SUBJECTS)
-        semester = random.choice(SEMESTERS)
-        programme = random.choice(PROGRAMMES)
-        branch = random.choice(BRANCHES)
-        section = random.choice(SECTIONS)
-        year_of_pass = random.choice(YEAR_OF_PASS)
-        current_batches = db.CurrentBatches(faculty_id)
-        print(f'[  INFO  ] Working on collection : {faculty_id}\n')
-        ## TESTING INSERT METHOD
-        print(f'[  INFO  ] Inserting - {subject}_{semester}_{programme}_{branch}_{section}_{year_of_pass}')
-        status = current_batches.insert(subject,semester,programme,branch,section,year_of_pass)
-        print(f'[ STATUS ] {status}')        ## PRINTING STATUS OF INSERT METHOD
-        print(f'[  INFO  ] Trying To Insert Duplicate Entry - {subject}_{semester}_{programme}_{branch}_{section}_{year_of_pass}')
-        status = current_batches.insert(subject,semester,programme,branch,section,year_of_pass)
-        print(f'[ STATUS ] {status}')        ## PRINTING STATUS OF DUPLICATE METHOD
-        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
-        if error_status in ['y','Y']:
-            errors_list.append('Batch - Insert Method')
-        ## TESTING SHOW_ALL METHOD
-        print('\n[  INFO  ] Fetching all the batches of the faculty.')
-        response = current_batches.show_all()
-        print(f'[ STATUS ] {status}')
-        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
-        if error_status in ['y','Y']:
-            errors_list.append('CurrentBatches - Show_All Method')
-        ## TESTING REMOVE METHOD
-        print(f'[  INFO  ] Removing record of class from faculty class list.')
-        status = current_batches.remove(programme,branch,section,year_of_pass)
-        print(f'[ STATUS ] {status}')       ## PRINTING STATUS OF REMOVE METHOD
-        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
-        if error_status in ['y','Y']:
-            errors_list.append('CurrentBatches - Remove Method')
-        ## TESTING REMOVE_ALL METHOD
-        print('\n[  INFO  ] Removing Whole Collection.')
-        status = current_batches.remove_all()
-        print(f'[ STATUS ] {status}')
-        error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
-        if error_status in ['y','Y']:
-            errors_list.append('CurrentBatches - Remove_ALL Method')
-        print('-------------------------------------------------------------------------------------------------------------------------------------')
-        print('[  INFO  ] Errors In CurrentBatches API : {} '.format(len(errors_list)))
-        print('-------------------------------------------------------------------------------------------------------------------------------------')
-        print(*errors_list,sep='\n')
-        ################################################### TESTING OF CURRENT_BATCHES API FINISHED #######################################
-
+        
         ################################################## TESTING OF STUDENT API STARTED #################################################
         print('\n-------------------------------------------------------------------------------------------------------------------------------------')
         print("[  INFO  ] Testing Student API Functionality")

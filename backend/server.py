@@ -359,16 +359,21 @@ def faculty_authentication():
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
                     })
-    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })    
+    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })   
+
+ 
 
 @app.route("/faculty/insert_attendance",methods=['POST'])
+@jwt_required
 def faculty_insert_attendance():
     req = request.get_json()
-    attendance = db.Attendance(req['faculty_id'],req['subject'],req['programme'],req['branch'],
+    attendance = db.Attendance(req['user_id'],req['subject'],req['programme'],req['branch'],
     req['section'],req['year_of_pass'],req['semester'])
     db_res = attendance.insert(req['attendance_dictionary'])
     res = {"status" : db_res}
-    return jsonify(res)
+    return jsonify({'status':201,'msg':'Successfully inserted attendance.'})
+
+
 
 @app.route("/faculty/show_attendance",methods=['POST'])
 def faculty_show_attendance():
@@ -380,5 +385,30 @@ def faculty_show_attendance():
     return db_res
 
 
+@app.route("/faculty/fetch_current_batch",methods=['GET'])
+@jwt_required
+def fetch_current_batch():
+    ## THIS API IS USED FOR FETCHING THE DETAILS OF ALL THE CURRENT_BATCHES FOR THE FACULTY.
+    ## IT GIVES A LIST OF ALL THE CURRENT_BATCHES OF THE PARTICULAR FACULTY.
+    ## CHECKING VALIDITY OF JWT TOKEN
+    faculty_id = get_jwt_identity()
+    current_batches = db.CurrentBatches(faculty_id)
+    db_res = current_batches.show_all()
+    current_batches = []
+    if db_res['status'] == 302:
+        for document in db_res['res']:
+            current_batches.append(document['batch'])
+        return jsonify({
+            'current_batches':current_batches,
+            'msg':'Current_batches displayed successfully.',
+            'status':201
+        })
+    else:
+        return jsonify({
+            'status':401,
+            'msg':'unauthorized user'
+        })
+
+
 if __name__ == '__main__':
-    app.run(debug=True,port=5006,host="0.0.0.0")
+    app.run(debug=True,port=5001,host="0.0.0.0")

@@ -1,3 +1,113 @@
+<<<<<<< HEAD
+[ 06-11-2019 :: 11:32:36 ] [  INFO  ] admin_db Connected Successfully
+[ 06-11-2019 :: 11:41:47 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 11:41:47 ] [  INFO  ] The Search Query With faculty_id:f001bpit Accomplished Successfully in faculty_db
+[ 06-11-2019 :: 11:42:17 ] [  INFO  ] attendance_db Connected Successfully
+[ 06-11-2019 :: 11:42:20 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbe8e8a4fc8>
+[ 06-11-2019 :: 11:42:20 ] [  INFO  ] Inserted {'date': {'day': '06', 'month': '08', 'year': '2010'}, 'attendance': {'05520802717': 'P', '05620802717': 'A', '05720802717': 'P'}, '_id': ObjectId('5dc264412db73c46cd78782d')} at 0A654_toc_btech_cse_A_2021_2 Collection Successfully in attendance_db
+[ 06-11-2019 :: 11:46:48 ] [  INFO  ] attendance_db Connected Successfully
+[ 06-11-2019 :: 11:46:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7efdf1aa2688>
+[ 06-11-2019 :: 11:46:51 ] [  INFO  ] Inserted {'date': {'day': '06', 'month': '08', 'year': '2010'}, 'attendance': {'05520802717': 'P', '05620802717': 'A', '05720802717': 'P'}, '_id': ObjectId('5dc26550f96ff070c7cb605d')} at 0A654_toc_btech_cse_A_2021_2 Collection Successfully in attendance_db
+[ 06-11-2019 :: 11:47:34 ] [  INFO  ] attendance_db Connected Successfully
+[ 06-11-2019 :: 11:47:37 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f361cd77c88>
+[ 06-11-2019 :: 11:47:37 ] [  INFO  ] Inserted {'date': {'day': '06', 'month': '08', 'year': '2010'}, 'attendance': {'05520802717': 'P', '05620802717': 'A', '05720802717': 'P'}, '_id': ObjectId('5dc2657e3f76d7719244dc3f')} at 0A654_toc_btech_cse_A_2021_2 Collection Successfully in attendance_db
+[ 06-11-2019 :: 14:10:51 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:10:51 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:12:15 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:12:15 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:12:50 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:12:50 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:13:34 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:13:34 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:14:01 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:14:01 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:20:07 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:20:07 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:24:36 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:24:36 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:25:14 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:25:14 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:25:47 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:25:47 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:28:16 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:28:16 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:31:16 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:31:16 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:32:51 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:32:51 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:33:11 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:33:11 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:34:24 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:34:24 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:36:26 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:36:26 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 14:40:15 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 14:40:15 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 15:32:19 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 15:32:19 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 06-11-2019 :: 15:37:37 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 15:37:37 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 06-11-2019 :: 15:40:08 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 15:40:08 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 15:40:08 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 15:41:30 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 15:41:30 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 15:44:54 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 15:44:54 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 15:46:12 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 15:46:12 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 15:46:18 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 15:46:18 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 15:53:48 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 15:53:48 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 06-11-2019 :: 15:54:13 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 15:54:13 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 18:17:15 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 06-11-2019 :: 18:19:15 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 18:19:15 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 06-11-2019 :: 18:19:57 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 18:20:03 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 18:20:41 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 18:20:45 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 18:20:52 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 18:20:56 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 18:21:09 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 06-11-2019 :: 18:21:13 ] [ INFO  ] All the current batches has been displayed.
+[ 06-11-2019 :: 22:20:50 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 06-11-2019 :: 22:28:03 ] [  INFO  ] faculty_db Connected Successfully
+[ 06-11-2019 :: 22:28:03 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 10-11-2019 :: 15:54:57 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 15:55:17 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 15:55:17 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 15:55:47 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 15:57:34 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 16:00:35 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 16:00:55 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 16:01:16 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 10-11-2019 :: 16:01:28 ] [  ERROR ] Unable To Create Connection With Faculty_DB
+[ 11-11-2019 :: 11:39:11 ] [  INFO  ] faculty_db Connected Successfully
+[ 11-11-2019 :: 11:39:11 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 11-11-2019 :: 11:41:02 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 11:41:05 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 11:41:38 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 11:41:41 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 11:59:13 ] [  INFO  ] faculty_db Connected Successfully
+[ 11-11-2019 :: 11:59:13 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 11-11-2019 :: 11:59:41 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 11:59:44 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 12:00:13 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 12:00:17 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 12:08:32 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 12:08:37 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 12:08:58 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 12:09:01 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 12:09:32 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 12:09:35 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 12:10:28 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 12:10:32 ] [ INFO  ] All the current batches has been displayed.
+[ 11-11-2019 :: 12:11:00 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 11-11-2019 :: 12:11:03 ] [ INFO  ] All the current batches has been displayed.
+=======
 [ 06-11-2019 :: 00:37:08 ] [  INFO  ] admin_db Connected Successfully
 [ 06-11-2019 :: 00:37:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 06-11-2019 :: 00:37:11 ] [  INFO  ] otp_db Connected Successfully
@@ -14,3 +124,4 @@
 [ 06-11-2019 :: 00:38:45 ] [  INFO  ] User_ID - adm-123 Removed Successfully from generated_otp Collection in otp_db
 [ 06-11-2019 :: 00:39:07 ] [  INFO  ] admin_db Connected Successfully
 [ 06-11-2019 :: 00:39:10 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+>>>>>>> master
