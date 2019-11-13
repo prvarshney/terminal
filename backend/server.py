@@ -410,5 +410,49 @@ def fetch_current_batch():
         })
 
 
+@app.route("/faculty/fetch_students_list/<batch_name>",methods=['GET'])
+@jwt_required
+def fetch_students_list(batch_name):
+    ## THIS API IS USED TO FETCH THE STUDENT'S LIST OF THE CURRENT BATCH.
+    ## IT DISPLAYS ALL THE STUDENT IN A PARTICULAR CLASS.
+    ## THERE IS NO JSON OBJECT IN THE BODY.
+    ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
+    faculty_id = get_jwt_identity() 
+    batch_name = batch_name.split('_')
+    generic_batch_name = ['programme','branch','section','year_of_pass']
+    batch_name_dict = {}
+    for i in range(len(batch_name)):
+        batch_name_dict[generic_batch_name[i]]=batch_name[i]             
+    batch = db.Batch(batch_name_dict['programme'],batch_name_dict['branch'],
+    batch_name_dict['section'],batch_name_dict['year_of_pass'])
+    faculty = db.Faculty()
+    student = db.Student()
+    db_res = faculty.query('faculty_id',faculty_id)
+    if db_res['status'] == 212:              # RUNS WHEN GIVEN FACULTY_ID EXISTS
+        otp_db = db.OTP()
+        ## GENERATING OTP
+        generated_otp = random.randrange(11111111,100000000)
+        batch_res = batch.show_all()
+        students_list = []
+        for enr in batch_res['res']:
+            student_res = student.query("enrollment",enr["enrollment"])
+            for j in student_res["res"]:
+                students_list.append({
+                    "enrollment": j["enrollment"],
+                    "rollno": j["rollno"],
+                    "name": j["name"]
+                })
+        return jsonify({
+            'otp': generated_otp,
+            'students_in_class' : students_list,
+            'status' : 200,
+            'msg' : 'Student"s list of a particular class is displayed.'
+        })
+    else:
+        return jsonify({
+            'status':206,
+            'msg':'invalid user id'
+        })
+
 if __name__ == '__main__':
     app.run(debug=True,port=5001,host="0.0.0.0")

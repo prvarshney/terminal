@@ -225,3 +225,832 @@
 [ 11-11-2019 :: 12:40:58 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at phd_it_c_2024 Collection in batch_db
 [ 11-11-2019 :: 12:40:58 ] [  ERROR ] 00220802717 Enrollment Insertion at phd_it_c_2024 Collection in Batch_DB failed - Duplicate Entry Found
 [ 11-11-2019 :: 12:41:00 ] [  INFO  ] phd_it_c_2024 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 12:16:28 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:16:31 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89dbf308>
+[ 13-11-2019 :: 12:16:31 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:16:32 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89dbf288>
+[ 13-11-2019 :: 12:16:32 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:16:33 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:16:36 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:16:39 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6f89dbf508>
+[ 13-11-2019 :: 12:16:39 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:16:40 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:16:41 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 12:16:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89def7c8>
+[ 13-11-2019 :: 12:16:45 ] [  INFO  ] Faculty - f064bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 12:16:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89defe08>
+[ 13-11-2019 :: 12:16:46 ] [  INFO  ] Faculty - f077bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 12:16:46 ] [  INFO  ] The Search Query With faculty_id:f064bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 12:16:47 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f6f89dbf408>
+[ 13-11-2019 :: 12:16:47 ] [  INFO  ] Faculty - f064bpit Updated With - name:sommer-ray in faculty_db
+[ 13-11-2019 :: 12:16:48 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f6f89def7c8>
+[ 13-11-2019 :: 12:16:48 ] [  INFO  ] Faculty - faculty_id:f064bpit Removed Successfully from faculty_db
+[ 13-11-2019 :: 12:16:54 ] [  INFO  ] attendance_db Connected Successfully
+[ 13-11-2019 :: 12:16:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f88549748>
+[ 13-11-2019 :: 12:16:57 ] [  INFO  ] Inserted {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'P', '00220802717': 'A', '00320802717': 'A', '00420802717': 'A'}, '_id': ObjectId('5dcba6dec5fb88d0a3780740')} at f015bpit_computer_networks_phd_eee_e_2023_3 Collection Successfully in attendance_db
+[ 13-11-2019 :: 12:16:58 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f88549c48>
+[ 13-11-2019 :: 12:16:58 ] [  INFO  ] Inserted {'date': {'day': '14', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'A', '00220802717': 'A', '00320802717': 'P', '00420802717': 'A'}, '_id': ObjectId('5dcba6e1c5fb88d0a3780741')} at f015bpit_computer_networks_phd_eee_e_2023_3 Collection Successfully in attendance_db
+[ 13-11-2019 :: 12:16:58 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Date Fetched From f015bpit_computer_networks_phd_eee_e_2023_3 Collection In attendance_db. 
+[ 13-11-2019 :: 12:16:58 ] [  INFO  ] Attendence from f015bpit_computer_networks_phd_eee_e_2023_3 Collection Fetched From attendance_db.
+[ 13-11-2019 :: 12:16:59 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f6f88545408>
+[ 13-11-2019 :: 12:16:59 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Updated Successfully as {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'P', '00220802717': 'P', '00320802717': 'A', '00420802717': 'P'}}in f015bpit_computer_networks_phd_eee_e_2023_3 Collection In attendance_db. 
+[ 13-11-2019 :: 12:17:01 ] [  INFO  ] f015bpit_computer_networks_phd_eee_e_2023_3 Collection Dropped Successfully from attendance_db.
+[ 13-11-2019 :: 12:17:02 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 12:17:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89dbf608>
+[ 13-11-2019 :: 12:17:05 ] [  INFO  ] 00020802717 Enrollment Inserted Successfully at mtech_cse_e_2022 Collection in batch_db
+[ 13-11-2019 :: 12:17:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89def408>
+[ 13-11-2019 :: 12:17:06 ] [  INFO  ] 00120802717 Enrollment Inserted Successfully at mtech_cse_e_2022 Collection in batch_db
+[ 13-11-2019 :: 12:17:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f88556a48>
+[ 13-11-2019 :: 12:17:06 ] [  INFO  ] 00220802717 Enrollment Inserted Successfully at mtech_cse_e_2022 Collection in batch_db
+[ 13-11-2019 :: 12:17:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f88550508>
+[ 13-11-2019 :: 12:17:07 ] [  INFO  ] 00320802717 Enrollment Inserted Successfully at mtech_cse_e_2022 Collection in batch_db
+[ 13-11-2019 :: 12:17:08 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f89def488>
+[ 13-11-2019 :: 12:17:08 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at mtech_cse_e_2022 Collection in batch_db
+[ 13-11-2019 :: 12:17:08 ] [  ERROR ] 00220802717 Enrollment Insertion at mtech_cse_e_2022 Collection in Batch_DB failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:17:08 ] [  INFO  ] mtech_cse_e_2022 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 12:17:09 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f6f88550688>
+[ 13-11-2019 :: 12:17:09 ] [  INFO  ] 00220802717 Enrollment Removed From mtech_cse_e_2022 Collection in Batch_DB
+[ 13-11-2019 :: 12:17:09 ] [  INFO  ] mtech_cse_e_2022 Collection Removed From Batch_DB
+[ 13-11-2019 :: 12:17:19 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 13-11-2019 :: 12:17:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f8856e188>
+[ 13-11-2019 :: 12:17:23 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 12:17:23 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f8856ec08>
+[ 13-11-2019 :: 12:17:23 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 12:17:25 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 13-11-2019 :: 12:17:31 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f6f88556d48>
+[ 13-11-2019 :: 12:17:31 ] Faculty_DB has been updated successfully.
+[ 13-11-2019 :: 12:17:35 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6f88545608>
+[ 13-11-2019 :: 12:17:35 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 13-11-2019 :: 12:17:37 ] [ INFO  ] Requested Collection Dropped
+[ 13-11-2019 :: 12:17:38 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 13-11-2019 :: 12:17:42 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f88545d48>
+[ 13-11-2019 :: 12:17:42 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 13-11-2019 :: 12:17:42 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f885505c8>
+[ 13-11-2019 :: 12:17:42 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 13-11-2019 :: 12:17:42 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 13-11-2019 :: 12:17:44 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 13-11-2019 :: 12:17:45 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f6f88550a48>
+[ 13-11-2019 :: 12:17:45 ] [ INFO  ] Marksheet_DB has been updated.
+[ 13-11-2019 :: 12:17:46 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6f88545ac8>
+[ 13-11-2019 :: 12:17:46 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 13-11-2019 :: 12:17:47 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:17:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6f88565708>
+[ 13-11-2019 :: 12:17:51 ] [  ERROR ] Enrollment - 00220802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 12:17:51 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:17:55 ] [  INFO  ] The Search Query With enrollment:00220802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:18:21 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:18:24 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c12645208>
+[ 13-11-2019 :: 12:18:24 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:18:25 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c12645608>
+[ 13-11-2019 :: 12:18:25 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:18:25 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:18:28 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:18:31 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8c12645608>
+[ 13-11-2019 :: 12:18:31 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:18:32 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:18:33 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 12:18:38 ] [  ERROR ] Faculty - f062bpit Insertion at user_info Collection in faculty_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c12669d48>
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] Faculty - f072bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] The Search Query With faculty_id:f062bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8c12669dc8>
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] Faculty - f062bpit Updated With - name:sommer-ray in faculty_db
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8c12669dc8>
+[ 13-11-2019 :: 12:18:39 ] [  INFO  ] Faculty - faculty_id:f062bpit Removed Successfully from faculty_db
+[ 13-11-2019 :: 12:18:43 ] [  INFO  ] attendance_db Connected Successfully
+[ 13-11-2019 :: 12:18:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105d3c08>
+[ 13-11-2019 :: 12:18:49 ] [  INFO  ] Inserted {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'A', '00220802717': 'P', '00320802717': 'A', '00420802717': 'A'}, '_id': ObjectId('5dcba74b34224eb1095a4d29')} at f088bpit_engineering_physics_mtech_it_d_2023_2 Collection Successfully in attendance_db
+[ 13-11-2019 :: 12:18:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105ce988>
+[ 13-11-2019 :: 12:18:49 ] [  INFO  ] Inserted {'date': {'day': '14', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'P', '00220802717': 'A', '00320802717': 'P', '00420802717': 'P'}, '_id': ObjectId('5dcba75134224eb1095a4d2a')} at f088bpit_engineering_physics_mtech_it_d_2023_2 Collection Successfully in attendance_db
+[ 13-11-2019 :: 12:18:49 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Date Fetched From f088bpit_engineering_physics_mtech_it_d_2023_2 Collection In attendance_db. 
+[ 13-11-2019 :: 12:18:50 ] [  INFO  ] Attendence from f088bpit_engineering_physics_mtech_it_d_2023_2 Collection Fetched From attendance_db.
+[ 13-11-2019 :: 12:18:50 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8c105ced08>
+[ 13-11-2019 :: 12:18:50 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Updated Successfully as {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'A', '00220802717': 'P', '00320802717': 'P', '00420802717': 'A'}}in f088bpit_engineering_physics_mtech_it_d_2023_2 Collection In attendance_db. 
+[ 13-11-2019 :: 12:18:51 ] [  INFO  ] f088bpit_engineering_physics_mtech_it_d_2023_2 Collection Dropped Successfully from attendance_db.
+[ 13-11-2019 :: 12:18:51 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 12:18:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105d3948>
+[ 13-11-2019 :: 12:18:56 ] [  INFO  ] 00020802717 Enrollment Inserted Successfully at mca_mech_a_2022 Collection in batch_db
+[ 13-11-2019 :: 12:18:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105cef48>
+[ 13-11-2019 :: 12:18:56 ] [  INFO  ] 00120802717 Enrollment Inserted Successfully at mca_mech_a_2022 Collection in batch_db
+[ 13-11-2019 :: 12:18:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105cef48>
+[ 13-11-2019 :: 12:18:57 ] [  INFO  ] 00220802717 Enrollment Inserted Successfully at mca_mech_a_2022 Collection in batch_db
+[ 13-11-2019 :: 12:18:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105e4cc8>
+[ 13-11-2019 :: 12:18:57 ] [  INFO  ] 00320802717 Enrollment Inserted Successfully at mca_mech_a_2022 Collection in batch_db
+[ 13-11-2019 :: 12:18:58 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105e4448>
+[ 13-11-2019 :: 12:18:58 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at mca_mech_a_2022 Collection in batch_db
+[ 13-11-2019 :: 12:18:58 ] [  ERROR ] 00220802717 Enrollment Insertion at mca_mech_a_2022 Collection in Batch_DB failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:18:58 ] [  INFO  ] mca_mech_a_2022 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 12:18:59 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8c105ce948>
+[ 13-11-2019 :: 12:18:59 ] [  INFO  ] 00020802717 Enrollment Removed From mca_mech_a_2022 Collection in Batch_DB
+[ 13-11-2019 :: 12:18:59 ] [  INFO  ] mca_mech_a_2022 Collection Removed From Batch_DB
+[ 13-11-2019 :: 12:18:59 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 13-11-2019 :: 12:19:02 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105edf88>
+[ 13-11-2019 :: 12:19:02 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 12:19:02 ] [ ERROR ] Feedback Of This Student Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:19:03 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 13-11-2019 :: 12:19:03 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8c105dd748>
+[ 13-11-2019 :: 12:19:03 ] Faculty_DB has been updated successfully.
+[ 13-11-2019 :: 12:19:03 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8c105edec8>
+[ 13-11-2019 :: 12:19:03 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 13-11-2019 :: 12:19:03 ] [ INFO  ] Requested Collection Dropped
+[ 13-11-2019 :: 12:19:03 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 13-11-2019 :: 12:19:07 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c105d39c8>
+[ 13-11-2019 :: 12:19:07 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 13-11-2019 :: 12:19:07 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8c106035c8>
+[ 13-11-2019 :: 12:19:07 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 13-11-2019 :: 12:19:08 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 13-11-2019 :: 12:19:08 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 13-11-2019 :: 12:19:08 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8c106035c8>
+[ 13-11-2019 :: 12:19:08 ] [ INFO  ] Marksheet_DB has been updated.
+[ 13-11-2019 :: 12:19:08 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8c105dd088>
+[ 13-11-2019 :: 12:19:08 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 13-11-2019 :: 12:19:08 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:19:11 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:19:12 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:19:12 ] [  INFO  ] The Search Query With enrollment:00220802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:19:13 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8c105f6908>
+[ 13-11-2019 :: 12:19:13 ] [  INFO  ] Enrollment - 00220802717 Updated With - name:somya in student_db
+[ 13-11-2019 :: 12:19:13 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8c10589f88>
+[ 13-11-2019 :: 12:19:37 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:19:42 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95b8f688>
+[ 13-11-2019 :: 12:19:42 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:19:43 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95b8fd88>
+[ 13-11-2019 :: 12:19:43 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:19:43 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:19:46 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:19:46 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8a95b8f5c8>
+[ 13-11-2019 :: 12:19:46 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:19:46 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:19:47 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 12:19:52 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95b8fcc8>
+[ 13-11-2019 :: 12:19:52 ] [  INFO  ] Faculty - f010bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 12:19:52 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95b8fec8>
+[ 13-11-2019 :: 12:19:52 ] [  INFO  ] Faculty - f033bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 12:19:52 ] [  INFO  ] The Search Query With faculty_id:f010bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 12:19:53 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8a95bb3388>
+[ 13-11-2019 :: 12:19:53 ] [  INFO  ] Faculty - f010bpit Updated With - name:preeti in faculty_db
+[ 13-11-2019 :: 12:19:53 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8a95b8fcc8>
+[ 13-11-2019 :: 12:19:53 ] [  INFO  ] Faculty - faculty_id:f010bpit Removed Successfully from faculty_db
+[ 13-11-2019 :: 12:19:53 ] [  INFO  ] attendance_db Connected Successfully
+[ 13-11-2019 :: 12:19:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a94319fc8>
+[ 13-11-2019 :: 12:19:57 ] [  INFO  ] Inserted {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'A', '00220802717': 'P', '00320802717': 'A', '00420802717': 'A'}, '_id': ObjectId('5dcba791f11a055338f71bbb')} at f011bpit_electronic_devices_bsc_it_e_2024_4 Collection Successfully in attendance_db
+[ 13-11-2019 :: 12:19:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a94319fc8>
+[ 13-11-2019 :: 12:19:57 ] [  INFO  ] Inserted {'date': {'day': '14', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'P', '00220802717': 'P', '00320802717': 'A', '00420802717': 'P'}, '_id': ObjectId('5dcba795f11a055338f71bbc')} at f011bpit_electronic_devices_bsc_it_e_2024_4 Collection Successfully in attendance_db
+[ 13-11-2019 :: 12:19:57 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Date Fetched From f011bpit_electronic_devices_bsc_it_e_2024_4 Collection In attendance_db. 
+[ 13-11-2019 :: 12:19:58 ] [  INFO  ] Attendence from f011bpit_electronic_devices_bsc_it_e_2024_4 Collection Fetched From attendance_db.
+[ 13-11-2019 :: 12:19:59 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8a9431b408>
+[ 13-11-2019 :: 12:19:59 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Updated Successfully as {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'A', '00120802717': 'A', '00220802717': 'A', '00320802717': 'A', '00420802717': 'A'}}in f011bpit_electronic_devices_bsc_it_e_2024_4 Collection In attendance_db. 
+[ 13-11-2019 :: 12:19:59 ] [  INFO  ] f011bpit_electronic_devices_bsc_it_e_2024_4 Collection Dropped Successfully from attendance_db.
+[ 13-11-2019 :: 12:19:59 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 12:20:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3d08>
+[ 13-11-2019 :: 12:20:03 ] [  INFO  ] 00020802717 Enrollment Inserted Successfully at mca_cse_a_2021 Collection in batch_db
+[ 13-11-2019 :: 12:20:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3d08>
+[ 13-11-2019 :: 12:20:03 ] [  INFO  ] 00120802717 Enrollment Inserted Successfully at mca_cse_a_2021 Collection in batch_db
+[ 13-11-2019 :: 12:20:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3d08>
+[ 13-11-2019 :: 12:20:04 ] [  INFO  ] 00220802717 Enrollment Inserted Successfully at mca_cse_a_2021 Collection in batch_db
+[ 13-11-2019 :: 12:20:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3d08>
+[ 13-11-2019 :: 12:20:04 ] [  INFO  ] 00320802717 Enrollment Inserted Successfully at mca_cse_a_2021 Collection in batch_db
+[ 13-11-2019 :: 12:20:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3d08>
+[ 13-11-2019 :: 12:20:05 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at mca_cse_a_2021 Collection in batch_db
+[ 13-11-2019 :: 12:20:05 ] [  ERROR ] 00020802717 Enrollment Insertion at mca_cse_a_2021 Collection in Batch_DB failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:20:05 ] [  INFO  ] mca_cse_a_2021 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 12:20:06 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8a94319348>
+[ 13-11-2019 :: 12:20:06 ] [  INFO  ] 00020802717 Enrollment Removed From mca_cse_a_2021 Collection in Batch_DB
+[ 13-11-2019 :: 12:20:06 ] [  INFO  ] mca_cse_a_2021 Collection Removed From Batch_DB
+[ 13-11-2019 :: 12:20:06 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 13-11-2019 :: 12:20:10 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3988>
+[ 13-11-2019 :: 12:20:10 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 12:20:10 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a9432e588>
+[ 13-11-2019 :: 12:20:10 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 12:20:10 ] [ INFO  ] All feedbacks of the faculty has been displayed.
+[ 13-11-2019 :: 12:20:10 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8a95bc3988>
+[ 13-11-2019 :: 12:20:10 ] Faculty_DB has been updated successfully.
+[ 13-11-2019 :: 12:20:11 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8a95bc3788>
+[ 13-11-2019 :: 12:20:11 ] [ INFO  ] Feedback of a particular student for a particular faculty has been removed.
+[ 13-11-2019 :: 12:20:11 ] [ INFO  ] Requested Collection Dropped
+[ 13-11-2019 :: 12:20:13 ] [ INFO  ] Marksheet_DB Connected Successfully
+[ 13-11-2019 :: 12:20:17 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a9432ecc8>
+[ 13-11-2019 :: 12:20:17 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 13-11-2019 :: 12:20:17 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a95bc3548>
+[ 13-11-2019 :: 12:20:17 ] [ INFO  ] Marks of the enrollment number inserted in Marksheet_DB.
+[ 13-11-2019 :: 12:20:22 ] [ INFO  ] Marks of the enrollment has been displayed.
+[ 13-11-2019 :: 12:20:27 ] [ INFO  ] Marks of all the students has been successfully displayed.
+[ 13-11-2019 :: 12:20:28 ] [ INFO  ] <pymongo.results.UpdateResult object at 0x7f8a94319ac8>
+[ 13-11-2019 :: 12:20:28 ] [ INFO  ] Marksheet_DB has been updated.
+[ 13-11-2019 :: 12:20:31 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8a94319708>
+[ 13-11-2019 :: 12:20:31 ] [ INFO  ] Marks of particular enrollment has been removed.
+[ 13-11-2019 :: 12:20:35 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:20:40 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8a9431b608>
+[ 13-11-2019 :: 12:20:40 ] [  ERROR ] Enrollment - 00120802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 12:20:40 ] [  ERROR ] Enrollment - 00120802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:20:42 ] [  INFO  ] The Search Query With enrollment:00120802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:27:43 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:27:47 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa2ddcbae88>
+[ 13-11-2019 :: 12:27:47 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:27:47 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fa2ddcba908>
+[ 13-11-2019 :: 12:27:47 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:27:47 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:28:11 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:28:15 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fa2ddcbafc8>
+[ 13-11-2019 :: 12:28:15 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:28:25 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:28:28 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:28:31 ] [  ERROR ] Enrollment - 00320802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:28:32 ] [  ERROR ] Enrollment - 00320802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:28:33 ] [  INFO  ] The Search Query With enrollment:00320802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:30:05 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa2dc441dc8>
+[ 13-11-2019 :: 12:30:05 ] [  INFO  ] Enrollment - 00320802717 Updated With - name:dua-lipa in student_db
+[ 13-11-2019 :: 12:32:03 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:32:10 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0c48be7ec8>
+[ 13-11-2019 :: 12:32:10 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:32:11 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0c492abbc8>
+[ 13-11-2019 :: 12:32:11 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:32:12 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:32:40 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:32:54 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f0c48be7d48>
+[ 13-11-2019 :: 12:32:54 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:32:58 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:33:03 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:33:19 ] [  ERROR ] Enrollment - 00120802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:33:20 ] [  ERROR ] Enrollment - 00120802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:33:29 ] [  INFO  ] The Search Query With enrollment:00120802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:40:33 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:40:39 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4ad7836808>
+[ 13-11-2019 :: 12:40:39 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:40:40 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f4ad7836e48>
+[ 13-11-2019 :: 12:40:40 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:40:40 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:40:41 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:40:49 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f4ad7836888>
+[ 13-11-2019 :: 12:40:49 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:40:53 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:41:02 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:41:11 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f4ad78364c8>
+[ 13-11-2019 :: 12:41:11 ] [  ERROR ] Enrollment - 00420802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 12:41:12 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:41:12 ] [  INFO  ] The Search Query With enrollment:00420802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:41:46 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:41:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb25cca2808>
+[ 13-11-2019 :: 12:41:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:41:53 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb25cca2fc8>
+[ 13-11-2019 :: 12:41:53 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:41:53 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:41:53 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:41:54 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fb25cca2a08>
+[ 13-11-2019 :: 12:41:54 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:41:57 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:41:58 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:42:01 ] [  ERROR ] Enrollment - 00320802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:42:01 ] [  ERROR ] Enrollment - 00320802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:42:04 ] [  INFO  ] The Search Query With enrollment:00320802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:44:45 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 12:44:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6c0523fc88>
+[ 13-11-2019 :: 12:44:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:44:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f6c0523ff48>
+[ 13-11-2019 :: 12:44:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 12:44:53 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 12:44:54 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 12:44:58 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f6c0523f408>
+[ 13-11-2019 :: 12:44:58 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 12:45:02 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 12:45:03 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 12:45:10 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6c0526b288>
+[ 13-11-2019 :: 12:45:10 ] [  ERROR ] Enrollment - 00220802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 12:45:12 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 12:45:15 ] [  INFO  ] The Search Query With enrollment:00220802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 12:48:35 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f6bfd99b208>
+[ 13-11-2019 :: 12:48:35 ] [  INFO  ] Enrollment - 00220802717 Updated With - name:selena in student_db
+[ 13-11-2019 :: 13:05:50 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:05:54 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdbaf037608>
+[ 13-11-2019 :: 13:05:54 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:05:55 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fdbaf037f88>
+[ 13-11-2019 :: 13:05:55 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:05:55 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:06:07 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:06:10 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fdbaf037688>
+[ 13-11-2019 :: 13:06:10 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:06:15 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:06:17 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:06:20 ] [  ERROR ] Enrollment - 00320802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:06:21 ] [  ERROR ] Enrollment - 00320802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:06:22 ] [  INFO  ] The Search Query With enrollment:00320802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:07:05 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:07:09 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f7d9d7f54c8>
+[ 13-11-2019 :: 13:07:09 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:07:09 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f7d9d7f5488>
+[ 13-11-2019 :: 13:07:09 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:07:09 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:07:18 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:07:24 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f7d9d7f5288>
+[ 13-11-2019 :: 13:07:24 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:07:26 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:07:28 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:07:31 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:07:32 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:07:52 ] [  INFO  ] The Search Query With enrollment:00220802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:08:15 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:08:19 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc6c14ab388>
+[ 13-11-2019 :: 13:08:19 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:08:20 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fc6c14ab688>
+[ 13-11-2019 :: 13:08:20 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:08:20 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:08:22 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:08:22 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fc6c14abd88>
+[ 13-11-2019 :: 13:08:23 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:08:23 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:08:24 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:08:27 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:08:27 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:08:29 ] [  INFO  ] The Search Query With enrollment:00420802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:09:16 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:09:19 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8512e5be88>
+[ 13-11-2019 :: 13:09:19 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:09:20 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f8512e5bf08>
+[ 13-11-2019 :: 13:09:20 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:09:20 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:09:21 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:09:26 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f8512e5bf48>
+[ 13-11-2019 :: 13:09:26 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:09:28 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:09:29 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:09:32 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:09:33 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:09:39 ] [  INFO  ] The Search Query With enrollment:00420802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:10:30 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:10:34 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f9d1fb23408>
+[ 13-11-2019 :: 13:10:34 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:10:34 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f9d1fb236c8>
+[ 13-11-2019 :: 13:10:34 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:10:34 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:10:39 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:10:43 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f9d1fb23308>
+[ 13-11-2019 :: 13:10:43 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:10:44 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:10:49 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:10:52 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:10:52 ] [  ERROR ] Enrollment - 00420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:11:09 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:11:12 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff563a17688>
+[ 13-11-2019 :: 13:11:12 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:11:13 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7ff563a175c8>
+[ 13-11-2019 :: 13:11:13 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:11:13 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:11:17 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:11:47 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7ff563a174c8>
+[ 13-11-2019 :: 13:11:47 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:11:48 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:11:49 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:11:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7ff563a3acc8>
+[ 13-11-2019 :: 13:11:53 ] [  ERROR ] Enrollment - 00020802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 13:11:53 ] [  ERROR ] Enrollment - 00020802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:13:03 ] [  INFO  ] The Search Query With enrollment:00020802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:13:26 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7ff560199ac8>
+[ 13-11-2019 :: 13:13:26 ] [  INFO  ] Enrollment - 00020802717 Updated With - name:dua-lipa in student_db
+[ 13-11-2019 :: 13:13:29 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7ff560199ec8>
+[ 13-11-2019 :: 13:13:30 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:14:03 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:14:06 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0f12282708>
+[ 13-11-2019 :: 13:14:06 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:14:07 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f0f12282448>
+[ 13-11-2019 :: 13:14:07 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:14:07 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:14:09 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:14:16 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f0f12282ec8>
+[ 13-11-2019 :: 13:14:16 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:14:16 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:14:17 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:14:20 ] [  ERROR ] Enrollment - 00120802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:14:20 ] [  ERROR ] Enrollment - 00120802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:15:11 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:15:15 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fbde0026bc8>
+[ 13-11-2019 :: 13:15:15 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:15:16 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fbde0026f88>
+[ 13-11-2019 :: 13:15:16 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:15:16 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:15:18 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:15:21 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fbde0026c08>
+[ 13-11-2019 :: 13:15:21 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:15:22 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:15:22 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:15:25 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbde00262c8>
+[ 13-11-2019 :: 13:15:25 ] [  ERROR ] Enrollment - 17920802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 13:15:26 ] [  ERROR ] Enrollment - 17920802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:15:28 ] [  INFO  ] The Search Query With enrollment:17920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:34:58 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fbde0026ec8>
+[ 13-11-2019 :: 13:34:58 ] [  INFO  ] Enrollment - 17920802717 Updated With - name:aakriti in student_db
+[ 13-11-2019 :: 13:35:00 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fbddd79af88>
+[ 13-11-2019 :: 13:35:01 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:35:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd79acc8>
+[ 13-11-2019 :: 13:35:06 ] [  INFO  ] Faculty - f024bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 13:35:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2348>
+[ 13-11-2019 :: 13:35:06 ] [  INFO  ] Faculty - f041bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 13:35:06 ] [  INFO  ] The Search Query With faculty_id:f024bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:35:19 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fbddd7a2088>
+[ 13-11-2019 :: 13:35:19 ] [  INFO  ] Faculty - f024bpit Updated With - name:alex in faculty_db
+[ 13-11-2019 :: 13:35:20 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fbddd7a2088>
+[ 13-11-2019 :: 13:35:20 ] [  INFO  ] Faculty - faculty_id:f024bpit Removed Successfully from faculty_db
+[ 13-11-2019 :: 13:35:24 ] [  INFO  ] attendance_db Connected Successfully
+[ 13-11-2019 :: 13:35:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd79ae08>
+[ 13-11-2019 :: 13:35:27 ] [  INFO  ] Inserted {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'P', '00120802717': 'A', '00220802717': 'A', '00320802717': 'A', '00420802717': 'A', '00520802717': 'P', '00620802717': 'P', '00720802717': 'P', '00820802717': 'P', '00920802717': 'A', '01020802717': 'A', '01120802717': 'A', '01220802717': 'P', '01320802717': 'A', '01420802717': 'A', '01520802717': 'A', '01620802717': 'P', '01720802717': 'A', '01820802717': 'A', '01920802717': 'A', '02020802717': 'P', '02120802717': 'P', '02220802717': 'P', '02320802717': 'A', '02420802717': 'A', '02520802717': 'A', '02620802717': 'A', '02720802717': 'A', '02820802717': 'P', '02920802717': 'P', '03020802717': 'A', '03120802717': 'A', '03220802717': 'A', '03320802717': 'A', '03420802717': 'P', '03520802717': 'A', '03620802717': 'A', '03720802717': 'A', '03820802717': 'A', '03920802717': 'P', '04020802717': 'A', '04120802717': 'P', '04220802717': 'P', '04320802717': 'P', '04420802717': 'P', '04520802717': 'A', '04620802717': 'P', '04720802717': 'A', '04820802717': 'P', '04920802717': 'A', '05020802717': 'A', '05120802717': 'A', '05220802717': 'P', '05320802717': 'P', '05420802717': 'P', '05520802717': 'A', '05620802717': 'P', '05720802717': 'A', '05820802717': 'A', '05920802717': 'A', '06020802717': 'A', '06120802717': 'P', '06220802717': 'A', '06320802717': 'A', '06420802717': 'P', '06520802717': 'P', '06620802717': 'P', '06720802717': 'A', '06820802717': 'A', '06920802717': 'P', '07020802717': 'A', '07120802717': 'A', '07220802717': 'P', '07320802717': 'A', '07420802717': 'P', '07520802717': 'P', '07620802717': 'P', '07720802717': 'A', '07820802717': 'P', '07920802717': 'A', '08020802717': 'A', '08120802717': 'P', '08220802717': 'A', '08320802717': 'P', '08420802717': 'P', '08520802717': 'A', '08620802717': 'P', '08720802717': 'P', '08820802717': 'P', '08920802717': 'A', '09020802717': 'P', '09120802717': 'A', '09220802717': 'A', '09320802717': 'P', '09420802717': 'P', '09520802717': 'A', '09620802717': 'A', '09720802717': 'P', '09820802717': 'A', '09920802717': 'P', '10020802717': 'A', '10120802717': 'P', '10220802717': 'A', '10320802717': 'A', '10420802717': 'A', '10520802717': 'A', '10620802717': 'P', '10720802717': 'A', '10820802717': 'A', '10920802717': 'P', '11020802717': 'P', '11120802717': 'A', '11220802717': 'A', '11320802717': 'A', '11420802717': 'A', '11520802717': 'A', '11620802717': 'P', '11720802717': 'P', '11820802717': 'P', '11920802717': 'P', '12020802717': 'A', '12120802717': 'P', '12220802717': 'P', '12320802717': 'A', '12420802717': 'P', '12520802717': 'P', '12620802717': 'P', '12720802717': 'A', '12820802717': 'A', '12920802717': 'A', '13020802717': 'P', '13120802717': 'P', '13220802717': 'P', '13320802717': 'P', '13420802717': 'P', '13520802717': 'P', '13620802717': 'A', '13720802717': 'A', '13820802717': 'P', '13920802717': 'P', '14020802717': 'P', '14120802717': 'P', '14220802717': 'P', '14320802717': 'A', '14420802717': 'P', '14520802717': 'P', '14620802717': 'A', '14720802717': 'A', '14820802717': 'P', '14920802717': 'A', '15020802717': 'P', '15120802717': 'P', '15220802717': 'A', '15320802717': 'A', '15420802717': 'A', '15520802717': 'A', '15620802717': 'A', '15720802717': 'P', '15820802717': 'P', '15920802717': 'A', '16020802717': 'P', '16120802717': 'P', '16220802717': 'P', '16320802717': 'A', '16420802717': 'P', '16520802717': 'P', '16620802717': 'A', '16720802717': 'P', '16820802717': 'A', '16920802717': 'P', '17020802717': 'A', '17120802717': 'P', '17220802717': 'P', '17320802717': 'A', '17420802717': 'P', '17520802717': 'P', '17620802717': 'P', '17720802717': 'P', '17820802717': 'A', '17920802717': 'P', '18020802717': 'P', '18120802717': 'P', '18220802717': 'A', '18320802717': 'A', '18420802717': 'A', '18520802717': 'A', '18620802717': 'A', '18720802717': 'A', '18820802717': 'A', '18920802717': 'A', '19020802717': 'P', '19120802717': 'P', '19220802717': 'P', '19320802717': 'A', '19420802717': 'P', '19520802717': 'P', '19620802717': 'P', '19720802717': 'P', '19820802717': 'P', '19920802717': 'A', '20020802717': 'P', '20120802717': 'A', '20220802717': 'P', '20320802717': 'P', '20420802717': 'P', '20520802717': 'A', '20620802717': 'P', '20720802717': 'A', '20820802717': 'P', '20920802717': 'P', '21020802717': 'P', '21120802717': 'P', '21220802717': 'P', '21320802717': 'A', '21420802717': 'P', '21520802717': 'A', '21620802717': 'A', '21720802717': 'A', '21820802717': 'P', '21920802717': 'P', '22020802717': 'A', '22120802717': 'A', '22220802717': 'P', '22320802717': 'A', '22420802717': 'A', '22520802717': 'A', '22620802717': 'A', '22720802717': 'P', '22820802717': 'A', '22920802717': 'P', '23020802717': 'A', '23120802717': 'A', '23220802717': 'A', '23320802717': 'A', '23420802717': 'P', '23520802717': 'A', '23620802717': 'P', '23720802717': 'A', '23820802717': 'A', '23920802717': 'A', '24020802717': 'P', '24120802717': 'P', '24220802717': 'A', '24320802717': 'A', '24420802717': 'P', '24520802717': 'A', '24620802717': 'P', '24720802717': 'P', '24820802717': 'A', '24920802717': 'A', '25020802717': 'A', '25120802717': 'A', '25220802717': 'P', '25320802717': 'A', '25420802717': 'A', '25520802717': 'P', '25620802717': 'A', '25720802717': 'P', '25820802717': 'A', '25920802717': 'A', '26020802717': 'A', '26120802717': 'P', '26220802717': 'P', '26320802717': 'P', '26420802717': 'P', '26520802717': 'A', '26620802717': 'P', '26720802717': 'A', '26820802717': 'A', '26920802717': 'A', '27020802717': 'P', '27120802717': 'A', '27220802717': 'P', '27320802717': 'P', '27420802717': 'A', '27520802717': 'A', '27620802717': 'A', '27720802717': 'A', '27820802717': 'P', '27920802717': 'P', '28020802717': 'A', '28120802717': 'P', '28220802717': 'A', '28320802717': 'P', '28420802717': 'A', '28520802717': 'A', '28620802717': 'A', '28720802717': 'P', '28820802717': 'P', '28920802717': 'A', '29020802717': 'A', '29120802717': 'A', '29220802717': 'A', '29320802717': 'A', '29420802717': 'P', '29520802717': 'P', '29620802717': 'A', '29720802717': 'P', '29820802717': 'P', '29920802717': 'A', '30020802717': 'A', '30120802717': 'P', '30220802717': 'A', '30320802717': 'A', '30420802717': 'A', '30520802717': 'P', '30620802717': 'P', '30720802717': 'P', '30820802717': 'P', '30920802717': 'A', '31020802717': 'P', '31120802717': 'A', '31220802717': 'A', '31320802717': 'P', '31420802717': 'A', '31520802717': 'P', '31620802717': 'P', '31720802717': 'P', '31820802717': 'A', '31920802717': 'P', '32020802717': 'P', '32120802717': 'A', '32220802717': 'A', '32320802717': 'P', '32420802717': 'P', '32520802717': 'A', '32620802717': 'A', '32720802717': 'A', '32820802717': 'P', '32920802717': 'A', '33020802717': 'P', '33120802717': 'A', '33220802717': 'P', '33320802717': 'P', '33420802717': 'P', '33520802717': 'P', '33620802717': 'P', '33720802717': 'P', '33820802717': 'P', '33920802717': 'A', '34020802717': 'P', '34120802717': 'P', '34220802717': 'P', '34320802717': 'A', '34420802717': 'A', '34520802717': 'A', '34620802717': 'P', '34720802717': 'P', '34820802717': 'P', '34920802717': 'A', '35020802717': 'A', '35120802717': 'P', '35220802717': 'P', '35320802717': 'A', '35420802717': 'P', '35520802717': 'P', '35620802717': 'P', '35720802717': 'P', '35820802717': 'P', '35920802717': 'A', '36020802717': 'A', '36120802717': 'A', '36220802717': 'P', '36320802717': 'A', '36420802717': 'P', '36520802717': 'P', '36620802717': 'A', '36720802717': 'A', '36820802717': 'A', '36920802717': 'P', '37020802717': 'P', '37120802717': 'A', '37220802717': 'A', '37320802717': 'A', '37420802717': 'A', '37520802717': 'P', '37620802717': 'A', '37720802717': 'A', '37820802717': 'A', '37920802717': 'P', '38020802717': 'A', '38120802717': 'A', '38220802717': 'A', '38320802717': 'A', '38420802717': 'A', '38520802717': 'P', '38620802717': 'A', '38720802717': 'P', '38820802717': 'P', '38920802717': 'P', '39020802717': 'P', '39120802717': 'A', '39220802717': 'P', '39320802717': 'A', '39420802717': 'P', '39520802717': 'P', '39620802717': 'P', '39720802717': 'P', '39820802717': 'A', '39920802717': 'A', '40020802717': 'P', '40120802717': 'P', '40220802717': 'A', '40320802717': 'A', '40420802717': 'P', '40520802717': 'A', '40620802717': 'P', '40720802717': 'A', '40820802717': 'P', '40920802717': 'A', '41020802717': 'A', '41120802717': 'P', '41220802717': 'P', '41320802717': 'P', '41420802717': 'P', '41520802717': 'P', '41620802717': 'A', '41720802717': 'P', '41820802717': 'A', '41920802717': 'A', '42020802717': 'P', '42120802717': 'A', '42220802717': 'P', '42320802717': 'A', '42420802717': 'P', '42520802717': 'P', '42620802717': 'P', '42720802717': 'P', '42820802717': 'P', '42920802717': 'P', '43020802717': 'P', '43120802717': 'A', '43220802717': 'A', '43320802717': 'P', '43420802717': 'A', '43520802717': 'P', '43620802717': 'A', '43720802717': 'A', '43820802717': 'A', '43920802717': 'A', '44020802717': 'P', '44120802717': 'P', '44220802717': 'P', '44320802717': 'A', '44420802717': 'A', '44520802717': 'A', '44620802717': 'P', '44720802717': 'A', '44820802717': 'P', '44920802717': 'P', '45020802717': 'A', '45120802717': 'A', '45220802717': 'A', '45320802717': 'P', '45420802717': 'P', '45520802717': 'P', '45620802717': 'A', '45720802717': 'P', '45820802717': 'P', '45920802717': 'P', '46020802717': 'A', '46120802717': 'A', '46220802717': 'P', '46320802717': 'A', '46420802717': 'P', '46520802717': 'A', '46620802717': 'A', '46720802717': 'P', '46820802717': 'A', '46920802717': 'P', '47020802717': 'A', '47120802717': 'A', '47220802717': 'A', '47320802717': 'P', '47420802717': 'A', '47520802717': 'P', '47620802717': 'P', '47720802717': 'P', '47820802717': 'A', '47920802717': 'A', '48020802717': 'P', '48120802717': 'A', '48220802717': 'A', '48320802717': 'A', '48420802717': 'A', '48520802717': 'P', '48620802717': 'P', '48720802717': 'A', '48820802717': 'P', '48920802717': 'P', '49020802717': 'P', '49120802717': 'P', '49220802717': 'P', '49320802717': 'A', '49420802717': 'P', '49520802717': 'A', '49620802717': 'A', '49720802717': 'P', '49820802717': 'P', '49920802717': 'A'}, '_id': ObjectId('5dcbb944bec396dd007c36bb')} at f012bpit_human_values_and_professional_ethics_bca_mech_b_2023_2 Collection Successfully in attendance_db
+[ 13-11-2019 :: 13:35:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae848>
+[ 13-11-2019 :: 13:35:27 ] [  INFO  ] Inserted {'date': {'day': '14', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'P', '00120802717': 'P', '00220802717': 'P', '00320802717': 'P', '00420802717': 'P', '00520802717': 'P', '00620802717': 'A', '00720802717': 'P', '00820802717': 'A', '00920802717': 'A', '01020802717': 'P', '01120802717': 'P', '01220802717': 'P', '01320802717': 'A', '01420802717': 'P', '01520802717': 'P', '01620802717': 'A', '01720802717': 'P', '01820802717': 'A', '01920802717': 'A', '02020802717': 'P', '02120802717': 'P', '02220802717': 'A', '02320802717': 'A', '02420802717': 'A', '02520802717': 'A', '02620802717': 'A', '02720802717': 'P', '02820802717': 'P', '02920802717': 'P', '03020802717': 'A', '03120802717': 'P', '03220802717': 'A', '03320802717': 'A', '03420802717': 'A', '03520802717': 'A', '03620802717': 'P', '03720802717': 'A', '03820802717': 'A', '03920802717': 'P', '04020802717': 'A', '04120802717': 'P', '04220802717': 'A', '04320802717': 'P', '04420802717': 'P', '04520802717': 'P', '04620802717': 'A', '04720802717': 'A', '04820802717': 'A', '04920802717': 'A', '05020802717': 'A', '05120802717': 'P', '05220802717': 'A', '05320802717': 'A', '05420802717': 'P', '05520802717': 'P', '05620802717': 'A', '05720802717': 'A', '05820802717': 'A', '05920802717': 'P', '06020802717': 'A', '06120802717': 'P', '06220802717': 'P', '06320802717': 'A', '06420802717': 'P', '06520802717': 'A', '06620802717': 'P', '06720802717': 'P', '06820802717': 'A', '06920802717': 'A', '07020802717': 'P', '07120802717': 'P', '07220802717': 'A', '07320802717': 'A', '07420802717': 'A', '07520802717': 'P', '07620802717': 'P', '07720802717': 'P', '07820802717': 'A', '07920802717': 'P', '08020802717': 'A', '08120802717': 'A', '08220802717': 'A', '08320802717': 'P', '08420802717': 'P', '08520802717': 'A', '08620802717': 'P', '08720802717': 'A', '08820802717': 'A', '08920802717': 'A', '09020802717': 'A', '09120802717': 'A', '09220802717': 'P', '09320802717': 'A', '09420802717': 'P', '09520802717': 'A', '09620802717': 'P', '09720802717': 'P', '09820802717': 'A', '09920802717': 'A', '10020802717': 'P', '10120802717': 'P', '10220802717': 'P', '10320802717': 'A', '10420802717': 'P', '10520802717': 'A', '10620802717': 'P', '10720802717': 'P', '10820802717': 'A', '10920802717': 'P', '11020802717': 'A', '11120802717': 'P', '11220802717': 'P', '11320802717': 'A', '11420802717': 'P', '11520802717': 'A', '11620802717': 'P', '11720802717': 'A', '11820802717': 'A', '11920802717': 'P', '12020802717': 'P', '12120802717': 'P', '12220802717': 'P', '12320802717': 'A', '12420802717': 'P', '12520802717': 'A', '12620802717': 'A', '12720802717': 'P', '12820802717': 'P', '12920802717': 'P', '13020802717': 'P', '13120802717': 'P', '13220802717': 'A', '13320802717': 'A', '13420802717': 'P', '13520802717': 'P', '13620802717': 'P', '13720802717': 'P', '13820802717': 'P', '13920802717': 'P', '14020802717': 'P', '14120802717': 'P', '14220802717': 'A', '14320802717': 'A', '14420802717': 'A', '14520802717': 'A', '14620802717': 'A', '14720802717': 'P', '14820802717': 'A', '14920802717': 'P', '15020802717': 'P', '15120802717': 'P', '15220802717': 'A', '15320802717': 'P', '15420802717': 'A', '15520802717': 'P', '15620802717': 'P', '15720802717': 'A', '15820802717': 'A', '15920802717': 'P', '16020802717': 'A', '16120802717': 'A', '16220802717': 'P', '16320802717': 'A', '16420802717': 'A', '16520802717': 'A', '16620802717': 'A', '16720802717': 'A', '16820802717': 'P', '16920802717': 'A', '17020802717': 'P', '17120802717': 'P', '17220802717': 'A', '17320802717': 'A', '17420802717': 'A', '17520802717': 'A', '17620802717': 'A', '17720802717': 'P', '17820802717': 'P', '17920802717': 'A', '18020802717': 'P', '18120802717': 'A', '18220802717': 'A', '18320802717': 'A', '18420802717': 'A', '18520802717': 'A', '18620802717': 'P', '18720802717': 'P', '18820802717': 'A', '18920802717': 'A', '19020802717': 'P', '19120802717': 'P', '19220802717': 'P', '19320802717': 'P', '19420802717': 'A', '19520802717': 'P', '19620802717': 'A', '19720802717': 'P', '19820802717': 'A', '19920802717': 'P', '20020802717': 'P', '20120802717': 'A', '20220802717': 'A', '20320802717': 'P', '20420802717': 'A', '20520802717': 'A', '20620802717': 'A', '20720802717': 'P', '20820802717': 'A', '20920802717': 'A', '21020802717': 'P', '21120802717': 'A', '21220802717': 'P', '21320802717': 'A', '21420802717': 'A', '21520802717': 'P', '21620802717': 'P', '21720802717': 'P', '21820802717': 'P', '21920802717': 'A', '22020802717': 'P', '22120802717': 'P', '22220802717': 'P', '22320802717': 'A', '22420802717': 'A', '22520802717': 'A', '22620802717': 'P', '22720802717': 'A', '22820802717': 'A', '22920802717': 'A', '23020802717': 'A', '23120802717': 'A', '23220802717': 'A', '23320802717': 'A', '23420802717': 'A', '23520802717': 'P', '23620802717': 'P', '23720802717': 'P', '23820802717': 'A', '23920802717': 'P', '24020802717': 'P', '24120802717': 'P', '24220802717': 'A', '24320802717': 'A', '24420802717': 'A', '24520802717': 'A', '24620802717': 'P', '24720802717': 'P', '24820802717': 'P', '24920802717': 'P', '25020802717': 'A', '25120802717': 'P', '25220802717': 'A', '25320802717': 'A', '25420802717': 'A', '25520802717': 'A', '25620802717': 'P', '25720802717': 'A', '25820802717': 'P', '25920802717': 'P', '26020802717': 'A', '26120802717': 'A', '26220802717': 'P', '26320802717': 'P', '26420802717': 'A', '26520802717': 'P', '26620802717': 'P', '26720802717': 'P', '26820802717': 'A', '26920802717': 'P', '27020802717': 'P', '27120802717': 'P', '27220802717': 'P', '27320802717': 'P', '27420802717': 'P', '27520802717': 'P', '27620802717': 'A', '27720802717': 'A', '27820802717': 'A', '27920802717': 'A', '28020802717': 'P', '28120802717': 'A', '28220802717': 'A', '28320802717': 'A', '28420802717': 'P', '28520802717': 'A', '28620802717': 'P', '28720802717': 'A', '28820802717': 'A', '28920802717': 'P', '29020802717': 'P', '29120802717': 'A', '29220802717': 'P', '29320802717': 'P', '29420802717': 'A', '29520802717': 'A', '29620802717': 'P', '29720802717': 'P', '29820802717': 'A', '29920802717': 'A', '30020802717': 'A', '30120802717': 'P', '30220802717': 'A', '30320802717': 'A', '30420802717': 'P', '30520802717': 'P', '30620802717': 'P', '30720802717': 'P', '30820802717': 'P', '30920802717': 'A', '31020802717': 'A', '31120802717': 'A', '31220802717': 'P', '31320802717': 'A', '31420802717': 'P', '31520802717': 'A', '31620802717': 'P', '31720802717': 'A', '31820802717': 'A', '31920802717': 'P', '32020802717': 'P', '32120802717': 'P', '32220802717': 'A', '32320802717': 'A', '32420802717': 'A', '32520802717': 'P', '32620802717': 'A', '32720802717': 'A', '32820802717': 'P', '32920802717': 'P', '33020802717': 'P', '33120802717': 'A', '33220802717': 'A', '33320802717': 'P', '33420802717': 'A', '33520802717': 'P', '33620802717': 'A', '33720802717': 'P', '33820802717': 'P', '33920802717': 'A', '34020802717': 'A', '34120802717': 'A', '34220802717': 'P', '34320802717': 'P', '34420802717': 'A', '34520802717': 'A', '34620802717': 'P', '34720802717': 'P', '34820802717': 'P', '34920802717': 'A', '35020802717': 'P', '35120802717': 'A', '35220802717': 'A', '35320802717': 'P', '35420802717': 'A', '35520802717': 'A', '35620802717': 'A', '35720802717': 'A', '35820802717': 'P', '35920802717': 'P', '36020802717': 'P', '36120802717': 'P', '36220802717': 'P', '36320802717': 'A', '36420802717': 'A', '36520802717': 'A', '36620802717': 'P', '36720802717': 'P', '36820802717': 'A', '36920802717': 'P', '37020802717': 'A', '37120802717': 'A', '37220802717': 'P', '37320802717': 'P', '37420802717': 'A', '37520802717': 'A', '37620802717': 'A', '37720802717': 'P', '37820802717': 'P', '37920802717': 'P', '38020802717': 'A', '38120802717': 'A', '38220802717': 'P', '38320802717': 'P', '38420802717': 'P', '38520802717': 'P', '38620802717': 'P', '38720802717': 'P', '38820802717': 'P', '38920802717': 'P', '39020802717': 'A', '39120802717': 'A', '39220802717': 'A', '39320802717': 'P', '39420802717': 'P', '39520802717': 'P', '39620802717': 'A', '39720802717': 'A', '39820802717': 'A', '39920802717': 'P', '40020802717': 'P', '40120802717': 'P', '40220802717': 'P', '40320802717': 'A', '40420802717': 'P', '40520802717': 'P', '40620802717': 'A', '40720802717': 'A', '40820802717': 'P', '40920802717': 'A', '41020802717': 'P', '41120802717': 'P', '41220802717': 'A', '41320802717': 'A', '41420802717': 'A', '41520802717': 'P', '41620802717': 'P', '41720802717': 'P', '41820802717': 'P', '41920802717': 'A', '42020802717': 'P', '42120802717': 'P', '42220802717': 'A', '42320802717': 'A', '42420802717': 'A', '42520802717': 'A', '42620802717': 'A', '42720802717': 'A', '42820802717': 'A', '42920802717': 'P', '43020802717': 'P', '43120802717': 'A', '43220802717': 'P', '43320802717': 'P', '43420802717': 'P', '43520802717': 'A', '43620802717': 'A', '43720802717': 'A', '43820802717': 'A', '43920802717': 'P', '44020802717': 'A', '44120802717': 'P', '44220802717': 'P', '44320802717': 'A', '44420802717': 'P', '44520802717': 'A', '44620802717': 'P', '44720802717': 'A', '44820802717': 'A', '44920802717': 'P', '45020802717': 'A', '45120802717': 'A', '45220802717': 'A', '45320802717': 'P', '45420802717': 'A', '45520802717': 'P', '45620802717': 'A', '45720802717': 'A', '45820802717': 'A', '45920802717': 'P', '46020802717': 'A', '46120802717': 'P', '46220802717': 'P', '46320802717': 'P', '46420802717': 'P', '46520802717': 'P', '46620802717': 'P', '46720802717': 'A', '46820802717': 'A', '46920802717': 'A', '47020802717': 'A', '47120802717': 'P', '47220802717': 'P', '47320802717': 'P', '47420802717': 'A', '47520802717': 'A', '47620802717': 'A', '47720802717': 'P', '47820802717': 'A', '47920802717': 'A', '48020802717': 'P', '48120802717': 'A', '48220802717': 'P', '48320802717': 'A', '48420802717': 'A', '48520802717': 'A', '48620802717': 'A', '48720802717': 'P', '48820802717': 'A', '48920802717': 'P', '49020802717': 'P', '49120802717': 'P', '49220802717': 'P', '49320802717': 'A', '49420802717': 'A', '49520802717': 'P', '49620802717': 'A', '49720802717': 'A', '49820802717': 'A', '49920802717': 'P'}, '_id': ObjectId('5dcbb947bec396dd007c36bc')} at f012bpit_human_values_and_professional_ethics_bca_mech_b_2023_2 Collection Successfully in attendance_db
+[ 13-11-2019 :: 13:35:27 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Date Fetched From f012bpit_human_values_and_professional_ethics_bca_mech_b_2023_2 Collection In attendance_db. 
+[ 13-11-2019 :: 13:35:29 ] [  INFO  ] Attendence from f012bpit_human_values_and_professional_ethics_bca_mech_b_2023_2 Collection Fetched From attendance_db.
+[ 13-11-2019 :: 13:35:34 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fbddd7a2d88>
+[ 13-11-2019 :: 13:35:34 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Updated Successfully as {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'00020802717': 'P', '00120802717': 'P', '00220802717': 'P', '00320802717': 'P', '00420802717': 'A', '00520802717': 'A', '00620802717': 'P', '00720802717': 'P', '00820802717': 'P', '00920802717': 'P', '01020802717': 'A', '01120802717': 'A', '01220802717': 'P', '01320802717': 'A', '01420802717': 'P', '01520802717': 'A', '01620802717': 'P', '01720802717': 'A', '01820802717': 'A', '01920802717': 'P', '02020802717': 'A', '02120802717': 'P', '02220802717': 'P', '02320802717': 'P', '02420802717': 'A', '02520802717': 'A', '02620802717': 'P', '02720802717': 'A', '02820802717': 'A', '02920802717': 'P', '03020802717': 'A', '03120802717': 'A', '03220802717': 'P', '03320802717': 'A', '03420802717': 'P', '03520802717': 'P', '03620802717': 'P', '03720802717': 'P', '03820802717': 'P', '03920802717': 'P', '04020802717': 'P', '04120802717': 'P', '04220802717': 'P', '04320802717': 'A', '04420802717': 'P', '04520802717': 'P', '04620802717': 'A', '04720802717': 'P', '04820802717': 'A', '04920802717': 'P', '05020802717': 'A', '05120802717': 'P', '05220802717': 'P', '05320802717': 'P', '05420802717': 'P', '05520802717': 'P', '05620802717': 'A', '05720802717': 'A', '05820802717': 'P', '05920802717': 'P', '06020802717': 'P', '06120802717': 'A', '06220802717': 'A', '06320802717': 'A', '06420802717': 'P', '06520802717': 'A', '06620802717': 'P', '06720802717': 'A', '06820802717': 'A', '06920802717': 'P', '07020802717': 'A', '07120802717': 'P', '07220802717': 'A', '07320802717': 'P', '07420802717': 'A', '07520802717': 'A', '07620802717': 'P', '07720802717': 'A', '07820802717': 'P', '07920802717': 'A', '08020802717': 'P', '08120802717': 'A', '08220802717': 'A', '08320802717': 'P', '08420802717': 'P', '08520802717': 'A', '08620802717': 'P', '08720802717': 'P', '08820802717': 'A', '08920802717': 'P', '09020802717': 'P', '09120802717': 'P', '09220802717': 'A', '09320802717': 'A', '09420802717': 'A', '09520802717': 'A', '09620802717': 'P', '09720802717': 'A', '09820802717': 'A', '09920802717': 'A', '10020802717': 'A', '10120802717': 'P', '10220802717': 'A', '10320802717': 'A', '10420802717': 'P', '10520802717': 'A', '10620802717': 'A', '10720802717': 'P', '10820802717': 'A', '10920802717': 'P', '11020802717': 'A', '11120802717': 'P', '11220802717': 'A', '11320802717': 'A', '11420802717': 'P', '11520802717': 'A', '11620802717': 'P', '11720802717': 'A', '11820802717': 'P', '11920802717': 'P', '12020802717': 'P', '12120802717': 'A', '12220802717': 'A', '12320802717': 'A', '12420802717': 'P', '12520802717': 'P', '12620802717': 'A', '12720802717': 'A', '12820802717': 'A', '12920802717': 'P', '13020802717': 'P', '13120802717': 'P', '13220802717': 'P', '13320802717': 'P', '13420802717': 'P', '13520802717': 'A', '13620802717': 'A', '13720802717': 'P', '13820802717': 'A', '13920802717': 'A', '14020802717': 'P', '14120802717': 'P', '14220802717': 'A', '14320802717': 'P', '14420802717': 'A', '14520802717': 'P', '14620802717': 'P', '14720802717': 'P', '14820802717': 'P', '14920802717': 'P', '15020802717': 'P', '15120802717': 'A', '15220802717': 'P', '15320802717': 'P', '15420802717': 'P', '15520802717': 'P', '15620802717': 'A', '15720802717': 'A', '15820802717': 'P', '15920802717': 'P', '16020802717': 'P', '16120802717': 'P', '16220802717': 'A', '16320802717': 'A', '16420802717': 'P', '16520802717': 'A', '16620802717': 'A', '16720802717': 'P', '16820802717': 'A', '16920802717': 'A', '17020802717': 'A', '17120802717': 'A', '17220802717': 'A', '17320802717': 'P', '17420802717': 'A', '17520802717': 'A', '17620802717': 'A', '17720802717': 'A', '17820802717': 'P', '17920802717': 'A', '18020802717': 'P', '18120802717': 'P', '18220802717': 'P', '18320802717': 'P', '18420802717': 'P', '18520802717': 'A', '18620802717': 'A', '18720802717': 'P', '18820802717': 'A', '18920802717': 'A', '19020802717': 'P', '19120802717': 'P', '19220802717': 'A', '19320802717': 'P', '19420802717': 'P', '19520802717': 'A', '19620802717': 'A', '19720802717': 'A', '19820802717': 'A', '19920802717': 'A', '20020802717': 'A', '20120802717': 'P', '20220802717': 'P', '20320802717': 'P', '20420802717': 'A', '20520802717': 'A', '20620802717': 'P', '20720802717': 'A', '20820802717': 'A', '20920802717': 'A', '21020802717': 'P', '21120802717': 'P', '21220802717': 'P', '21320802717': 'P', '21420802717': 'A', '21520802717': 'A', '21620802717': 'A', '21720802717': 'P', '21820802717': 'A', '21920802717': 'A', '22020802717': 'P', '22120802717': 'P', '22220802717': 'A', '22320802717': 'A', '22420802717': 'A', '22520802717': 'A', '22620802717': 'A', '22720802717': 'P', '22820802717': 'A', '22920802717': 'A', '23020802717': 'A', '23120802717': 'P', '23220802717': 'A', '23320802717': 'P', '23420802717': 'A', '23520802717': 'A', '23620802717': 'P', '23720802717': 'A', '23820802717': 'A', '23920802717': 'P', '24020802717': 'P', '24120802717': 'A', '24220802717': 'A', '24320802717': 'P', '24420802717': 'P', '24520802717': 'P', '24620802717': 'P', '24720802717': 'P', '24820802717': 'P', '24920802717': 'P', '25020802717': 'P', '25120802717': 'A', '25220802717': 'P', '25320802717': 'P', '25420802717': 'A', '25520802717': 'A', '25620802717': 'A', '25720802717': 'A', '25820802717': 'P', '25920802717': 'A', '26020802717': 'A', '26120802717': 'P', '26220802717': 'P', '26320802717': 'A', '26420802717': 'P', '26520802717': 'A', '26620802717': 'P', '26720802717': 'A', '26820802717': 'A', '26920802717': 'P', '27020802717': 'A', '27120802717': 'P', '27220802717': 'P', '27320802717': 'P', '27420802717': 'P', '27520802717': 'P', '27620802717': 'A', '27720802717': 'A', '27820802717': 'A', '27920802717': 'A', '28020802717': 'A', '28120802717': 'A', '28220802717': 'P', '28320802717': 'A', '28420802717': 'A', '28520802717': 'A', '28620802717': 'P', '28720802717': 'P', '28820802717': 'P', '28920802717': 'A', '29020802717': 'A', '29120802717': 'P', '29220802717': 'P', '29320802717': 'A', '29420802717': 'P', '29520802717': 'P', '29620802717': 'P', '29720802717': 'P', '29820802717': 'P', '29920802717': 'P', '30020802717': 'A', '30120802717': 'P', '30220802717': 'P', '30320802717': 'A', '30420802717': 'A', '30520802717': 'P', '30620802717': 'P', '30720802717': 'P', '30820802717': 'P', '30920802717': 'A', '31020802717': 'A', '31120802717': 'A', '31220802717': 'A', '31320802717': 'A', '31420802717': 'A', '31520802717': 'A', '31620802717': 'A', '31720802717': 'A', '31820802717': 'A', '31920802717': 'A', '32020802717': 'P', '32120802717': 'A', '32220802717': 'A', '32320802717': 'P', '32420802717': 'P', '32520802717': 'P', '32620802717': 'A', '32720802717': 'A', '32820802717': 'P', '32920802717': 'P', '33020802717': 'P', '33120802717': 'A', '33220802717': 'P', '33320802717': 'A', '33420802717': 'A', '33520802717': 'P', '33620802717': 'P', '33720802717': 'A', '33820802717': 'P', '33920802717': 'A', '34020802717': 'P', '34120802717': 'P', '34220802717': 'A', '34320802717': 'P', '34420802717': 'A', '34520802717': 'A', '34620802717': 'P', '34720802717': 'A', '34820802717': 'P', '34920802717': 'A', '35020802717': 'A', '35120802717': 'P', '35220802717': 'P', '35320802717': 'A', '35420802717': 'P', '35520802717': 'P', '35620802717': 'P', '35720802717': 'A', '35820802717': 'P', '35920802717': 'P', '36020802717': 'P', '36120802717': 'A', '36220802717': 'A', '36320802717': 'A', '36420802717': 'P', '36520802717': 'A', '36620802717': 'P', '36720802717': 'P', '36820802717': 'P', '36920802717': 'A', '37020802717': 'P', '37120802717': 'A', '37220802717': 'P', '37320802717': 'P', '37420802717': 'P', '37520802717': 'A', '37620802717': 'P', '37720802717': 'A', '37820802717': 'A', '37920802717': 'P', '38020802717': 'A', '38120802717': 'P', '38220802717': 'A', '38320802717': 'A', '38420802717': 'P', '38520802717': 'P', '38620802717': 'P', '38720802717': 'A', '38820802717': 'A', '38920802717': 'A', '39020802717': 'P', '39120802717': 'A', '39220802717': 'A', '39320802717': 'A', '39420802717': 'P', '39520802717': 'A', '39620802717': 'A', '39720802717': 'P', '39820802717': 'A', '39920802717': 'A', '40020802717': 'A', '40120802717': 'A', '40220802717': 'A', '40320802717': 'P', '40420802717': 'P', '40520802717': 'A', '40620802717': 'P', '40720802717': 'A', '40820802717': 'P', '40920802717': 'P', '41020802717': 'P', '41120802717': 'A', '41220802717': 'A', '41320802717': 'P', '41420802717': 'P', '41520802717': 'P', '41620802717': 'P', '41720802717': 'P', '41820802717': 'A', '41920802717': 'P', '42020802717': 'P', '42120802717': 'A', '42220802717': 'A', '42320802717': 'A', '42420802717': 'P', '42520802717': 'P', '42620802717': 'A', '42720802717': 'P', '42820802717': 'P', '42920802717': 'A', '43020802717': 'A', '43120802717': 'A', '43220802717': 'P', '43320802717': 'A', '43420802717': 'A', '43520802717': 'A', '43620802717': 'A', '43720802717': 'A', '43820802717': 'A', '43920802717': 'A', '44020802717': 'P', '44120802717': 'A', '44220802717': 'P', '44320802717': 'A', '44420802717': 'P', '44520802717': 'P', '44620802717': 'P', '44720802717': 'A', '44820802717': 'P', '44920802717': 'P', '45020802717': 'A', '45120802717': 'P', '45220802717': 'P', '45320802717': 'P', '45420802717': 'A', '45520802717': 'P', '45620802717': 'P', '45720802717': 'A', '45820802717': 'A', '45920802717': 'A', '46020802717': 'P', '46120802717': 'A', '46220802717': 'A', '46320802717': 'A', '46420802717': 'A', '46520802717': 'A', '46620802717': 'P', '46720802717': 'P', '46820802717': 'A', '46920802717': 'P', '47020802717': 'P', '47120802717': 'P', '47220802717': 'A', '47320802717': 'P', '47420802717': 'P', '47520802717': 'A', '47620802717': 'P', '47720802717': 'P', '47820802717': 'A', '47920802717': 'A', '48020802717': 'P', '48120802717': 'A', '48220802717': 'A', '48320802717': 'P', '48420802717': 'A', '48520802717': 'A', '48620802717': 'A', '48720802717': 'P', '48820802717': 'P', '48920802717': 'A', '49020802717': 'A', '49120802717': 'P', '49220802717': 'A', '49320802717': 'A', '49420802717': 'P', '49520802717': 'A', '49620802717': 'P', '49720802717': 'A', '49820802717': 'P', '49920802717': 'A'}}in f012bpit_human_values_and_professional_ethics_bca_mech_b_2023_2 Collection In attendance_db. 
+[ 13-11-2019 :: 13:35:37 ] [  INFO  ] f012bpit_human_values_and_professional_ethics_bca_mech_b_2023_2 Collection Dropped Successfully from attendance_db.
+[ 13-11-2019 :: 13:35:42 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 13:35:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8bc8>
+[ 13-11-2019 :: 13:35:45 ] [  INFO  ] 00020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:35:45 ] [  INFO  ] 00120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c88>
+[ 13-11-2019 :: 13:35:46 ] [  INFO  ] 00220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2dc8>
+[ 13-11-2019 :: 13:35:46 ] [  INFO  ] 00320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8bc8>
+[ 13-11-2019 :: 13:35:46 ] [  INFO  ] 00420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aee48>
+[ 13-11-2019 :: 13:35:47 ] [  INFO  ] 00520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c08>
+[ 13-11-2019 :: 13:35:47 ] [  INFO  ] 00620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8988>
+[ 13-11-2019 :: 13:35:48 ] [  INFO  ] 00720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8bc8>
+[ 13-11-2019 :: 13:35:48 ] [  INFO  ] 00820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2cc8>
+[ 13-11-2019 :: 13:35:49 ] [  INFO  ] 00920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c24c8>
+[ 13-11-2019 :: 13:35:49 ] [  INFO  ] 01020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2e08>
+[ 13-11-2019 :: 13:35:50 ] [  INFO  ] 01120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c24c8>
+[ 13-11-2019 :: 13:35:50 ] [  INFO  ] 01220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2508>
+[ 13-11-2019 :: 13:35:51 ] [  INFO  ] 01320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8c88>
+[ 13-11-2019 :: 13:35:51 ] [  INFO  ] 01420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:52 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:35:52 ] [  INFO  ] 01520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:52 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a21c8>
+[ 13-11-2019 :: 13:35:52 ] [  INFO  ] 01620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:35:53 ] [  INFO  ] 01720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a21c8>
+[ 13-11-2019 :: 13:35:53 ] [  INFO  ] 01820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:35:54 ] [  INFO  ] 01920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8148>
+[ 13-11-2019 :: 13:35:54 ] [  INFO  ] 02020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:55 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:35:55 ] [  INFO  ] 02120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:55 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8e88>
+[ 13-11-2019 :: 13:35:55 ] [  INFO  ] 02220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8148>
+[ 13-11-2019 :: 13:35:56 ] [  INFO  ] 02320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8148>
+[ 13-11-2019 :: 13:35:56 ] [  INFO  ] 02420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b95c8>
+[ 13-11-2019 :: 13:35:57 ] [  INFO  ] 02520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae0c8>
+[ 13-11-2019 :: 13:35:57 ] [  INFO  ] 02620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:58 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2dc8>
+[ 13-11-2019 :: 13:35:58 ] [  INFO  ] 02720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:35:59 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2648>
+[ 13-11-2019 :: 13:35:59 ] [  INFO  ] 02820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:00 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c28c8>
+[ 13-11-2019 :: 13:36:00 ] [  INFO  ] 02920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:01 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c28c8>
+[ 13-11-2019 :: 13:36:01 ] [  INFO  ] 03020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:01 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c28c8>
+[ 13-11-2019 :: 13:36:01 ] [  INFO  ] 03120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2a88>
+[ 13-11-2019 :: 13:36:02 ] [  INFO  ] 03220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2fc8>
+[ 13-11-2019 :: 13:36:02 ] [  INFO  ] 03320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae0c8>
+[ 13-11-2019 :: 13:36:02 ] [  INFO  ] 03420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aee48>
+[ 13-11-2019 :: 13:36:03 ] [  INFO  ] 03520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae148>
+[ 13-11-2019 :: 13:36:03 ] [  INFO  ] 03620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8988>
+[ 13-11-2019 :: 13:36:04 ] [  INFO  ] 03720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9248>
+[ 13-11-2019 :: 13:36:04 ] [  INFO  ] 03820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae0c8>
+[ 13-11-2019 :: 13:36:05 ] [  INFO  ] 03920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2a88>
+[ 13-11-2019 :: 13:36:05 ] [  INFO  ] 04020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b96c8>
+[ 13-11-2019 :: 13:36:06 ] [  INFO  ] 04120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2b48>
+[ 13-11-2019 :: 13:36:06 ] [  INFO  ] 04220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9a88>
+[ 13-11-2019 :: 13:36:07 ] [  INFO  ] 04320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8248>
+[ 13-11-2019 :: 13:36:07 ] [  INFO  ] 04420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8c88>
+[ 13-11-2019 :: 13:36:07 ] [  INFO  ] 04520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:08 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2808>
+[ 13-11-2019 :: 13:36:08 ] [  INFO  ] 04620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:08 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddc74ffc8>
+[ 13-11-2019 :: 13:36:08 ] [  INFO  ] 04720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:09 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2648>
+[ 13-11-2019 :: 13:36:09 ] [  INFO  ] 04820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:09 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8c88>
+[ 13-11-2019 :: 13:36:09 ] [  INFO  ] 04920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:10 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9848>
+[ 13-11-2019 :: 13:36:10 ] [  INFO  ] 05020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:10 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8348>
+[ 13-11-2019 :: 13:36:10 ] [  INFO  ] 05120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:11 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9a88>
+[ 13-11-2019 :: 13:36:11 ] [  INFO  ] 05220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:11 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8ac8>
+[ 13-11-2019 :: 13:36:11 ] [  INFO  ] 05320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:12 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9048>
+[ 13-11-2019 :: 13:36:12 ] [  INFO  ] 05420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:13 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8988>
+[ 13-11-2019 :: 13:36:13 ] [  INFO  ] 05520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:13 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8c88>
+[ 13-11-2019 :: 13:36:13 ] [  INFO  ] 05620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:13 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8988>
+[ 13-11-2019 :: 13:36:13 ] [  INFO  ] 05720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:14 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae1c8>
+[ 13-11-2019 :: 13:36:14 ] [  INFO  ] 05820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:14 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae108>
+[ 13-11-2019 :: 13:36:14 ] [  INFO  ] 05920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:15 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2648>
+[ 13-11-2019 :: 13:36:15 ] [  INFO  ] 06020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:15 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:36:15 ] [  INFO  ] 06120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:16 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c24c8>
+[ 13-11-2019 :: 13:36:16 ] [  INFO  ] 06220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:16 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9348>
+[ 13-11-2019 :: 13:36:16 ] [  INFO  ] 06320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8c88>
+[ 13-11-2019 :: 13:36:17 ] [  INFO  ] 06420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2648>
+[ 13-11-2019 :: 13:36:17 ] [  INFO  ] 06520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2648>
+[ 13-11-2019 :: 13:36:17 ] [  INFO  ] 06620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:18 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2e08>
+[ 13-11-2019 :: 13:36:18 ] [  INFO  ] 06720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:19 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:19 ] [  INFO  ] 06820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:20 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:20 ] [  INFO  ] 06920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:20 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:20 ] [  INFO  ] 07020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:21 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:21 ] [  INFO  ] 07120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:21 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:21 ] [  INFO  ] 07220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:22 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c26c8>
+[ 13-11-2019 :: 13:36:22 ] [  INFO  ] 07320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:22 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8988>
+[ 13-11-2019 :: 13:36:22 ] [  INFO  ] 07420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:23 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:23 ] [  INFO  ] 07520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:24 ] [  INFO  ] 07620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2848>
+[ 13-11-2019 :: 13:36:24 ] [  INFO  ] 07720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8e08>
+[ 13-11-2019 :: 13:36:24 ] [  INFO  ] 07820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:25 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:36:25 ] [  INFO  ] 07920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2dc8>
+[ 13-11-2019 :: 13:36:26 ] [  INFO  ] 08020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:26 ] [  INFO  ] 08120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae1c8>
+[ 13-11-2019 :: 13:36:27 ] [  INFO  ] 08220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2b88>
+[ 13-11-2019 :: 13:36:27 ] [  INFO  ] 08320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:28 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9b08>
+[ 13-11-2019 :: 13:36:28 ] [  INFO  ] 08420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:28 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8c88>
+[ 13-11-2019 :: 13:36:28 ] [  INFO  ] 08520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:29 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aeac8>
+[ 13-11-2019 :: 13:36:29 ] [  INFO  ] 08620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:30 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2d88>
+[ 13-11-2019 :: 13:36:30 ] [  INFO  ] 08720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:30 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:36:30 ] [  INFO  ] 08820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:31 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9248>
+[ 13-11-2019 :: 13:36:31 ] [  INFO  ] 08920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:31 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c26c8>
+[ 13-11-2019 :: 13:36:31 ] [  INFO  ] 09020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:31 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9248>
+[ 13-11-2019 :: 13:36:31 ] [  INFO  ] 09120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:36:32 ] [  INFO  ] 09220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8b08>
+[ 13-11-2019 :: 13:36:32 ] [  INFO  ] 09320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:33 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2908>
+[ 13-11-2019 :: 13:36:33 ] [  INFO  ] 09420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:33 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2ac8>
+[ 13-11-2019 :: 13:36:33 ] [  INFO  ] 09520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:34 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2548>
+[ 13-11-2019 :: 13:36:34 ] [  INFO  ] 09620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:34 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2908>
+[ 13-11-2019 :: 13:36:34 ] [  INFO  ] 09720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:35 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8b08>
+[ 13-11-2019 :: 13:36:35 ] [  INFO  ] 09820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:35 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b95c8>
+[ 13-11-2019 :: 13:36:35 ] [  INFO  ] 09920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:36 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8148>
+[ 13-11-2019 :: 13:36:36 ] [  INFO  ] 10020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:36 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aebc8>
+[ 13-11-2019 :: 13:36:36 ] [  INFO  ] 10120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:37 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2888>
+[ 13-11-2019 :: 13:36:37 ] [  INFO  ] 10220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:37 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2888>
+[ 13-11-2019 :: 13:36:37 ] [  INFO  ] 10320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:37 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae148>
+[ 13-11-2019 :: 13:36:37 ] [  INFO  ] 10420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddc74ffc8>
+[ 13-11-2019 :: 13:36:38 ] [  INFO  ] 10520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c88>
+[ 13-11-2019 :: 13:36:38 ] [  INFO  ] 10620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:39 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:39 ] [  INFO  ] 10720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:39 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:36:39 ] [  INFO  ] 10820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:40 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c08>
+[ 13-11-2019 :: 13:36:40 ] [  INFO  ] 10920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:40 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae148>
+[ 13-11-2019 :: 13:36:40 ] [  INFO  ] 11020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:41 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8dc8>
+[ 13-11-2019 :: 13:36:41 ] [  INFO  ] 11120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:41 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c08>
+[ 13-11-2019 :: 13:36:41 ] [  INFO  ] 11220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:42 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae148>
+[ 13-11-2019 :: 13:36:42 ] [  INFO  ] 11320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:42 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aea08>
+[ 13-11-2019 :: 13:36:42 ] [  INFO  ] 11420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9a08>
+[ 13-11-2019 :: 13:36:43 ] [  INFO  ] 11520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:36:43 ] [  INFO  ] 11620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:44 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:36:44 ] [  INFO  ] 11720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:44 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:36:44 ] [  INFO  ] 11820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c88>
+[ 13-11-2019 :: 13:36:45 ] [  INFO  ] 11920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8bc8>
+[ 13-11-2019 :: 13:36:45 ] [  INFO  ] 12020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2c08>
+[ 13-11-2019 :: 13:36:46 ] [  INFO  ] 12120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2d08>
+[ 13-11-2019 :: 13:36:46 ] [  INFO  ] 12220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8d48>
+[ 13-11-2019 :: 13:36:47 ] [  INFO  ] 12320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2648>
+[ 13-11-2019 :: 13:36:48 ] [  INFO  ] 12420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae1c8>
+[ 13-11-2019 :: 13:36:48 ] [  INFO  ] 12520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:36:49 ] [  INFO  ] 12620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2908>
+[ 13-11-2019 :: 13:36:50 ] [  INFO  ] 12720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2a88>
+[ 13-11-2019 :: 13:36:50 ] [  INFO  ] 12820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9a88>
+[ 13-11-2019 :: 13:36:50 ] [  INFO  ] 12920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae148>
+[ 13-11-2019 :: 13:36:51 ] [  INFO  ] 13020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a21c8>
+[ 13-11-2019 :: 13:36:51 ] [  INFO  ] 13120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:52 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2a88>
+[ 13-11-2019 :: 13:36:52 ] [  INFO  ] 13220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:52 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2648>
+[ 13-11-2019 :: 13:36:52 ] [  INFO  ] 13320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae988>
+[ 13-11-2019 :: 13:36:53 ] [  INFO  ] 13420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2d88>
+[ 13-11-2019 :: 13:36:53 ] [  INFO  ] 13520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae988>
+[ 13-11-2019 :: 13:36:54 ] [  INFO  ] 13620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a21c8>
+[ 13-11-2019 :: 13:36:54 ] [  INFO  ] 13720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8348>
+[ 13-11-2019 :: 13:36:54 ] [  INFO  ] 13820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:55 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9a88>
+[ 13-11-2019 :: 13:36:55 ] [  INFO  ] 13920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:55 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9048>
+[ 13-11-2019 :: 13:36:55 ] [  INFO  ] 14020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a22c8>
+[ 13-11-2019 :: 13:36:56 ] [  INFO  ] 14120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae988>
+[ 13-11-2019 :: 13:36:56 ] [  INFO  ] 14220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2cc8>
+[ 13-11-2019 :: 13:36:57 ] [  INFO  ] 14320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a2d48>
+[ 13-11-2019 :: 13:36:57 ] [  INFO  ] 14420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:58 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae548>
+[ 13-11-2019 :: 13:36:58 ] [  INFO  ] 14520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:58 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7b9588>
+[ 13-11-2019 :: 13:36:58 ] [  INFO  ] 14620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:59 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2708>
+[ 13-11-2019 :: 13:36:59 ] [  INFO  ] 14720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:36:59 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aee88>
+[ 13-11-2019 :: 13:36:59 ] [  INFO  ] 14820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:00 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7aee88>
+[ 13-11-2019 :: 13:37:00 ] [  INFO  ] 14920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:00 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7c2648>
+[ 13-11-2019 :: 13:37:00 ] [  INFO  ] 15020802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:01 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:37:01 ] [  INFO  ] 15120802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:01 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8e88>
+[ 13-11-2019 :: 13:37:01 ] [  INFO  ] 15220802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:37:02 ] [  INFO  ] 15320802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8e88>
+[ 13-11-2019 :: 13:37:02 ] [  INFO  ] 15420802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7a8a08>
+[ 13-11-2019 :: 13:37:03 ] [  INFO  ] 15520802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ae1c8>
+[ 13-11-2019 :: 13:37:03 ] [  INFO  ] 15620802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:37:04 ] [  INFO  ] 15720802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:37:04 ] [  INFO  ] 15820802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fbddd7ca048>
+[ 13-11-2019 :: 13:37:05 ] [  INFO  ] 15920802717 Enrollment Inserted Successfully at mca_cse_d_2021 Collection in batch_db
+[ 13-11-2019 :: 13:37:11 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:37:14 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f2629cd9d48>
+[ 13-11-2019 :: 13:37:14 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:37:15 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f2629cd9148>
+[ 13-11-2019 :: 13:37:15 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:37:15 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:37:17 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:37:19 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f2629cd9bc8>
+[ 13-11-2019 :: 13:37:19 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:37:22 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:37:23 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:37:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2629cd9488>
+[ 13-11-2019 :: 13:37:26 ] [  ERROR ] Enrollment - 000000000000000000000000000000000000000000420802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 13:37:27 ] [  ERROR ] Enrollment - 000000000000000000000000000000000000000000420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:37:32 ] [  INFO  ] The Search Query With enrollment:000000000000000000000000000000000000000000420802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 13:37:40 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f2629cd9348>
+[ 13-11-2019 :: 13:37:40 ] [  INFO  ] Enrollment - 000000000000000000000000000000000000000000420802717 Updated With - name:sommer-ray in student_db
+[ 13-11-2019 :: 13:37:41 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f2629cd9348>
+[ 13-11-2019 :: 13:37:42 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:37:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f26284640c8>
+[ 13-11-2019 :: 13:37:46 ] [  INFO  ] Faculty - f039bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 13:37:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2628464088>
+[ 13-11-2019 :: 13:37:47 ] [  INFO  ] Faculty - f016bpit Inserted at user_info Collection in faculty_db
+[ 13-11-2019 :: 13:37:47 ] [  INFO  ] The Search Query With faculty_id:f039bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:37:50 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f2629d09648>
+[ 13-11-2019 :: 13:37:50 ] [  INFO  ] Faculty - f039bpit Updated With - name:pooja in faculty_db
+[ 13-11-2019 :: 13:37:50 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f2628464108>
+[ 13-11-2019 :: 13:37:50 ] [  INFO  ] Faculty - faculty_id:f039bpit Removed Successfully from faculty_db
+[ 13-11-2019 :: 13:37:50 ] [  INFO  ] attendance_db Connected Successfully
+[ 13-11-2019 :: 13:37:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2628472f08>
+[ 13-11-2019 :: 13:37:53 ] [  INFO  ] Inserted {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'000000000000000000000000000000000000000000020802717': 'A', '000000000000000000000000000000000000000000120802717': 'P', '000000000000000000000000000000000000000000220802717': 'A', '000000000000000000000000000000000000000000320802717': 'A', '000000000000000000000000000000000000000000420802717': 'P'}, '_id': ObjectId('5dcbb9d64b4bde3024d4f5c4')} at f093bpit_cryptocurrency_phd_cse_b_2022_5 Collection Successfully in attendance_db
+[ 13-11-2019 :: 13:37:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2628478c48>
+[ 13-11-2019 :: 13:37:54 ] [  INFO  ] Inserted {'date': {'day': '14', 'month': '11', 'year': '2019'}, 'attendance': {'000000000000000000000000000000000000000000020802717': 'A', '000000000000000000000000000000000000000000120802717': 'A', '000000000000000000000000000000000000000000220802717': 'P', '000000000000000000000000000000000000000000320802717': 'A', '000000000000000000000000000000000000000000420802717': 'A'}, '_id': ObjectId('5dcbb9d94b4bde3024d4f5c5')} at f093bpit_cryptocurrency_phd_cse_b_2022_5 Collection Successfully in attendance_db
+[ 13-11-2019 :: 13:37:54 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Date Fetched From f093bpit_cryptocurrency_phd_cse_b_2022_5 Collection In attendance_db. 
+[ 13-11-2019 :: 13:37:55 ] [  INFO  ] Attendence from f093bpit_cryptocurrency_phd_cse_b_2022_5 Collection Fetched From attendance_db.
+[ 13-11-2019 :: 13:37:56 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f2629d092c8>
+[ 13-11-2019 :: 13:37:56 ] [  INFO  ] Attendance Of {'day': '13', 'month': '11', 'year': '2019'} Updated Successfully as {'date': {'day': '13', 'month': '11', 'year': '2019'}, 'attendance': {'000000000000000000000000000000000000000000020802717': 'P', '000000000000000000000000000000000000000000120802717': 'P', '000000000000000000000000000000000000000000220802717': 'A', '000000000000000000000000000000000000000000320802717': 'P', '000000000000000000000000000000000000000000420802717': 'P'}}in f093bpit_cryptocurrency_phd_cse_b_2022_5 Collection In attendance_db. 
+[ 13-11-2019 :: 13:37:56 ] [  INFO  ] f093bpit_cryptocurrency_phd_cse_b_2022_5 Collection Dropped Successfully from attendance_db.
+[ 13-11-2019 :: 13:37:57 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 13:38:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f262847dc88>
+[ 13-11-2019 :: 13:38:02 ] [  INFO  ] 000000000000000000000000000000000000000000020802717 Enrollment Inserted Successfully at btech_it_d_2022 Collection in batch_db
+[ 13-11-2019 :: 13:38:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f26284783c8>
+[ 13-11-2019 :: 13:38:02 ] [  INFO  ] 000000000000000000000000000000000000000000120802717 Enrollment Inserted Successfully at btech_it_d_2022 Collection in batch_db
+[ 13-11-2019 :: 13:38:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f26284781c8>
+[ 13-11-2019 :: 13:38:03 ] [  INFO  ] 000000000000000000000000000000000000000000220802717 Enrollment Inserted Successfully at btech_it_d_2022 Collection in batch_db
+[ 13-11-2019 :: 13:38:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2628478088>
+[ 13-11-2019 :: 13:38:03 ] [  INFO  ] 000000000000000000000000000000000000000000320802717 Enrollment Inserted Successfully at btech_it_d_2022 Collection in batch_db
+[ 13-11-2019 :: 13:38:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2629d09108>
+[ 13-11-2019 :: 13:38:04 ] [  INFO  ] 000000000000000000000000000000000000000000420802717 Enrollment Inserted Successfully at btech_it_d_2022 Collection in batch_db
+[ 13-11-2019 :: 13:38:04 ] [  ERROR ] 000000000000000000000000000000000000000000420802717 Enrollment Insertion at btech_it_d_2022 Collection in Batch_DB failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:38:04 ] [  INFO  ] btech_it_d_2022 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 13:38:05 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f262847d348>
+[ 13-11-2019 :: 13:38:05 ] [  INFO  ] 000000000000000000000000000000000000000000220802717 Enrollment Removed From btech_it_d_2022 Collection in Batch_DB
+[ 13-11-2019 :: 13:38:23 ] [  INFO  ] btech_it_d_2022 Collection Removed From Batch_DB
+[ 13-11-2019 :: 13:38:24 ] [ INFO  ] Feedback_DB Connected Successfully
+[ 13-11-2019 :: 13:38:30 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f2628478ec8>
+[ 13-11-2019 :: 13:38:30 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 13:38:30 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f2628478a08>
+[ 13-11-2019 :: 13:38:30 ] [ INFO  ] Feedback successfully inserted in Feedback_DB.
+[ 13-11-2019 :: 13:38:48 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 13-11-2019 :: 13:38:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f649aaade88>
+[ 13-11-2019 :: 13:38:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:38:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f649aaad408>
+[ 13-11-2019 :: 13:38:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 13-11-2019 :: 13:38:52 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 13-11-2019 :: 13:40:02 ] [ INFO  ] All the current batches has been displayed.
+[ 13-11-2019 :: 13:40:07 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f649aaad5c8>
+[ 13-11-2019 :: 13:40:07 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 13-11-2019 :: 13:40:18 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 13-11-2019 :: 13:40:19 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 13:40:22 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6498230b88>
+[ 13-11-2019 :: 13:40:22 ] [  ERROR ] Enrollment - 00020802717 Successfully Inserted at user_info Collection in student_db
+[ 13-11-2019 :: 13:40:23 ] [  ERROR ] Enrollment - 00020802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 13-11-2019 :: 13:40:27 ] [  INFO  ] The Search Query With enrollment:00020802717 Accomplished Successfully in student_db

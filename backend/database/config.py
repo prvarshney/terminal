@@ -16,9 +16,12 @@ Previous_Batches_DB = "previous_batches_db"
 Student_DB = "student_db"
 StudyMaterial_DB = "studymaterial_db"
 Admin_DB = "admin_db"
+OTP_DB = 'otp_db'
 
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
 Admin_Profile_Collection = "user_info"
+OTP_COLLECTION = "generated_otp"
 
-ENCKEY = "BUCKMINSTERFULLERENE"
+SENDER_EMAIL_ID = "contactpspatom@gmail.com"
+SENDER_EMAIL_PASSWORD = "363755@psp"

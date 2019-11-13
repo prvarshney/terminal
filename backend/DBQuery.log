@@ -125,3 +125,265 @@
 [ 06-11-2019 :: 00:39:07 ] [  INFO  ] admin_db Connected Successfully
 [ 06-11-2019 :: 00:39:10 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 >>>>>>> master
+[ 12-11-2019 :: 22:47:43 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 22:47:43 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 22:49:07 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 12-11-2019 :: 22:49:12 ] [ INFO  ] All the current batches has been displayed.
+[ 12-11-2019 :: 22:55:24 ] [  INFO  ] batch_db Connected Successfully
+[ 12-11-2019 :: 22:55:25 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 22:55:25 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 22:55:25 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 22:55:56 ] [  INFO  ] batch_db Connected Successfully
+[ 12-11-2019 :: 22:55:56 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 22:55:56 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 22:55:56 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:13:16 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:13:16 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:27:07 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:27:07 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:27:07 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:28:39 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:28:39 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:43:05 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:43:05 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:43:05 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:44:25 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:44:25 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:44:48 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:44:48 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:44:48 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:45:11 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:45:11 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:45:11 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:48:23 ] [  INFO  ] batch_db Connected Successfully
+[ 12-11-2019 :: 23:48:23 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:48:23 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:48:23 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:48:52 ] [  INFO  ] batch_db Connected Successfully
+[ 12-11-2019 :: 23:48:52 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:48:52 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:48:52 ] [  INFO  ] otp_db Connected Successfully
+[ 12-11-2019 :: 23:59:19 ] [  INFO  ] batch_db Connected Successfully
+[ 12-11-2019 :: 23:59:19 ] [  INFO  ] faculty_db Connected Successfully
+[ 12-11-2019 :: 23:59:19 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 12-11-2019 :: 23:59:19 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 00:04:41 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:04:55 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:04:59 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-11-2019 :: 00:05:29 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:05:34 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-11-2019 :: 00:07:28 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:07:32 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-11-2019 :: 00:07:51 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:07:55 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-11-2019 :: 00:07:56 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f1c5c852cc8>
+[ 13-11-2019 :: 00:07:56 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-11-2019 :: 00:09:51 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:09:55 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-11-2019 :: 00:09:55 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 00:10:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1c5c86da48>
+[ 13-11-2019 :: 00:10:04 ] [  INFO  ] For User_ID - adm-123 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 13-11-2019 :: 00:14:51 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 00:14:55 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 13-11-2019 :: 00:15:05 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 00:15:10 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 13-11-2019 :: 00:15:10 ] [  INFO  ] admin_db Connected Successfully
+[ 13-11-2019 :: 00:15:14 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f4ccc03c408>
+[ 13-11-2019 :: 00:15:14 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-11-2019 :: 00:15:15 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f4ccc02e708>
+[ 13-11-2019 :: 00:15:15 ] [  INFO  ] User_ID - adm-123 Removed Successfully from generated_otp Collection in otp_db
+[ 13-11-2019 :: 00:16:54 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 00:16:54 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 00:17:56 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 00:17:56 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 00:17:56 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 00:17:56 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 00:18:39 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 00:18:39 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 00:18:39 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 00:18:39 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 00:20:00 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 00:20:00 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 00:20:00 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 00:20:00 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 11:41:13 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 11:41:13 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 11:43:26 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 11:43:26 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 11:43:26 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 11:43:26 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 11:54:51 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 11:54:51 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 11:54:51 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 11:54:51 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 11:56:15 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 11:56:15 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 11:56:15 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 11:56:15 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 11:56:33 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 11:56:33 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 11:57:49 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 11:57:49 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 11:57:49 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 11:57:49 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 13:22:46 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:22:46 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:23:14 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 13:23:14 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:23:14 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:23:14 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 13:23:19 ] [  INFO  ] phd_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 13:27:27 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 13:27:27 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:27:27 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:27:27 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 13:27:31 ] [  INFO  ] phd_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 13:28:04 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 13:28:04 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:28:04 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:28:04 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 13:28:07 ] [  INFO  ] phd_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 13:30:06 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 13:30:06 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 13:30:06 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 13:30:06 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 13:30:10 ] [  INFO  ] phd_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:11:49 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:11:49 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:12:11 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:12:11 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:12:11 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:12:11 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:12:14 ] [  INFO  ] phd_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:12:37 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:12:37 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:12:37 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:12:37 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:12:40 ] [  INFO  ] msc_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:14:36 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:14:36 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:14:36 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:14:36 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:14:39 ] [  INFO  ] msc_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:15:05 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:15:05 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:15:05 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:15:05 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:15:08 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:15:40 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:15:40 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:15:40 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:15:40 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:15:43 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:18:29 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:18:29 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:18:29 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:18:29 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:18:29 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:18:32 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:18:33 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:18:35 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:18:35 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:18:35 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:18:35 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:19:17 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:19:17 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:19:17 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:19:17 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:19:17 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:19:20 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:19:21 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:19:23 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:19:23 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:19:23 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:19:23 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:21:15 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:21:15 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:21:15 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:21:15 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:21:15 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:21:18 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:21:18 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:21:21 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:21:21 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:21:21 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:21:21 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:22:37 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:22:37 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:22:37 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:22:37 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:22:37 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:22:40 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:22:41 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:22:43 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:22:43 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:22:44 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:22:44 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:24:46 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:24:46 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:24:46 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:24:46 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:24:46 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:24:49 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:24:50 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:24:52 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:24:52 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:24:52 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:24:52 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:26:40 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:26:40 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:26:40 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:26:40 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:26:40 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:26:43 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:26:44 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:26:46 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:26:46 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:26:46 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:26:46 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:29:18 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:29:18 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:29:40 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:29:40 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:29:40 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:29:40 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:29:40 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:29:44 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:29:44 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:29:46 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:29:46 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:29:47 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:29:47 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:34:25 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:34:25 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:34:25 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:34:25 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:34:25 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:34:29 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:34:30 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:34:32 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:34:32 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:34:33 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:34:33 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:35:50 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:35:50 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:35:50 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:35:50 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:35:50 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:35:54 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:35:54 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:35:56 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:35:57 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:35:58 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:35:58 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:36:28 ] [  INFO  ] batch_db Connected Successfully
+[ 13-11-2019 :: 14:36:28 ] [  INFO  ] faculty_db Connected Successfully
+[ 13-11-2019 :: 14:36:28 ] [  INFO  ] student_db Connected Successfully
+[ 13-11-2019 :: 14:36:28 ] [  INFO  ] The Search Query With faculty_id:f006bpit Accomplished Successfully in faculty_db
+[ 13-11-2019 :: 14:36:28 ] [  INFO  ] otp_db Connected Successfully
+[ 13-11-2019 :: 14:36:32 ] [  INFO  ] mca_ece_a_2023 Collection Fetched From Batch_DB
+[ 13-11-2019 :: 14:36:32 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:36:35 ] [  INFO  ] The Search Query With enrollment:03820802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:36:36 ] [  INFO  ] The Search Query With enrollment:03920802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:36:36 ] [  INFO  ] The Search Query With enrollment:04520802717 Accomplished Successfully in student_db
+[ 13-11-2019 :: 14:36:37 ] [  INFO  ] The Search Query With enrollment:04920802717 Accomplished Successfully in student_db
