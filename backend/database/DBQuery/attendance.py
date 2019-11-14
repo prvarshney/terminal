@@ -132,6 +132,14 @@ class Attendance:
 			log(f'[ ERROR  ] Unable To Drop {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection from Attendance_DB.')
 			return 400
 
+	def show_one(self,enrollment):
+		db_res = self.show_all()
+		if db_res['status'] == 302:
+			for document in db_res['res']:
+				print(document['attendance'])
+
+
+
 	def update(self,date,attendance_dictionary):
 		# THIS METHOD USE TO UPDATE ATTENDANCE OF A PARTICULAR DATE WITH ATTENDANCE_DICTIONARY
 		# OBJECT
@@ -159,4 +167,3 @@ class Attendance:
 if __name__ == "__main__":
 	# TESTING SCRIPT
 	pass
-

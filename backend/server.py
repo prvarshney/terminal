@@ -65,7 +65,7 @@ def admin_authentication():
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
                     })
-    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })    
+    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
 
 ## ROUTE TO GENERATE OTP FOR A PARTICULAR USESR_ID
 @app.route('/admin/forgot_password/<user_id>',methods=['GET'])
@@ -192,7 +192,7 @@ def admin_update_password():
 @jwt_required
 def admin_batch_insert():
     ## JSON POST MUST CONTAIN KEYS :-
-    ## {    
+    ## {
     ##   "programme":<STRING>,
     ##   "branch":<STRING>,
     ##   "section":<STRING>,
@@ -225,7 +225,7 @@ def admin_batch_insert():
 @jwt_required
 def admin_batch_show_all():
     ## JSON POST MUST CONTAIN KEYS :-
-    ## {    
+    ## {
     ##   "programme":<STRING>,
     ##   "branch":<STRING>,
     ##   "section":<STRING>,
@@ -266,7 +266,7 @@ def admin_batch_show_all():
 @jwt_required
 def admin_batch_remove():
     ## JSON POST MUST CONTAIN KEYS :-
-    ## {    
+    ## {
     ##   "programme":<STRING>,
     ##   "branch":<STRING>,
     ##   "section":<STRING>,
@@ -301,7 +301,7 @@ def admin_batch_remove():
 @jwt_required
 def admin_batch_remove_all():
     ## JSON POST MUST CONTAIN KEYS :-
-    ## {    
+    ## {
     ##   "programme":<STRING>,
     ##   "branch":<STRING>,
     ##   "section":<STRING>,
@@ -345,7 +345,7 @@ def faculty_authentication():
     user_credentials = request.get_json()
     faculty = db.Faculty()
     ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED FACULTY_ID
-    db_res = faculty.query('faculty_id',user_credentials['user_id'])    
+    db_res = faculty.query('faculty_id',user_credentials['user_id'])
     if db_res['status'] == 212:                  ## RUNS WHEN THERE IS SOME RESULT FOR THE ABOVE QUERY
         ## MATCHING REQ PASSWORD WITH DB PASSWORD
         for document in db_res['res']:
@@ -353,13 +353,13 @@ def faculty_authentication():
                 ## JWT TOKEN GENERATION TAKES PLACE
                 access_token = create_access_token(identity=user_credentials['user_id'])
                 refresh_token = create_refresh_token(identity=user_credentials['user_id'])
-                return jsonify({ 
+                return jsonify({
                     'status':'200',
                     'access-token':access_token,
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
                     })
-    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })   
+    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
 
 @app.route("/faculty/insert_attendance",methods=['POST'])
 @jwt_required
@@ -553,6 +553,89 @@ def student_provisional_registration():
     identity_proof.save(os.path.join(os.getcwd(), 'bleepblop'))
     return 'bleepblop'
 ## STUDENT ROUTES --END
+
+## STUDENT ROUTES -- START
+@app.route("/student/login",methods=['POST'])
+def student_authentication():
+    user_credentials = request.get_json()
+    student = db.Student()
+    ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED STUDENT ENROLLMENT
+    db_res = student.query('enrollment',user_credentials['user_id'])
+    if db_res['status'] == 212:         ## RUNS FOR SUCCESSFUL SEARCH OF ABOVE QUERY
+        ## MATCHING REQ PASSWORD WITH DB PASSWORD
+        for document in db_res['res']:
+            if bcrypt.check_password_hash(document['password'],user_credentials['password']):
+                ## JWT TOKEN GENERATION TAKES PLACE
+                access_token = create_access_token(identity = user_credentials['user_id'])
+                refresh_token = create_refresh_token(identity = user_credentials['user_id'])
+                return jsonify({
+                    'status':'200',
+                    'access_token':access_token,
+                    'refresh_token':refresh_token,
+                    'msg':'login-successful'
+                })
+    return jsonify({'status':'401', 'msg':'Invalid UserId/Password'})
+
+@app.route("/student/aboutus",methods=['POST'])
+def student_aboutus():
+    ## THIS ROUTE DOESN'T REQUIRE ANY JSON OR DATA FROM THE USER
+    return jsonify({
+        'developers':'the three musketers group',
+        'msg':'for the community by the community',
+        'status':'200'
+    })
+    
+## ROUTE TO GENERATE OTP FOR A PARTICULAR USER ID
+@app.route("/student/forgot_password/<user_id>",methods = ['GET'])
+def student_forgot_password_generate_otp(user_id):
+    ## INPUT IS ACCEPTED THROUGH URLENCODED VARIABLES I.E USER_ID
+    ## CHECKING THE AVAILABILITY OF GIVEN USER_ID IN DATABASE
+    student = db.Student()
+    db_res = student.query('enrollment',user_id)
+    if db_res['status'] == 212:
+        otp_db = db.OTP()
+        user_email_ids = []
+        user_name = {}
+        for res in db_res['res']:
+            user_email_ids = res['email_ids']
+            user_name = res['student_name']
+        ## GENERATING OTP
+        generated_otp = random.randrange(11111111,100000000)
+        ## SENDING OTP TO THE USER THROUGH EMAIL
+        send_otp(
+            receiver = user_email_ids,
+            user_name = user_name['f_name'],
+            otp = generated_otp
+        )
+        ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
+        otp_db.insert(
+            user_id = user_id,
+            otp = generated_otp
+        )
+        ## MASKING EMAILS TO GENERATE REQUIRED RESPONSE
+        for index in range(len(user_email_ids)):
+            string = user_email_ids[index]
+        ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
+        string = string[:4] + 'X' * len(string[4:string.find('@')]) + string[string.find('@'):]
+        user_email_ids[index] = string
+        ## RETURNING RESPONSE
+        return jsonify({
+            'status':200,
+            'msg':'otp sent to the registered email_ids',
+            'email_ids':'user_email_ids'
+        })
+    else:
+        return jsonify({
+            'status':'206',
+            'msg':'Invalid user_id'
+        })
+
+## ROUTE TO VIEW ATTENDANCE OF A STUDENT
+@app.route('/student/view_attendance',methods=['POST'])
+def student_view_attendance():
+    attendance = db.Attendance('f026bpit', 'cryptocurrency', 'msc', 'it', 'b', '2022', '2')
+    attendance.show_one('00320802717')
+    return 'bleepbloop'
 
 if __name__ == '__main__':
     app.run(debug=True,port=5001,host="0.0.0.0")
