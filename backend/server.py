@@ -6,6 +6,8 @@ import smtplib
 import config
 import random
 import os
+import pymongo 
+import json
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -637,5 +639,7 @@ def student_view_attendance():
     attendance.show_one('00320802717')
     return 'bleepbloop'
 
+
 if __name__ == '__main__':
     app.run(debug=True,port=5001,host="0.0.0.0")
+    

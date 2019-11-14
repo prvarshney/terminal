@@ -6,11 +6,11 @@ import string
 from datetime import datetime
 
 ## CREATING DUMMY OBJECTS FOR TESTING PURPOSE
-SUBJECTS = ['machine_learning','artificial_intelligence','computer_networks','computer_architecture_and_organization',
-            'electronic_devices','engineering_mathematics','engineering_mechanics','engineering_physics',
-            'database_management','human_values_and_professional_ethics','communication_skills',
-            'cryptocurrency','data_mining','java','c++','datastructures','engineering_drawing','engineering_chemistry',
-            'web_development']
+SUBJECTS = ['machine-learning','artificial-intelligence','computer-networks','computer-architecture-and-organization',
+            'electronic-devices','engineering-mathematics','engineering-mechanics','engineering-physics',
+            'database-management','human-values-and-professional-ethics','communication-skills',
+            'cryptocurrency','data-mining','java','c++','datastructures','engineering-drawing','engineering-chemistry',
+            'web-development']
 FACULTY_IDS = [ 'f'+'{num:03d}'.format(num=i)+'bpit' for i in range(1,100) ]
 ENROLLMENT_NOS = [ "{enrollment:011d}".format(enrollment=int(suffix))
         for suffix in [ str(prefix)+'20802717' for prefix in range(0,5) ] ]
@@ -214,6 +214,7 @@ if __name__ == "__main__":
             programme=random.choice(PROGRAMMES),
             branch=random.choice(BRANCHES),
             section=random.choice(SECTIONS),
+            semester=random.choice(SEMESTERS),
             gender=random.choice(GENDER),
             dob=generate_dob_dictionary(),
             temp_address=random.choice(TEMP_ADDRESS),
@@ -234,6 +235,7 @@ if __name__ == "__main__":
             programme=random.choice(PROGRAMMES),
             branch=random.choice(BRANCHES),
             section=random.choice(SECTIONS),
+            semester=random.choice(SEMESTERS),
             gender=random.choice(GENDER),
             dob=generate_dob_dictionary(),
             temp_address=random.choice(TEMP_ADDRESS),
