@@ -1054,3 +1054,29 @@
 [ 13-11-2019 :: 13:40:22 ] [  ERROR ] Enrollment - 00020802717 Successfully Inserted at user_info Collection in student_db
 [ 13-11-2019 :: 13:40:23 ] [  ERROR ] Enrollment - 00020802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
 [ 13-11-2019 :: 13:40:27 ] [  INFO  ] The Search Query With enrollment:00020802717 Accomplished Successfully in student_db
+[ 14-11-2019 :: 14:32:30 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 14-11-2019 :: 14:32:34 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f439fad3e48>
+[ 14-11-2019 :: 14:32:34 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 14-11-2019 :: 14:32:35 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7f43a0195bc8>
+[ 14-11-2019 :: 14:32:35 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 14-11-2019 :: 14:32:35 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 14-11-2019 :: 14:32:36 ] [ INFO  ] All the current batches has been displayed.
+[ 14-11-2019 :: 14:32:37 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7f439fad3e48>
+[ 14-11-2019 :: 14:32:37 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 14-11-2019 :: 14:32:38 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 14-11-2019 :: 14:32:39 ] [  INFO  ] student_db Connected Successfully
+[ 14-11-2019 :: 14:34:49 ] [ INFO  ] Current_Batches_DB Connected Successfully
+[ 14-11-2019 :: 14:34:52 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb3194f5cc8>
+[ 14-11-2019 :: 14:34:52 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 14-11-2019 :: 14:34:53 ] [ INFO  ] <pymongo.results.InsertOneResult object at 0x7fb3194f5dc8>
+[ 14-11-2019 :: 14:34:53 ] [ INFO  ] A new batch for the particular faculty has been created.
+[ 14-11-2019 :: 14:34:53 ] [ ERROR ] This Batch Is Already Present In Database For This Faculty
+[ 14-11-2019 :: 14:34:58 ] [ INFO  ] All the current batches has been displayed.
+[ 14-11-2019 :: 14:34:59 ] [ INFO  ] <pymongo.results.DeleteResult object at 0x7fb3194f5f88>
+[ 14-11-2019 :: 14:34:59 ] [ INFO  ] Record of that class has been removed from the Current_Batches_DB.
+[ 14-11-2019 :: 14:35:02 ] [ INFO  ] Current_Batches_DB has been removed for the particular faculty.
+[ 14-11-2019 :: 14:35:06 ] [  INFO  ] student_db Connected Successfully
+[ 14-11-2019 :: 14:35:09 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb319521ec8>
+[ 14-11-2019 :: 14:35:09 ] [  ERROR ] Enrollment - 00220802717 Successfully Inserted at user_info Collection in student_db
+[ 14-11-2019 :: 14:35:10 ] [  ERROR ] Enrollment - 00220802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 14-11-2019 :: 14:35:22 ] [  INFO  ] The Search Query With enrollment:00220802717 Accomplished Successfully in student_db
