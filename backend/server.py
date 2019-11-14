@@ -6,6 +6,8 @@ import smtplib
 import config
 import random
 import os
+import pymongo 
+import json
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -454,5 +456,7 @@ def fetch_students_list(batch_name):
             'msg':'invalid user id'
         })
 
+
 if __name__ == '__main__':
     app.run(debug=True,port=5001,host="0.0.0.0")
+    

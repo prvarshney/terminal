@@ -33,7 +33,7 @@ class Attendance:
 		self._semester = semester
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
-			db = self.client[config.Attendance_DB]
+			self.db = self.client[config.Attendance_DB]
 			log(f'[  INFO  ] {config.Attendance_DB} Connected Successfully')
 		except:
 			log('[ ERROR  ] Unable To Create Connection With Attendance_DB')
@@ -42,7 +42,11 @@ class Attendance:
 		# THIS COLLECTION OBJECT IS GONNA BE USED FURTHER FOR ANY OPERATION LIKE :-
 		# MARKING ATTENDANCE, SHOW, ETC.
 		#
-		self.collection = db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
+		self.collection = self.db[f'{faculty_id}_{subject}_{programme}_{branch}_{section}_{year_of_pass}_{semester}']
+
+	def show_collections(self):
+		# THIS FUNCTION RETURNS THE NAME OF ALL THE COLLECTION NAMES OF THE ATTENDANCE DB.
+		return(self.db.collection_names())
 
 	def insert(self,attendance_dictionary):
 		# ATTENDANCE_DICTIONARY OBJECT CONTAINS A DICTIONARY, THAT STORES DATE ON WHICH ATTENDANCE
