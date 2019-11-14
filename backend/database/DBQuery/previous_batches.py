@@ -49,7 +49,7 @@ class PreviousBatches:
 		#
 		previous_batches_dictionary = {
 			"subject" : subject,
-			"semster" : semester,
+			"semester" : semester,
 			"batch" : f'{programme}_{branch}_{section}_{year_of_pass}'
 		}
 		duplicate_entry = self.collection.find_one({'batch':previous_batches_dictionary['batch']})
@@ -110,8 +110,8 @@ class PreviousBatches:
 				'res':'NA'
 			}
 		return response
-  
- 
+
+
 	def __del__(self):
 		self.client.close()
 

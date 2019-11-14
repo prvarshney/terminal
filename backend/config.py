@@ -14,6 +14,7 @@ Feedback_DB = "feedback_db"
 Marksheet_DB = "marksheet_db"
 Previous_Batches_DB = "previous_batches_db"
 Student_DB = "student_db"
+Provisional_Student_DB = "provisional_student_db"
 StudyMaterial_DB = "studymaterial_db"
 Admin_DB = "admin_db"
 OTP_DB = 'otp_db'
