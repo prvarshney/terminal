@@ -22,13 +22,14 @@ class Student:
 			log(f'[  ERROR ] Unable To Create Connection With {config.Student_DB}')
 		self.collection = db[config.Student_Profile_Collection]
 
-	def insert(self, enrollment, name, phone_numbers, email,password, father_name, year_of_join,year_of_pass,
+	def insert(self, enrollment,rollno, name, phone_numbers, email,password, father_name, year_of_join,year_of_pass,
 	 programme,branch, section, gender, dob, temp_address, perm_address):
 		# THIS INSERT METHOD INPUTS NECESSARY DETAILS OF STUDENT THROUGH INPUT
 		# PARAMETERS AND THEN INSERTS IT INTO DATABASE IF IT IS NOT PRESENT IN DB.
 		#
 		# DATA STRUCTURE OF INPUT PARAMETERS:-
 		# ENROLLMENT --> STRING
+		# ROLLNO --> INTEGER
 		# NAME --> DICTIONARY
 		# DOB --> DICTIONARY
 		# PHONE_NUMBERS --> LIST OF STRING
@@ -52,6 +53,7 @@ class Student:
 		bcrypt = Bcrypt()
 		document = {
 				"enrollment": enrollment,
+				"rollno": rollno,
 				"name": name,
 				"phone_numbers": phone_numbers,
 				"email": email,
