@@ -17,7 +17,7 @@ class OTP:
 		# ---------------------------------------------------------------------------
 		# DATA STRUCTURES OF ENROLLED_STUDENTS :-
 		# USER_ID --> STRING
-		# OTP --> STRING
+		# OTP --> INTEGER
         #
         # CHECKING THE PRESENCE OF DUPLICATE ENTRY IN DATABASE
         try:

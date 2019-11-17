@@ -23,7 +23,7 @@ class Student:
 		self.collection = db[config.Student_Profile_Collection]
 
 	def insert(self, enrollment,rollno, name, phone_numbers, email,password, father_name, year_of_join,year_of_pass,
-	 programme,branch, section,semester, gender, dob, temp_address, perm_address):
+	 programme,branch, section, gender, dob, temp_address, perm_address):
 		# THIS INSERT METHOD INPUTS NECESSARY DETAILS OF STUDENT THROUGH INPUT
 		# PARAMETERS AND THEN INSERTS IT INTO DATABASE IF IT IS NOT PRESENT IN DB.
 		#
@@ -40,7 +40,6 @@ class Student:
 		# YEAR_OF_PASS --> INTEGER
 		# BRANCH --> STRING
 		# SECTION --> STRING
-		# SEMESTER --> INTEGER
 		# GENDER --> STRING
 		# TEMP_ADDRESS --> STRING
 		# PERM_ADDRESS --> STRING
@@ -65,7 +64,6 @@ class Student:
 				"programme": programme,
 				"branch": branch,
 				"section": section,
-				"semester": semester,
 				"gender": gender,
 				"dob": dob,
 				"temp_address": temp_address,
@@ -85,11 +83,11 @@ class Student:
 	def query(self,query_parameter,query_value):
 		# THIS QUERY FUNCTION INPUTS QUERY PARAMETER LIKE ENROLLMENT_ID, NAME, ETC. AND QUERY VALUE
 		# TO SEARCH DOCUMENTS IN COLLECTION. AFTER SUCCESSFUL SEARCH IT RETURNS
-		# REST OF THE DETAILS TO THE USER.
-		# ---------------------------------------------------------------------------------
-		# DATA STRUCTURES OF INPUT PARAMETERS :-
-		# QUERY_PARAMETER --> STRING
-		# QUERY_VALUE --> STRING, DICTIONARY, LIST OF STRING
+		# REST OF THE DETAIL
+		# --------------------------------------------------------------
+		# DATA STRUCTURES OF-
+		# QUERY_PARAMETER --
+		# QUERY_VALUE --> STIST OF STRING
 		#
 		try:
 			res = self.collection.find({ query_parameter:query_value })
