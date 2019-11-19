@@ -13,7 +13,7 @@ SUBJECTS = ['machine-learning','artificial-intelligence','computer-networks','co
             'web-development']
 FACULTY_IDS = [ 'f'+'{num:03d}'.format(num=i)+'bpit' for i in range(1,100) ]
 ENROLLMENT_NOS = [ "{enrollment:011d}".format(enrollment=int(suffix))
-        for suffix in [ str(prefix)+'20802717' for prefix in range(0,5) ] ]
+        for suffix in [ str(prefix)+'20802717' for prefix in range(0,100) ] ]
 PROGRAMMES = ['btech','mtech','bca','mca','phd','bsc','msc']
 QUALIFICATIONS=['btech','mtech','bca','mca','phd','bsc','msc']
 BRANCHES = ['cse','ece','eee','it','mech']
@@ -214,7 +214,6 @@ if __name__ == "__main__":
             programme=random.choice(PROGRAMMES),
             branch=random.choice(BRANCHES),
             section=random.choice(SECTIONS),
-            semester=random.choice(SEMESTERS),
             gender=random.choice(GENDER),
             dob=generate_dob_dictionary(),
             temp_address=random.choice(TEMP_ADDRESS),
@@ -235,7 +234,6 @@ if __name__ == "__main__":
             programme=random.choice(PROGRAMMES),
             branch=random.choice(BRANCHES),
             section=random.choice(SECTIONS),
-            semester=random.choice(SEMESTERS),
             gender=random.choice(GENDER),
             dob=generate_dob_dictionary(),
             temp_address=random.choice(TEMP_ADDRESS),
