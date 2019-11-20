@@ -9,6 +9,7 @@ import random
 import os
 import pymongo 
 import json
+import templates
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -22,23 +23,15 @@ bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
 ## OTHER METHODS -- START
-def send_otp(receiver,user_name,otp):
+def send_email_otp(receiver,user_name,otp,function):
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login(config.SENDER_EMAIL_ID,config.SENDER_EMAIL_PASSWORD)
-        subject = 'Forgot Password OTP'
-        body = f'''
-Hi {user_name},
-
-Greetings from Team Atom
-
-We have received a request to reset Password for your Atom account. Use the below OTP to generate new password.
-
-Your OTP (One Time Password) - {otp}
-
-
-Warm Regards,
-Team Atom
-'''
+        if function == 'EMAIL_VERIFICATION':
+            subject = templates.EMAIL_VERIFICATION_SUBJECT
+            body = templates.EMAIL_VERIFICATION_BODY
+        if function == 'RECOVER_PASSWORD':
+            subject = templates.RECOVER_PASSWORD_SUBJECT
+            body = RECOVER_PASSWORD_BODY
         msg = f'Subject:{subject}\n\n{body}'
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
 ## OTHER METHODS -- END
@@ -87,15 +80,17 @@ def admin_forgot_password_generate_otp(user_id):
         ## GENERATING OTP
         generated_otp = random.randrange(11111111,100000000)
         ## SENDING OTP TO THE USER THROUGH EMAIL
-        send_otp(
+        send_email_otp(
             receiver=user_email_ids,
             user_name=user_name["f_name"],
-            otp=generated_otp
+            otp=generated_otp,
+            function='RECOVER_PASSWORD'
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(
             user_id=user_id,
-            otp=generated_otp
+            otp=generated_otp,
+            function='EMAIL_VERIFICATION'
         )
         ## MASKING EMAIL TO GENERATE REQUIRED RESPONSE
         for index in range(len(user_email_ids)):
@@ -473,9 +468,9 @@ def student_provisional_registration():
     ##   "branch": <STRING>,
     ##   "section": <STRING>,
     ##   "gender": <STRING>,
-    ##   "dob: <STRING IN DD/MM/YYYY FORMAT>,
+    ##   "dob": <STRING IN DD/MM/YYYY FORMAT>,
     ##   "temp_addr": <STRING>,
-    ##   "perm_addr": <STRING>,
+    ##   "temp_addr": <STRING>,
     ##   "identity_proof": <JPEG OR JPG IMAGE>
     ## }
     enrollment = request.form.get('enrollment')
@@ -526,6 +521,8 @@ def student_provisional_registration():
             'm_name':' '.join(father_name[1:-1]),
             'l_name':father_name[-1]
         }
+    ## MODIFYING IDENTITY_PROOF FILENAME SO THAT NO TWO FILES WILL HAVE SAME NAME
+    identity_proof_filename = ''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S') + '.' + identity_proof.filename.split('.')[-1] 
     ## PARSING DOB INTO DICTIONARY OBJECT
     ## EG: 04/06/1998 INTO { 'DAY':'04','MONTH':'06','YEAR':'1998' }
     dob = dob.split('/')
@@ -549,13 +546,50 @@ def student_provisional_registration():
         dob=dob,
         temp_address=temp_addr,
         perm_address=perm_addr,
-        identity_proof='helloworld'
+        identity_proof=identity_proof_filename
     )
-    print(name)
-    print(father_name)
-    print(identity_proof)
-    identity_proof.save(os.path.join(os.getcwd(), 'bleepblop'))
+    ## SAVING IDENTITY PROOF IN DATABASE FOR MANUAL VERIFICATION
+    identity_proof.save( os.path.join(os.getcwd(), 'uploads' , identity_proof_filename ))
+    ## GENERATING OTP FOR EMAIL AND PHONE NUMBER VERIFICATIONS
+    email_otp = random.randrange(10000000,100000000)
+    phone_otp = random.randrange(10000000,100000000)
+    ## STORING OTPS IN DATABASE
+    otp_db = db.OTP()
+    otp_db.insert(
+        user_id=enrollment,
+        otp=email_otp,
+        function='EMAIL_VERIFICATION'
+    )
+    otp_db.insert(
+        user_id=enrollment,
+        otp=phone_otp,
+        function='PHONE_VERIFICATION'
+    )
+    ## SENDING OTP TO THE USER
+    send_email_otp(
+        receiver=email,
+        user_name=name['f_name'],
+        otp=email_otp,
+        function='EMAIL_VERIFICATION'
+    )
+    return jsonify({
+        'status':200,
+        'msg':'provisional account created successfully, please verify your email and phone number.'
+    })
+
+@app.route('/student/verify_email',methods=['POST'])
+def student_verify_email():
+    ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
+    ## {
+    ##   "enrollment": <STRING>,
+    ##   "email_otp": <INTEGER>
+    ## }
+    req = request.get_json()
+    ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
+    otp_db = db.OTP()
+    db_res = otp_db.query('enrollment',req['enrollment'])
     return 'bleepblop'
+
 ## STUDENT ROUTES --END
 
 ## STUDENT ROUTES -- START
@@ -606,10 +640,11 @@ def student_forgot_password_generate_otp(user_id):
         ## GENERATING OTP
         generated_otp = random.randrange(11111111,100000000)
         ## SENDING OTP TO THE USER THROUGH EMAIL
-        send_otp(
+        send_email_otp(
             receiver = user_email_ids,
             user_name = user_name['f_name'],
-            otp = generated_otp
+            otp = generated_otp,
+            function='RECOVER_PASSWORD'
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(

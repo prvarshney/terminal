@@ -12,29 +12,34 @@ class OTP:
             log(f'[  ERROR ] Unable To Create Connection With {config.OTP_DB}')
         self.collection = db[config.OTP_COLLECTION]
 
-    def insert(self,user_id,otp):
+    def insert(self,user_id,otp,function):
 		# USED TO INSERT OTP FOR A PARTICULAR USERID 
 		# ---------------------------------------------------------------------------
 		# DATA STRUCTURES OF ENROLLED_STUDENTS :-
 		# USER_ID --> STRING
 		# OTP --> INTEGER
+        # FUNCTION --> STRING
         #
         # CHECKING THE PRESENCE OF DUPLICATE ENTRY IN DATABASE
         try:
             res = self.collection.find({ 'user_id': user_id })
             if res.count() > 0:
-                log(f'[  INFO  ] For User ID - {user_id} Duplicate Entry Found at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
-                status = self.collection.delete_one({ 'user_id':user_id })
-                log(f'[  INFO  ] {status}')
-                log(f'[  INFO  ] User_ID - {user_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+                ## CHECKING WHETHER SAME FUNCTIONALITY EXISTS IN THE DUPLICATE RESULTS
+                for document in res:
+                    if document['function'] == function :
+                        log(f'[  INFO  ] For User ID - {user_id} Duplicate Entry Found at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+                        status = self.collection.delete_one({ 'user_id':user_id })
+                        log(f'[  INFO  ] {status}')
+                        log(f'[  INFO  ] User_ID - {user_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             status = self.collection.insert_one({
                 'user_id':user_id,
-                'otp':otp
+                'otp':otp,
+                'function':function
             })
             log(f'[  INFO  ] {status}')
             log(f'[  INFO  ] For User_ID - {user_id} OTP Inserted Successfully at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             return 201
-        except:
+        except Exception as e:
             log(f'[  ERROR ] Unable To Insert Document For User_ID - {user_id} at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             return 417
 
