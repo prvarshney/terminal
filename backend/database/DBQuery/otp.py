@@ -65,14 +65,14 @@ class OTP:
         log(f'[  INFO  ] The Search Query Completed Successfully in {config.OTP_DB}')
         return response
 
-    def remove(self,user_id):
+    def remove(self,user_id,function):
 		# USED TO REMOVE DOCUMENT CARRYING USERID AND OTP GENERATED FOR THAT USERID
 		# ----------------------------------------------------------------------------
 		# DATA STRUCTURES OF INPUT PARAMETER :-
 		# USER_ID --> STRING
-        #
+        # FUNCTION --> STRING
         try:
-            status = self.collection.delete_one({ 'user_id':user_id })
+            status = self.collection.delete_one({ 'user_id':user_id,'function':function })
             log(f'[  INFO  ] {status}')
             log(f'[  INFO  ] User_ID - {user_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             return 220

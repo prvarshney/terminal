@@ -31,8 +31,8 @@ def send_email_otp(receiver,user_name,otp,function):
             body = templates.EMAIL_VERIFICATION_BODY
         if function == 'RECOVER_PASSWORD':
             subject = templates.RECOVER_PASSWORD_SUBJECT
-            body = RECOVER_PASSWORD_BODY
-        msg = f'Subject:{subject}\n\n{body}'
+            body = templates.RECOVER_PASSWORD_BODY
+        msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
 ## OTHER METHODS -- END
 
@@ -470,7 +470,7 @@ def student_provisional_registration():
     ##   "gender": <STRING>,
     ##   "dob": <STRING IN DD/MM/YYYY FORMAT>,
     ##   "temp_addr": <STRING>,
-    ##   "temp_addr": <STRING>,
+    ##   "perm_addr": <STRING>,
     ##   "identity_proof": <JPEG OR JPG IMAGE>
     ## }
     enrollment = request.form.get('enrollment')
@@ -587,8 +587,29 @@ def student_verify_email():
     req = request.get_json()
     ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
     otp_db = db.OTP()
-    db_res = otp_db.query('enrollment',req['enrollment'])
-    return 'bleepblop'
+    db_res = otp_db.query('user_id',req['enrollment'])
+    if db_res['status'] == 212:
+        for document in db_res['res']:
+            if document['function'] == 'EMAIL_VERIFICATION':
+                if int(document['otp']) == req['email_otp'] :
+                    ## UPDATING PROVISIONAL_STUDENT_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
+                    provisional_student = db.Provisional_Student()
+                    provisional_student.update(req['enrollment'],'email_verification_status',True)
+                    ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
+                    otp_db.remove(req['enrollment'],'EMAIL_VERIFICATION')
+                    return jsonify({
+                        'status':200,
+                        'msg': 'email address validated successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':401,
+                        'msg':'otp mismatch'
+                    })
+    return jsonify({
+        'status':404,
+        'msg':'otp not found in database, please try to regenerate otp'
+    })
 
 ## STUDENT ROUTES --END
 
@@ -708,8 +729,7 @@ def get_subjects_list():
         return jsonify({
             'subjects': result,
             'msg':'All the subjects for the particular student has been successfully displayed.',
-            'status':200
-            
+            'status':200 
         })
     else:
         return jsonify({

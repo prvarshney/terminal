@@ -1,15 +1,62 @@
-[ 20-11-2019 :: 22:29:47 ] [  ERROR ] Unable To Create Connection With provisional_student_db
-[ 20-11-2019 :: 23:11:09 ] [  INFO  ] provisional_student_db Connected Successfully
-[ 20-11-2019 :: 23:11:12 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7feb88023be0>
-[ 20-11-2019 :: 23:11:12 ] [  ERROR ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
-[ 20-11-2019 :: 23:11:13 ] [  INFO  ] otp_db Connected Successfully
-[ 20-11-2019 :: 23:11:15 ] [  INFO  ] For User ID - 03620802717 Duplicate Entry Found at generated_otp Collection in otp_db
-[ 20-11-2019 :: 23:11:16 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7feb81779a00>
-[ 20-11-2019 :: 23:11:16 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
-[ 20-11-2019 :: 23:11:16 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7feb81779460>
-[ 20-11-2019 :: 23:11:16 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
-[ 20-11-2019 :: 23:11:16 ] [  INFO  ] For User ID - 03620802717 Duplicate Entry Found at generated_otp Collection in otp_db
-[ 20-11-2019 :: 23:11:17 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7feb81768cd0>
-[ 20-11-2019 :: 23:11:17 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
-[ 20-11-2019 :: 23:11:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7feb81768550>
-[ 20-11-2019 :: 23:11:17 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:05:37 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:13:29 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:13:33 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0acac44e40>
+[ 21-11-2019 :: 00:13:33 ] [  ERROR ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-11-2019 :: 00:13:33 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:13:36 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0acac55dc0>
+[ 21-11-2019 :: 00:13:36 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:13:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0acac75b00>
+[ 21-11-2019 :: 00:13:38 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:20:36 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:20:40 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:21:29 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:21:32 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:23:30 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:23:33 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:25:07 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:25:10 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:35:00 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:35:04 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:36:14 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:36:18 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:37:39 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:37:43 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:37:59 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:38:02 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:38:42 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:38:45 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:38:45 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:40:03 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:40:07 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:40:07 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:40:11 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f83e0538f40>
+[ 21-11-2019 :: 00:40:11 ] [  INFO  ] Enrollment - 03620802717 Updated With - email_verification_status:True in provisional_student_db
+[ 21-11-2019 :: 00:42:28 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:42:32 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:42:32 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:42:36 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fb82d615740>
+[ 21-11-2019 :: 00:42:36 ] [  INFO  ] Enrollment - 03620802717 Updated With - email_verification_status:True in provisional_student_db
+[ 21-11-2019 :: 00:42:36 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fb82d5fb400>
+[ 21-11-2019 :: 00:42:36 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:44:56 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:44:59 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:45:59 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:46:03 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:46:14 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:46:18 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f618cccc4c0>
+[ 21-11-2019 :: 00:46:18 ] [  ERROR ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-11-2019 :: 00:46:18 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:46:22 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f618cce7100>
+[ 21-11-2019 :: 00:46:22 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:46:23 ] [  INFO  ] For User ID - 03620802717 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:46:23 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f618cc56f00>
+[ 21-11-2019 :: 00:46:23 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:46:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f618cc56480>
+[ 21-11-2019 :: 00:46:24 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-11-2019 :: 00:51:25 ] [  INFO  ] otp_db Connected Successfully
+[ 21-11-2019 :: 00:51:29 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 21-11-2019 :: 00:51:29 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-11-2019 :: 00:51:33 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f618edf5700>
+[ 21-11-2019 :: 00:51:33 ] [  INFO  ] Enrollment - 03620802717 Updated With - email_verification_status:True in provisional_student_db
+[ 21-11-2019 :: 00:51:33 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f618edf5700>
+[ 21-11-2019 :: 00:51:33 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
