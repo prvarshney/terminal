@@ -22,7 +22,7 @@ class Provisional_Student:
             log(f'[  ERROR ] Unable To Create Connection With {config.Provisional_Student_DB}')
         self.collection = db[config.Student_Profile_Collection]
 
-    def insert(self, enrollment,rollno, name, phone_number, email,password, father_name, year_of_join,year_of_pass,programme,branch, section, gender, dob,
+    def insert(self ,enrollment,rollno, name, phone_number, email,password, father_name, year_of_join,year_of_pass,programme,branch, section, gender, dob,
      temp_address, perm_address, identity_proof, phone_number_verification_status=False,email_verification_status=False):
         # THIS INSERT METHOD INPUTS NECESSARY DETAILS OF STUDENT THROUGH INPUT
         # PARAMETERS AND THEN INSERTS IT INTO DATABASE IF IT IS NOT PRESENT IN DB.
@@ -56,7 +56,16 @@ class Provisional_Student:
         #
         # CREATING DICTIONARY OF THE DOCUMENT THAT IS GOING TO INSERT IN DB.
         bcrypt = Bcrypt()
+        hash_id = hash( str(enrollment) + str(email) +str(phone_number) )
+        # CHECKING THE PRESENCE OF DUPLICATE ENTRY IN DATABASE
+        res = self.collection.find({ 'hash_id': hash_id })
+        if res.count() > 0:
+            log(f'[  INFO  ] For Hash ID - {hash_id} Duplicate Entry Found at {config.Provisional_Student_Profile_Collection} Collection in {config.Provisional_Student_DB}')
+            status = self.collection.delete_many({ 'hash_id':hash_id })
+            log(f'[  INFO  ] {status}')
+            log(f'[  INFO  ] Hash_ID - {hash_id} Removed Successfully from {config.Provisional_Student_Profile_Collection} Collection in {config.Provisional_Student_DB}')
         document = {
+                "hash_id": hash_id,
                 "enrollment": enrollment,
                 "rollno": rollno,
                 "name": name,
@@ -127,24 +136,24 @@ class Provisional_Student:
         except:
             return 203
 
-    def update(self,enrollment,updation_param,updation_value):
-        # THIS UPDATE FUNCTION INPUTS THE ENROLLMENT, TO CHECK WHICH DOCUMENT NEEDS TO UPDATE
+    def update(self,hash_id,updation_param,updation_value):
+        # THIS UPDATE FUNCTION INPUTS THE hash_id, TO CHECK WHICH DOCUMENT NEEDS TO UPDATE
         # AND THEN, UPDATES THE UPDATION_PARAM WITH UPDATION_VALUE.
         # --------------------------------------------------------------------------------------
         # DATA STRUCTURES OF INPUT PARAMETERS :-
-        # ENROLLMENT --> STRING
+        # hash_id --> STRING
         # UPDATION_PARAM --> STRING
         # UPDATION_VALUE --> STRING, LIST, DICTIONARY
         #
-        searching_values = {'enrollment':enrollment}
+        searching_values = {'hash_id':hash_id}
         updating_values = { updation_param:updation_value }
         try:
             status = self.collection.update_one(searching_values, {'$set':updating_values})
             log(f'[  INFO  ] {status}')
-            log(f'[  INFO  ] Enrollment - {enrollment} Updated With - {updation_param}:{updation_value} in {config.Provisional_Student_DB}')
+            log(f'[  INFO  ] Hash_ID - {hash_id} Updated With - {updation_param}:{updation_value} in {config.Provisional_Student_DB}')
             return 301
         except:
-            log(f'[  ERROR ] Failed to Update Enrollment - {enrollment} With - {updation_param}:{updation_value} in {config.Provisional_Student_DB}')
+            log(f'[  ERROR ] Failed to Update Hash_ID - {hash_id} With - {updation_param}:{updation_value} in {config.Provisional_Student_DB}')
             return 204
 
     def __del__(self):
