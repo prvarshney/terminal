@@ -12,32 +12,32 @@ class OTP:
             log(f'[  ERROR ] Unable To Create Connection With {config.OTP_DB}')
         self.collection = db[config.OTP_COLLECTION]
 
-    def insert(self,user_id,otp,function):
+    def insert(self,hash_id,otp,function):
 		# USED TO INSERT OTP FOR A PARTICULAR USERID 
 		# ---------------------------------------------------------------------------
 		# DATA STRUCTURES OF ENROLLED_STUDENTS :-
-		# USER_ID --> STRING
+		# HASH_ID --> STRING
 		# OTP --> INTEGER
         # FUNCTION --> STRING
         #
         # CHECKING THE PRESENCE OF DUPLICATE ENTRY IN DATABASE
         try:
-            res = self.collection.find({ 'user_id': user_id })
+            res = self.collection.find({ 'hash_id': hash_id })
             if res.count() > 0:
                 ## CHECKING WHETHER SAME FUNCTIONALITY EXISTS IN THE DUPLICATE RESULTS
                 for document in res:
                     if document['function'] == function :
-                        log(f'[  INFO  ] For User ID - {user_id} Duplicate Entry Found at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
-                        status = self.collection.delete_one({ 'user_id':user_id })
+                        log(f'[  INFO  ] For Hash ID - {hash_id} Duplicate Entry Found at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+                        status = self.collection.delete_one({ 'hash_id':hash_id })
                         log(f'[  INFO  ] {status}')
-                        log(f'[  INFO  ] User_ID - {user_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+                        log(f'[  INFO  ] Hash_ID - {hash_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             status = self.collection.insert_one({
-                'user_id':user_id,
+                'hash_id':hash_id,
                 'otp':otp,
                 'function':function
             })
             log(f'[  INFO  ] {status}')
-            log(f'[  INFO  ] For User_ID - {user_id} OTP Inserted Successfully at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+            log(f'[  INFO  ] For Hash_ID - {hash_id} OTP Inserted Successfully at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             return 201
         except Exception as e:
             log(f'[  ERROR ] Unable To Insert Document For User_ID - {user_id} at {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
@@ -65,20 +65,20 @@ class OTP:
         log(f'[  INFO  ] The Search Query Completed Successfully in {config.OTP_DB}')
         return response
 
-    def remove(self,user_id,function):
+    def remove(self,hash_id,function):
 		# USED TO REMOVE DOCUMENT CARRYING USERID AND OTP GENERATED FOR THAT USERID
 		# ----------------------------------------------------------------------------
 		# DATA STRUCTURES OF INPUT PARAMETER :-
-		# USER_ID --> STRING
+		# HASH_ID --> STRING
         # FUNCTION --> STRING
         try:
-            status = self.collection.delete_one({ 'user_id':user_id,'function':function })
+            status = self.collection.delete_one({ 'hash_id':hash_id,'function':function })
             log(f'[  INFO  ] {status}')
-            log(f'[  INFO  ] User_ID - {user_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+            log(f'[  INFO  ] Hash_ID - {hash_id} Removed Successfully from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
             return 220
         except:
             return 203
-            log(f'[  ERROR ] Unable To Remove User_ID - {user_id} from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
+            log(f'[  ERROR ] Unable To Remove Hash_ID - {hash_id} from {config.OTP_COLLECTION} Collection in {config.OTP_DB}')
 
     def __del__(self):
         self.client.close()	# RELEASING OPEN CONNECTION WITH DATABASE

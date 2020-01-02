@@ -1,0 +1,1 @@
+SMS_VERIFICATION_BODY = "Hi <user_name>, your OTP for phone number validation on ATOM is <otp>. This code will be valid for 5 minutes only."

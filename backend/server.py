@@ -10,6 +10,7 @@ import os
 import pymongo 
 import json
 import templates
+import requests
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -34,6 +35,18 @@ def send_email_otp(receiver,user_name,otp,function):
             body = templates.RECOVER_PASSWORD_BODY
         msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
+
+def send_sms_otp(receiver,user_name,otp,function):
+    body = templates.SMS_VERIFICATION_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
+    url = "https://www.fast2sms.com/dev/bulk"
+    payload = f"sender_id=FSTSMS&message={body}&language=english&route=p&numbers={receiver}"
+    headers = {
+        'authorization': config.SENDER_SMS_AUTH,
+        'Content-Type': "application/x-www-form-urlencoded",
+        'Cache-Control': "no-cache",
+        }
+    response = requests.request("POST", url, data=payload, headers=headers)
+
 ## OTHER METHODS -- END
 
 ## ADMIN ROUTES --START
@@ -556,12 +569,12 @@ def student_provisional_registration():
     ## STORING OTPS IN DATABASE
     otp_db = db.OTP()
     otp_db.insert(
-        user_id=enrollment,
+        hash_id=hash( str(enrollment) + str(email) + str(phone_number) ),
         otp=email_otp,
         function='EMAIL_VERIFICATION'
     )
     otp_db.insert(
-        user_id=enrollment,
+        hash_id=hash( str(enrollment) + str(email) +str(phone_number)  ),
         otp=phone_otp,
         function='PHONE_VERIFICATION'
     )
@@ -572,6 +585,14 @@ def student_provisional_registration():
         otp=email_otp,
         function='EMAIL_VERIFICATION'
     )
+    ## SENDING SMS OTP TO THE USER
+    send_sms_otp(
+        receiver=phone_number,
+        user_name=name['f_name'],
+        otp=phone_otp,
+        function='PHONE_VERIFICATION'
+    )
+
     return jsonify({
         'status':200,
         'msg':'provisional account created successfully, please verify your email and phone number.'
@@ -582,21 +603,24 @@ def student_verify_email():
     ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
     ## {
     ##   "enrollment": <STRING>,
+    ##   "email_id": <STRING>,
+    ##   "phone_number": <STRING>,
     ##   "email_otp": <INTEGER>
     ## }
     req = request.get_json()
     ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
     otp_db = db.OTP()
-    db_res = otp_db.query('user_id',req['enrollment'])
+    hash_id = hash( req['enrollment'] + req['email_id'] + req['phone_number'])
+    db_res = otp_db.query('hash_id',hash_id)
     if db_res['status'] == 212:
         for document in db_res['res']:
             if document['function'] == 'EMAIL_VERIFICATION':
                 if int(document['otp']) == req['email_otp'] :
                     ## UPDATING PROVISIONAL_STUDENT_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
                     provisional_student = db.Provisional_Student()
-                    provisional_student.update(req['enrollment'],'email_verification_status',True)
+                    provisional_student.update(hash_id,'email_verification_status',True)
                     ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
-                    otp_db.remove(req['enrollment'],'EMAIL_VERIFICATION')
+                    otp_db.remove(hash_id,'EMAIL_VERIFICATION')
                     return jsonify({
                         'status':200,
                         'msg': 'email address validated successfully'
@@ -611,9 +635,44 @@ def student_verify_email():
         'msg':'otp not found in database, please try to regenerate otp'
     })
 
-## STUDENT ROUTES --END
 
-## STUDENT ROUTES -- START
+@app.route('/student/verify_phone',methods=['POST'])
+def student_verify_phone():
+    ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
+    ## {
+    ##   "enrollment": <STRING>,
+    ##   "email_id": <STRING>,
+    ##   "phone_number": <STRING>,
+    ##   "sms_otp": <INTEGER>
+    ## }
+    req = request.get_json()
+    ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
+    otp_db = db.OTP()
+    hash_id = hash( req['enrollment'] + req['email_id'] + req['phone_number'])
+    db_res = otp_db.query('hash_id',hash_id)
+    if db_res['status'] == 212:
+        for document in db_res['res']:
+            if document['function'] == 'PHONE_VERIFICATION':
+                if int(document['otp']) == req['sms_otp'] :
+                    ## UPDATING PROVISIONAL_STUDENT_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
+                    provisional_student = db.Provisional_Student()
+                    provisional_student.update(hash_id,'phone_number_verification_status',True)
+                    ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
+                    otp_db.remove(hash_id,'PHONE_VERIFICATION')
+                    return jsonify({
+                        'status':200,
+                        'msg': 'phone number validated successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':401,
+                        'msg':'otp mismatch'
+                    })
+    return jsonify({
+        'status':404,
+        'msg':'otp not found in database, please try to regenerate otp'
+    })
+
 @app.route("/student/login",methods=['POST'])
 def student_authentication():
     user_credentials = request.get_json()
@@ -798,11 +857,10 @@ def student_mark_attendance(faculty_id,subject):
         return jsonify({
             'status':206,
             'msg':'invalid user id'
-        })
-
-        
+        })   
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5001,host="0.0.0.0")
+    os.system("export PYTHONHASSEED=0")
+    app.run(debug=True,port=5000,host="0.0.0.0")
     
