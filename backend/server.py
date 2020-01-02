@@ -2,7 +2,7 @@ from database import DBQuery as db
 from flask import (Flask, jsonify, request)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
-from datetime import datetime
+from datetime import datetime,timedelta,timezone
 import smtplib
 import config
 import random
@@ -231,7 +231,7 @@ def admin_batch_insert():
             'status':401,
             'msg':'unauthorized user'
         })
-
+        
 @app.route('/admin/show_all',methods=['POST'])
 @jwt_required
 def admin_batch_show_all():
@@ -371,25 +371,6 @@ def faculty_authentication():
                     'msg':'login-successful'
                     })
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
-
-@app.route("/faculty/insert_attendance",methods=['POST'])
-@jwt_required
-def faculty_insert_attendance():
-    req = request.get_json()
-    attendance = db.Attendance(req['user_id'],req['subject'],req['programme'],req['branch'],
-    req['section'],req['year_of_pass'],req['semester'])
-    db_res = attendance.insert(req['attendance_dictionary'])
-    res = {"status" : db_res}
-    return jsonify({'status':201,'msg':'Successfully inserted attendance.'})
-
-@app.route("/faculty/show_attendance",methods=['POST'])
-def faculty_show_attendance():
-    req = request.get_json()
-    attendance = db.Attendance(req['faculty_id'],req['subject'],req['programme'],req['branch'],
-    req['section'],req['year_of_pass'],req['semester'])
-    db_res = attendance.show_all()
-    print(db_res["res"])
-    return db_res
 
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
 @jwt_required
@@ -757,14 +738,13 @@ def student_view_attendance():
     return 'bleepbloop'
 
 @app.route("/student/mark-attendance/subjects_list",methods=["GET"])
-# @jwt_required
+@jwt_required
 def get_subjects_list():
     ## THIS API IS USED TO DISPLAY ALL THE SUBJECTS WITH THEIR FACULTY_ID OF THE TEACHER
     ## TEACHING THE SUBJECTS FOR A PARTICULAR ENROLLMENT NUMBER.
     req = request.get_json()
-    enrollment = req["enrollment"]
     semester = req["semester"]
-    # enrollment = get_jwt_identity()
+    enrollment = get_jwt_identity()
     student = db.Student()
     student_query=student.query("enrollment",enrollment)
     if student_query["status"]==212:
@@ -797,67 +777,70 @@ def get_subjects_list():
         })
 
 @app.route("/student/mark-attendance/<faculty_id>/<subject>",methods=["POST"])
-# @jwt_required
+@jwt_required
 def student_mark_attendance(faculty_id,subject):
-    # enrollment = get_jwt_identity()  
+    ## THIS API IS USED TO MARK ATTENDANCE OF A STUDENT WITH PARTICULAR ENROLLMENT NO.
+    ## HE ENTERS THE OTP TOLD BY THE TEACHER.
+    ## THE TEACHER VERIFIES THE OTP WITH THE OTP GENERATED IN HER PHONE.
+    ## IF THE OTP IS VERIFIED, THE ATTENDANCE WILL BE MARKED. 
+    enrollment = get_jwt_identity()  
     req=request.get_json()
     entered_otp=req["otp"]
-    enrollment = req["enrollment"]
     semester = req["semester"]
     otp = db.OTP() 
     student = db.Student()
     student_query=student.query("enrollment",enrollment)
     if student_query["status"]==212:
-        if student_query["status"]==212:
-            for res in student_query["res"]:
-                programme = res["programme"]
-                branch = res["branch"]
-                section = res["section"]
-                year_of_pass = res["year_of_pass"] 
-            attendance = db.Attendance(faculty_id,subject,programme,branch,section,year_of_pass,semester)
-            date = datetime.now()
-            day = date.strftime("%d")
-            month = date.strftime("%m")
-            year = date.strftime("%Y")
-            date = {'day':day, 'month':month, 'year':year}
-            batch = db.Batch(programme,branch,section,year_of_pass)
-            batch_output = batch.show_all()
-            enrollment_dict = {}
-            date_attendance = attendance.show_on(date)
-            if date_attendance["status"] == 404:            
-                for i in batch_output["res"]:
-                    enrollment_dict[i["enrollment"]]='a'
-                attendance_dictionary = {
-                    'date': date,
-                    'attendance': enrollment_dict
-                }  
-                attendance.insert(attendance_dictionary)                            
-            res = otp.query('user_id',faculty_id)  
-            for i in res["res"]:
-                otp_in_db = i["otp"]    
-            if entered_otp == otp_in_db:
-                show_attendance = attendance.show_on(date)
-                for attendance_dictionary in show_attendance["res"]:
-                    attendance_dictionary["attendance"][enrollment]='p'
-                attendance.update(date,attendance_dictionary)                
-                return jsonify({
-                    "msg":"Attendance marked successfully."
-                })
-            else:
-                return jsonify({
-                    'msg':" Please enter correct otp.",
-                    'status':200
-                })
+        for res in student_query["res"]:
+            programme = res["programme"]
+            branch = res["branch"]
+            section = res["section"]
+            year_of_pass = res["year_of_pass"] 
+        attendance = db.Attendance(faculty_id,subject,programme,branch,section,year_of_pass,semester)
+        date = datetime.now()
+        time = datetime.now()
+        day = date.strftime("%d")
+        month = date.strftime("%m")
+        year = date.strftime("%Y")
+        hour = time.strftime("%H")
+        mins = time.strftime("%M")
+        date = {'day':day, 'month':month, 'year':year}
+        time = str(hour) + ":" + str(mins)
+        batch = db.Batch(programme,branch,section,year_of_pass)
+        batch_output = batch.show_all()
+        enrollment_dict = {}
+        date_attendance = attendance.show_on(date,time)
+        if date_attendance["status"] == 404:            
+            for i in batch_output["res"]:
+                enrollment_dict[i["enrollment"]]='a'
+            attendance_dictionary = {
+                'date': date,
+                'time' : time,
+                'attendance': enrollment_dict
+            }  
+            attendance.insert(attendance_dictionary)                            
+        res = otp.query('user_id',faculty_id)  
+        for i in res["res"]:
+            otp_in_db = i["otp"]    
+        if entered_otp == otp_in_db:
+            show_attendance = attendance.show_on(date,time)
+            for attendance_dictionary in show_attendance["res"]:
+                attendance_dictionary["attendance"][enrollment]='p'
+            attendance.update(date,time,attendance_dictionary)                
+            return jsonify({
+                "msg":"Attendance marked successfully.",
+                'status':200                
+            })
         else:
             return jsonify({
-            'status':206,
-            'msg':'invalid user id'
-        })
+                'msg':" Please enter correct otp.",
+            })
     else:
         return jsonify({
-            'status':206,
-            'msg':'invalid user id'
-        })   
+        'status':206,
+        'msg':'invalid user id'
+    })
+    
 
 
 if __name__ == '__main__':

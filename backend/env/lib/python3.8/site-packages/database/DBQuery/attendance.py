@@ -55,6 +55,7 @@ class Attendance:
 		# FOR EXAMPLE :
 		# ATTENDANCE_DICTIONARY = {
 		#						'DATE':	{ 'DAY':04,'MONTH':06,'YEAR':1998 },
+		#						'TIME' : 8 HOURS
 		#						'ATTENDANCE': {
 		#								'03620802717':'P',         # HERE P STANDS FOR PRESENT
 		#								'03720802717':'A',		   # HERE A STANDS FOR ABSENT
@@ -96,15 +97,16 @@ class Attendance:
 			log(f'[ ERROR  ] Unable To Fetch Attendence from {self._faculty_id}_{self._subject}_{self._programme}_{self._branch}_{self._section}_{self._year_of_pass}_{self._semester} Collection From {config.Attendance_DB}.')
 		return response
 
-	def show_on(self,query_date):
+	def show_on(self,query_date,query_time):
 		# THIS METHOD INPUTS DATE DICTIONARY AND RETURNS LIST OF ATTENDANCE ON THAT
 		# PARTICULAR DATE
 		# ------------------------------------------------------------------------------------
 		# DATA STRUCTURES OF INPUT PARAMETER :-
 		# QUERY_DATE --> DICTIONARY
+		#QUERY_TIME --> STRING
 		#
 		try:
-			res = self.collection.find({ 'date': query_date })
+			res = self.collection.find({ 'date': query_date ,'time':query_time})
 			if res.count() > 0:
 				response = {
 					'status':202,
@@ -142,17 +144,16 @@ class Attendance:
 			for document in db_res['res']:
 				print(document['attendance'])
 
-
-
-	def update(self,date,attendance_dictionary):
+	def update(self,date,time,attendance_dictionary):
 		# THIS METHOD USE TO UPDATE ATTENDANCE OF A PARTICULAR DATE WITH ATTENDANCE_DICTIONARY
 		# OBJECT
 		# ----------------------------------------------------------------------------------
 		# DATA STRUCTURES OF INPUT PARAMETERS :-
 		# DATE --> DICTIONARY
+		# TIME --> STRING
 		# ATTENDANCE_DICTIONARY --> DICTIONARY
 		#
-		searching_values = { 'date':date }
+		searching_values = { 'date':date , 'time' :time}
 		updation_value = attendance_dictionary
 		try:
 			status = self.collection.update_many(searching_values, {'$set':updation_value})
