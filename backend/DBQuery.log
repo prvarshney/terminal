@@ -60,3 +60,14 @@
 [ 21-11-2019 :: 00:51:33 ] [  INFO  ] Enrollment - 03620802717 Updated With - email_verification_status:True in provisional_student_db
 [ 21-11-2019 :: 00:51:33 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f618edf5700>
 [ 21-11-2019 :: 00:51:33 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
+[ 02-01-2020 :: 10:32:21 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 02-01-2020 :: 10:32:23 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1cb30ac980>
+[ 02-01-2020 :: 10:32:23 ] [  ERROR ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 02-01-2020 :: 10:32:23 ] [  INFO  ] otp_db Connected Successfully
+[ 02-01-2020 :: 10:32:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1cb30b5700>
+[ 02-01-2020 :: 10:32:26 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 02-01-2020 :: 10:32:27 ] [  INFO  ] For User ID - 03620802717 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 02-01-2020 :: 10:32:27 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f1cb4c59b00>
+[ 02-01-2020 :: 10:32:27 ] [  INFO  ] User_ID - 03620802717 Removed Successfully from generated_otp Collection in otp_db
+[ 02-01-2020 :: 10:32:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1cb30c9f80>
+[ 02-01-2020 :: 10:32:27 ] [  INFO  ] For User_ID - 03620802717 OTP Inserted Successfully at generated_otp Collection in otp_db
