@@ -124,7 +124,7 @@ def admin_forgot_password_generate_otp(user_id):
         })
 
 ## ROUTE TO VERIFY DELIVERED OTP WITH GIVEN OTP
-@app.route('/admin/forgot_password/',methods=['POST'])
+@app.route('/admin/recover_password/',methods=['POST'])
 def admin_forgot_password_verify_otp():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -165,7 +165,7 @@ def admin_forgot_password_verify_otp():
         'msg':'invalid userid/otp combination'
     })
 
-@app.route('/admin/reset',methods=['POST'])
+@app.route('/admin/reset_password',methods=['POST'])
 @jwt_required
 def admin_update_password():
     ## JSON POST MUST CONTAIN KEYS :-
