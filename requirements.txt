@@ -1,5 +1,0 @@
-flask
-flask-bcrypt
-flask-jwt-extended
-pymongo
-dnspython
