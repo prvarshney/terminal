@@ -9,6 +9,8 @@ import random
 import os
 import pymongo 
 import json
+import templates
+import requests
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -22,25 +24,29 @@ bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
 ## OTHER METHODS -- START
-def send_otp(receiver,user_name,otp):
+def send_email_otp(receiver,user_name,otp,function):
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login(config.SENDER_EMAIL_ID,config.SENDER_EMAIL_PASSWORD)
-        subject = 'Forgot Password OTP'
-        body = f'''
-Hi {user_name},
-
-Greetings from Team Atom
-
-We have received a request to reset Password for your Atom account. Use the below OTP to generate new password.
-
-Your OTP (One Time Password) - {otp}
-
-
-Warm Regards,
-Team Atom
-'''
-        msg = f'Subject:{subject}\n\n{body}'
+        if function == 'EMAIL_VERIFICATION':
+            subject = templates.EMAIL_VERIFICATION_SUBJECT
+            body = templates.EMAIL_VERIFICATION_BODY
+        if function == 'RECOVER_PASSWORD':
+            subject = templates.RECOVER_PASSWORD_SUBJECT
+            body = templates.RECOVER_PASSWORD_BODY
+        msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
+
+def send_sms_otp(receiver,user_name,otp,function):
+    body = templates.SMS_VERIFICATION_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
+    url = "https://www.fast2sms.com/dev/bulk"
+    payload = f"sender_id=FSTSMS&message={body}&language=english&route=p&numbers={receiver}"
+    headers = {
+        'authorization': config.SENDER_SMS_AUTH,
+        'Content-Type': "application/x-www-form-urlencoded",
+        'Cache-Control': "no-cache",
+        }
+    response = requests.request("POST", url, data=payload, headers=headers)
+
 ## OTHER METHODS -- END
 
 ## ADMIN ROUTES --START
@@ -87,15 +93,17 @@ def admin_forgot_password_generate_otp(user_id):
         ## GENERATING OTP
         generated_otp = random.randrange(11111111,100000000)
         ## SENDING OTP TO THE USER THROUGH EMAIL
-        send_otp(
+        send_email_otp(
             receiver=user_email_ids,
             user_name=user_name["f_name"],
-            otp=generated_otp
+            otp=generated_otp,
+            function='RECOVER_PASSWORD'
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(
             user_id=user_id,
-            otp=generated_otp
+            otp=generated_otp,
+            function='EMAIL_VERIFICATION'
         )
         ## MASKING EMAIL TO GENERATE REQUIRED RESPONSE
         for index in range(len(user_email_ids)):
@@ -473,7 +481,7 @@ def student_provisional_registration():
     ##   "branch": <STRING>,
     ##   "section": <STRING>,
     ##   "gender": <STRING>,
-    ##   "dob: <STRING IN DD/MM/YYYY FORMAT>,
+    ##   "dob": <STRING IN DD/MM/YYYY FORMAT>,
     ##   "temp_addr": <STRING>,
     ##   "perm_addr": <STRING>,
     ##   "identity_proof": <JPEG OR JPG IMAGE>
@@ -526,6 +534,8 @@ def student_provisional_registration():
             'm_name':' '.join(father_name[1:-1]),
             'l_name':father_name[-1]
         }
+    ## MODIFYING IDENTITY_PROOF FILENAME SO THAT NO TWO FILES WILL HAVE SAME NAME
+    identity_proof_filename = ''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S') + '.' + identity_proof.filename.split('.')[-1] 
     ## PARSING DOB INTO DICTIONARY OBJECT
     ## EG: 04/06/1998 INTO { 'DAY':'04','MONTH':'06','YEAR':'1998' }
     dob = dob.split('/')
@@ -549,16 +559,120 @@ def student_provisional_registration():
         dob=dob,
         temp_address=temp_addr,
         perm_address=perm_addr,
-        identity_proof='helloworld'
+        identity_proof=identity_proof_filename
     )
-    print(name)
-    print(father_name)
-    print(identity_proof)
-    identity_proof.save(os.path.join(os.getcwd(), 'bleepblop'))
-    return 'bleepblop'
-## STUDENT ROUTES --END
+    ## SAVING IDENTITY PROOF IN DATABASE FOR MANUAL VERIFICATION
+    identity_proof.save( os.path.join(os.getcwd(), 'uploads' , identity_proof_filename ))
+    ## GENERATING OTP FOR EMAIL AND PHONE NUMBER VERIFICATIONS
+    email_otp = random.randrange(10000000,100000000)
+    phone_otp = random.randrange(10000000,100000000)
+    ## STORING OTPS IN DATABASE
+    otp_db = db.OTP()
+    otp_db.insert(
+        hash_id=hash( str(enrollment) + str(email) + str(phone_number) ),
+        otp=email_otp,
+        function='EMAIL_VERIFICATION'
+    )
+    otp_db.insert(
+        hash_id=hash( str(enrollment) + str(email) +str(phone_number)  ),
+        otp=phone_otp,
+        function='PHONE_VERIFICATION'
+    )
+    ## SENDING OTP TO THE USER
+    send_email_otp(
+        receiver=email,
+        user_name=name['f_name'],
+        otp=email_otp,
+        function='EMAIL_VERIFICATION'
+    )
+    ## SENDING SMS OTP TO THE USER
+    send_sms_otp(
+        receiver=phone_number,
+        user_name=name['f_name'],
+        otp=phone_otp,
+        function='PHONE_VERIFICATION'
+    )
 
-## STUDENT ROUTES -- START
+    return jsonify({
+        'status':200,
+        'msg':'provisional account created successfully, please verify your email and phone number.'
+    })
+
+@app.route('/student/verify_email',methods=['POST'])
+def student_verify_email():
+    ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
+    ## {
+    ##   "enrollment": <STRING>,
+    ##   "email_id": <STRING>,
+    ##   "phone_number": <STRING>,
+    ##   "email_otp": <INTEGER>
+    ## }
+    req = request.get_json()
+    ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
+    otp_db = db.OTP()
+    hash_id = hash( req['enrollment'] + req['email_id'] + req['phone_number'])
+    db_res = otp_db.query('hash_id',hash_id)
+    if db_res['status'] == 212:
+        for document in db_res['res']:
+            if document['function'] == 'EMAIL_VERIFICATION':
+                if int(document['otp']) == req['email_otp'] :
+                    ## UPDATING PROVISIONAL_STUDENT_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
+                    provisional_student = db.Provisional_Student()
+                    provisional_student.update(hash_id,'email_verification_status',True)
+                    ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
+                    otp_db.remove(hash_id,'EMAIL_VERIFICATION')
+                    return jsonify({
+                        'status':200,
+                        'msg': 'email address validated successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':401,
+                        'msg':'otp mismatch'
+                    })
+    return jsonify({
+        'status':404,
+        'msg':'otp not found in database, please try to regenerate otp'
+    })
+
+
+@app.route('/student/verify_phone',methods=['POST'])
+def student_verify_phone():
+    ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
+    ## {
+    ##   "enrollment": <STRING>,
+    ##   "email_id": <STRING>,
+    ##   "phone_number": <STRING>,
+    ##   "sms_otp": <INTEGER>
+    ## }
+    req = request.get_json()
+    ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
+    otp_db = db.OTP()
+    hash_id = hash( req['enrollment'] + req['email_id'] + req['phone_number'])
+    db_res = otp_db.query('hash_id',hash_id)
+    if db_res['status'] == 212:
+        for document in db_res['res']:
+            if document['function'] == 'PHONE_VERIFICATION':
+                if int(document['otp']) == req['sms_otp'] :
+                    ## UPDATING PROVISIONAL_STUDENT_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
+                    provisional_student = db.Provisional_Student()
+                    provisional_student.update(hash_id,'phone_number_verification_status',True)
+                    ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
+                    otp_db.remove(hash_id,'PHONE_VERIFICATION')
+                    return jsonify({
+                        'status':200,
+                        'msg': 'phone number validated successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':401,
+                        'msg':'otp mismatch'
+                    })
+    return jsonify({
+        'status':404,
+        'msg':'otp not found in database, please try to regenerate otp'
+    })
+
 @app.route("/student/login",methods=['POST'])
 def student_authentication():
     user_credentials = request.get_json()
@@ -606,10 +720,11 @@ def student_forgot_password_generate_otp(user_id):
         ## GENERATING OTP
         generated_otp = random.randrange(11111111,100000000)
         ## SENDING OTP TO THE USER THROUGH EMAIL
-        send_otp(
+        send_email_otp(
             receiver = user_email_ids,
             user_name = user_name['f_name'],
-            otp = generated_otp
+            otp = generated_otp,
+            function='RECOVER_PASSWORD'
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(
@@ -673,8 +788,7 @@ def get_subjects_list():
         return jsonify({
             'subjects': result,
             'msg':'All the subjects for the particular student has been successfully displayed.',
-            'status':200
-            
+            'status':200 
         })
     else:
         return jsonify({
@@ -743,11 +857,10 @@ def student_mark_attendance(faculty_id,subject):
         return jsonify({
             'status':206,
             'msg':'invalid user id'
-        })
-
-        
+        })   
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5001,host="0.0.0.0")
+    os.system("export PYTHONHASSEED=0")
+    app.run(debug=True,port=5000,host="0.0.0.0")
     

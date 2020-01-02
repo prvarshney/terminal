@@ -21,8 +21,11 @@ OTP_DB = 'otp_db'
 
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
+Provisional_Student_Profile_Collection = "user_info" 
 Admin_Profile_Collection = "user_info"
 OTP_COLLECTION = "generated_otp"
 
 SENDER_EMAIL_ID = "contactpspatom@gmail.com"
 SENDER_EMAIL_PASSWORD = "363755@psp"
+
+SENDER_SMS_AUTH = "tCP8Ao1as5GqyhzwnWU2pBNgO3b0jkIDEMvVm4XHLlKucxZefi0WJX8t5LeGSUMD47x3AEq6FRH9p1KN"
