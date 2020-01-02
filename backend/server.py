@@ -1,3 +1,9 @@
+import sys
+import os
+## APPENDING SYS PATH TO ACCESS LIB MODULES FROM ANYWHERE
+sys.path.append( os.path.join( os.getcwd(),'lib') )
+sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
+
 from database import DBQuery as db
 from flask import (Flask, jsonify, request)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
@@ -6,7 +12,6 @@ from datetime import datetime,timedelta,timezone
 import smtplib
 import config
 import random
-import os
 import pymongo 
 import json
 import templates
@@ -844,6 +849,6 @@ def student_mark_attendance(faculty_id,subject):
 
 
 if __name__ == '__main__':
-    os.system("export PYTHONHASSEED=0")
+    os.system(f"export PYTHONHASSEED=0")
     app.run(debug=True,port=5000,host="0.0.0.0")
     

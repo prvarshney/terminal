@@ -4,16 +4,15 @@ ATOM is a python based client-server application that let the institutional bodi
 
 ## INSTALLATION INSTRUCTIONS
 
-Use the package manager [pip3] to install virtualenv
+Use the package manager [pip3] to install dependencies
 
 ```bash
-pip3 install virtualenv
-source backend/env/bin/activate
+cd Attendance-On-Mobile-ATOM-
+pip3 install -r lib/dependencies.txt
 ```
 
 ## STARTING SERVER
 
 ```bash
-source backend/env/bin/activate
 python3 backend/server.py
 ```
