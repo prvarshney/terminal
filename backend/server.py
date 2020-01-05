@@ -560,6 +560,24 @@ def faculty_forgot_password_verify_otp():
         'msg':'invalid userid/otp combination'
     })
 
+@app.route("/faculty/schedule/<faculty_id>",methods=['GET'])
+def faculty_show_schedule(faculty_id):
+    ## THIS ROUTE IS USE TO FETCH TIMETABLE OF A PARTICULAR FACULTY
+    ## ANYONE WITH VALID FACULTY_ID CAN VIEW THE TIME-TABLE OF A PARTICULAR FACULTY
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',faculty_id)
+    if db_res['status'] == 212: # EXECUTES WHEN FACULTY WITH GIVEN FACULTY_ID AVAILABLE IN FACULTY_DB
+        for document in db_res['res']:
+            time_table = document['time-table'] 
+            return jsonify({
+                'status':200,
+                'time-table':time_table
+            })
+    else:   # EXECUTES WHEN FACULTY WITH GIVEN FACULTY_ID IS UNAVAILABLE
+        return jsonify({
+            'status':db_res['status'],
+            'msg':'faculty with given faculty id is not available in database'
+        })
 
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
 @jwt_required
