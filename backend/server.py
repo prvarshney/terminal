@@ -358,6 +358,11 @@ def admin_aboutus():
 ## FACULTY ROUTES --START
 @app.route("/faculty/login",methods=['POST'])
 def faculty_authentication():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "user_id":<FACULTY_ID>,
+    ##     "password":<FACULTY LOGIN PASSWORD>
+    ## }
     user_credentials = request.get_json()
     faculty = db.Faculty()
     ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED FACULTY_ID
@@ -376,6 +381,90 @@ def faculty_authentication():
                     'msg':'login-successful'
                     })
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
+
+@app.route("/faculty/reset_password",methods=['POST'])
+@jwt_required
+def faculty_update_password():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "current_password":<STRING>,
+    ##     "new_password":<STRING>
+    ## }
+    user_id = get_jwt_identity()
+    ## FETCHING REQUEST OBJECT
+    req = request.get_json()
+    ## FETCHING PASSWORD STORED OF GIVEN USER_ID IN DATABASE
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',user_id)
+    if db_res['status'] == 212:     ## EXECUTES WHEN GIVEN USER_ID AVAILABLE IN DATABASE
+        for document in db_res['res']:
+            if document['faculty_id'] == user_id and bcrypt.check_password_hash(document['password'],req['current_password']):
+                db_res = faculty.update( user_id,'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
+                if db_res == 301:
+                    return jsonify({
+                        'status':db_res,
+                        'msg':'password changes successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':db_res,
+                        'msg':'error encountered while changing password. Retry again.'
+                    })
+            return jsonify({
+                'status':401,
+                'msg':"password doesn't match"
+            })
+    else:
+        return jsonify({
+            'status':401,
+            'msg':"unauthorized user"
+        })
+
+@app.route("/faculty/update_profile",methods=['POST'])
+@jwt_required
+def faculty_update_profile():
+    ## THIS ROUTE IS USE TO UPDATE THE FOLLOWING VALUES IN DOCUMENT :
+    ## 1. SUBJECTS
+    ## 2. QUALIFICATIONS
+    ## 3. TIME-TABLE
+    ## 4. CLASSES
+    ##
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     <UPDATION_PARAMETER_1>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_2>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_3>:<UPDATION_VALUE>,
+    ##       ...                       ...
+    ##     <UPDATION_PARAMETER_N>:<UPDATION_VALUE>,
+    ## }
+    ## FOR EXAMPLE :-
+    ## {
+    ## 	"subjects":subjects,
+    ##  "qualifications":qualifications,
+    ##  "time-table":time_table,
+    ##  "classes":classes
+    ## }
+    ##
+    user_id = get_jwt_identity()
+    req = request.get_json()
+    ## CONNECTING WITH FACULTY_DB
+    faculty = db.Faculty()
+    flag = False        # FLAG THAT STATES WHETHER UPDATION QUERY WENT SUCCESSFUL OR NOT
+    for key in req:
+        db_res = faculty.update(user_id,key,req[key])
+        if db_res != 301:
+            flag = True
+    if flag:
+        return jsonify({
+            "status":204,
+            "msg":"some parameters failed to update, please try again."
+        })
+    else:
+        return jsonify({
+            "status":301,
+            "msg":"updation successful"
+        })
+
 
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
 @jwt_required

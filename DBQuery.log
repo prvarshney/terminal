@@ -1,0 +1,58 @@
+[ 05-01-2020 :: 12:00:24 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:00:24 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:00:41 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:00:41 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:01:06 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:01:06 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:03:51 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:03:51 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:04:43 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:04:43 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:05:28 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:05:28 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:06:18 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:06:18 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:06:24 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:06:24 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:33:43 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:33:43 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:34:20 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:34:20 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:34:23 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f0ed9197dc0>
+[ 05-01-2020 :: 12:34:23 ] [  INFO  ] Faculty - pv04061998 Updated With - password:$2b$12$Lmhw.6KthgIDB4l5eu2c1.Poup7zTYixmcvpQMIZY/lb.PtlcHlxq in faculty_db
+[ 05-01-2020 :: 12:34:33 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:34:33 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:36:05 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:36:05 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:42:28 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:42:28 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:43:07 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:43:07 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:43:42 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 12:43:42 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 12:43:46 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f0b20220a00>
+[ 05-01-2020 :: 12:43:46 ] [  INFO  ] Faculty - pv04061998 Updated With - password:$2b$12$PSZxa.kkBMa9R9hwHP4ZZuWWCDJ2e4DP5eBaYJMkjm6C5JekmDmQG in faculty_db
+[ 05-01-2020 :: 17:17:29 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 17:17:29 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 17:31:19 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa264926040>
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] Faculty - pv04061998 Updated With - subjects:['applied physics', 'programming using c++'] in faculty_db
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa26490fe40>
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] Faculty - pv04061998 Updated With - qualifications:['12th pass', 'btech cse'] in faculty_db
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa26491f380>
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] Faculty - pv04061998 Updated With - time-table:{'monday': {'1015-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'tuesday': {'1000-1115': 'btech_cse_a_2021', '1400-1515': 'btech_cse_b_2021'}, 'wednesday': {'1015-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'thursday': {'1000-1115': 'btech_cse_a_2021', '1400-1515': 'btech_cse_b_2021'}, 'friday': {'1015-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'saturday': {'1000-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'sunday': {}} in faculty_db
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa2649264c0>
+[ 05-01-2020 :: 17:31:22 ] [  INFO  ] Faculty - pv04061998 Updated With - classes:['btech_cse_a_2021', 'btech_cse_b_2021'] in faculty_db
+[ 05-01-2020 :: 17:33:10 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 17:33:10 ] [  INFO  ] The Search Query With faculty_id:pv04061998 Accomplished Successfully in faculty_db
+[ 05-01-2020 :: 17:33:51 ] [  INFO  ] faculty_db Connected Successfully
+[ 05-01-2020 :: 17:33:53 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa264926e80>
+[ 05-01-2020 :: 17:33:53 ] [  INFO  ] Faculty - pv04061998 Updated With - subjects:['applied physics', 'programming using c++'] in faculty_db
+[ 05-01-2020 :: 17:33:53 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa26492df80>
+[ 05-01-2020 :: 17:33:53 ] [  INFO  ] Faculty - pv04061998 Updated With - qualifications:['12th pass', 'btech cse'] in faculty_db
+[ 05-01-2020 :: 17:33:54 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa26492df80>
+[ 05-01-2020 :: 17:33:54 ] [  INFO  ] Faculty - pv04061998 Updated With - time-table:{'monday': {'1015-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'tuesday': {'1000-1115': 'btech_cse_a_2021', '1400-1515': 'btech_cse_b_2021'}, 'wednesday': {'1015-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'thursday': {'1000-1115': 'btech_cse_a_2021', '1400-1515': 'btech_cse_b_2021'}, 'friday': {'1015-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'saturday': {'1000-1115': 'btech_cse_a_2021', '1415-1515': 'btech_cse_b_2021'}, 'sunday': {}} in faculty_db
+[ 05-01-2020 :: 17:33:54 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa26492df80>
+[ 05-01-2020 :: 17:33:54 ] [  INFO  ] Faculty - pv04061998 Updated With - classes:['btech_cse_a_2021', 'btech_cse_b_2021'] in faculty_db
+[ 05-01-2020 :: 17:33:54 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fa26492df80>
+[ 05-01-2020 :: 17:33:54 ] [  INFO  ] Faculty - pv04061998 Updated With - type:error in faculty_db

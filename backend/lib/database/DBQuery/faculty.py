@@ -41,6 +41,20 @@ class Faculty:
 		# CLASSES --> LIST OF STRING
 		# RATINGS --> STRING
 		#
+		# TIMETABLE FORMAT :-
+		# {
+		#	'monday':{
+		#			   '1015-1215':'btech_cse_a_2021',
+		#			   '1400-1600':'btech_it_b_2022'
+		# 			},
+		#	'tuesday':{...},
+		#	   ...	   ...,
+		#	   ...	   ...,
+		#	   ...	   ...,
+		#	   ...	   ...,
+		#	'sunday':{...}
+		# } 
+		#
 		# IMPORTANT POINTS :
 		# 	*QUALIFICATIONS, TIME-TABLE, CLASSES, RATINGS, REVIEWS ARE OPTIONAL PARAMETERS IF NOT
 		# 	 PROVIDED DEFAULT VALUES ARE USED
@@ -61,7 +75,7 @@ class Faculty:
 				"qualifications":qualifications,
 				"time-table":time_table,
 				"classes":classes,
-				"ratings":ratings,
+				"ratings":ratings
 				}
 		# CHECKING WHETHER ANY FACULTY WITH SAME FACULTY_ID IS PRESENT IN DATABASE
 		duplicate_entry = self.collection.find_one({ 'faculty_id':id })
