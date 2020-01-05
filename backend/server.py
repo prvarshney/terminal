@@ -359,6 +359,28 @@ def admin_aboutus():
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START
+@app.route("/faculty/check_availability",methods=['POST'])
+def faculty_check_userid_availability():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "user_id":<FACULTY_ID>,
+    ## }
+    req = request.get_json()
+    user_id = req['user_id']
+    ## ESTABLISHING CONNECTION WITH FACULTY_DB
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',user_id)
+    if db_res['status'] == 212: # EXECUTES WHEN SUCH FACULTY_ID AVAILABLE IN FACULTY_DB
+        return jsonify({
+            'status':206,
+            'msg':'given user_id is unavailable to use'
+        })
+    else:
+        return jsonify({
+            'status':200,
+            'msg':'given user_id is available to use'
+        })
+
 @app.route("/faculty/login",methods=['POST'])
 def faculty_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
