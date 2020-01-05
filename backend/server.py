@@ -601,6 +601,42 @@ def faculty_show_schedule(faculty_id):
             'msg':'faculty with given faculty id is not available in database'
         })
 
+@app.route("/faculty/insert_current_batch",methods=['POST'])
+@jwt_required
+def faculty_insert_current_batch():
+    ## THIS ROUTE IS USED TO INSERT BATCH THAT A FACULTY CURRENTLY HAVE
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##   "programme":<STRING>,
+    ##   "branch":<STRING>,
+    ##   "section":<STRING>,
+    ##   "semester":<STRING>,
+    ##   "subject":<STRING>,
+    ##   "year_of_pass":<STRING>
+    ## }
+    ##
+    req = request.get_json()
+    faculty_id = get_jwt_identity()
+    current_batches = db.CurrentBatches(faculty_id=faculty_id)
+    db_res = current_batches.insert(
+        subject=req['subject'],
+        semester=req['semester'],
+        programme=req['programme'],
+        branch=req['branch'],
+        section=req['section'],
+        year_of_pass=req['year_of_pass']
+    )
+    if db_res == 201:
+        return jsonify({
+            'status':201,
+            'msg':'insertion successfull in database'
+        })
+    else:
+        return jsonify({
+            'status':417,
+            'msg':'insertion failed'
+        })
+
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
 @jwt_required
 def fetch_current_batch():
