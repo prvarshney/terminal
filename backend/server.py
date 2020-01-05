@@ -16,6 +16,7 @@ import pymongo
 import json
 import templates
 import requests
+from logger import log
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -54,6 +55,7 @@ def send_sms_otp(receiver,user_name,otp,function):
         'Cache-Control': "no-cache",
         }
     response = requests.request("POST", url, data=payload, headers=headers)
+    log(f'[  INFO  ] SMS API MSG - {response}')
 
 ## OTHER METHODS -- END
 
@@ -566,7 +568,7 @@ def faculty_forgot_password_verify_otp():
             db_res = faculty.update( req['user_id'],'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
             if db_res == 301:
                 ## REMOVING OTP STORED IN OTP_DB
-                otp_db.remove( hash(req['user_id']),function='RECOVER_PASSWORD' )
+                otp_db.remove( hash( req['user_id']+'FORGOT_PASSWORD_HASH' ),function='RECOVER_PASSWORD' )
                 return jsonify({
                     'status':db_res,
                     'msg':'password changes successfully'
@@ -781,7 +783,7 @@ def student_provisional_registration():
             'l_name':father_name[-1]
         }
     ## MODIFYING IDENTITY_PROOF FILENAME SO THAT NO TWO FILES WILL HAVE SAME NAME
-    identity_proof_filename = ''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S') + '.' + identity_proof.filename.split('.')[-1] 
+    identity_proof_filename = str(hash(''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S'))) + '.' + identity_proof.filename.split('.')[-1] 
     ## PARSING DOB INTO DICTIONARY OBJECT
     ## EG: 04/06/1998 INTO { 'DAY':'04','MONTH':'06','YEAR':'1998' }
     dob = dob.split('/')

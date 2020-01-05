@@ -1,3 +1,0 @@
-[ 05-01-2020 :: 23:40:20 ] [  INFO  ] current_batches_db Connected Successfully
-[ 05-01-2020 :: 23:40:23 ] [  ERROR ] Batch - {'subject': 'algorithm design and analysis', 'semster': '5', 'batch': 'btech_cse_b_2021'} Is Already Present at Collection - pv04061998 in Database - current_batches_db
-[ 05-01-2020 :: 23:40:23 ] [  INFO  ] Closing Connection Estabilished with Collection - pv04061998 in Database - current_batches_db
