@@ -521,7 +521,7 @@ def faculty_forgot_password_generate_otp(user_id):
             )
             ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
             otp_db.insert(
-                hash_id=hash( user_id ),
+                hash_id=hash( user_id+'FORGOT_PASSWORD_HASH' ),
                 otp=generated_otp,
                 function='RECOVER_PASSWORD'
             )
@@ -555,7 +555,7 @@ def faculty_forgot_password_verify_otp():
     req = request.get_json()
     ## ESTABLISHING CONNECTION WITH OTP_DB
     otp_db = db.OTP()
-    db_res = otp_db.query('hash_id',hash( req['user_id'] ))
+    db_res = otp_db.query('hash_id',hash( req['user_id']+'FORGOT_PASSWORD_HASH' ))
     if db_res['status'] == 212 :    # EXECUTES WHEN GIVEN USER_ID HASH AVAILABLE IN OTP_DB
         stored_otp = None
         for document in db_res['res']:
