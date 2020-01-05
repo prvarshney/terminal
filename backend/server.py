@@ -36,14 +36,17 @@ def send_email_otp(receiver,user_name,otp,function):
             subject = templates.EMAIL_VERIFICATION_SUBJECT
             body = templates.EMAIL_VERIFICATION_BODY
         if function == 'RECOVER_PASSWORD':
-            subject = templates.RECOVER_PASSWORD_SUBJECT
-            body = templates.RECOVER_PASSWORD_BODY
+            subject = templates.EMAIL_RECOVER_PASSWORD_SUBJECT
+            body = templates.EMAIL_RECOVER_PASSWORD_BODY
         msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
 
 def send_sms_otp(receiver,user_name,otp,function):
-    body = templates.SMS_VERIFICATION_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
     url = "https://www.fast2sms.com/dev/bulk"
+    if function == 'RECOVER_PASSWORD':
+        body = templates.SMS_RECOVER_PASSWORD_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
+    elif function == 'PHONE_VERIFICATION':
+        body = templates.SMS_VERIFICATION_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
     payload = f"sender_id=FSTSMS&message={body}&language=english&route=p&numbers={receiver}"
     headers = {
         'authorization': config.SENDER_SMS_AUTH,
@@ -464,6 +467,98 @@ def faculty_update_profile():
             "status":301,
             "msg":"updation successful"
         })
+
+@app.route("/faculty/forgot_password/<user_id>",methods=['GET'])
+def faculty_forgot_password_generate_otp(user_id):
+    ## ROUTE TO GENERATE FORGOT PASSWORD OTP FOR A PARTICULAR USESR_ID
+    ## INPUT IS ACCEPTED THROUGH URLENCODED VARIABLES I.E user_id
+    ## ESTABILISHING CONNECTION WITH FACULTY_DB
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',user_id)
+    if db_res['status'] == 212:     # EXECUTES WHEN GIVEN USER_ID AVAILABLE IN THE DATABASE
+        otp_db = db.OTP()
+        ## GENERATING OTP
+        generated_otp = random.randrange(11111111,100000000)
+        for document in db_res['res']:
+            user_email_id = document['email']
+            user_phone_number = document['phone_number']
+            user_name = document['name']['f_name']
+            ## SENDING OTP TO THE USER THROUGH EMAIL
+            send_email_otp(
+                receiver=user_email_id,
+                user_name=user_name,
+                otp=generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## SENDING OTP THROUGH MOBILE NUMBER
+            send_sms_otp(
+                receiver=user_phone_number,
+                user_name=user_name,
+                otp=generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
+            otp_db.insert(
+                hash_id=hash( user_id ),
+                otp=generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## MASKING EMAIL TO GENERATE REQUIRED RESPONSE
+            ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
+            user_email_id = user_email_id[:4] + 'X' * len(user_email_id[4:user_email_id.find('@')]) + user_email_id[user_email_id.find('@'):]
+            user_phone_number = str(user_phone_number)  # CONVERTING FROM INT64 TO STRING 
+            user_phone_number = user_phone_number[:4] + 'X' * len(user_phone_number[4:])
+            ## RETURNING RESPONSE
+            return jsonify({
+                'status':200,
+                'msg':'otp sent to the registered email id and phone number',
+                'email_id':user_email_id,
+                'phone_number':user_phone_number
+            })
+    else:
+        return jsonify({
+            "status":206,
+            "msg" :"invalid user id"
+        })
+
+@app.route("/faculty/recover_password",methods=['POST'])
+def faculty_forgot_password_verify_otp():
+    ## ROUTE TO VERIFY RECOVER PASSWORD OTP DELIEVERED WITH GIVEN OTP
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##   "user_id":<STRING>,
+    ##   "otp":<INTEGER>
+    ##   "new_password":<STRING>
+    ## }
+    req = request.get_json()
+    ## ESTABLISHING CONNECTION WITH OTP_DB
+    otp_db = db.OTP()
+    db_res = otp_db.query('hash_id',hash( req['user_id'] ))
+    if db_res['status'] == 212 :    # EXECUTES WHEN GIVEN USER_ID HASH AVAILABLE IN OTP_DB
+        stored_otp = None
+        for document in db_res['res']:
+            stored_otp = document['otp']
+        if req['otp'] == stored_otp:       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
+            ## CHANGING PASSWORD OF THE GIVEN USER
+            faculty = db.Faculty()
+            db_res = faculty.update( req['user_id'],'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
+            if db_res == 301:
+                ## REMOVING OTP STORED IN OTP_DB
+                otp_db.remove( hash(req['user_id']),function='RECOVER_PASSWORD' )
+                return jsonify({
+                    'status':db_res,
+                    'msg':'password changes successfully'
+                })
+            else:   ## EXECUTES WHEN UPDATION FAILED AT DATABASE ENDS DUE TO NETWORK PROBLEM
+                return jsonify({
+                    'status':db_res,
+                    'msg':'failed to reset password, retry'
+                })
+    ## EXECUTES WHEN EITHER OTP DOESN'T AVAILABLE IN OTP_DB OR OTP GIVEN IS INVALID
+    return jsonify({
+        'status':401,
+        'msg':'invalid userid/otp combination'
+    })
 
 
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
@@ -938,6 +1033,6 @@ def student_mark_attendance(faculty_id,subject):
 
 
 if __name__ == '__main__':
-    os.system(f"export PYTHONHASSEED=0")
+    os.system(f"export PYTHONHASHSEED=0")
     app.run(debug=True,port=5000,host="0.0.0.0")
     

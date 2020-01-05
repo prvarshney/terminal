@@ -23,7 +23,7 @@ class Faculty:
 			sys.exit(0)
 		self.collection = db[config.Faculty_Profile_Collection]
 
-	def insert(self,id,name,dob,phone_numbers,email,password,subjects,qualifications=[],
+	def insert(self,id,name,dob,phone_number,email,password,subjects,qualifications=[],
 		time_table={},classes=[],ratings=5):
 		# THIS INSERT METHOD INPUTS NECESSARY DETAILS OF FACULTY THROUGH
 		# INPUT PARAMETERS AND THEN INSERT IT INTO DATABASE IF IT DOESN'T PRESENTS IN DB
@@ -32,8 +32,8 @@ class Faculty:
 		# ID --> STRING
 		# NAME --> DICTIONARY
 		# DOB --> DICTIONARY
-		# PHONE NUMBERS --> LIST OF STRING
-		# EMAIL --> LIST OF STRING
+		# PHONE NUMBER --> STRING
+		# EMAIL --> STRING
 		# PASSWORD --> STRING OF HASH
 		# SUBJECTS --> LIST OF STRING
 		# QUALIFICATIONS --> LIST OF STRING
@@ -68,7 +68,7 @@ class Faculty:
 				"faculty_id":id,
 				"name":name,
 				"date_of_birth":dob,
-				"phone_numbers":phone_numbers,
+				"phone_number":phone_number,
 				"email":email,
 				"password":bcrypt.generate_password_hash(password).decode('utf-8'),
 				"subjects":subjects,
@@ -99,10 +99,16 @@ class Faculty:
 		#
 		try:
 			res = self.collection.find({ query_parameter:query_value })
-			response = {
-				'status':212,
-				'res': res
-			}
+			if res.count() > 0:
+				response = {
+					'status':212,
+					'res': res
+				}
+			else:
+				response = {
+					'status':206,
+					'res':res
+				}	
 		except:
 			response = {
 				'status':206,
@@ -134,9 +140,9 @@ class Faculty:
 		# DATA STRUCTURES OF INPUT PARAMETERS :
 		# FACULTY_ID --> STRING
 		# UPDATION_PARAM --> STRING
-		# UPDATION VALUE --> FOR ID,RATINGS AS UPDATION_PARAM --> STRING
+		# UPDATION VALUE --> FOR ID,RATINGS, PHONE_NUMBER, EMAIL, AS UPDATION_PARAM --> STRING
 		#				 --> FOR NAME,DOB,TIMETABLE --> DICTIONARY
-		#				 --> FOR PHONE_NUMBERS, EMAIL, SUBJECT, QUALIFICATION, CLASSES --> LIST OF STRING
+		#				 --> FOR SUBJECT, QUALIFICATION, CLASSES --> LIST OF STRING
 		#
 		searching_values = {'faculty_id':faculty_id }
 		updating_values = { updation_param:updation_value }
