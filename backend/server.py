@@ -366,12 +366,12 @@ def faculty_provisional_registration():
     ## THIS ROUTE INPUTS FACULTY'S DETAILS AND THEN VERIFIES IT WITH MOBILE AND THE EMAIL ADDRESS.
     ## FORM MUST CONTAIN THE FOLLOWING KEYS:-
     ## {
+    ##  "faculty_id":<STRING>
     ## "name": <STRING>,
     ## "phone_number": <STRING>,
     ## "email": <STRING>,
     ## "password": <STRING>,
     ## "dob": <STRING IN DD/MM/YY FORMAT>
-    ## "qualifications": <STRING>
     ## }
     faculty_id = request.form.get('faculty_id')
     name = request.form.get('name')
@@ -419,7 +419,7 @@ def faculty_provisional_registration():
         function = 'PHONE_VERIFICATION'
     )
     otp_db.insert(
-        hash_id = hash( str(faculty_id) + str(email) + str(phone_otp) ),
+        hash_id = hash( str(faculty_id) + str(email) + str(phone_number) ),
         otp = email_otp,
         function = 'EMAIL_VERIFICATION'
     )
@@ -470,7 +470,7 @@ def faculty_verify_email():
                     db_res = provisional_faculty.query('hash_id',hash_id)
                     if db_res['status'] == 212:
                         for document in db_res['res']:
-                            if document['PHONE_NUMBER_VERIFICATION_STATUS'] and document['EMAIL_VERIFICATION_STATUS']:
+                            if document['phone_number_verification_status'] and document['email_verification_status']:
                                 ## THIS BLOCK EXECUTES WHEN BOTH EMAIL AND PHONE NUMBERS GOT VERIFIED
                                 faculty = db.Faculty()
                                 faculty.insert(
@@ -525,7 +525,7 @@ def faculty_verify_phone():
                     db_res = provisional_faculty.query('hash_id',hash_id)
                     if db_res['status'] == 212:
                         for document in db_res['res']:
-                            if document['PHONE_NUMBER_VERIFICATION_STATUS'] and document['EMAIL_VERIFICATION_STATUS']:
+                            if document['phone_number_verification_status'] and document['email_verification_status']:
                                 ## THIS BLOCK EXECUTES WHEN BOTH EMAIL AND PHONE NUMBERS GOT VERIFIED
                                 faculty = db.Faculty()
                                 faculty.insert(
