@@ -10,3 +10,4 @@ from .studymaterial import StudyMaterial
 from .admin import Admin
 from .otp import OTP
 from .provisional_student import Provisional_Student
+from .provisional_faculty import Provisional_Faculty

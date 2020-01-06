@@ -22,7 +22,7 @@ class Faculty:
 			log(f'[  ERROR ] Unable To Create Connection With {config.Faculty_DB}')
 		self.collection = db[config.Faculty_Profile_Collection]
 
-	def insert(self,id,name,dob,phone_number,email,password,subjects,qualifications=[],
+	def insert(self,id,name,dob,phone_number,email,password,subjects=[],qualifications=[],
 		time_table={},classes=[],ratings=5):
 		# THIS INSERT METHOD INPUTS NECESSARY DETAILS OF FACULTY THROUGH
 		# INPUT PARAMETERS AND THEN INSERT IT INTO DATABASE IF IT DOESN'T PRESENTS IN DB
@@ -165,7 +165,7 @@ class Faculty:
 			self.client.close()
 			log(f'[  INFO  ] Closing Established Connection with Collection - {config.Faculty_Profile_Collection} in Database - {config.Faculty_DB}')
 		except:
-			log(f'[  ERRROR ] API failed while Closing Established Connection with Collection - {config.Faculty_Profile_Collection} in Database - {config.Faculty_DB}')
+			log(f'[  ERROR ] API failed while Closing Established Connection with Collection - {config.Faculty_Profile_Collection} in Database - {config.Faculty_DB}')
 
 
 if __name__ == "__main__":
