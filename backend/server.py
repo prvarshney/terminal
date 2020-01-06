@@ -16,6 +16,7 @@ import pymongo
 import json
 import templates
 import requests
+from logger import log
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -36,14 +37,17 @@ def send_email_otp(receiver,user_name,otp,function):
             subject = templates.EMAIL_VERIFICATION_SUBJECT
             body = templates.EMAIL_VERIFICATION_BODY
         if function == 'RECOVER_PASSWORD':
-            subject = templates.RECOVER_PASSWORD_SUBJECT
-            body = templates.RECOVER_PASSWORD_BODY
+            subject = templates.EMAIL_RECOVER_PASSWORD_SUBJECT
+            body = templates.EMAIL_RECOVER_PASSWORD_BODY
         msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
 
 def send_sms_otp(receiver,user_name,otp,function):
-    body = templates.SMS_VERIFICATION_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
     url = "https://www.fast2sms.com/dev/bulk"
+    if function == 'RECOVER_PASSWORD':
+        body = templates.SMS_RECOVER_PASSWORD_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
+    elif function == 'PHONE_VERIFICATION':
+        body = templates.SMS_VERIFICATION_BODY.replace('<user_name>',user_name).replace('<otp>',str(otp))
     payload = f"sender_id=FSTSMS&message={body}&language=english&route=p&numbers={receiver}"
     headers = {
         'authorization': config.SENDER_SMS_AUTH,
@@ -51,6 +55,7 @@ def send_sms_otp(receiver,user_name,otp,function):
         'Cache-Control': "no-cache",
         }
     response = requests.request("POST", url, data=payload, headers=headers)
+    log(f'[  INFO  ] SMS API MSG - {response}')
 
 ## OTHER METHODS -- END
 
@@ -374,8 +379,6 @@ def faculty_provisional_registration():
     email = request.form.get('email')
     password = request.form.get('password')
     dob = request.form.get('dob')
-    qualifications = request.form.get('qualifications').split(',')
-
     ## PARSING NAME INTO F_NAME,M_NAME AND L_NAME
     ## E.G. SOMYA SINGHAL INTO: { 'f_name':'SOMYA', 'm_name':'', 'l_name':'SINGHAL' }
     name = name.split(' ')
@@ -403,8 +406,7 @@ def faculty_provisional_registration():
         phone_number= phone_number,
         email= email,
         password= password,
-        dob= dob,
-        qualifications = qualifications
+        dob= dob
     )
     ## GENERATING OTP FOR EMAIL AND PHONE NUMBER VERIFICATIONS
     email_otp = random.randrange(10000000,100000000)
@@ -478,7 +480,6 @@ def faculty_verify_email():
         'msg':'otp not found in database, please try to regenerate otp'
     })
 
-
 @app.route('/faculty/verify_phone',methods=['POST'])
 def faculty_verify_phone():
     ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
@@ -516,8 +517,35 @@ def faculty_verify_phone():
         'msg':'otp not found in database, please try to regenerate otp'
     })
 
+@app.route("/faculty/check_availability",methods=['POST'])
+def faculty_check_userid_availability():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "user_id":<FACULTY_ID>,
+    ## }
+    req = request.get_json()
+    user_id = req['user_id']
+    ## ESTABLISHING CONNECTION WITH FACULTY_DB
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',user_id)
+    if db_res['status'] == 212: # EXECUTES WHEN SUCH FACULTY_ID AVAILABLE IN FACULTY_DB
+        return jsonify({
+            'status':206,
+            'msg':'given user_id is unavailable to use'
+        })
+    else:
+        return jsonify({
+            'status':200,
+            'msg':'given user_id is available to use'
+        })
+
 @app.route("/faculty/login",methods=['POST'])
 def faculty_authentication():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "user_id":<FACULTY_ID>,
+    ##     "password":<FACULTY LOGIN PASSWORD>
+    ## }
     user_credentials = request.get_json()
     faculty = db.Faculty()
     ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED FACULTY_ID
@@ -536,6 +564,236 @@ def faculty_authentication():
                     'msg':'login-successful'
                     })
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
+
+@app.route("/faculty/reset_password",methods=['POST'])
+@jwt_required
+def faculty_update_password():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "current_password":<STRING>,
+    ##     "new_password":<STRING>
+    ## }
+    user_id = get_jwt_identity()
+    ## FETCHING REQUEST OBJECT
+    req = request.get_json()
+    ## FETCHING PASSWORD STORED OF GIVEN USER_ID IN DATABASE
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',user_id)
+    if db_res['status'] == 212:     ## EXECUTES WHEN GIVEN USER_ID AVAILABLE IN DATABASE
+        for document in db_res['res']:
+            if document['faculty_id'] == user_id and bcrypt.check_password_hash(document['password'],req['current_password']):
+                db_res = faculty.update( user_id,'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
+                if db_res == 301:
+                    return jsonify({
+                        'status':db_res,
+                        'msg':'password changes successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':db_res,
+                        'msg':'error encountered while changing password. Retry again.'
+                    })
+            return jsonify({
+                'status':401,
+                'msg':"password doesn't match"
+            })
+    else:
+        return jsonify({
+            'status':401,
+            'msg':"unauthorized user"
+        })
+
+@app.route("/faculty/update_profile",methods=['POST'])
+@jwt_required
+def faculty_update_profile():
+    ## THIS ROUTE IS USE TO UPDATE THE FOLLOWING VALUES IN DOCUMENT :
+    ## 1. SUBJECTS
+    ## 2. QUALIFICATIONS
+    ## 3. TIME-TABLE
+    ## 4. CLASSES
+    ##
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     <UPDATION_PARAMETER_1>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_2>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_3>:<UPDATION_VALUE>,
+    ##       ...                       ...
+    ##     <UPDATION_PARAMETER_N>:<UPDATION_VALUE>,
+    ## }
+    ## FOR EXAMPLE :-
+    ## {
+    ## 	"subjects":subjects,
+    ##  "qualifications":qualifications,
+    ##  "time-table":time_table,
+    ##  "classes":classes
+    ## }
+    ##
+    user_id = get_jwt_identity()
+    req = request.get_json()
+    ## CONNECTING WITH FACULTY_DB
+    faculty = db.Faculty()
+    flag = False        # FLAG THAT STATES WHETHER UPDATION QUERY WENT SUCCESSFUL OR NOT
+    for key in req:
+        db_res = faculty.update(user_id,key,req[key])
+        if db_res != 301:
+            flag = True
+    if flag:
+        return jsonify({
+            "status":204,
+            "msg":"some parameters failed to update, please try again."
+        })
+    else:
+        return jsonify({
+            "status":301,
+            "msg":"updation successful"
+        })
+
+@app.route("/faculty/forgot_password/<user_id>",methods=['GET'])
+def faculty_forgot_password_generate_otp(user_id):
+    ## ROUTE TO GENERATE FORGOT PASSWORD OTP FOR A PARTICULAR USESR_ID
+    ## INPUT IS ACCEPTED THROUGH URLENCODED VARIABLES I.E user_id
+    ## ESTABILISHING CONNECTION WITH FACULTY_DB
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',user_id)
+    if db_res['status'] == 212:     # EXECUTES WHEN GIVEN USER_ID AVAILABLE IN THE DATABASE
+        otp_db = db.OTP()
+        ## GENERATING OTP
+        generated_otp = random.randrange(11111111,100000000)
+        for document in db_res['res']:
+            user_email_id = document['email']
+            user_phone_number = document['phone_number']
+            user_name = document['name']['f_name']
+            ## SENDING OTP TO THE USER THROUGH EMAIL
+            send_email_otp(
+                receiver=user_email_id,
+                user_name=user_name,
+                otp=generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## SENDING OTP THROUGH MOBILE NUMBER
+            send_sms_otp(
+                receiver=user_phone_number,
+                user_name=user_name,
+                otp=generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
+            otp_db.insert(
+                hash_id=hash( user_id+'FORGOT_PASSWORD_HASH' ),
+                otp=generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## MASKING EMAIL TO GENERATE REQUIRED RESPONSE
+            ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
+            user_email_id = user_email_id[:4] + 'X' * len(user_email_id[4:user_email_id.find('@')]) + user_email_id[user_email_id.find('@'):]
+            user_phone_number = str(user_phone_number)  # CONVERTING FROM INT64 TO STRING 
+            user_phone_number = user_phone_number[:4] + 'X' * len(user_phone_number[4:])
+            ## RETURNING RESPONSE
+            return jsonify({
+                'status':200,
+                'msg':'otp sent to the registered email id and phone number',
+                'email_id':user_email_id,
+                'phone_number':user_phone_number
+            })
+    else:
+        return jsonify({
+            "status":206,
+            "msg" :"invalid user id"
+        })
+
+@app.route("/faculty/recover_password",methods=['POST'])
+def faculty_forgot_password_verify_otp():
+    ## ROUTE TO VERIFY RECOVER PASSWORD OTP DELIEVERED WITH GIVEN OTP
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##   "user_id":<STRING>,
+    ##   "otp":<INTEGER>
+    ##   "new_password":<STRING>
+    ## }
+    req = request.get_json()
+    ## ESTABLISHING CONNECTION WITH OTP_DB
+    otp_db = db.OTP()
+    db_res = otp_db.query('hash_id',hash( req['user_id']+'FORGOT_PASSWORD_HASH' ))
+    if db_res['status'] == 212 :    # EXECUTES WHEN GIVEN USER_ID HASH AVAILABLE IN OTP_DB
+        stored_otp = None
+        for document in db_res['res']:
+            stored_otp = document['otp']
+        if req['otp'] == stored_otp:       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
+            ## CHANGING PASSWORD OF THE GIVEN USER
+            faculty = db.Faculty()
+            db_res = faculty.update( req['user_id'],'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
+            if db_res == 301:
+                ## REMOVING OTP STORED IN OTP_DB
+                otp_db.remove( hash( req['user_id']+'FORGOT_PASSWORD_HASH' ),function='RECOVER_PASSWORD' )
+                return jsonify({
+                    'status':db_res,
+                    'msg':'password changes successfully'
+                })
+            else:   ## EXECUTES WHEN UPDATION FAILED AT DATABASE ENDS DUE TO NETWORK PROBLEM
+                return jsonify({
+                    'status':db_res,
+                    'msg':'failed to reset password, retry'
+                })
+    ## EXECUTES WHEN EITHER OTP DOESN'T AVAILABLE IN OTP_DB OR OTP GIVEN IS INVALID
+    return jsonify({
+        'status':401,
+        'msg':'invalid userid/otp combination'
+    })
+
+@app.route("/faculty/schedule/<faculty_id>",methods=['GET'])
+def faculty_show_schedule(faculty_id):
+    ## THIS ROUTE IS USE TO FETCH TIMETABLE OF A PARTICULAR FACULTY
+    ## ANYONE WITH VALID FACULTY_ID CAN VIEW THE TIME-TABLE OF A PARTICULAR FACULTY
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',faculty_id)
+    if db_res['status'] == 212: # EXECUTES WHEN FACULTY WITH GIVEN FACULTY_ID AVAILABLE IN FACULTY_DB
+        for document in db_res['res']:
+            time_table = document['time-table'] 
+            return jsonify({
+                'status':200,
+                'time-table':time_table
+            })
+    else:   # EXECUTES WHEN FACULTY WITH GIVEN FACULTY_ID IS UNAVAILABLE
+        return jsonify({
+            'status':db_res['status'],
+            'msg':'faculty with given faculty id is not available in database'
+        })
+
+@app.route("/faculty/insert_current_batch",methods=['POST'])
+@jwt_required
+def faculty_insert_current_batch():
+    ## THIS ROUTE IS USED TO INSERT BATCH THAT A FACULTY CURRENTLY HAVE
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##   "programme":<STRING>,
+    ##   "branch":<STRING>,
+    ##   "section":<STRING>,
+    ##   "semester":<STRING>,
+    ##   "subject":<STRING>,
+    ##   "year_of_pass":<STRING>
+    ## }
+    ##
+    req = request.get_json()
+    faculty_id = get_jwt_identity()
+    current_batches = db.CurrentBatches(faculty_id=faculty_id)
+    db_res = current_batches.insert(
+        subject=req['subject'],
+        semester=req['semester'],
+        programme=req['programme'],
+        branch=req['branch'],
+        section=req['section'],
+        year_of_pass=req['year_of_pass']
+    )
+    if db_res == 201:
+        return jsonify({
+            'status':201,
+            'msg':'insertion successfull in database'
+        })
+    else:
+        return jsonify({
+            'status':417,
+            'msg':'insertion failed'
+        })
 
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
 @jwt_required
@@ -681,7 +939,7 @@ def student_provisional_registration():
             'l_name':father_name[-1]
         }
     ## MODIFYING IDENTITY_PROOF FILENAME SO THAT NO TWO FILES WILL HAVE SAME NAME
-    identity_proof_filename = ''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S') + '.' + identity_proof.filename.split('.')[-1] 
+    identity_proof_filename = str(hash(''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S'))) + '.' + identity_proof.filename.split('.')[-1] 
     ## PARSING DOB INTO DICTIONARY OBJECT
     ## EG: 04/06/1998 INTO { 'DAY':'04','MONTH':'06','YEAR':'1998' }
     dob = dob.split('/')
@@ -1009,6 +1267,6 @@ def student_mark_attendance(faculty_id,subject):
 
 
 if __name__ == '__main__':
-    os.system(f"export PYTHONHASSEED=0")
+    os.system(f"export PYTHONHASHSEED=0")
     app.run(debug=True,port=5000,host="0.0.0.0")
     

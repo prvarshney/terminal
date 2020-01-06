@@ -88,7 +88,7 @@ class Provisional_Student:
             }
         status = self.collection.insert_one(document)
         log(f'[  INFO  ] {status}') 	# PRINTING STATUS OF RESULT OF QUERY
-        log(f'[  ERROR ] Enrollment - {enrollment} Successfully Inserted at {config.Student_Profile_Collection} Collection in {config.Provisional_Student_DB}')
+        log(f'[  INFO  ] Enrollment - {enrollment} Successfully Inserted at {config.Student_Profile_Collection} Collection in {config.Provisional_Student_DB}')
         return 201
 
     def query(self,query_parameter,query_value):

@@ -26,11 +26,11 @@ class CurrentBatches:
 		#
 		try:
 			self.client = MongoClient(config.MongoDB_URI)
+			self.faculty_id = faculty_id
 			db = self.client[config.Current_Batches_DB]
-			log('[ INFO  ] Current_Batches_DB Connected Successfully')
+			log(f'[  INFO  ] {config.Current_Batches_DB} Connected Successfully')
 		except:
-			log('[ Error ] Unable To Create Connection With Current_Batches_DB')
-			sys.exit(0)
+			log(f'[  ERROR ] Unable To Create Connection With {config.Current_Batches_DB}')
 		self.collection = db[faculty_id]
 
 	def insert(self,subject,semester,programme,branch,section,year_of_pass):
@@ -46,35 +46,44 @@ class CurrentBatches:
 		# YEAR_OF_PASS --> STRING
 		#
 		# CREATING DICTIONARY OF THE DOCUMENT THAT IS TO BE INSERTED IN DB.
-		current_batches_dictionary = {
+		current_batch_dictionary = {
 			"subject" : subject,
 			"semster" : semester,
 			"batch" : f'{programme}_{branch}_{section}_{year_of_pass}'
 		}
-		duplicate_entry = self.collection.find_one({ 'batch':current_batches_dictionary['batch'] })
-		if duplicate_entry != None:
-			log('[ ERROR ] This Batch Is Already Present In Database For This Faculty')
+		try:
+			duplicate_entry = self.collection.find_one(current_batch_dictionary)
+			if duplicate_entry != None:
+				log(f'[  ERROR ] Batch - {current_batch_dictionary} Is Already Present at Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
+				return 417
+			else:
+				status = self.collection.insert_one(current_batch_dictionary)
+				log(f'[  INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
+				log(f'[  INFO  ] Batch - {current_batch_dictionary} inserted at Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
+				return 201
+		except:
 			return 417
-		else:
-			status = self.collection.insert_one(current_batches_dictionary)
-			log(f'[ INFO  ] {status}') #PRINTING STATUS OF RESULT OF QUERY
-			log('[ INFO  ] A new batch for the particular faculty has been created.')
-			return 201
+			log(f'[  ERROR ] API Failed to insert Batch - {current_batch_dictionary} at Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
 
-	def remove(self,programme,branch,section,year_of_pass):
+	def remove(self,subject,semester,programme,branch,section,year_of_pass):
 		# THIS METHOD REMOVES THE RECORD OF THAT CLASS FROM THE FACULTY
 		# CURRENT CLASS LIST.
 		# --------------------------------------------------------------
 		# DATA STRUCTURE OF INPUT PARAMETER:-
 		# CURRENT_BATCH --> STRING
 		#
+		batch_dictionary = {
+			"subject" : subject,
+			"semster" : semester,
+			"batch" : f'{programme}_{branch}_{section}_{year_of_pass}'
+		}
 		try:
-			status = self.collection.delete_many({ 'batch':
-										f'{programme}_{branch}_{section}_{year_of_pass}' })
-			log(f'[ INFO  ] {status}')
-			log('[ INFO  ] Record of that class has been removed from the Current_Batches_DB.')
+			status = self.collection.delete_one( batch_dictionary )
+			log(f'[  INFO  ] {status}')
+			log(f'[  INFO  ] Batch - {batch_dictionary} has been removed successfully from Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
 			return 220
 		except:
+			log(f'[  ERROR ] API Failed to remove Batch - {batch_dictionary} from Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
 			return 203
 
 	def remove_all(self):
@@ -85,9 +94,10 @@ class CurrentBatches:
 		#
 		try:
 			self.collection.drop()
-			log('[ INFO  ] Current_Batches_DB has been removed for the particular faculty.')
+			log(f'[  INFO  ] Collection - {self.faculty_id} dropped from Database - {config.Current_Batches_DB}')
 			return 512
 		except:
+			log(f'[  ERROR ] API Failed to drop Collection - {self.faculty_id} from Database - {config.Current_Batches_DB}')
 			return 400
 
 	def show_all(self):
@@ -108,18 +118,21 @@ class CurrentBatches:
 					'status':302,
 					'res':{}
 				}
-			log('[ INFO  ] All the current batches has been displayed.')
+			log(f'[  INFO  ] Showing all Batches from Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
 		except:
 			response = {
 				'status':598,
 				'res':None
 			}
-			log('[ ERROR  ] Unable to Fetch the current batches.')
+			log(f'[  ERROR ] API Failed to show available Batches from Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
 		return response
 
 	def __del__(self):
-		self.client.close()
-
+		try:
+			self.client.close()
+			log(f'[  INFO  ] Closing Established Connection with Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
+		except:
+			log(f'[  ERROR ] API Failed to Close Established Connection with Collection - {self.faculty_id} in Database - {config.Current_Batches_DB}')
 
 if __name__ == "__main__":
 	# TEST CODE COMES HERE

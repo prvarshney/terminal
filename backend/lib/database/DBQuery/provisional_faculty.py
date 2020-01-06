@@ -22,7 +22,7 @@ class Provisional_Faculty:
             log(f'[  ERROR ] Unable To Create Connection With {config.Provisional_Faculty_DB}')
         self.collection = db[config.Faculty_Profile_Collection]
 
-    def insert(self, faculty_id, name, phone_number, email, password, dob, qualifications, phone_number_verification_status = False, 
+    def insert(self, faculty_id, name, phone_number, email, password, dob, phone_number_verification_status = False, 
     email_verification_status=False):
         # THIS INSERT METHOD INPUTS NECESSARY DETAILS OF FACULTY THROUGH INPUT
         # PARAMETERS AND THEN INSERTS IT INTO DATABASE IF IT IS NOT PRESENT IN DB.
@@ -34,7 +34,6 @@ class Provisional_Faculty:
         # EMAIL --> STRING
         # PASSWORD --> HASHED STRING
         # DOB --> DICTIONARY
-        # QUALIFICATIONS --> LIST OF STRINGS
         # PHONE_NUMBER_VERIFICATION_STATUS --> BOOLEAN
         # EMAIL_VERIFICATION_STATUS --> BOOLEAN
         #
@@ -47,28 +46,31 @@ class Provisional_Faculty:
         bcrypt = Bcrypt()
         hash_id = hash( str(faculty_id) + str(email) + str(phone_number) )
         # CHECKING THE PRESENCE OF DUPLICATE ENTRY IN DATABASE
-        res = self.collection.find({ 'hash_id': hash_id})
-        if res.count() > 0:
-            log(f'[  INFO  ] For Hash ID - {hash_id} Duplicate Entry Found At {config.Provisional_Faculty_Profile_Collection} Collecton in {config.Provisional_Faculty_DB}')
-            status  = self.collection.delete_many({ 'hash_id': hash_id })
-            log(f'[  INFO  ] {status}')
-            log(f' [  INFO  ] Hash_ID - {hash_id} Removed Successfully From {config.Faculty_Profile_Collection} Collection In {config.Provisional_Faculty_DB}')
-        document = {
-                "hash_id": hash_id,
-                "faculty_id": faculty_id,
-                "name": name,
-                "phone_number": phone_number,
-                "email": email,
-                "password": bcrypt.generate_password_hash(password).decode('utf-8'),
-                "dob": dob,
-                "qualifications": qualifications,
-                "phone_number_verification_status": phone_number_verification_status,
-                "email_verification_status": email_verification_status
-            }
-        status = self.collection.insert_one(document)
-        log(f'[  INFO  ] {status} ')                # PRINTING STATUS OF RESULT OF QUERY
-        log(f'[  ERROR ] Faculty_ID - {faculty_id} Successfully Inserted at {config.Faculty_Profile_Collection} Collection In {config.Provisional_Faculty_DB}')
-        return 201
+        try:
+            res = self.collection.find({ 'hash_id': hash_id})
+            if res.count() > 0:
+                log(f'[  INFO  ] For Hash ID - {hash_id} Duplicate Entry Found At Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
+                status  = self.collection.delete_many({ 'hash_id': hash_id })
+                log(f'[  INFO  ] {status}')
+                log(f'[  INFO  ] Hash_ID - {hash_id} Removed Successfully From Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
+            document = {
+                    "hash_id": hash_id,
+                    "faculty_id": faculty_id,
+                    "name": name,
+                    "phone_number": phone_number,
+                    "email": email,
+                    "password": bcrypt.generate_password_hash(password).decode('utf-8'),
+                    "dob": dob,
+                    "phone_number_verification_status": phone_number_verification_status,
+                    "email_verification_status": email_verification_status
+                }
+            status = self.collection.insert_one(document)
+            log(f'[  INFO  ] {status} ')                # PRINTING STATUS OF RESULT OF QUERY
+            log(f'[  INFO  ] Faculty_ID - {faculty_id} Successfully Inserted at Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
+            return 201
+        except:
+            log(f'[  ERROR ] API Failed to insert Faculty_ID - {faculty_id} at Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
+            return 417
 
     def query(self,query_parameter,query_value):
         # THIS QUERY FUNCTION INPUTS QUERY PARAMETER LIKE FACULTY_ID, NAME, ETC. AND QUERY VALUE
@@ -81,7 +83,7 @@ class Provisional_Faculty:
         #        
         try:
             res = self.collection.find({ query_parameter:query_value })
-            log(f'[  INFO  ] The Search Query With {query_parameter}:{query_value} Accomplished Successfully in {config.Provisional_Faculty_DB}')
+            log(f'[  INFO  ] The Search Query With {query_parameter}:{query_value} Accomplished Successfully at Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
             if res.count() > 0:
                 response = {
                     'status':212,
@@ -97,6 +99,7 @@ class Provisional_Faculty:
                 'status':206,
                 'res':None
             }
+            log(f'[  ERROR ] API Failed to Query {query_parameter}:{query_value} at Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
         return response
 
     def remove(self,query_parameter,query_value):
@@ -110,9 +113,10 @@ class Provisional_Faculty:
         try:
             status = self.collection.delete_many({ query_parameter:query_value })
             log(f'[  INFO  ] {status}')
-            log(f'[  INFO  ] Enrollment - {enrollment} Removed From {config.Faculty_Profile_Collection} Collection in {config.Provisional_Faculty_DB}')
+            log(f'[  INFO  ] {query_parameter}:{query_value} Removed Successfully from Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
             return 220
         except:
+            log(f'[  ERROR ] API Failed to remove {query_parameter}:{query_value} from Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
             return 203
 
     def update(self,hash_id,updation_param,updation_value):
@@ -129,14 +133,18 @@ class Provisional_Faculty:
         try:
             status = self.collection.update_one(searching_values, {'$set':updating_values})
             log(f'[  INFO  ] {status}')
-            log(f'[  INFO  ] Hash_ID - {hash_id} Updated With - {updation_param}:{updation_value} in {config.Provisional_Faculty_DB}')
+            log(f'[  INFO  ] Hash_ID - {hash_id} Updated With - {updation_param}:{updation_value} at Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
             return 301
         except:
-            log(f'[  ERROR ] Failed to Update Hash_ID - {hash_id} With - {updation_param}:{updation_value} in {config.Provisional_Faculty_DB}')
+            log(f'[  ERROR ] API Failed to Update Hash_ID - {hash_id} With - {updation_param}:{updation_value} at Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
             return 204
 
     def __del__(self):
-        self.client.close()
+        try:
+            self.client.close()
+            log(f'[  INFO  ] Closing Established Connection with Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
+        except:
+            log(f'[  ERROR ] API failed while Closing Established Connection with Collection - {config.Faculty_Profile_Collection} In Database - {config.Provisional_Faculty_DB}')
 
 if __name__ == "__main__":
 	# TEST CODE COMES HERE
