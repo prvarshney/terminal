@@ -356,6 +356,166 @@ def admin_aboutus():
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START
+@app.route("/faculty/register",methods=["POST"])
+def faculty_provisional_registration():
+    ## THIS ROUTE INPUTS FACULTY'S DETAILS AND THEN VERIFIES IT WITH MOBILE AND THE EMAIL ADDRESS.
+    ## FORM MUST CONTAIN THE FOLLOWING KEYS:-
+    ## {
+    ## "name": <STRING>,
+    ## "phone_number": <STRING>,
+    ## "email": <STRING>,
+    ## "password": <STRING>,
+    ## "dob": <STRING IN DD/MM/YY FORMAT>
+    ## "qualifications": <STRING>
+    ## }
+    faculty_id = request.form.get('faculty_id')
+    name = request.form.get('name')
+    phone_number = request.form.get('phone_number')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    dob = request.form.get('dob')
+    qualifications = request.form.get('qualifications').split(',')
+
+    ## PARSING NAME INTO F_NAME,M_NAME AND L_NAME
+    ## E.G. SOMYA SINGHAL INTO: { 'f_name':'SOMYA', 'm_name':'', 'l_name':'SINGHAL' }
+    name = name.split(' ')
+    if len(name) == 1:
+        name = {
+            'f_name': name[0],
+            'm_name': '',
+            'l_name': ''
+        }
+    else:
+        name = {
+            'f_name': name[0],
+            'm_name': ' '.join(name[1:-1]),
+            'l_name': name[-1]
+        }
+    ## PARSING DOB INTO DICTIONARY OBJECT
+    ## E.G. 09/11/2001 INTO { 'DAY' : '09', 'MONTH' : '11', 'YEAR':'2001' }
+    dob = dob.split('/')
+    dob = { 'day':dob[0], 'month':dob[1], 'year':dob[2]}
+    ## STORING THESE VALUES IN PROVISIONAL_FACULTY_DATABASE
+    provisional_faculty = db.Provisional_Faculty()
+    provisional_faculty.insert(
+        faculty_id= faculty_id,
+        name= name,
+        phone_number= phone_number,
+        email= email,
+        password= password,
+        dob= dob,
+        qualifications = qualifications
+    )
+    ## GENERATING OTP FOR EMAIL AND PHONE NUMBER VERIFICATIONS
+    email_otp = random.randrange(10000000,100000000)
+    phone_otp = random.randrange(10000000,100000000)
+    ## STORING OTPS IN DATABASE
+    otp_db = db.OTP()
+    otp_db.insert(
+        hash_id = hash( str(faculty_id) + str(email) + str(phone_number) ),
+        otp = phone_otp,
+        function = 'PHONE_VERIFICATION'
+    )
+    otp_db.insert(
+        hash_id = hash( str(faculty_id) + str(email) + str(phone_otp) ),
+        otp = email_otp,
+        function = 'EMAIL_VERIFICATION'
+    )
+    ## SENDING OTP TO THE USER
+    send_email_otp(
+        receiver = email,
+        user_name = name['f_name'],
+        otp = email_otp,
+        function = 'EMAIL_VERIFICATION'
+    )
+    ## SENDING SMS OTP TO THE USER
+    send_sms_otp(
+        receiver = phone_number,
+        user_name = name['f_name'],
+        otp = phone_otp,
+        function = 'PHONE_VERIFICATION'
+    )
+
+    return jsonify({
+        'status': 200,
+        'msg': 'provisional account created successfully, please verify your email and phone number.'
+    })
+
+@app.route('/faculty/verify_email',methods=['POST'])
+def faculty_verify_email():
+    ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
+    ## {
+    ##   "faculty_id": <STRING>,
+    ##   "email_id": <STRING>,
+    ##   "phone_number": <STRING>,
+    ##   "email_otp": <INTEGER>
+    ## }
+    req = request.get_json()
+    ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
+    otp_db = db.OTP()
+    hash_id = hash( req['faculty_id'] + req['email_id'] + req['phone_number'])
+    db_res = otp_db.query('hash_id',hash_id)
+    if db_res['status'] == 212:
+        for document in db_res['res']:
+            if document['function'] == 'EMAIL_VERIFICATION':
+                if int(document['otp']) == req['email_otp'] :
+                    ## UPDATING PROVISIONAL_FACULTY_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
+                    provisional_faculty = db.Provisional_Faculty()
+                    provisional_faculty.update(hash_id,'email_verification_status',True)
+                    ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
+                    otp_db.remove(hash_id,'EMAIL_VERIFICATION')
+                    return jsonify({
+                        'status':200,
+                        'msg': 'email address validated successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':401,
+                        'msg':'otp mismatch'
+                    })
+    return jsonify({
+        'status':404,
+        'msg':'otp not found in database, please try to regenerate otp'
+    })
+
+
+@app.route('/faculty/verify_phone',methods=['POST'])
+def faculty_verify_phone():
+    ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
+    ## {
+    ##   "faculty_id": <STRING>,
+    ##   "email_id": <STRING>,
+    ##   "phone_number": <STRING>,
+    ##   "sms_otp": <INTEGER>
+    ## }
+    req = request.get_json()
+    ## FETCHING EMAIL_OTP STORED IN THE DATABASE FOR VERIFICATION
+    otp_db = db.OTP()
+    hash_id = hash( req['faculty_id'] + req['email_id'] + req['phone_number'])
+    db_res = otp_db.query('hash_id',hash_id)
+    if db_res['status'] == 212:
+        for document in db_res['res']:
+            if document['function'] == 'PHONE_VERIFICATION':
+                if int(document['otp']) == req['sms_otp'] :
+                    ## UPDATING PROVISIONAL_FACULTY_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
+                    provisional_faculty = db.Provisional_Faculty()
+                    provisional_faculty.update(hash_id,'phone_number_verification_status',True)
+                    ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
+                    otp_db.remove(hash_id,'PHONE_VERIFICATION')
+                    return jsonify({
+                        'status':200,
+                        'msg': 'phone number validated successfully'
+                    })
+                else:
+                    return jsonify({
+                        'status':401,
+                        'msg':'otp mismatch'
+                    })
+    return jsonify({
+        'status':404,
+        'msg':'otp not found in database, please try to regenerate otp'
+    })
+
 @app.route("/faculty/login",methods=['POST'])
 def faculty_authentication():
     user_credentials = request.get_json()

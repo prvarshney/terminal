@@ -15,6 +15,7 @@ Marksheet_DB = "marksheet_db"
 Previous_Batches_DB = "previous_batches_db"
 Student_DB = "student_db"
 Provisional_Student_DB = "provisional_student_db"
+Provisional_Faculty_DB = "provisional_faculty_db"
 StudyMaterial_DB = "studymaterial_db"
 Admin_DB = "admin_db"
 OTP_DB = 'otp_db'
@@ -22,6 +23,7 @@ OTP_DB = 'otp_db'
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
 Provisional_Student_Profile_Collection = "user_info" 
+Provisional_Faculty_Profile_Collection = "user_info"
 Admin_Profile_Collection = "user_info"
 OTP_COLLECTION = "generated_otp"
 
