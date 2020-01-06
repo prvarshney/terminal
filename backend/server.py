@@ -466,6 +466,24 @@ def faculty_verify_email():
                     provisional_faculty.update(hash_id,'email_verification_status',True)
                     ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
                     otp_db.remove(hash_id,'EMAIL_VERIFICATION')
+                    ## CHECKING WHETHER EMAIL AND PHONE NUMBER BOTH GOT VERIFIED
+                    db_res = provisional_faculty.query('hash_id',hash_id)
+                    if db_res['status'] == 212:
+                        for document in db_res['res']:
+                            if document['PHONE_NUMBER_VERIFICATION_STATUS'] and document['EMAIL_VERIFICATION_STATUS']:
+                                ## THIS BLOCK EXECUTES WHEN BOTH EMAIL AND PHONE NUMBERS GOT VERIFIED
+                                faculty = db.Faculty()
+                                faculty.insert(
+                                    id=document['faculty_id'],
+                                    name=document['name'],
+                                    dob=document['dob'],
+                                    phone_number=document['phone_number'],
+                                    email=document['email'],
+                                    password=document['password'],
+                                )
+                                ## HENCE FACULTY DOCUMENT TRANSFERS FROM PROVISIONAL_DB TO FACULTY_DB
+                                ## NOW REMOVING FACULTY DOCUMENT FROM PROVISIONAL DB
+                                provisional_faculty.remove('hash_id',hash_id)
                     return jsonify({
                         'status':200,
                         'msg': 'email address validated successfully'
@@ -503,6 +521,24 @@ def faculty_verify_phone():
                     provisional_faculty.update(hash_id,'phone_number_verification_status',True)
                     ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
                     otp_db.remove(hash_id,'PHONE_VERIFICATION')
+                    ## CHECKING WHETHER EMAIL AND PHONE NUMBER BOTH GOT VERIFIED
+                    db_res = provisional_faculty.query('hash_id',hash_id)
+                    if db_res['status'] == 212:
+                        for document in db_res['res']:
+                            if document['PHONE_NUMBER_VERIFICATION_STATUS'] and document['EMAIL_VERIFICATION_STATUS']:
+                                ## THIS BLOCK EXECUTES WHEN BOTH EMAIL AND PHONE NUMBERS GOT VERIFIED
+                                faculty = db.Faculty()
+                                faculty.insert(
+                                    id=document['faculty_id'],
+                                    name=document['name'],
+                                    dob=document['dob'],
+                                    phone_number=document['phone_number'],
+                                    email=document['email'],
+                                    password=document['password'],
+                                )
+                                ## HENCE FACULTY DOCUMENT TRANSFERS FROM PROVISIONAL_DB TO FACULTY_DB
+                                ## NOW REMOVING FACULTY DOCUMENT FROM PROVISIONAL DB
+                                provisional_faculty.remove('hash_id',hash_id)
                     return jsonify({
                         'status':200,
                         'msg': 'phone number validated successfully'
