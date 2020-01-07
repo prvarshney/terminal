@@ -1187,6 +1187,56 @@ def student_view_profile():
             'msg':'Unsuccessful Search.'
         })
 
+@app.route("/student/update_profile",methods=['POST'])
+@jwt_required
+def student_update_profile():
+    ## THIS ROUTE IS USED TO UPDATE THE FOLLOWING VALUES IN DOCUMENT:
+    ## 1. TEMP_ADDRESS
+    ## 2. PERM_ADDRESS
+    ## 3. PHONE_NUMBERS
+    ## 4. BRANCH
+    ##
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     <UPDATION_PARAMETER_1>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_2>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_3>:<UPDATION_VALUE>,
+    ##       ...                       ...
+    ##     <UPDATION_PARAMETER_N>:<UPDATION_VALUE>,
+    ## }
+    ## FOR EXAMPLE :-
+    ## {
+    ## 	"temp_address":temp_address,
+    ##  "perm_address":perm_address,
+    ##  "phone_numbers":phone_numbers,
+    ##  "branch":branch
+    ## }
+    ##    
+    user_id = get_jwt_identity()
+    req = request.get_json()
+    ## CONNECTING WITH STUDENT_DB
+    student = db.Student()
+    flag = False                # FLAG THAT STATES WHETHER UPDATION QUERY WENT SUCCESSFUL OR NOT
+    for key in req:
+        if key!= 'password':
+            db_res = student.update(user_id,key,req[key])
+            if db_res==301:
+                flag = True
+        else:
+            return jsonify({
+                'msg': 'Password can be updated by reset method.'
+            })
+    if flag:
+        return jsonify({
+            'msg': 'Updation Successful',
+            'status': 301
+        })
+    else:
+        return jsonify({
+            'msg': 'some parameters failed to update, please try again.',
+            'status': 204
+        })
+
 @app.route("/student/aboutus",methods=['POST'])
 def student_aboutus():
     ## THIS ROUTE DOESN'T REQUIRE ANY JSON OR DATA FROM THE USER

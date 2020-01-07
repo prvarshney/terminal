@@ -311,3 +311,45 @@
 [ 08-01-2020 :: 01:53:25 ] [  INFO  ] faculty_db Connected Successfully
 [ 08-01-2020 :: 01:53:28 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
 [ 08-01-2020 :: 01:53:29 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 02:35:32 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:35:32 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:38:14 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:38:18 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faac4029508>
+[ 08-01-2020 :: 02:38:18 ] [  INFO  ] Enrollment - 03720802717 Updated With - name:preeti in student_db
+[ 08-01-2020 :: 02:40:00 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faac4011248>
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] Enrollment - 03720802717 Updated With - phone_numbers:8448036414 in student_db
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faac4011b48>
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] Enrollment - 03720802717 Updated With - password:password in student_db
+[ 08-01-2020 :: 02:40:41 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:40:41 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:41:00 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:41:00 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:44:45 ] [  INFO  ] current_batches_db Connected Successfully
+[ 08-01-2020 :: 02:44:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fd47949db08>
+[ 08-01-2020 :: 02:44:49 ] [  INFO  ] Batch - {'subject': 'engineering-chemistry', 'semster': 4, 'batch': 'mca_it_e_2024', '_id': ObjectId('5e14f4c9a7d9527a5802d093')} inserted at Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:44:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fd47949d088>
+[ 08-01-2020 :: 02:44:50 ] [  INFO  ] Batch - {'subject': 'engineering-chemistry', 'semster': 5, 'batch': 'bca_ece_d_2023', '_id': ObjectId('5e14f4caa7d9527a5802d094')} inserted at Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:44:51 ] [  ERROR ] Batch - {'subject': 'engineering-chemistry', 'semster': 4, 'batch': 'mca_it_e_2024'} Is Already Present at Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:44:52 ] [  INFO  ] Showing all Batches from Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:40 ] [  INFO  ] current_batches_db Connected Successfully
+[ 08-01-2020 :: 02:46:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8b3f552c88>
+[ 08-01-2020 :: 02:46:43 ] [  INFO  ] Batch - {'subject': 'java', 'semster': 2, 'batch': 'phd_it_d_2022', '_id': ObjectId('5e14f53b051f54fdafb88ab4')} inserted at Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:44 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8b3f552408>
+[ 08-01-2020 :: 02:46:44 ] [  INFO  ] Batch - {'subject': 'machine-learning', 'semster': 4, 'batch': 'bsc_ece_c_2023', '_id': ObjectId('5e14f53c051f54fdafb88ab5')} inserted at Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:44 ] [  ERROR ] Batch - {'subject': 'java', 'semster': 2, 'batch': 'phd_it_d_2022'} Is Already Present at Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:46 ] [  INFO  ] Showing all Batches from Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:46 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8b3f552288>
+[ 08-01-2020 :: 02:46:46 ] [  INFO  ] Batch - {'subject': 'java', 'semster': 2, 'batch': 'phd_it_d_2022'} has been removed successfully from Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:48 ] [  INFO  ] Collection - f068bpit dropped from Database - current_batches_db
+[ 08-01-2020 :: 02:46:50 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:46:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8b3ccb4e88>
+[ 08-01-2020 :: 02:46:53 ] [  ERROR ] Enrollment - 01720802717 Successfully Inserted at user_info Collection in student_db
+[ 08-01-2020 :: 02:46:54 ] [  ERROR ] Enrollment - 01720802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 08-01-2020 :: 02:47:04 ] [  INFO  ] The Search Query With enrollment:01720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:48:24 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:48:24 ] [  INFO  ] The Search Query With enrollment:01720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:49:51 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:49:55 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faabcdcf908>
+[ 08-01-2020 :: 02:49:55 ] [  INFO  ] Enrollment - 01720802717 Updated With - rollno:017 in student_db
+[ 08-01-2020 :: 02:52:48 ] [  INFO  ] student_db Connected Successfully
