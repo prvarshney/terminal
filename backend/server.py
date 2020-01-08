@@ -5,7 +5,7 @@ sys.path.append( os.path.join( os.getcwd(),'lib') )
 sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
 
 from database import DBQuery as db
-from flask import (Flask, jsonify, request)
+from flask import (Flask, jsonify, request, render_template, url_for)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
 from datetime import datetime,timedelta,timezone
@@ -17,6 +17,7 @@ import json
 import templates
 import requests
 from logger import log
+
 
 ## CLEARING CONSOLE BEFORE STARTING SERVER
 if os.name == 'nt':
@@ -60,6 +61,11 @@ def send_sms_otp(receiver,user_name,otp,function):
 ## OTHER METHODS -- END
 
 ## ADMIN ROUTES --START
+
+@app.route("/", methods=['GET'])
+def display_login_page():
+    return render_template("login.html")
+
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
