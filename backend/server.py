@@ -74,7 +74,6 @@ def admin_authentication():
     ##     "password":<ADMIN LOGIN PASSWORD>
     ## }
     user_credentials = request.get_json()
-    print(user_credentials)
     admin = db.Admin()
     ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED ADMIN_ID
     db_res = admin.query('admin_id',user_credentials['user_id'])
@@ -118,7 +117,7 @@ def admin_forgot_password_generate_otp(user_id):
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(
-            user_id=user_id,
+            hash_id=hash( user_id+'FORGOT_PASSWORD_HASH' ),
             otp=generated_otp,
             function='EMAIL_VERIFICATION'
         )
@@ -141,7 +140,7 @@ def admin_forgot_password_generate_otp(user_id):
         })
 
 ## ROUTE TO VERIFY DELIVERED OTP WITH GIVEN OTP
-@app.route('/admin/recover_password/',methods=['POST'])
+@app.route('/admin/recover_password',methods=['POST'])
 def admin_forgot_password_verify_otp():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -154,8 +153,9 @@ def admin_forgot_password_verify_otp():
     otp = req["otp"]
     new_password = req["new_password"]
     ## CHECKING OTP_DB FOR GIVEN USER_ID AND OTP COMBINATIONS
+    hash_id = hash( user_id+'FORGOT_PASSWORD_HASH' )
     otp_db = db.OTP()
-    db_res = otp_db.query('user_id',user_id)
+    db_res = otp_db.query('hash_id',hash_id)
     if db_res['status'] == 212 :        ## EXECUTES WHEN GIVEN USERID AVAILABLE IN OTP_DB
         ## CHECKING THE VALIDITY OF GIVEN OTP WITH OTP STORED IN DB
         stored_otp = None
@@ -167,7 +167,7 @@ def admin_forgot_password_verify_otp():
             db_res = admin.update_password(user_id,new_password)
             if db_res == 301:       ## EXECUTES WHEN PASSWORD UPDATED SUCCESSFULLY
                 ## REMOVING OTP STORED IN OTP_DB
-                otp_db.remove(user_id)
+                otp_db.remove(hash_id,'EMAIL_VERIFICATION')
                 return jsonify({
                     'status':db_res,
                     'msg':'password changes successfully'

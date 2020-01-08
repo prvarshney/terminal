@@ -24,3 +24,43 @@
 [ 09-01-2020 :: 00:02:14 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 09-01-2020 :: 00:03:41 ] [  INFO  ] admin_db Connected Successfully
 [ 09-01-2020 :: 00:03:44 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:23:46 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:23:48 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:23:49 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:23:50 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:24:21 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:24:24 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:26:43 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:26:46 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:26:46 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:32:18 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:32:21 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:32:21 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:32:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9d441c1b40>
+[ 09-01-2020 :: 01:32:27 ] [  INFO  ] For Hash_ID - -1373873169508067040 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 09-01-2020 :: 01:35:20 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:35:23 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 01:36:23 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:36:26 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:36:26 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:36:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9ad704fb80>
+[ 09-01-2020 :: 01:36:32 ] [  INFO  ] For Hash_ID - -6583637243507253911 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 09-01-2020 :: 01:37:04 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:37:07 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 01:37:07 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:37:10 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f9ad705aa00>
+[ 09-01-2020 :: 01:37:10 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 09-01-2020 :: 01:38:50 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:38:53 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 01:38:53 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:38:59 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f82a2421440>
+[ 09-01-2020 :: 01:38:59 ] [  INFO  ] For Hash_ID - 1528224965830045836 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 09-01-2020 :: 01:39:40 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 01:39:43 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 01:39:43 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:39:45 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f82a02d8b00>
+[ 09-01-2020 :: 01:39:45 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 09-01-2020 :: 01:39:46 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f82a02dbb40>
+[ 09-01-2020 :: 01:39:46 ] [  INFO  ] Hash_ID - 1528224965830045836 Removed Successfully from generated_otp Collection in otp_db
+[ 09-01-2020 :: 01:40:20 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 01:40:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
