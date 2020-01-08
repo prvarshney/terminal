@@ -176,7 +176,7 @@ if __name__ == "__main__":
             errors_list.append('CurrentBatches - Show_All Method')
         ## TESTING REMOVE METHOD
         print(f'[  INFO  ] Removing record of class from faculty class list.')
-        status = current_batches.remove(programme,branch,section,year_of_pass)
+        status = current_batches.remove(subject,semester,programme,branch,section,year_of_pass)
         print(f'[ STATUS ] {status}')       ## PRINTING STATUS OF REMOVE METHOD
         error_status = input("[  HALT  ] Check For Any Discrepancy In CurrentBatches_DB (Y/N) : ")
         if error_status in ['y','Y']:

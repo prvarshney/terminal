@@ -601,6 +601,27 @@ def faculty_authentication():
                     })
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
 
+@app.route("/faculty/view_profile",methods=['POST'])
+@jwt_required
+def faculty_view_profile():
+    ## THIS API IS USED TO VIEW ALL THE DETAILS OF THE FACULTY STORED IN FACULTY_DB.
+    ## IT DOESN'T TAKE ANY INPUT.
+    faculty_id = get_jwt_identity()
+    faculty = db.Faculty()
+    db_res = faculty.query('faculty_id',faculty_id)
+    new_document = {}
+    if db_res['status']==212:
+        for document in db_res['res']:
+            for key in document:
+                if key!='password' and key!='_id':
+                    new_document[key]= document[key]
+        return jsonify(new_document)
+    else:
+        return jsonify({
+            'msg': 'Unsuccessful Query for faculty_id or faculty_id is wrong.',
+            'status': 206
+        })
+
 @app.route("/faculty/reset_password",methods=['POST'])
 @jwt_required
 def faculty_update_password():
@@ -1133,6 +1154,88 @@ def student_authentication():
                     'msg':'login-successful'
                 })
     return jsonify({'status':'401', 'msg':'Invalid UserId/Password'})
+
+@app.route("/student/view_profile",methods=['POST'])
+@jwt_required
+def student_view_profile():
+    ## THIS API IS USED TO VIEW ALL THE DETAILS OF A STUDENT STORED IN THE DATABASE.
+    enrollment = get_jwt_identity()
+    student = db.Student()
+    db_res = student.query('enrollment',enrollment)
+    if db_res['status']==212:
+        for document in db_res['res']:            
+            return jsonify({
+                'enrollment': document['enrollment'],
+                'rollno': document['rollno'],
+                'name': document['name'],
+                'phone_numbers': document['phone_numbers'],
+                'email': document['email'],
+                'father_name': document['father_name'],
+                'year_of_join': document['year_of_join'],
+                'year_of_pass': document['year_of_pass'],
+                'programme': document['programme'],
+                'branch': document['branch'],
+                'section': document['section'],
+                'gender': document['gender'],
+                'dob': document['dob'],
+                'temp_address': document['temp_address'],
+                'perm_address': document['perm_address'] 
+            })
+    else:
+        return jsonify({
+            'status':db_res['status'],
+            'msg':'Unsuccessful Search.'
+        })
+
+@app.route("/student/update_profile",methods=['POST'])
+@jwt_required
+def student_update_profile():
+    ## THIS ROUTE IS USED TO UPDATE THE FOLLOWING VALUES IN DOCUMENT:
+    ## 1. TEMP_ADDRESS
+    ## 2. PERM_ADDRESS
+    ## 3. PHONE_NUMBERS
+    ## 4. BRANCH
+    ##
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     <UPDATION_PARAMETER_1>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_2>:<UPDATION_VALUE>,
+    ##     <UPDATION_PARAMETER_3>:<UPDATION_VALUE>,
+    ##       ...                       ...
+    ##     <UPDATION_PARAMETER_N>:<UPDATION_VALUE>,
+    ## }
+    ## FOR EXAMPLE :-
+    ## {
+    ## 	"temp_address":temp_address,
+    ##  "perm_address":perm_address,
+    ##  "phone_numbers":phone_numbers,
+    ##  "branch":branch
+    ## }
+    ##    
+    user_id = get_jwt_identity()
+    req = request.get_json()
+    ## CONNECTING WITH STUDENT_DB
+    student = db.Student()
+    flag = False                # FLAG THAT STATES WHETHER UPDATION QUERY WENT SUCCESSFUL OR NOT
+    for key in req:
+        if key!= 'password':
+            db_res = student.update(user_id,key,req[key])
+            if db_res==301:
+                flag = True
+        else:
+            return jsonify({
+                'msg': 'Password can be updated by reset method.'
+            })
+    if flag:
+        return jsonify({
+            'msg': 'Updation Successful',
+            'status': 301
+        })
+    else:
+        return jsonify({
+            'msg': 'some parameters failed to update, please try again.',
+            'status': 204
+        })
 
 @app.route("/student/aboutus",methods=['POST'])
 def student_aboutus():

@@ -1,0 +1,355 @@
+[ 07-01-2020 :: 14:01:23 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 14:01:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f7f4abc9ac8> 
+[ 07-01-2020 :: 14:01:26 ] [  INFO  ] Faculty_ID - somya123 Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:01:26 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:01:29 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f7f4abe7fc8>
+[ 07-01-2020 :: 14:01:29 ] [  INFO  ] For Hash_ID - 6564043464349373688 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:01:30 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f7f4abe7b48>
+[ 07-01-2020 :: 14:01:30 ] [  INFO  ] For Hash_ID - 6564043464349373688 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:01:40 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 07-01-2020 :: 14:01:40 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:02:46 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:02:49 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 14:02:49 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 14:02:51 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f7f4be3e488>
+[ 07-01-2020 :: 14:02:51 ] [  INFO  ] Hash_ID - 6564043464349373688 Updated With - phone_number_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:02:52 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f7f4abf65c8>
+[ 07-01-2020 :: 14:02:52 ] [  INFO  ] Hash_ID - 6564043464349373688 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:02:52 ] [  INFO  ] The Search Query With hash_id:6564043464349373688 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:02:53 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:03:44 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:03:47 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 14:03:47 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 14:03:50 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f7f4c0cf3c8>
+[ 07-01-2020 :: 14:03:50 ] [  INFO  ] Hash_ID - 6564043464349373688 Updated With - email_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:03:50 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f7f4abf6608>
+[ 07-01-2020 :: 14:03:50 ] [  INFO  ] Hash_ID - 6564043464349373688 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:03:50 ] [  INFO  ] The Search Query With hash_id:6564043464349373688 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:03:51 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:03:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f7f4856a4c8>
+[ 07-01-2020 :: 14:03:53 ] [  INFO  ] Faculty - somya123 Inserted at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:03:54 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f7f4be3e488>
+[ 07-01-2020 :: 14:03:54 ] [  INFO  ] hash_id:6564043464349373688 Removed Successfully from Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:03:55 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:03:55 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:28:47 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:29:10 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:29:12 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:29:13 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:30:14 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:30:18 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:30:19 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:39:02 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:39:05 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:39:05 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:39:16 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 07-01-2020 :: 14:39:18 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f177973e8c8>
+[ 07-01-2020 :: 14:39:18 ] [  INFO  ] For Hash_ID - -6608713636421956873 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:39:18 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:42:45 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:42:49 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 14:42:49 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:42:52 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f17811b4808>
+[ 07-01-2020 :: 14:42:52 ] [  INFO  ] Faculty - somya123 Updated With - password:$2b$12$bProjU8MIvhHziCMPYgRz.co0Lw1gVRUp7mVpMF.mq9t.Tuq5.qNS in faculty_db
+[ 07-01-2020 :: 14:42:52 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f177975e248>
+[ 07-01-2020 :: 14:42:52 ] [  INFO  ] Hash_ID - -6608713636421956873 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:42:53 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:43:14 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:43:16 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:43:17 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:43:59 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 14:44:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1779759488> 
+[ 07-01-2020 :: 14:44:03 ] [  INFO  ] Faculty_ID - somya1234 Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:44:03 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:44:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f177973ef88>
+[ 07-01-2020 :: 14:44:06 ] [  INFO  ] For Hash_ID - -4397106646252240042 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:44:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1781424e48>
+[ 07-01-2020 :: 14:44:07 ] [  INFO  ] For Hash_ID - -4397106646252240042 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:44:18 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 07-01-2020 :: 14:44:18 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:44:40 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:44:42 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 14:45:01 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:45:05 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 14:45:05 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 14:45:08 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f1779759308>
+[ 07-01-2020 :: 14:45:08 ] [  INFO  ] Hash_ID - -4397106646252240042 Updated With - phone_number_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:08 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f177975e6c8>
+[ 07-01-2020 :: 14:45:08 ] [  INFO  ] Hash_ID - -4397106646252240042 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:45:08 ] [  INFO  ] The Search Query With hash_id:-4397106646252240042 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:09 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:39 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 14:45:41 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 14:45:42 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 14:45:44 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f177975e548>
+[ 07-01-2020 :: 14:45:44 ] [  INFO  ] Hash_ID - -4397106646252240042 Updated With - email_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:44 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f17784f9e08>
+[ 07-01-2020 :: 14:45:44 ] [  INFO  ] Hash_ID - -4397106646252240042 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 14:45:44 ] [  INFO  ] The Search Query With hash_id:-4397106646252240042 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:45 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:45:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1778516988>
+[ 07-01-2020 :: 14:45:48 ] [  INFO  ] Faculty - somya1234 Inserted at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:45:48 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f17784f9588>
+[ 07-01-2020 :: 14:45:48 ] [  INFO  ] hash_id:-4397106646252240042 Removed Successfully from Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:48 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 14:45:49 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:46:34 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 14:46:38 ] [  INFO  ] The Search Query With faculty_id:somya1234 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 14:46:39 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:02:53 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:02:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f1779759408> 
+[ 07-01-2020 :: 15:02:57 ] [  INFO  ] Faculty_ID - somya1234 Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:02:57 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:03:00 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f17784f9108>
+[ 07-01-2020 :: 15:03:00 ] [  INFO  ] For Hash_ID - -4397106646252240042 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:03:00 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f177850cd88>
+[ 07-01-2020 :: 15:03:00 ] [  INFO  ] For Hash_ID - -4397106646252240042 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:03:11 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 07-01-2020 :: 15:03:12 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:04:43 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:04:47 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:04:47 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:04:50 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f1778516648>
+[ 07-01-2020 :: 15:04:50 ] [  INFO  ] Hash_ID - -4397106646252240042 Updated With - phone_number_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:04:50 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f17784f92c8>
+[ 07-01-2020 :: 15:04:50 ] [  INFO  ] Hash_ID - -4397106646252240042 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:04:50 ] [  INFO  ] The Search Query With hash_id:-4397106646252240042 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:04:51 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:05:37 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:05:40 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:05:40 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:05:43 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f177850cc88>
+[ 07-01-2020 :: 15:05:43 ] [  INFO  ] Hash_ID - -4397106646252240042 Updated With - email_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:05:43 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f17785168c8>
+[ 07-01-2020 :: 15:05:43 ] [  INFO  ] Hash_ID - -4397106646252240042 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:05:43 ] [  INFO  ] The Search Query With hash_id:-4397106646252240042 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:05:44 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:05:46 ] [  ERROR ] Faculty - somya1234 Insertion at Collection - user_info in Database - faculty_db failed - Duplicate Entry Found
+[ 07-01-2020 :: 15:05:46 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f17784f94c8>
+[ 07-01-2020 :: 15:05:46 ] [  INFO  ] hash_id:-4397106646252240042 Removed Successfully from Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:05:47 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:05:47 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:10:21 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:10:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fe700060cc8> 
+[ 07-01-2020 :: 15:10:24 ] [  INFO  ] Faculty_ID - somya1234 Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:10:24 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:10:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fe6fee057c8>
+[ 07-01-2020 :: 15:10:27 ] [  INFO  ] For Hash_ID - 4319047664679904154 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:10:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fe6fee05748>
+[ 07-01-2020 :: 15:10:27 ] [  INFO  ] For Hash_ID - 4319047664679904154 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:10:38 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 07-01-2020 :: 15:10:38 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:13:41 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:13:44 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:13:44 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:13:47 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fe6fedec6c8>
+[ 07-01-2020 :: 15:13:47 ] [  INFO  ] Hash_ID - 4319047664679904154 Updated With - email_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:13:47 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fe6fedec4c8>
+[ 07-01-2020 :: 15:13:47 ] [  INFO  ] Hash_ID - 4319047664679904154 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:13:47 ] [  INFO  ] The Search Query With hash_id:4319047664679904154 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:13:48 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:14:46 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:14:49 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:14:49 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:14:52 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fe6fc783ec8>
+[ 07-01-2020 :: 15:14:52 ] [  INFO  ] Hash_ID - 4319047664679904154 Updated With - phone_number_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:14:52 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fe6fc7834c8>
+[ 07-01-2020 :: 15:14:52 ] [  INFO  ] Hash_ID - 4319047664679904154 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:14:52 ] [  INFO  ] The Search Query With hash_id:4319047664679904154 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:14:52 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:14:55 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fe7000346c8>
+[ 07-01-2020 :: 15:14:55 ] [  INFO  ] Faculty - somya1234 Inserted at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:14:55 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fe6fc783ec8>
+[ 07-01-2020 :: 15:14:55 ] [  INFO  ] hash_id:4319047664679904154 Removed Successfully from Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:14:56 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:14:56 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:15:57 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:16:00 ] [  INFO  ] The Search Query With faculty_id:somya1234 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:16:01 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:22:16 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:22:19 ] [  INFO  ] The Search Query With faculty_id:somya1234 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:22:20 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:22:33 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:22:36 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f77172a8fc8> 
+[ 07-01-2020 :: 15:22:36 ] [  INFO  ] Faculty_ID - somya123 Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:22:36 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:22:39 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f77172abf08>
+[ 07-01-2020 :: 15:22:39 ] [  INFO  ] For Hash_ID - -7426047887912832157 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:22:40 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f77172abf08>
+[ 07-01-2020 :: 15:22:40 ] [  INFO  ] For Hash_ID - -7426047887912832157 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:22:50 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 07-01-2020 :: 15:22:51 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:23:14 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:23:16 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:23:28 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:23:31 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:23:32 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:23:34 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f77184f1948>
+[ 07-01-2020 :: 15:23:34 ] [  INFO  ] Hash_ID - -7426047887912832157 Updated With - phone_number_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:23:34 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f77172ab248>
+[ 07-01-2020 :: 15:23:34 ] [  INFO  ] Hash_ID - -7426047887912832157 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:23:34 ] [  INFO  ] The Search Query With hash_id:-7426047887912832157 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:23:35 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:23:55 ] [  INFO  ] otp_db Connected Successfully
+[ 07-01-2020 :: 15:23:58 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 07-01-2020 :: 15:23:58 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 07-01-2020 :: 15:24:00 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f77184f8648>
+[ 07-01-2020 :: 15:24:00 ] [  INFO  ] Hash_ID - -7426047887912832157 Updated With - email_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:24:01 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f77184f8848>
+[ 07-01-2020 :: 15:24:01 ] [  INFO  ] Hash_ID - -7426047887912832157 Removed Successfully from generated_otp Collection in otp_db
+[ 07-01-2020 :: 15:24:01 ] [  INFO  ] The Search Query With hash_id:-7426047887912832157 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:24:01 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:24:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f7717287088>
+[ 07-01-2020 :: 15:24:04 ] [  INFO  ] Faculty - somya123 Inserted at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:24:04 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f77184f8648>
+[ 07-01-2020 :: 15:24:04 ] [  INFO  ] hash_id:-7426047887912832157 Removed Successfully from Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:24:04 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 07-01-2020 :: 15:24:05 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:24:23 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:24:26 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:24:26 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:26:42 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:26:45 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:26:46 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:28:08 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:28:12 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:28:12 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:28:45 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:28:48 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:28:48 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:29:32 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:29:36 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:29:36 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:30:27 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:30:30 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:30:30 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:45:05 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:45:08 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:45:08 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:45:34 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:45:37 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:45:37 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:51:36 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:51:38 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:51:39 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:52:35 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:52:37 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:52:38 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:54:04 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:54:06 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:54:07 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:55:14 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:55:17 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:55:47 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:55:49 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:55:52 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:55:52 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:56:29 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:56:32 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:56:44 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:56:46 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:57:28 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:57:31 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:57:31 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:58:03 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 15:58:06 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 15:58:07 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:07:14 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:07:17 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:07:18 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:07:36 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:07:38 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:07:39 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:09:04 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:09:07 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:09:07 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:09:42 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:09:45 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:09:45 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:10:06 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:10:09 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:10:09 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:10:50 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:10:52 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:11:07 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:11:10 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:11:34 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:11:37 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:11:37 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:11:59 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:12:01 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:12:19 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:12:22 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:12:48 ] [  INFO  ] faculty_db Connected Successfully
+[ 07-01-2020 :: 16:12:50 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 07-01-2020 :: 16:12:51 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:42:41 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:42:45 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:42:46 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:43:15 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:43:19 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:43:20 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:44:02 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:44:06 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:44:07 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:44:37 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:44:41 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:44:42 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:44:54 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:44:57 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:44:58 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:46:02 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:46:06 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:46:06 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:48:35 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:48:39 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:48:40 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:49:22 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:49:26 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:49:26 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:53:02 ] [  ERROR ] Unable To Create Connection With faculty_db
+[ 08-01-2020 :: 01:53:25 ] [  INFO  ] faculty_db Connected Successfully
+[ 08-01-2020 :: 01:53:28 ] [  INFO  ] The Search Query With faculty_id:somya123 Accomplished Successfully at Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 01:53:29 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db
+[ 08-01-2020 :: 02:35:32 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:35:32 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:38:14 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:38:18 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faac4029508>
+[ 08-01-2020 :: 02:38:18 ] [  INFO  ] Enrollment - 03720802717 Updated With - name:preeti in student_db
+[ 08-01-2020 :: 02:40:00 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faac4011248>
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] Enrollment - 03720802717 Updated With - phone_numbers:8448036414 in student_db
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faac4011b48>
+[ 08-01-2020 :: 02:40:04 ] [  INFO  ] Enrollment - 03720802717 Updated With - password:password in student_db
+[ 08-01-2020 :: 02:40:41 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:40:41 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:41:00 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:41:00 ] [  INFO  ] The Search Query With enrollment:03720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:44:45 ] [  INFO  ] current_batches_db Connected Successfully
+[ 08-01-2020 :: 02:44:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fd47949db08>
+[ 08-01-2020 :: 02:44:49 ] [  INFO  ] Batch - {'subject': 'engineering-chemistry', 'semster': 4, 'batch': 'mca_it_e_2024', '_id': ObjectId('5e14f4c9a7d9527a5802d093')} inserted at Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:44:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fd47949d088>
+[ 08-01-2020 :: 02:44:50 ] [  INFO  ] Batch - {'subject': 'engineering-chemistry', 'semster': 5, 'batch': 'bca_ece_d_2023', '_id': ObjectId('5e14f4caa7d9527a5802d094')} inserted at Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:44:51 ] [  ERROR ] Batch - {'subject': 'engineering-chemistry', 'semster': 4, 'batch': 'mca_it_e_2024'} Is Already Present at Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:44:52 ] [  INFO  ] Showing all Batches from Collection - f021bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:40 ] [  INFO  ] current_batches_db Connected Successfully
+[ 08-01-2020 :: 02:46:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8b3f552c88>
+[ 08-01-2020 :: 02:46:43 ] [  INFO  ] Batch - {'subject': 'java', 'semster': 2, 'batch': 'phd_it_d_2022', '_id': ObjectId('5e14f53b051f54fdafb88ab4')} inserted at Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:44 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8b3f552408>
+[ 08-01-2020 :: 02:46:44 ] [  INFO  ] Batch - {'subject': 'machine-learning', 'semster': 4, 'batch': 'bsc_ece_c_2023', '_id': ObjectId('5e14f53c051f54fdafb88ab5')} inserted at Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:44 ] [  ERROR ] Batch - {'subject': 'java', 'semster': 2, 'batch': 'phd_it_d_2022'} Is Already Present at Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:46 ] [  INFO  ] Showing all Batches from Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:46 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8b3f552288>
+[ 08-01-2020 :: 02:46:46 ] [  INFO  ] Batch - {'subject': 'java', 'semster': 2, 'batch': 'phd_it_d_2022'} has been removed successfully from Collection - f068bpit in Database - current_batches_db
+[ 08-01-2020 :: 02:46:48 ] [  INFO  ] Collection - f068bpit dropped from Database - current_batches_db
+[ 08-01-2020 :: 02:46:50 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:46:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8b3ccb4e88>
+[ 08-01-2020 :: 02:46:53 ] [  ERROR ] Enrollment - 01720802717 Successfully Inserted at user_info Collection in student_db
+[ 08-01-2020 :: 02:46:54 ] [  ERROR ] Enrollment - 01720802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found
+[ 08-01-2020 :: 02:47:04 ] [  INFO  ] The Search Query With enrollment:01720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:48:24 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:48:24 ] [  INFO  ] The Search Query With enrollment:01720802717 Accomplished Successfully in student_db
+[ 08-01-2020 :: 02:49:51 ] [  INFO  ] student_db Connected Successfully
+[ 08-01-2020 :: 02:49:55 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7faabcdcf908>
+[ 08-01-2020 :: 02:49:55 ] [  INFO  ] Enrollment - 01720802717 Updated With - rollno:017 in student_db
+[ 08-01-2020 :: 02:52:48 ] [  INFO  ] student_db Connected Successfully

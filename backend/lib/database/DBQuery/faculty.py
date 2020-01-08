@@ -69,7 +69,7 @@ class Faculty:
 				"date_of_birth":dob,
 				"phone_number":phone_number,
 				"email":email,
-				"password":bcrypt.generate_password_hash(password).decode('utf-8'),
+				"password":password,
 				"subjects":subjects,
 				"qualifications":qualifications,
 				"time-table":time_table,
