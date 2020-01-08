@@ -5,7 +5,7 @@ sys.path.append( os.path.join( os.getcwd(),'lib') )
 sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
 
 from database import DBQuery as db
-from flask import (Flask, jsonify, request, render_template, url_for)
+from flask import (Flask, jsonify, request, render_template, url_for, make_response)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
 from datetime import datetime,timedelta,timezone
@@ -74,6 +74,7 @@ def admin_authentication():
     ##     "password":<ADMIN LOGIN PASSWORD>
     ## }
     user_credentials = request.get_json()
+    print(user_credentials)
     admin = db.Admin()
     ## FETCHING PASSWORD FROM DATABASE FOR THE REQUESTED ADMIN_ID
     db_res = admin.query('admin_id',user_credentials['user_id'])
@@ -90,7 +91,7 @@ def admin_authentication():
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
                     })
-    return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
+    return make_response(jsonify({ 'status':401,'msg':'Invalid UserID/Password' }))
 
 ## ROUTE TO GENERATE OTP FOR A PARTICULAR USESR_ID
 @app.route('/admin/forgot_password/<user_id>',methods=['GET'])

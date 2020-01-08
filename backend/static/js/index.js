@@ -1,11 +1,22 @@
-console.log("Hello World");
-// document.getElementById("submit_btn").addEventListener("click", function(){
-//     // let user_id = document.getElementById('user_id');
-//     console.log("Hello World");
-// });
-let submit = document.getElementById("submit_btn");
-let user_id = document.getElementById("user_id");
-submit.addEventListener("click", function (){
-    console.log(user_id.value);
-})
-console.log(user_id.value);
+// FOLLOWING CODE SENDS LOGIN CREDENTIALS TO SERVER ON SUBMIT
+let userid = document.getElementById('userid');
+let password = document.getElementById('password');
+let rememberMeStatus = document.getElementById('remember-me-status');
+let submitBtn = document.getElementById('submit-btn');
+submitBtn.addEventListener('click',()=>{
+    userCredentials = {
+        'user_id':userid.value,
+        'password':password.value
+    }
+    fetch('/admin/login', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userCredentials)
+    }).then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+    })
+});

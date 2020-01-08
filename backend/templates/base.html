@@ -11,9 +11,12 @@
     {% block head %}
     {% endblock %}
 </head>
-<body class="h-100 w-100 light-gray-bg">
+<body class="light-gray-bg">
     {% block body %}
     {% endblock %}
+    <script src="{{ url_for('static',filename='js/jquery-1.11.2.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename='js/jquery-migrate-1.2.1.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename='js/templatemo-script.js')}}" type="text/javascript"></script>
     <script src="{{ url_for('static',filename='js/index.js')}}" type="text/javascript"></script>
 </body>
 </html>

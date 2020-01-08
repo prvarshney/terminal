@@ -2,41 +2,40 @@
 {% extends 'base.html' %}
 	{% block head %}
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-		<title>Admin-Login</title>
-
+		<title>Login</title>
 	{% endblock %}
+
 	{% block body %}    	 
 		<div class="templatemo-content-widget templatemo-login-widget white-bg">
 			<header class="text-center">
 	          <div class="square"></div>
-	          <h1>Admin-Login</h1>
+	          <h1>Admin Panel</h1>
 	        </header>
-	        <form class="templatemo-login-form">
+	        <div class="templatemo-login-form">
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input type="text" class="form-control" id="user_id" placeholder="js@dashboard.com">           
+		              	<input type="text" class="form-control" id="userid" placeholder="js@dashboard.com" />           
 		          	</div>	
 	        	</div>
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input type="password" class="form-control" id="password" placeholder="******">           
+		              	<input type="password" class="form-control" id="password" placeholder="******" />           
 		          	</div>	
 	        	</div>	          	
 	          	<div class="form-group">
 				    <div class="checkbox squaredTwo">
 				        <input type="checkbox" id="c1" name="cc" />
-						<label for="c1"><span></span>Remember me</label>
+						<label for="c1" id="remember-me-status"><span></span>Remember me</label>
 				    </div>				    
 				</div>
 				<div class="form-group">
-					<button id="submit_btn" class="templatemo-blue-button width-100">Login</button>
+					<button id="submit-btn" class="templatemo-blue-button width-100">Login</button>
 				</div>
-	        </form>
+	        </div>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>Not a registered user yet? <strong><a href="#" class="blue-text">Sign up now!</a></strong></p>
+			<p>Forgotten your login details? <strong><a href="#" class="blue-text">Get help with signing in.</a></strong></p>
 		</div>
-	
 	{% endblock %}
