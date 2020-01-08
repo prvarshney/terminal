@@ -610,15 +610,15 @@ def faculty_view_profile():
     faculty = db.Faculty()
     db_res = faculty.query('faculty_id',faculty_id)
     new_document = {}
-    if db_res['status']==212:
+    if db_res['status'] == 212:
         for document in db_res['res']:
             for key in document:
-                if key!='password' and key!='_id':
+                if key != 'password' and key != '_id':
                     new_document[key]= document[key]
         return jsonify(new_document)
     else:
         return jsonify({
-            'msg': 'Unsuccessful Query for faculty_id or faculty_id is wrong.',
+            'msg': 'API failed to query please try again later.',
             'status': 206
         })
 
@@ -691,9 +691,12 @@ def faculty_update_profile():
     faculty = db.Faculty()
     flag = False        # FLAG THAT STATES WHETHER UPDATION QUERY WENT SUCCESSFUL OR NOT
     for key in req:
-        db_res = faculty.update(user_id,key,req[key])
-        if db_res != 301:
-            flag = True
+        if key in ['subjects','qualifications','time-table','classes']:
+            db_res = faculty.update(user_id,key,req[key])
+            if db_res != 301:
+                flag = True
+            else:
+                flag = True     # SIGNIFIES THAT A VALUE OUTSIDE THE VALUES ALLOWED IS TRYIED TO UPDATE
     if flag:
         return jsonify({
             "status":204,
@@ -1096,7 +1099,6 @@ def student_verify_email():
         'msg':'otp not found in database, please try to regenerate otp'
     })
 
-
 @app.route('/student/verify_phone',methods=['POST'])
 def student_verify_phone():
     ## THIS ROUTE INPUTS JSON VALUES THROUGH POST REQUEST 
@@ -1158,11 +1160,11 @@ def student_authentication():
 @app.route("/student/view_profile",methods=['POST'])
 @jwt_required
 def student_view_profile():
-    ## THIS API IS USED TO VIEW ALL THE DETAILS OF A STUDENT STORED IN THE DATABASE.
+    ## THIS API IS USED TO VIEW PROFILE DETAILS OF A STUDENT STORED IN THE DATABASE.
     enrollment = get_jwt_identity()
     student = db.Student()
     db_res = student.query('enrollment',enrollment)
-    if db_res['status']==212:
+    if db_res['status'] == 212:
         for document in db_res['res']:            
             return jsonify({
                 'enrollment': document['enrollment'],
@@ -1184,7 +1186,7 @@ def student_view_profile():
     else:
         return jsonify({
             'status':db_res['status'],
-            'msg':'Unsuccessful Search.'
+            'msg':'unable to present your profile now. please retry after some time'
         })
 
 @app.route("/student/update_profile",methods=['POST'])
@@ -1193,8 +1195,8 @@ def student_update_profile():
     ## THIS ROUTE IS USED TO UPDATE THE FOLLOWING VALUES IN DOCUMENT:
     ## 1. TEMP_ADDRESS
     ## 2. PERM_ADDRESS
-    ## 3. PHONE_NUMBERS
-    ## 4. BRANCH
+    ## 3. FATHERS_NAME
+    ## 4. DOB
     ##
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -1206,10 +1208,10 @@ def student_update_profile():
     ## }
     ## FOR EXAMPLE :-
     ## {
-    ## 	"temp_address":temp_address,
-    ##  "perm_address":perm_address,
-    ##  "phone_numbers":phone_numbers,
-    ##  "branch":branch
+    ##  "dob": <DICTIONARY>
+    ## 	"temp_address":<STRING>,
+    ##  "perm_address":<STRING>,
+    ##  "father_name":<STRING>
     ## }
     ##    
     user_id = get_jwt_identity()
@@ -1218,23 +1220,21 @@ def student_update_profile():
     student = db.Student()
     flag = False                # FLAG THAT STATES WHETHER UPDATION QUERY WENT SUCCESSFUL OR NOT
     for key in req:
-        if key!= 'password':
+        if key in ['dob','temp_address','perm_address','father_name']:
             db_res = student.update(user_id,key,req[key])
-            if db_res==301:
+            if db_res != 301:
                 flag = True
         else:
-            return jsonify({
-                'msg': 'Password can be updated by reset method.'
-            })
+            flag = True     # EXECUTES WHEN A VALUE OUTSIDE THE VALUES ALLOWED IS TRYING TO UPDATE
     if flag:
         return jsonify({
-            'msg': 'Updation Successful',
-            'status': 301
+            "status":204,
+            "msg":"some parameters failed to update, please try again."
         })
     else:
         return jsonify({
-            'msg': 'some parameters failed to update, please try again.',
-            'status': 204
+            "status":301,
+            "msg":"updation successful"
         })
 
 @app.route("/student/aboutus",methods=['POST'])
