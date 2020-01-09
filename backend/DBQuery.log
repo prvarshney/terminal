@@ -1,66 +1,40 @@
-[ 08-01-2020 :: 23:35:43 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:35:45 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:42:16 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:43:38 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:46:35 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:46:36 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:46:37 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:46:37 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:46:37 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:46:39 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:46:40 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:46:40 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:47:15 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:47:17 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:50:33 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:50:35 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:52:53 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:52:55 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:53:06 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:53:08 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 08-01-2020 :: 23:54:25 ] [  INFO  ] admin_db Connected Successfully
-[ 08-01-2020 :: 23:54:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 00:02:12 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 00:02:14 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 00:03:41 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 00:03:44 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:23:46 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:23:48 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:23:49 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:23:50 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:24:21 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:24:24 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:26:43 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:26:46 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:26:46 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:32:18 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:32:21 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:32:21 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:32:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9d441c1b40>
-[ 09-01-2020 :: 01:32:27 ] [  INFO  ] For Hash_ID - -1373873169508067040 OTP Inserted Successfully at generated_otp Collection in otp_db
-[ 09-01-2020 :: 01:35:20 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:35:23 ] [  INFO  ] The Search Query Completed Successfully in otp_db
-[ 09-01-2020 :: 01:36:23 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:36:26 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:36:26 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:36:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9ad704fb80>
-[ 09-01-2020 :: 01:36:32 ] [  INFO  ] For Hash_ID - -6583637243507253911 OTP Inserted Successfully at generated_otp Collection in otp_db
-[ 09-01-2020 :: 01:37:04 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:37:07 ] [  INFO  ] The Search Query Completed Successfully in otp_db
-[ 09-01-2020 :: 01:37:07 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:37:10 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f9ad705aa00>
-[ 09-01-2020 :: 01:37:10 ] [  INFO  ] Password Updation Completed Successfully in admin_db
-[ 09-01-2020 :: 01:38:50 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:38:53 ] [  INFO  ] The Search Query Completed Successfully in admin_db
-[ 09-01-2020 :: 01:38:53 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:38:59 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f82a2421440>
-[ 09-01-2020 :: 01:38:59 ] [  INFO  ] For Hash_ID - 1528224965830045836 OTP Inserted Successfully at generated_otp Collection in otp_db
-[ 09-01-2020 :: 01:39:40 ] [  INFO  ] otp_db Connected Successfully
-[ 09-01-2020 :: 01:39:43 ] [  INFO  ] The Search Query Completed Successfully in otp_db
-[ 09-01-2020 :: 01:39:43 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:39:45 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f82a02d8b00>
-[ 09-01-2020 :: 01:39:45 ] [  INFO  ] Password Updation Completed Successfully in admin_db
-[ 09-01-2020 :: 01:39:46 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f82a02dbb40>
-[ 09-01-2020 :: 01:39:46 ] [  INFO  ] Hash_ID - 1528224965830045836 Removed Successfully from generated_otp Collection in otp_db
-[ 09-01-2020 :: 01:40:20 ] [  INFO  ] admin_db Connected Successfully
-[ 09-01-2020 :: 01:40:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 11:53:00 ] [  INFO  ] admin_db Connected Successfully
+[ 09-01-2020 :: 11:53:04 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 09-01-2020 :: 12:03:13 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 09-01-2020 :: 12:03:22 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fdcb43b7fc0> 
+[ 09-01-2020 :: 12:03:22 ] [  INFO  ] Faculty_ID - user123 Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:03:22 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 12:03:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fdcb4b9a7c0>
+[ 09-01-2020 :: 12:03:26 ] [  INFO  ] For Hash_ID - 4303092815850065881 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 09-01-2020 :: 12:03:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fdcb4ba49c0>
+[ 09-01-2020 :: 12:03:27 ] [  INFO  ] For Hash_ID - 4303092815850065881 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 09-01-2020 :: 12:03:36 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 09-01-2020 :: 12:03:37 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:19:30 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 12:19:34 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 12:19:34 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 09-01-2020 :: 12:19:43 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fdcb4c289c0>
+[ 09-01-2020 :: 12:19:43 ] [  INFO  ] Hash_ID - 4303092815850065881 Updated With - phone_number_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:19:43 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fdcb4c289c0>
+[ 09-01-2020 :: 12:19:43 ] [  INFO  ] Hash_ID - 4303092815850065881 Removed Successfully from generated_otp Collection in otp_db
+[ 09-01-2020 :: 12:19:43 ] [  INFO  ] The Search Query With hash_id:4303092815850065881 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:19:45 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:21:53 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 12:21:57 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 12:23:01 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 12:23:05 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 12:23:21 ] [  INFO  ] otp_db Connected Successfully
+[ 09-01-2020 :: 12:23:25 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 09-01-2020 :: 12:23:26 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 09-01-2020 :: 12:23:34 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fdcb4c28140>
+[ 09-01-2020 :: 12:23:34 ] [  INFO  ] Hash_ID - 4303092815850065881 Updated With - email_verification_status:True at Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:23:35 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fdcb4c28140>
+[ 09-01-2020 :: 12:23:35 ] [  INFO  ] Hash_ID - 4303092815850065881 Removed Successfully from generated_otp Collection in otp_db
+[ 09-01-2020 :: 12:23:35 ] [  INFO  ] The Search Query With hash_id:4303092815850065881 Accomplished Successfully at Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:23:38 ] [  INFO  ] faculty_db Connected Successfully
+[ 09-01-2020 :: 12:23:42 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fdcb4bd0440>
+[ 09-01-2020 :: 12:23:42 ] [  INFO  ] Faculty - user123 Inserted at Collection - user_info in Database - faculty_db
+[ 09-01-2020 :: 12:23:42 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fdcb4ba88c0>
+[ 09-01-2020 :: 12:23:42 ] [  INFO  ] hash_id:4303092815850065881 Removed Successfully from Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:23:43 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 09-01-2020 :: 12:23:43 ] [  INFO  ] Closing Established Connection with Collection - user_info in Database - faculty_db

@@ -66,6 +66,11 @@ def send_sms_otp(receiver,user_name,otp,function):
 def display_login_page():
     return render_template("login.html")
 
+@app.route("/dashboard",methods=['GET'])
+# @jwt_required
+def display_main_page():
+    return render_template("vertical_nav.html")
+
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
