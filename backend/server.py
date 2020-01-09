@@ -85,7 +85,7 @@ def admin_authentication():
                 access_token = create_access_token(identity=user_credentials['user_id'])
                 refresh_token = create_refresh_token(identity=user_credentials['user_id'])
                 return jsonify({
-                    'status':'200',
+                    'status':200,
                     'access-token':access_token,
                     'refresh_token':refresh_token,
                     'msg':'login-successful'
