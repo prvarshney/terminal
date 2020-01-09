@@ -23,7 +23,11 @@ submitBtn.addEventListener('click',()=>{
         console.log(data);
         if (data['status']){
             // IT STOPS THE LOADER AS SOON AS THE STATUS IF FOUND AFTER SUBMITTING THE LOGIN BUTTON.
-            loader.style.display = 'none';    
+            loader.style.display = 'none';               
         }
+        if (data['status']==200){
+            console.log('Logged In');
+            window.location.href = "http://localhost:5000"
+        } 
     })
 });
