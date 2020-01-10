@@ -71,6 +71,10 @@ def display_login_page():
 def display_main_page():
     return render_template("dashboard.html")
 
+@app.route("/deleteOne",methods=['GET'])
+def delete_one_entity():
+    return render_template("DeleteOne.html")
+
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
