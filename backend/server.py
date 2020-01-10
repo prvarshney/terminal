@@ -69,7 +69,7 @@ def display_login_page():
 @app.route("/dashboard",methods=['GET'])
 # @jwt_required
 def display_main_page():
-    return render_template("vertical_nav.html")
+    return render_template("dashboard.html")
 
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():

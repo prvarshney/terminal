@@ -1,0 +1,61 @@
+{% extends 'vertical_nav.html' %}
+{% block content %}
+    <div class="templatemo-content col-1 light-gray-bg">  
+        
+            <div class="templatemo-top-nav-container">
+              <div class="row">
+                <nav class="templatemo-top-nav col-lg-12 col-md-12">
+                  <ul class="text-uppercase">
+                    <li><a href="" class="active">Dashboard</a></li>
+                    <li><a href="/" >Sign Out</a></li>
+                    <!-- <li><a href="">Overview</a></li>
+                    <li><a href="login.html">Sign in form</a></li> -->
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          
+        <div class="templatemo-content-container">
+            <div class="templatemo-flex-row flex-content-row">
+              <div class="templatemo-content-widget white-bg col-1 text-center">
+                <i class="fa fa-times"></i>
+                <h2 class="text-uppercase">Add Batches</h2>
+                <!-- <h3 class="text-uppercase margin-bottom-10">Design Project</h3> -->
+                <img src={{ url_for('static', filename="images/bicycle.jpg")}} alt="Bicycle" class="img-circle img-thumbnail">
+              </div> 
+              <div class="col-1 "></div>
+              <div class="templatemo-content-widget white-bg col-1 text-center">
+                <i class="fa fa-times"></i>
+                <h2 class="text-uppercase">Remove</h2>
+                <!-- <h3 class="text-uppercase margin-bottom-10">Design Project</h3> -->
+                <img src={{ url_for('static', filename="images/bicycle.jpg")}} alt="Bicycle" class="img-circle img-thumbnail">
+              </div>
+            </div>
+            <div class="templatemo-flex-row flex-content-row">
+              <div class=" col-1"></div>
+              <div class="templatemo-content-widget col-1 white-bg text-center">
+                <i class="fa fa-times"></i>
+                <h2 class="text-uppercase">Show All</h2>
+                <!-- <h3 class="text-uppercase margin-bottom-10">Design Project</h3> -->
+                <img src={{ url_for('static', filename="images/bicycle.jpg")}} alt="Bicycle" class="img-circle img-thumbnail">
+              </div>
+              <div class="col-1"></div>  
+            </div>
+            <div class="templatemo-flex-row flex-content-row">
+                <div class="templatemo-content-widget white-bg col-1 text-center">
+                  <i class="fa fa-times"></i>
+                  <h2 class="text-uppercase">Add Batches</h2>
+                  <!-- <h3 class="text-uppercase margin-bottom-10">Design Project</h3> -->
+                  <img src={{ url_for('static', filename="images/bicycle.jpg")}} alt="Bicycle" class="img-circle img-thumbnail">
+                </div> 
+                <div class="col-1 "></div>
+                <div class="templatemo-content-widget white-bg col-1 text-center">
+                  <i class="fa fa-times"></i>
+                  <h2 class="text-uppercase">Remove</h2>
+                  <!-- <h3 class="text-uppercase margin-bottom-10">Design Project</h3> -->
+                  <img src={{ url_for('static', filename="images/bicycle.jpg")}} alt="Bicycle" class="img-circle img-thumbnail">
+                </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}

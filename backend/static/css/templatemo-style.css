@@ -98,7 +98,11 @@ footer { padding: 15px; }
 	height: 15px;
 	border-radius: 50%;
 }
-.templatemo-site-header { margin: 25px 30px; }
+.templatemo-site-header 
+{ 
+	background-color: #333;
+	padding: 25px 30px; 
+}
 .templatemo-site-header h1 {
 	color: white;
 	display: inline-block;
