@@ -335,3 +335,13 @@
 [ 11-01-2020 :: 10:33:50 ] [  INFO  ] For Hash_ID - 1921111091411582499 OTP Inserted Successfully at generated_otp Collection in otp_db
 [ 11-01-2020 :: 10:34:27 ] [  INFO  ] otp_db Connected Successfully
 [ 11-01-2020 :: 10:34:31 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 10-01-2020 :: 12:28:18 ] [  INFO  ] admin_db Connected Successfully
+[ 10-01-2020 :: 12:28:23 ] [  INFO  ] admin_db Connected Successfully
+[ 10-01-2020 :: 12:28:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 10-01-2020 :: 12:28:26 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 10-01-2020 :: 12:28:35 ] [  INFO  ] admin_db Connected Successfully
+[ 10-01-2020 :: 12:28:39 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 10-01-2020 :: 12:28:47 ] [  INFO  ] admin_db Connected Successfully
+[ 10-01-2020 :: 12:28:50 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 10-01-2020 :: 12:29:08 ] [  INFO  ] admin_db Connected Successfully
+[ 10-01-2020 :: 12:29:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db

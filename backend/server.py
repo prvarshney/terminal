@@ -69,7 +69,11 @@ def display_login_page():
 @app.route("/dashboard",methods=['GET'])
 # @jwt_required
 def display_main_page():
-    return render_template("vertical_nav.html")
+    return render_template("dashboard.html")
+
+@app.route("/deleteOne",methods=['GET'])
+def delete_one_entity():
+    return render_template("DeleteOne.html")
 
 @app.route("/forgot_password",methods=['GET'])
 def display_forgot_password_page():
