@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+    {% block head %}
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+        <title>Forgot Password</title>
+    {% endblock %}
+
+    {% block body %}
+        <div class="templatemo-content-widget templatemo-login-widget white-bg">
+            <header class="text-center">
+                <div class="square"></div>
+                <h1>Forgot Password</h1>
+                <h5>You can reset your password here.</h5>
+            </header>
+            <div class="templatemo-login-form">	 
+                <div class="form-group">       	
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
+                        <input type="text" class="form-control" id="userid" placeholder="User ID" />           
+                    </div>	
+                </div>
+	        		  	       		          	
+				<div class="form-group">
+					<button id="submitOtp" class="templatemo-blue-button width-100">Send OTP</button>
+				</div>
+	        </div>
+        </div>
+        <div id="setPassword">
+            <div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
+                <header class="text-center">
+                    <div class="square"></div>
+                    <h1>Set Password</h1>
+                </header>
+                <div class="templatemo-login-form">	 
+                    <div class="form-group">       	
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></div>	        		
+                            <input type="text" class="form-control" id="enterOTP" placeholder="Enter OTP" />           
+                        </div>	
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
+                            <input type="password" class="form-control" id="newPassword" placeholder="New Password" />           
+                        </div>	
+                    </div>	
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" />           
+                        </div>	
+                    </div>	  	       		          	
+                    <div class="form-group">
+                        <button id="setPassword2" class="templatemo-blue-button width-100">Set Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
