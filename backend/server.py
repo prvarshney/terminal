@@ -75,6 +75,10 @@ def display_main_page():
 def delete_one_entity():
     return render_template("DeleteOne.html")
 
+@app.route("/forgot_password",methods=['GET'])
+def display_forgot_password_page():
+    return render_template("forgot.html")
+
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
@@ -170,10 +174,12 @@ def admin_forgot_password_verify_otp():
         stored_otp = None
         for document in db_res['res']:
             stored_otp = document['otp']
+            print(stored_otp,otp)
         if otp == stored_otp:       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
             ## CHANGING PASSWORD OF THE GIVEN USER
             admin = db.Admin()
             db_res = admin.update_password(user_id,new_password)
+            print(db_res)
             if db_res == 301:       ## EXECUTES WHEN PASSWORD UPDATED SUCCESSFULLY
                 ## REMOVING OTP STORED IN OTP_DB
                 otp_db.remove(hash_id,'EMAIL_VERIFICATION')
