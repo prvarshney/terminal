@@ -5,7 +5,7 @@ sys.path.append( os.path.join( os.getcwd(),'lib') )
 sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
 
 from database import DBQuery as db
-from flask import (Flask, jsonify, request, render_template, url_for, make_response)
+from flask import (Flask, jsonify, request, render_template, url_for, make_response, redirect)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
 from datetime import datetime,timedelta,timezone
@@ -25,8 +25,15 @@ if os.name == 'nt':
 elif os.name == 'posix':
     os.system('clear')
 
+## APP CONFIG VARIABLES
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = "22ca63228513b2fc43ee446c8ed5b4a10ab8b6886da75ddcfec4c660db2cf9d0"
+app.config['JWT_TOKEN_LOCATION'] = ("cookies","headers")
+app.config["JWT_ACCESS_COOKIE_NAME"] = "access_token_cookie"
+app.config["JWT_ACCESS_COOKIE_PATH"] = "/"
+app.config["JWT_REFRESH_COOKIE_NAME"] = "refresh_token_cookie"
+app.config["JWT_REFRESH_COOKIE_PATH"] = "/"
+app.config["JWT_COOKIE_CSRF_PROTECT"] = True
 bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
@@ -57,17 +64,26 @@ def send_sms_otp(receiver,user_name,otp,function):
         }
     response = requests.request("POST", url, data=payload, headers=headers)
     log(f'[  INFO  ] SMS API MSG - {response}')
-
 ## OTHER METHODS -- END
 
-## ADMIN ROUTES --START
+## JWT-CALLBACK FUNCTIONS STARTS
+@jwt.unauthorized_loader        ## WHEN UNAUTHORIZED USER TRIES TO ACCESS A PROTECTED ROUTE THIS METHOD RUNS AS A CALLBACK METHOD
+def unauthorized_loader_route( error_msg ):
+    for cookie in request.cookies:
+        if cookie == 'refresh_token_cookie':
+            return render_template('generateAccessToken.html')
+    return render_template( 'login.html' )
 
+## JWT-CALLBACK ENDS
+
+
+## VIEW ROUTES --STARTS
 @app.route("/", methods=['GET'])
 def display_login_page():
     return render_template("login.html")
 
 @app.route("/dashboard",methods=['GET'])
-# @jwt_required
+@jwt_required
 def display_main_page():
     return render_template("dashboard.html")
 
@@ -79,6 +95,12 @@ def delete_one_entity():
 def display_all():
     return render_template("ShowAll.html")
 
+@app.route("/forgot_password",methods=['GET'])
+def display_forgot_password_page():
+    return render_template("forgot.html")
+## VIEW ROUTES --ENDS
+
+## ADMIN ROUTES --START
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
@@ -95,15 +117,36 @@ def admin_authentication():
         for db_credentials in db_res['res']:
             if bcrypt.check_password_hash(db_credentials['password'],user_credentials['password']):
                 ## JWT TOKEN GENERATION TAKES PLACE
-                access_token = create_access_token(identity=user_credentials['user_id'])
+                access_token = create_access_token(identity=user_credentials['user_id'],fresh=True)
                 refresh_token = create_refresh_token(identity=user_credentials['user_id'])
-                return jsonify({
-                    'status':'200',
-                    'access-token':access_token,
-                    'refresh_token':refresh_token,
+                response = jsonify({
+                    'status':200,
                     'msg':'login-successful'
                     })
-    return make_response(jsonify({ 'status':401,'msg':'Invalid UserID/Password' }))
+                ## SETTING ACCESS_TOKEN_COOKIE
+                response.set_cookie(
+                    key='access_token_cookie',
+                    value=access_token,
+                    max_age=15*60,      # EXPIRES IN 15 MINUTES
+                    samesite='Strict',
+                    httponly=True,
+                    path='/'
+                )
+                ## SETTING REFRESH_TOKEN_COOKIE
+                response.set_cookie(
+                    key='refresh_token_cookie',
+                    value=refresh_token,
+                    max_age=30*24*60*60,    # EXPIRES IN 30 DAYS
+                    samesite='Strict',
+                    httponly=True,
+                    path='/'
+                )
+                return response
+    return jsonify({
+                    'status':401,
+                    'msg':'login-unsuccessful'
+                })
+    
 
 ## ROUTE TO GENERATE OTP FOR A PARTICULAR USESR_ID
 @app.route('/admin/forgot_password/<user_id>',methods=['GET'])
@@ -174,10 +217,12 @@ def admin_forgot_password_verify_otp():
         stored_otp = None
         for document in db_res['res']:
             stored_otp = document['otp']
+            print(stored_otp,otp)
         if otp == stored_otp:       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
             ## CHANGING PASSWORD OF THE GIVEN USER
             admin = db.Admin()
             db_res = admin.update_password(user_id,new_password)
+            print(db_res)
             if db_res == 301:       ## EXECUTES WHEN PASSWORD UPDATED SUCCESSFULLY
                 ## REMOVING OTP STORED IN OTP_DB
                 otp_db.remove(hash_id,'EMAIL_VERIFICATION')
@@ -378,6 +423,25 @@ def admin_aboutus():
         'msg':'for the community by the community',
         'status':'200'
     })
+
+@app.route('/generate_access_token',methods=['GET','POST'])
+@jwt_refresh_token_required
+def generate_access_token_from_refresh_token():
+    identity = get_jwt_identity()
+    access_token = create_access_token(identity=identity,fresh=False)
+    response = jsonify({
+        'status':200,
+        'msg':'Access cookie generated successfully'
+    })
+    response.set_cookie(
+        key='access_token_cookie',
+        value=access_token,
+        max_age=15*60,      # EXPIRES IN 15 MINUTES
+        samesite='Strict',
+        httponly=True,
+        path='/'
+    )
+    return response
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START
