@@ -91,6 +91,10 @@ def display_main_page():
 def delete_one_entity():
     return render_template("DeleteOne.html")
 
+@app.route("/showAll",methods=['GET'])
+def display_all():
+    return render_template("ShowAll.html")
+
 @app.route("/forgot_password",methods=['GET'])
 def display_forgot_password_page():
     return render_template("forgot.html")
