@@ -5,22 +5,6 @@ let rememberMeStatus = document.getElementById('remember-me-status');
 let submitBtn = document.getElementById('submit-btn');
 let loader = document.getElementById('loader');
 
-// document.cookie = "username=John Smith;path=/";
-// var decodedCookie = decodeURIComponent(document.cookie);
-// console.log(decodedCookie);
-
-// CHECKING THE PRESENCE OF ACCESS_TOKEN_COOKIE AND REFRESH_TOKEN_COOKIE
-let decodedCookie = decodeURIComponent( document.cookie ).split(';');
-for( let itr = 0; itr < decodedCookie.length; itr++ ){
-    let cookie = decodedCookie[itr].split('=');
-    let key = cookie[0] // KEY IS AT Oth INDEX
-    let value = cookie[1]   // VALUE IS AT 1th INDEX
-    if( key.trim() == 'access_token_cookie' ){
-        // REDIRECTING TO DASHBOARD
-        window.location.href = "/dashboard";
-    }
-}
-
 // EVENT LISTENERS --START
 submitBtn.addEventListener('click', ()=>{
     // LOADING LOADER.GIF

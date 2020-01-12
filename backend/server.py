@@ -5,7 +5,7 @@ sys.path.append( os.path.join( os.getcwd(),'lib') )
 sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
 
 from database import DBQuery as db
-from flask import (Flask, jsonify, request, render_template, url_for, make_response)
+from flask import (Flask, jsonify, request, render_template, url_for, make_response, redirect)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
 from datetime import datetime,timedelta,timezone
@@ -33,6 +33,7 @@ app.config["JWT_ACCESS_COOKIE_NAME"] = "access_token_cookie"
 app.config["JWT_ACCESS_COOKIE_PATH"] = "/"
 app.config["JWT_REFRESH_COOKIE_NAME"] = "refresh_token_cookie"
 app.config["JWT_REFRESH_COOKIE_PATH"] = "/"
+app.config["JWT_COOKIE_CSRF_PROTECT"] = True
 bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
@@ -68,8 +69,10 @@ def send_sms_otp(receiver,user_name,otp,function):
 ## JWT-CALLBACK FUNCTIONS STARTS
 @jwt.unauthorized_loader        ## WHEN UNAUTHORIZED USER TRIES TO ACCESS A PROTECTED ROUTE THIS METHOD RUNS AS A CALLBACK METHOD
 def unauthorized_loader_route( error_msg ):
-    print(request.cookies)
-    return render_template('login.html')
+    for cookie in request.cookies:
+        if cookie == 'refresh_token_cookie':
+            return render_template('generateAccessToken.html')
+    return render_template( 'login.html' )
 
 ## JWT-CALLBACK ENDS
 
@@ -416,6 +419,25 @@ def admin_aboutus():
         'msg':'for the community by the community',
         'status':'200'
     })
+
+@app.route('/generate_access_token',methods=['GET','POST'])
+@jwt_refresh_token_required
+def generate_access_token_from_refresh_token():
+    identity = get_jwt_identity()
+    access_token = create_access_token(identity=identity,fresh=False)
+    response = jsonify({
+        'status':200,
+        'msg':'Access cookie generated successfully'
+    })
+    response.set_cookie(
+        key='access_token_cookie',
+        value=access_token,
+        max_age=15*60,      # EXPIRES IN 15 MINUTES
+        samesite='Strict',
+        httponly=True,
+        path='/'
+    )
+    return response
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START
