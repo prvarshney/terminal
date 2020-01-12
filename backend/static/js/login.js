@@ -15,7 +15,7 @@ for( let itr = 0; itr < decodedCookie.length; itr++ ){
     let cookie = decodedCookie[itr].split('=');
     let key = cookie[0] // KEY IS AT Oth INDEX
     let value = cookie[1]   // VALUE IS AT 1th INDEX
-    if( key == 'access_token_cookie' ){
+    if( key.trim() == 'access_token_cookie' ){
         // REDIRECTING TO DASHBOARD
         window.location.href = "/dashboard";
     }
@@ -39,16 +39,11 @@ submitBtn.addEventListener('click', ()=>{
         // HIDING LOADER.GIF
         loader.style.display = 'none';
         if( response.status == 200 ){    // EXECUTES WHEN LOGIN GETS SUCCESSFUL
-            let date = new Date();
-            let cookieCreationTime = date.getTime();    // CONVERTED CURRENT TIME INTO MICROSECONDS FORMAT
-            let accessTokenCookieExpirationTime = new Date( cookieCreationTime + 15*60000 );
-            let cookieExpirationTime = accessTokenCookieExpirationTime.toUTCString();
-            document.cookie = `access_token_cookie = ${response['access-token']};expires = ${cookieExpirationTime}; path=/; SameSite=Strict`;
-            let refreshTokenCookieExpirationTime = new Date( cookieCreationTime + 30*24*60*60000 );
-            cookieExpirationTime = refreshTokenCookieExpirationTime.toUTCString();
-            document.cookie = `refresh_token_cookie = ${response['refresh-token']};expires = ${cookieExpirationTime}; path=/; SameSite=Strict`;
             // REDIRECTING TO DASHBOARD
             window.location.href = "/dashboard";
+        }
+        else{       // EXECUTES WHEN LOGIN WAS UNSUCCESSFUL
+            console.log(response);
         }
     })
 });

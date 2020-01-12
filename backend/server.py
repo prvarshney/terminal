@@ -68,6 +68,7 @@ def send_sms_otp(receiver,user_name,otp,function):
 ## JWT-CALLBACK FUNCTIONS STARTS
 @jwt.unauthorized_loader        ## WHEN UNAUTHORIZED USER TRIES TO ACCESS A PROTECTED ROUTE THIS METHOD RUNS AS A CALLBACK METHOD
 def unauthorized_loader_route( error_msg ):
+    print(request.cookies)
     return render_template('login.html')
 
 ## JWT-CALLBACK ENDS
@@ -109,15 +110,36 @@ def admin_authentication():
         for db_credentials in db_res['res']:
             if bcrypt.check_password_hash(db_credentials['password'],user_credentials['password']):
                 ## JWT TOKEN GENERATION TAKES PLACE
-                access_token = create_access_token(identity=user_credentials['user_id'])
+                access_token = create_access_token(identity=user_credentials['user_id'],fresh=True)
                 refresh_token = create_refresh_token(identity=user_credentials['user_id'])
-                return jsonify({
+                response = jsonify({
                     'status':200,
-                    'access-token':access_token,
-                    'refresh-token':refresh_token,
                     'msg':'login-successful'
                     })
-    return make_response(jsonify({ 'status':401,'msg':'Invalid UserID/Password' }))
+                ## SETTING ACCESS_TOKEN_COOKIE
+                response.set_cookie(
+                    key='access_token_cookie',
+                    value=access_token,
+                    max_age=15*60,      # EXPIRES IN 15 MINUTES
+                    samesite='Strict',
+                    httponly=True,
+                    path='/'
+                )
+                ## SETTING REFRESH_TOKEN_COOKIE
+                response.set_cookie(
+                    key='refresh_token_cookie',
+                    value=refresh_token,
+                    max_age=30*24*60*60,    # EXPIRES IN 30 DAYS
+                    samesite='Strict',
+                    httponly=True,
+                    path='/'
+                )
+                return response
+    return jsonify({
+                    'status':401,
+                    'msg':'login-unsuccessful'
+                })
+    
 
 ## ROUTE TO GENERATE OTP FOR A PARTICULAR USESR_ID
 @app.route('/admin/forgot_password/<user_id>',methods=['GET'])
