@@ -25,8 +25,14 @@ if os.name == 'nt':
 elif os.name == 'posix':
     os.system('clear')
 
+## APP CONFIG VARIABLES
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = "22ca63228513b2fc43ee446c8ed5b4a10ab8b6886da75ddcfec4c660db2cf9d0"
+app.config['JWT_TOKEN_LOCATION'] = ("cookies","headers")
+app.config["JWT_ACCESS_COOKIE_NAME"] = "access_token_cookie"
+app.config["JWT_ACCESS_COOKIE_PATH"] = "/"
+app.config["JWT_REFRESH_COOKIE_NAME"] = "refresh_token_cookie"
+app.config["JWT_REFRESH_COOKIE_PATH"] = "/"
 bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
@@ -57,17 +63,23 @@ def send_sms_otp(receiver,user_name,otp,function):
         }
     response = requests.request("POST", url, data=payload, headers=headers)
     log(f'[  INFO  ] SMS API MSG - {response}')
-
 ## OTHER METHODS -- END
 
-## ADMIN ROUTES --START
+## JWT-CALLBACK FUNCTIONS STARTS
+@jwt.unauthorized_loader        ## WHEN UNAUTHORIZED USER TRIES TO ACCESS A PROTECTED ROUTE THIS METHOD RUNS AS A CALLBACK METHOD
+def unauthorized_loader_route( error_msg ):
+    return render_template('login.html')
 
+## JWT-CALLBACK ENDS
+
+
+## VIEW ROUTES --STARTS
 @app.route("/", methods=['GET'])
 def display_login_page():
     return render_template("login.html")
 
 @app.route("/dashboard",methods=['GET'])
-# @jwt_required
+@jwt_required
 def display_main_page():
     return render_template("dashboard.html")
 
@@ -78,7 +90,9 @@ def delete_one_entity():
 @app.route("/forgot_password",methods=['GET'])
 def display_forgot_password_page():
     return render_template("forgot.html")
+## VIEW ROUTES --ENDS
 
+## ADMIN ROUTES --START
 @app.route("/admin/login",methods=['POST'])
 def admin_authentication():
     ## JSON POST MUST CONTAIN KEYS :-
@@ -100,7 +114,7 @@ def admin_authentication():
                 return jsonify({
                     'status':200,
                     'access-token':access_token,
-                    'refresh_token':refresh_token,
+                    'refresh-token':refresh_token,
                     'msg':'login-successful'
                     })
     return make_response(jsonify({ 'status':401,'msg':'Invalid UserID/Password' }))
