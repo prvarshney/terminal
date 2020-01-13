@@ -9,6 +9,7 @@ var enterOTP = document.getElementById('enterOTP');
 userid.value = "";
 enterOTP.value = "";
 
+// EVENT LISTENERS --START
 submitOtp.addEventListener('click',()=>{
     userid_val = userid.value;
     fetch('/admin/forgot_password/'+userid_val,{
@@ -38,4 +39,5 @@ submitPassword.addEventListener('click',()=>{
     } else {
         console.log('Passwords did not match.')
     }
-})
+});
+//EVENT LISTENERS --END

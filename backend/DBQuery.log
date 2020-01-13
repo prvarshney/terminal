@@ -627,3 +627,89 @@
 [ 13-01-2020 :: 12:13:26 ] [  INFO  ] Password Updation Completed Successfully in admin_db
 [ 13-01-2020 :: 12:13:27 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fdb2343d580>
 [ 13-01-2020 :: 12:13:27 ] [  INFO  ] Hash_ID - -3076130906739734794 Removed Successfully from generated_otp Collection in otp_db
+[ 13-01-2020 :: 13:46:23 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:46:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:46:29 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:46:30 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f7919ea7740>
+[ 13-01-2020 :: 13:46:30 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 13:46:42 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:47:12 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:47:20 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:47:22 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f791afa50c0>
+[ 13-01-2020 :: 13:47:22 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 13:47:45 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:47:53 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:47:55 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f7918592d00>
+[ 13-01-2020 :: 13:47:55 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 13:48:18 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:48:21 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:48:23 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f7919ea5840>
+[ 13-01-2020 :: 13:48:23 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 13:48:48 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:48:56 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:48:58 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f791859be00>
+[ 13-01-2020 :: 13:48:58 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 13:49:25 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:49:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:49:30 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f7919ea91c0>
+[ 13-01-2020 :: 13:49:30 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 13:53:40 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 13:53:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 13:53:45 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fb11f6f61c0>
+[ 13-01-2020 :: 13:53:45 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:17 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:20 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:25 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:35 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:36 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:36 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:36 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:37 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:39 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:00:39 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:40 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:44 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:47 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:00:49 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:02:20 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:02:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:02:28 ] [  INFO  ] otp_db Connected Successfully
+[ 13-01-2020 :: 14:02:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb11f6fb5c0>
+[ 13-01-2020 :: 14:02:49 ] [  INFO  ] For Hash_ID - 8649330740765384267 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 13-01-2020 :: 14:03:57 ] [  INFO  ] otp_db Connected Successfully
+[ 13-01-2020 :: 14:04:05 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 13-01-2020 :: 14:04:08 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:04:16 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fb11f69eb80>
+[ 13-01-2020 :: 14:04:16 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:04:16 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fb11f674780>
+[ 13-01-2020 :: 14:04:16 ] [  INFO  ] Hash_ID - 8649330740765384267 Removed Successfully from generated_otp Collection in otp_db
+[ 13-01-2020 :: 14:05:42 ] [  INFO  ] otp_db Connected Successfully
+[ 13-01-2020 :: 14:05:45 ] [  INFO  ] otp_db Connected Successfully
+[ 13-01-2020 :: 14:05:48 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 13-01-2020 :: 14:05:50 ] [  INFO  ] The Search Query Completed Successfully in otp_db
+[ 13-01-2020 :: 14:07:15 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:07:22 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:07:24 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fb11f6e76c0>
+[ 13-01-2020 :: 14:07:24 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:07:45 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:07:53 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:07:55 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fb11f6a3d80>
+[ 13-01-2020 :: 14:07:55 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:12:52 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:12:55 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:12:57 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7fea1aa00b00>
+[ 13-01-2020 :: 14:12:57 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:16:15 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:16:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:20:51 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:20:54 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:20:56 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f4bb4fe6100>
+[ 13-01-2020 :: 14:20:56 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:21:15 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:21:18 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 13-01-2020 :: 14:21:20 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f4bb4fe4040>
+[ 13-01-2020 :: 14:21:20 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 13-01-2020 :: 14:25:33 ] [  INFO  ] admin_db Connected Successfully
+[ 13-01-2020 :: 14:25:36 ] [  INFO  ] The Search Query Completed Successfully in admin_db
