@@ -88,10 +88,18 @@ def display_main_page():
     return render_template("dashboard.html")
 
 @app.route("/deleteOne",methods=['GET'])
+@jwt_required
 def delete_one_entity():
     return render_template("DeleteOne.html")
 
+@app.route("/QueryTable",methods=['GET'])
+@jwt_required
+def query_table():
+    return render_template("QueryTable.html")
+
+
 @app.route("/showAll",methods=['GET'])
+@jwt_required
 def display_all():
     return render_template("ShowAll.html")
 
@@ -129,7 +137,7 @@ def admin_authentication():
                     value=access_token,
                     max_age=15*60,      # EXPIRES IN 15 MINUTES
                     samesite='Strict',
-                    httponly=True,
+                    httponly=False,
                     path='/'
                 )
                 ## SETTING REFRESH_TOKEN_COOKIE
@@ -138,7 +146,7 @@ def admin_authentication():
                     value=refresh_token,
                     max_age=30*24*60*60,    # EXPIRES IN 30 DAYS
                     samesite='Strict',
-                    httponly=True,
+                    httponly=False,
                     path='/'
                 )
                 return response
@@ -307,8 +315,7 @@ def admin_batch_insert():
             'msg':'unauthorized user'
         })
         
-@app.route('/admin/show_all',methods=['POST'])
-@jwt_required
+@app.route('/admin/show_all',methods=['GET'])
 def admin_batch_show_all():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -318,8 +325,10 @@ def admin_batch_show_all():
     ##   "year_of_pass":<STRING>,
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
-    user_id = get_jwt_identity()
+    print('bleepblop56')
+    # user_id = get_jwt_identity()
     admin = db.Admin()
+    user_id = "adm-123"
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
         ## FETCHING REQUEST OBJECT
@@ -337,7 +346,8 @@ def admin_batch_show_all():
             res['status'] = db_res['status']
             for document in db_res['res']:
                 res['enrollment'].append(document['enrollment'])
-            return jsonify(res)
+            print(res.enrollment)
+            return render_template("ShowAll.html",res=db_res['res'])
         else:
             res['status'] = db_res['status']
             res['msg'] = 'query-unsuccessful'
@@ -438,7 +448,7 @@ def generate_access_token_from_refresh_token():
         value=access_token,
         max_age=15*60,      # EXPIRES IN 15 MINUTES
         samesite='Strict',
-        httponly=True,
+        httponly=False,
         path='/'
     )
     return response
