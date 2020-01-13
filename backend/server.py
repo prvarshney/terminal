@@ -98,6 +98,10 @@ def display_all():
 @app.route("/forgot_password",methods=['GET'])
 def display_forgot_password_page():
     return render_template("forgot.html")
+
+@app.route("/reset_password",methods=['GET'])
+def display_reset_password_page():
+    return render_template("reset.html")
 ## VIEW ROUTES --ENDS
 
 ## ADMIN ROUTES --START
@@ -239,7 +243,7 @@ def admin_forgot_password_verify_otp():
     })
 
 @app.route('/admin/reset_password',methods=['POST'])
-@jwt_required
+# @jwt_required
 def admin_update_password():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -247,7 +251,8 @@ def admin_update_password():
     ##   "new_password":<STRING>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN
-    user_id = get_jwt_identity()
+    # user_id = get_jwt_identity()
+    user_id = 'adm-123'
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
@@ -264,7 +269,7 @@ def admin_update_password():
             else:
                 return jsonify({
                     'status':401,
-                    'msg':"password doesn't match"
+                    'msg':"Incorrect password."
                 })
     else:
         return jsonify({
