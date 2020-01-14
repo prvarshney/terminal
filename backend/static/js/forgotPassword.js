@@ -1,32 +1,32 @@
 let userid = document.getElementById('userid');
-let submitOtp = document.getElementById('submitOtp');
-let newPassword = document.getElementById('newPassword');
-let confirmPassword = document.getElementById('confirmPassword');
-let setPassword = document.getElementById('setPassword');
-let submitPassword = document.getElementById('submitPassword');
-let enterOTP = document.getElementById('enterOTP');
+let submitOtpBtn = document.getElementById('submitOtpBtn');
+let newPasswordBtn = document.getElementById('newPasswordBtn');
+let confirmPasswordBtn = document.getElementById('confirmPasswordBtn');
+let secondDiv = document.getElementById('secondDiv');
+let submitPasswordBtn = document.getElementById('submitPasswordBtn');
+let enterOtpBtn = document.getElementById('enterOtpBtn');
 userid.value = "";
-enterOTP.value = "";
+enterOtpBtn.value = "";
 
 // EVENT LISTENERS --START
-submitOtp.addEventListener('click',()=>{
+submitOtpBtn.addEventListener('click',()=>{
     userid_val = userid.value;
     fetch('/admin/forgot_password/'+userid_val,{
         method: 'GET',        
     }).then((res) => res.json())
     .then((data) => {
         if (data['status']==200){
-            setPassword.style.display = 'block';
+            secondDiv.style.display = 'block';
         }
     });
 });
 
-submitPassword.addEventListener('click',()=>{
-    if (newPassword.value == confirmPassword.value){
+submitPasswordBtn.addEventListener('click',()=>{
+    if (newPasswordBtn.value == confirmPasswordBtn.value){
         userCredentials = {        
             'user_id': userid.value,
-            'otp': Number(enterOTP.value),
-            'new_password': newPassword.value
+            'otp': Number(enterOtpBtn.value),
+            'new_password': newPasswordBtn.value
         }  
         fetch('/admin/recover_password',{
             method: 'POST',
@@ -34,7 +34,7 @@ submitPassword.addEventListener('click',()=>{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'},
             body: JSON.stringify(userCredentials)
-        }).then((res) => res.json())        
+        }).then((res) => res.json())    
     } else {
         console.log('Passwords did not match.')
     }
