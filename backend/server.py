@@ -134,7 +134,7 @@ def display_forgot_password_page():
 def display_main_page():
     return render_template("dashboard.html")
 
-@app.route("/admin/dashboard/QueryTable",methods=['GET'])
+@app.route("/admin/dashboard/queryTable",methods=['GET'])
 @access_token_required
 def query_table():
     return render_template("QueryTable.html")
@@ -144,9 +144,37 @@ def query_table():
 def delete_one_entity():
     return render_template("DeleteOne.html")
 
-@app.route("/admin/dashboard/showAll",methods=['GET'])
-def display_all():
-    return render_template("ShowAll.html")
+@app.route("/admin/dashboard/showAll/<programme>/<branch>/<section>/<year_of_pass>",methods=['GET'])
+@access_token_required
+def display_all(programme,branch,section,year_of_pass):
+    user_id = get_access_token_identity()
+    admin = db.Admin()
+    db_res = admin.query('admin_id',user_id)
+    if db_res['status'] == 212:
+        ## FETCHING REQUEST OBJECT
+        req = request.get_json()
+        ## QUERYING BATCH API
+        batch = db.Batch(programme,branch,section,year_of_pass)
+        db_res = batch.show_all()
+        ## BINDING DATABASE RESPONSE INTO JSON OBJECT
+        res = {
+            'batch':f"{programme}_{branch}_{section}_{year_of_pass}",
+            'enrollment':[]
+        }
+        if db_res['status'] == 302:         ## RUNS WHEN SUCCESSFUL QUERY TAKES PLACE
+            res['msg'] = 'query-successful'
+            res['status'] = db_res['status']
+            for document in db_res['res']:
+                res['enrollment'].append(document['enrollment'])
+            return render_template('ShowAll.html',enrollments=res['enrollment'])
+        else:
+            res['status'] = db_res['status']
+            res['msg'] = 'query-unsuccessful'
+            return jsonify(res)
+    return jsonify({
+        'status':401,
+        'msg':'unauthorized user'
+    })
 
 @app.route("/admin/dashboard/changePassword",methods=['GET'])
 @access_token_required
@@ -389,8 +417,7 @@ def admin_batch_show_all():
             res['status'] = db_res['status']
             for document in db_res['res']:
                 res['enrollment'].append(document['enrollment'])
-            print(res.enrollment)
-            return render_template("ShowAll.html",res=db_res['res'])
+            return jsonify(res)
         else:
             res['status'] = db_res['status']
             res['msg'] = 'query-unsuccessful'
