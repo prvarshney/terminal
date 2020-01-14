@@ -6,9 +6,11 @@ sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
 
 from database import DBQuery as db
 from flask import (Flask, jsonify, request, render_template, url_for, make_response, redirect)
-from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
+from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, decode_token,
+                                 get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
 from flask_bcrypt import Bcrypt
 from datetime import datetime,timedelta,timezone
+from functools import wraps
 import smtplib
 import config
 import random
@@ -28,16 +30,17 @@ elif os.name == 'posix':
 ## APP CONFIG VARIABLES
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = "22ca63228513b2fc43ee446c8ed5b4a10ab8b6886da75ddcfec4c660db2cf9d0"
-app.config['JWT_TOKEN_LOCATION'] = ("cookies","headers")
-app.config["JWT_ACCESS_COOKIE_NAME"] = "access_token_cookie"
-app.config["JWT_ACCESS_COOKIE_PATH"] = "/"
-app.config["JWT_REFRESH_COOKIE_NAME"] = "refresh_token_cookie"
-app.config["JWT_REFRESH_COOKIE_PATH"] = "/"
-app.config["JWT_COOKIE_CSRF_PROTECT"] = True
+app.config['JWT_TOKEN_LOCATION'] = ("cookies","headers")    ##  IF YOU GOING TO CHANGE THE LOCATION OF JWT TOKEdecoded_token
+app.config['JWT_ACCESS_COOKIE_NAME'] = 'access_token_cookie'
+app.config['JWT_REFRESH_COOKIE_NAME'] = 'refresh_token_cookie'
+app.config['JWT_ACCESS_COOKIE_PATH'] = '/'
+app.config['JWT_REFRESH_COOKIE_PATH'] = '/'
 bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
-## OTHER METHODS -- START
+## OTHER METHODS --- START
+
+##  THIS METHOD USED TO DELIEVER OTP TO EMAIL ADDRESSES
 def send_email_otp(receiver,user_name,otp,function):
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login(config.SENDER_EMAIL_ID,config.SENDER_EMAIL_PASSWORD)
@@ -50,6 +53,7 @@ def send_email_otp(receiver,user_name,otp,function):
         msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
 
+##  THIS METHOD USED TO DELIEVER OTP TO THE CELLULAR MOBILE PHONE DEVICES
 def send_sms_otp(receiver,user_name,otp,function):
     url = "https://www.fast2sms.com/dev/bulk"
     if function == 'RECOVER_PASSWORD':
@@ -64,17 +68,56 @@ def send_sms_otp(receiver,user_name,otp,function):
         }
     response = requests.request("POST", url, data=payload, headers=headers)
     log(f'[  INFO  ] SMS API MSG - {response}')
-## OTHER METHODS -- END
 
-## JWT-CALLBACK FUNCTIONS STARTS
-@jwt.unauthorized_loader        ## WHEN UNAUTHORIZED USER TRIES TO ACCESS A PROTECTED ROUTE THIS METHOD RUNS AS A CALLBACK METHOD
+##  THIS METHOD USED AS A DECORATOR TO VERIFY VALID ACCESS TOKEN COOKIE AVAILABILITY
+def access_token_required(fn):
+    @wraps(fn)
+    def wrapper(*args,**kwargs):
+        if 'cookies' in app.config['JWT_TOKEN_LOCATION']:
+            ##  CHECKING JWT IN BROWSER COOKIES
+            for cookie in request.cookies:
+                if cookie == app.config['JWT_ACCESS_COOKIE_NAME']:
+                    ## CHECKING VALIDITY OF ACCESS COOKIE
+                    decoded_token = decode_token( request.cookies[cookie] )  #  IF JWT TOKEN IS EXPIRED IT CALLS CALLBACK METHOD @jwt.expired_token_loader
+                    if decoded_token['type'] == 'access':
+                        return fn(*args,**kwargs)
+        return unauthorized_loader_route( 'jwt-required' )
+    return wrapper
+
+def get_access_token_identity():
+    if 'cookies' in app.config['JWT_TOKEN_LOCATION']:
+        ## CHECKING JWT IN BROWSER COOKIES
+        for cookie in request.cookies:
+            if cookie == app.config['JWT_ACCESS_COOKIE_NAME']:
+                decoded_token = decode_token( request.cookies[cookie] )
+                if decoded_token['type'] == 'access':
+                    return decoded_token['identity']
+    return None
+
+## WHEN UNAUTHORIZED USER TRIES TO ACCESS A PROTECTED ROUTE THIS METHOD RUNS AS A CALLBACK METHOD
+@jwt.unauthorized_loader        
 def unauthorized_loader_route( error_msg ):
-    for cookie in request.cookies:
-        if cookie == 'refresh_token_cookie':
-            return render_template('generateAccessToken.html')
-    return render_template( 'login.html' )
+    if 'cookies' in app.config['JWT_TOKEN_LOCATION']:
+        ## CHECKING REFRESH TOKEN IN BROWSER COOKIE
+        for cookie in request.cookies:
+            if cookie == app.config['JWT_REFRESH_COOKIE_NAME']:
+                decoded_token = decode_token( request.cookies[cookie] )
+                if decoded_token['type'] == 'refresh':
+                    identity = decoded_token['identity']
+                    ##  GENERATING A NEW ACCESS TOKEN
+                    access_token = create_access_token(identity=identity, fresh=False)
+                    response = make_response( redirect(request.path) )
+                    response.set_cookie(
+                        key=app.config['JWT_ACCESS_COOKIE_NAME'],
+                        value=access_token,
+                        path=app.config['JWT_ACCESS_COOKIE_PATH'],
+                        httponly=True,
+                        max_age=15*60       # EXPIRES IN 15 MINUTES
+                    )
+                    return response
+    return render_template('login.html')
 
-## JWT-CALLBACK ENDS
+## OTHER METHODS -- END
 
 
 ## VIEW ROUTES --STARTS
@@ -83,7 +126,7 @@ def display_login_page():
     return render_template("login.html")
 
 @app.route("/dashboard",methods=['GET'])
-@jwt_required
+@access_token_required
 def display_main_page():
     return render_template("dashboard.html")
 
@@ -129,28 +172,27 @@ def admin_authentication():
                     })
                 ## SETTING ACCESS_TOKEN_COOKIE
                 response.set_cookie(
-                    key='access_token_cookie',
+                    key=app.config['JWT_ACCESS_COOKIE_NAME'],
                     value=access_token,
                     max_age=15*60,      # EXPIRES IN 15 MINUTES
                     samesite='Strict',
                     httponly=True,
-                    path='/'
+                    path=app.config['JWT_ACCESS_COOKIE_PATH']
                 )
                 ## SETTING REFRESH_TOKEN_COOKIE
                 response.set_cookie(
-                    key='refresh_token_cookie',
+                    key=app.config['JWT_REFRESH_COOKIE_PATH'],
                     value=refresh_token,
                     max_age=30*24*60*60,    # EXPIRES IN 30 DAYS
                     samesite='Strict',
                     httponly=True,
-                    path='/'
+                    path=app.config['JWT_REFRESH_COOKIE_PATH']
                 )
                 return response
     return jsonify({
                     'status':401,
                     'msg':'login-unsuccessful'
                 })
-    
 
 ## ROUTE TO GENERATE OTP FOR A PARTICULAR USESR_ID
 @app.route('/admin/forgot_password/<user_id>',methods=['GET'])
@@ -243,7 +285,7 @@ def admin_forgot_password_verify_otp():
     })
 
 @app.route('/admin/reset_password',methods=['POST'])
-# @jwt_required
+@access_token_required
 def admin_update_password():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -278,7 +320,7 @@ def admin_update_password():
         })
 
 @app.route('/admin/insert',methods=['POST'])
-@jwt_required
+@access_token_required
 def admin_batch_insert():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -311,7 +353,7 @@ def admin_batch_insert():
         })
         
 @app.route('/admin/show_all',methods=['POST'])
-@jwt_required
+@access_token_required
 def admin_batch_show_all():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -352,7 +394,7 @@ def admin_batch_show_all():
         })
 
 @app.route('/admin/remove',methods=['POST'])
-@jwt_required
+@access_token_required
 def admin_batch_remove():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -387,7 +429,7 @@ def admin_batch_remove():
         })
 
 @app.route('/admin/remove_all',methods=['POST'])
-@jwt_required
+@access_token_required
 def admin_batch_remove_all():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -426,31 +468,12 @@ def admin_aboutus():
         'msg':'for the community by the community',
         'status':'200'
     })
-
-@app.route('/generate_access_token',methods=['GET','POST'])
-@jwt_refresh_token_required
-def generate_access_token_from_refresh_token():
-    identity = get_jwt_identity()
-    access_token = create_access_token(identity=identity,fresh=False)
-    response = jsonify({
-        'status':200,
-        'msg':'Access cookie generated successfully'
-    })
-    response.set_cookie(
-        key='access_token_cookie',
-        value=access_token,
-        max_age=15*60,      # EXPIRES IN 15 MINUTES
-        samesite='Strict',
-        httponly=True,
-        path='/'
-    )
-    return response
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START
 @app.route("/faculty/register",methods=["POST"])
 def faculty_provisional_registration():
-    ## THIS ROUTE INPUTS FACULTY'S DETAILS AND THEN VERIFIES IT WITH MOBILE AND THE EMAIL ADDRESS.
+    ## THIS ROUTE INPUTS FACULTY'S DETAILS AND THENapp.config['JWT_REFRESH_COOKIE_PATH']RIFIES IT WITH MOBILE AND THE EMAIL ADDRESS.
     ## FORM MUST CONTAIN THE FOLLOWING KEYS:-
     ## {
     ##  "faculty_id":<STRING>
@@ -689,7 +712,7 @@ def faculty_authentication():
     return jsonify({ 'status':401,'msg':'Invalid UserID/Password' })
 
 @app.route("/faculty/view_profile",methods=['POST'])
-@jwt_required
+@access_token_required
 def faculty_view_profile():
     ## THIS API IS USED TO VIEW ALL THE DETAILS OF THE FACULTY STORED IN FACULTY_DB.
     ## IT DOESN'T TAKE ANY INPUT.
@@ -710,7 +733,7 @@ def faculty_view_profile():
         })
 
 @app.route("/faculty/reset_password",methods=['POST'])
-@jwt_required
+@access_token_required
 def faculty_update_password():
     ## JSON POST MUST CONTAIN KEYS :-
     ## {
@@ -748,7 +771,7 @@ def faculty_update_password():
         })
 
 @app.route("/faculty/update_profile",methods=['POST'])
-@jwt_required
+@access_token_required
 def faculty_update_profile():
     ## THIS ROUTE IS USE TO UPDATE THE FOLLOWING VALUES IN DOCUMENT :
     ## 1. SUBJECTS
@@ -907,7 +930,7 @@ def faculty_show_schedule(faculty_id):
         })
 
 @app.route("/faculty/insert_current_batch",methods=['POST'])
-@jwt_required
+@access_token_required
 def faculty_insert_current_batch():
     ## THIS ROUTE IS USED TO INSERT BATCH THAT A FACULTY CURRENTLY HAVE
     ## JSON POST MUST CONTAIN KEYS :-
@@ -943,7 +966,7 @@ def faculty_insert_current_batch():
         })
 
 @app.route("/faculty/fetch_current_batch",methods=['GET'])
-@jwt_required
+@access_token_required
 def fetch_current_batch():
     ## THIS API IS USED FOR FETCHING THE DETAILS OF ALL THE CURRENT_BATCHES FOR THE FACULTY.
     ## IT GIVES A LIST OF ALL THE CURRENT_BATCHES OF THE PARTICULAR FACULTY.
@@ -967,7 +990,7 @@ def fetch_current_batch():
         })
 
 @app.route("/faculty/fetch_students_list/<batch_name>",methods=['GET'])
-@jwt_required
+@access_token_required
 def fetch_students_list(batch_name):
     ## THIS API IS USED TO FETCH THE STUDENT'S LIST OF THE CURRENT BATCH.
     ## IT DISPLAYS ALL THE STUDENT IN A PARTICULAR CLASS.
@@ -1245,7 +1268,7 @@ def student_authentication():
     return jsonify({'status':'401', 'msg':'Invalid UserId/Password'})
 
 @app.route("/student/view_profile",methods=['POST'])
-@jwt_required
+@access_token_required
 def student_view_profile():
     ## THIS API IS USED TO VIEW PROFILE DETAILS OF A STUDENT STORED IN THE DATABASE.
     enrollment = get_jwt_identity()
@@ -1277,7 +1300,7 @@ def student_view_profile():
         })
 
 @app.route("/student/update_profile",methods=['POST'])
-@jwt_required
+@access_token_required
 def student_update_profile():
     ## THIS ROUTE IS USED TO UPDATE THE FOLLOWING VALUES IN DOCUMENT:
     ## 1. TEMP_ADDRESS
@@ -1387,7 +1410,7 @@ def student_view_attendance():
     return 'bleepbloop'
 
 @app.route("/student/mark-attendance/subjects_list",methods=["GET"])
-@jwt_required
+@access_token_required
 def get_subjects_list():
     ## THIS API IS USED TO DISPLAY ALL THE SUBJECTS WITH THEIR FACULTY_ID OF THE TEACHER
     ## TEACHING THE SUBJECTS FOR A PARTICULAR ENROLLMENT NUMBER.
@@ -1426,7 +1449,7 @@ def get_subjects_list():
         })
 
 @app.route("/student/mark-attendance/<faculty_id>/<subject>",methods=["POST"])
-@jwt_required
+@access_token_required
 def student_mark_attendance(faculty_id,subject):
     ## THIS API IS USED TO MARK ATTENDANCE OF A STUDENT WITH PARTICULAR ENROLLMENT NO.
     ## HE ENTERS THE OTP TOLD BY THE TEACHER.
