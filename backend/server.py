@@ -7,7 +7,8 @@ sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
 from database import DBQuery as db
 from flask import (Flask, jsonify, request, render_template, url_for, make_response, redirect)
 from flask_jwt_extended import ( JWTManager, create_access_token, create_refresh_token, decode_token,
-                                 get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required )
+                                 get_jwt_identity, get_raw_jwt, jwt_required, jwt_refresh_token_required,
+                                 unset_jwt_cookies )
 from flask_bcrypt import Bcrypt
 from datetime import datetime,timedelta,timezone
 from functools import wraps
@@ -180,6 +181,13 @@ def display_all(programme,branch,section,year_of_pass):
 @access_token_required
 def display_reset_password_page():
     return render_template("changePassword.html")
+
+@app.route('/admin/logout',methods=['GET'])
+def admin_logout():
+    response = make_response( redirect('/') )
+    unset_jwt_cookies(response)
+    return response
+
 ## VIEW ROUTES --ENDS
 
 
