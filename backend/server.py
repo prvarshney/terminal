@@ -125,26 +125,27 @@ def unauthorized_loader_route( error_msg ):
 def display_login_page():
     return render_template("login.html")
 
-@app.route("/dashboard",methods=['GET'])
+@app.route("/admin/dashboard",methods=['GET'])
 @access_token_required
 def display_main_page():
     return render_template("dashboard.html")
 
-@app.route("/deleteOne",methods=['GET'])
+@app.route("/admin/dashboard/deleteOne",methods=['GET'])
 def delete_one_entity():
     return render_template("DeleteOne.html")
 
-@app.route("/showAll",methods=['GET'])
+@app.route("/admin/dashboard/showAll",methods=['GET'])
 def display_all():
     return render_template("ShowAll.html")
 
-@app.route("/forgot_password",methods=['GET'])
+@app.route("/admin/forgotPassword",methods=['GET'])
 def display_forgot_password_page():
-    return render_template("forgot.html")
+    return render_template("forgotPassword.html")
 
-@app.route("/reset_password",methods=['GET'])
+@app.route("/admin/dashboard/changePassword",methods=['GET'])
+@access_token_required
 def display_reset_password_page():
-    return render_template("reset.html")
+    return render_template("changePassword.html")
 ## VIEW ROUTES --ENDS
 
 ## ADMIN ROUTES --START
@@ -181,7 +182,7 @@ def admin_authentication():
                 )
                 ## SETTING REFRESH_TOKEN_COOKIE
                 response.set_cookie(
-                    key=app.config['JWT_REFRESH_COOKIE_PATH'],
+                    key=app.config['JWT_REFRESH_COOKIE_NAME'],
                     value=refresh_token,
                     max_age=30*24*60*60,    # EXPIRES IN 30 DAYS
                     samesite='Strict',
@@ -293,8 +294,7 @@ def admin_update_password():
     ##   "new_password":<STRING>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN
-    # user_id = get_jwt_identity()
-    user_id = 'adm-123'
+    user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
@@ -331,7 +331,7 @@ def admin_batch_insert():
     ##   "enrollment":<LIST OF ENROLLMENT STRINGS THAT NEED TO BE INSERTED IN BATCH COMPRISES OF ABOVE KEYS>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
@@ -363,7 +363,7 @@ def admin_batch_show_all():
     ##   "year_of_pass":<STRING>,
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
@@ -405,7 +405,7 @@ def admin_batch_remove():
     ##   "enrollment":<LIST OF ENROLLMENT STRINGS THAT NEED TO BE INSERTED IN BATCH COMPRISES OF ABOVE KEYS>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
@@ -439,7 +439,7 @@ def admin_batch_remove_all():
     ##   "year_of_pass":<STRING>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
@@ -716,7 +716,7 @@ def faculty_authentication():
 def faculty_view_profile():
     ## THIS API IS USED TO VIEW ALL THE DETAILS OF THE FACULTY STORED IN FACULTY_DB.
     ## IT DOESN'T TAKE ANY INPUT.
-    faculty_id = get_jwt_identity()
+    faculty_id = get_access_token_identity()
     faculty = db.Faculty()
     db_res = faculty.query('faculty_id',faculty_id)
     new_document = {}
@@ -740,7 +740,7 @@ def faculty_update_password():
     ##     "current_password":<STRING>,
     ##     "new_password":<STRING>
     ## }
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     ## FETCHING REQUEST OBJECT
     req = request.get_json()
     ## FETCHING PASSWORD STORED OF GIVEN USER_ID IN DATABASE
@@ -795,7 +795,7 @@ def faculty_update_profile():
     ##  "classes":classes
     ## }
     ##
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     req = request.get_json()
     ## CONNECTING WITH FACULTY_DB
     faculty = db.Faculty()
@@ -944,7 +944,7 @@ def faculty_insert_current_batch():
     ## }
     ##
     req = request.get_json()
-    faculty_id = get_jwt_identity()
+    faculty_id = get_access_token_identity()
     current_batches = db.CurrentBatches(faculty_id=faculty_id)
     db_res = current_batches.insert(
         subject=req['subject'],
@@ -971,7 +971,7 @@ def fetch_current_batch():
     ## THIS API IS USED FOR FETCHING THE DETAILS OF ALL THE CURRENT_BATCHES FOR THE FACULTY.
     ## IT GIVES A LIST OF ALL THE CURRENT_BATCHES OF THE PARTICULAR FACULTY.
     ## CHECKING VALIDITY OF JWT TOKEN
-    faculty_id = get_jwt_identity()
+    faculty_id = get_access_token_identity()
     current_batches = db.CurrentBatches(faculty_id)
     db_res = current_batches.show_all()
     current_batches = []
@@ -996,7 +996,7 @@ def fetch_students_list(batch_name):
     ## IT DISPLAYS ALL THE STUDENT IN A PARTICULAR CLASS.
     ## THERE IS NO JSON OBJECT IN THE BODY.
     ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
-    faculty_id = get_jwt_identity() 
+    faculty_id = get_access_token_identity() 
     batch_name = batch_name.split('_')
     generic_batch_name = ['programme','branch','section','year_of_pass']
     batch_name_dict = {}
@@ -1271,7 +1271,7 @@ def student_authentication():
 @access_token_required
 def student_view_profile():
     ## THIS API IS USED TO VIEW PROFILE DETAILS OF A STUDENT STORED IN THE DATABASE.
-    enrollment = get_jwt_identity()
+    enrollment = get_access_token_identity()
     student = db.Student()
     db_res = student.query('enrollment',enrollment)
     if db_res['status'] == 212:
@@ -1324,7 +1324,7 @@ def student_update_profile():
     ##  "father_name":<STRING>
     ## }
     ##    
-    user_id = get_jwt_identity()
+    user_id = get_access_token_identity()
     req = request.get_json()
     ## CONNECTING WITH STUDENT_DB
     student = db.Student()
@@ -1416,7 +1416,7 @@ def get_subjects_list():
     ## TEACHING THE SUBJECTS FOR A PARTICULAR ENROLLMENT NUMBER.
     req = request.get_json()
     semester = req["semester"]
-    enrollment = get_jwt_identity()
+    enrollment = get_access_token_identity()
     student = db.Student()
     student_query=student.query("enrollment",enrollment)
     if student_query["status"]==212:
@@ -1455,7 +1455,7 @@ def student_mark_attendance(faculty_id,subject):
     ## HE ENTERS THE OTP TOLD BY THE TEACHER.
     ## THE TEACHER VERIFIES THE OTP WITH THE OTP GENERATED IN HER PHONE.
     ## IF THE OTP IS VERIFIED, THE ATTENDANCE WILL BE MARKED. 
-    enrollment = get_jwt_identity()  
+    enrollment = get_access_token_identity()  
     req=request.get_json()
     entered_otp=req["otp"]
     semester = req["semester"]

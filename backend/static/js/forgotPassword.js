@@ -1,11 +1,10 @@
 let userid = document.getElementById('userid');
-let password = document.getElementById('password');
-var submitOtp = document.getElementById('submitOtp');
-var setPassword = document.getElementById('setPassword');
-var submitPassword = document.getElementById('submitPassword');
-var newPassword = document.getElementById('newPassword');
-var confirmPassword = document.getElementById('confirmPassword');
-var enterOTP = document.getElementById('enterOTP');
+let submitOtp = document.getElementById('submitOtp');
+let newPassword = document.getElementById('newPassword');
+let confirmPassword = document.getElementById('confirmPassword');
+let setPassword = document.getElementById('setPassword');
+let submitPassword = document.getElementById('submitPassword');
+let enterOTP = document.getElementById('enterOTP');
 userid.value = "";
 enterOTP.value = "";
 
