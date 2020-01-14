@@ -125,20 +125,22 @@ def unauthorized_loader_route( error_msg ):
 def display_login_page():
     return render_template("login.html")
 
+@app.route("/admin/forgotPassword",methods=['GET'])
+def display_forgot_password_page():
+    return render_template("forgotPassword.html")
+
 @app.route("/admin/dashboard",methods=['GET'])
 @access_token_required
 def display_main_page():
     return render_template("dashboard.html")
 
-@app.route("/QueryTable",methods=['GET'])
-@jwt_required
+@app.route("/admin/dashboard/QueryTable",methods=['GET'])
+@access_token_required
 def query_table():
     return render_template("QueryTable.html")
 
-
-@app.route("/showAll",methods=['GET'])
-@jwt_required
 @app.route("/admin/dashboard/deleteOne",methods=['GET'])
+@access_token_required
 def delete_one_entity():
     return render_template("DeleteOne.html")
 
@@ -146,15 +148,12 @@ def delete_one_entity():
 def display_all():
     return render_template("ShowAll.html")
 
-@app.route("/admin/forgotPassword",methods=['GET'])
-def display_forgot_password_page():
-    return render_template("forgotPassword.html")
-
 @app.route("/admin/dashboard/changePassword",methods=['GET'])
 @access_token_required
 def display_reset_password_page():
     return render_template("changePassword.html")
 ## VIEW ROUTES --ENDS
+
 
 ## ADMIN ROUTES --START
 @app.route("/admin/login",methods=['POST'])
@@ -406,9 +405,6 @@ def admin_batch_show_all():
 @access_token_required
 def admin_batch_remove():
     ## JSON POST MUST CONTAIN KEYS :-@app.route("/deleteOne",methods=['GET'])
-@jwt_required
-def delete_one_entity():
-    return render_template("DeleteOne.html")
     ## {
     ##   "programme":<STRING>,
     ##   "branch":<STRING>,
