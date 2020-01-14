@@ -21,26 +21,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>03720802717</td>
+                      
+                        {% for Enrollment in res %}
+                        <tr>
+                          <td>1.</td>
+                        <td>{{ res.enrollment }}</td>
                       </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>05520802717</td>
-                      </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>03620802717</td>
-                      </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>02222025522</td>
-                      </tr>
+                      {% endfor %}
+                     
                       <tr>       
                     </tbody>
                   </table>    
                 </div>                          
               </div>          
     </div>
+
 {% endblock %}

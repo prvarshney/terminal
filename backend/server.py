@@ -130,6 +130,14 @@ def display_login_page():
 def display_main_page():
     return render_template("dashboard.html")
 
+@app.route("/QueryTable",methods=['GET'])
+@jwt_required
+def query_table():
+    return render_template("QueryTable.html")
+
+
+@app.route("/showAll",methods=['GET'])
+@jwt_required
 @app.route("/admin/dashboard/deleteOne",methods=['GET'])
 def delete_one_entity():
     return render_template("DeleteOne.html")
@@ -382,7 +390,8 @@ def admin_batch_show_all():
             res['status'] = db_res['status']
             for document in db_res['res']:
                 res['enrollment'].append(document['enrollment'])
-            return jsonify(res)
+            print(res.enrollment)
+            return render_template("ShowAll.html",res=db_res['res'])
         else:
             res['status'] = db_res['status']
             res['msg'] = 'query-unsuccessful'
@@ -396,7 +405,10 @@ def admin_batch_show_all():
 @app.route('/admin/remove',methods=['POST'])
 @access_token_required
 def admin_batch_remove():
-    ## JSON POST MUST CONTAIN KEYS :-
+    ## JSON POST MUST CONTAIN KEYS :-@app.route("/deleteOne",methods=['GET'])
+@jwt_required
+def delete_one_entity():
+    return render_template("DeleteOne.html")
     ## {
     ##   "programme":<STRING>,
     ##   "branch":<STRING>,
@@ -468,6 +480,7 @@ def admin_aboutus():
         'msg':'for the community by the community',
         'status':'200'
     })
+
 ## ADMIN ROUTES --END
 
 ## FACULTY ROUTES --START

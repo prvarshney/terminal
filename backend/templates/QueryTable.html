@@ -1,0 +1,46 @@
+{% extends 'vertical_nav.html' %}
+{% block content %}
+    <div class="templatemo-content col-1 light-gray-bg">  
+        <div class="templatemo-top-nav-container">
+            <div class="row">
+            <nav class="templatemo-top-nav col-lg-12 col-md-12">
+                <ul class="text-uppercase">
+                <li><a href="" class="active">Dashboard</a></li>
+                <li><a href="/" >Sign Out</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+
+        <div class="panel panel-default margin-10 table-responsive" >
+            <div class="panel-heading"><h2 class="text-uppercase text-center"> Enter Batch Details</h2></div>
+            <div class="panel-body">
+            
+                <div class="form-group">
+                <label>Programme</label>
+                <input type="text" class="form-control" id="programme" placeholder="Enter Programme">
+                </div>
+                <div class="form-group">                      
+                <label>Course</label>
+                <input type="text" class="form-control" id="branch" placeholder="Enter Branch">                                 
+                </div> 
+                <div class="form-group">                      
+                    <label>Section</label>
+                    <input type="text" class="form-control" id="section" placeholder="Enter Section">                                 
+                </div>              
+                <div class="form-group">                      
+                    <label>Year Of Pass</label>
+                    <input type="number" class="form-control" id="year_of_pass" placeholder="Enter Year Of Pass">                                 
+                </div> 
+                <div class="form-group">
+                <button type="submit" class="templatemo-blue-button" id="queryBtn">Show Batch </button>
+                </div>
+            
+            </div>                
+        </div>   
+    </div>
+    <script src="{{ url_for('static', filename='js/query-table.js' ) }}" type="text/javascript"></script>
+    <!-- <script src="{{ url_for('static', filename='js/show-all.js' ) }}" type="text/javascript"></script> -->
+
+
+{% endblock %}
