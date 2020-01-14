@@ -5,6 +5,7 @@ let rememberMeStatus = document.getElementById('remember-me-status');
 let submitBtn = document.getElementById('submit-btn');
 let loader = document.getElementById('loader');
 
+
 // EVENT LISTENERS --START
 submitBtn.addEventListener('click', ()=>{
     // LOADING LOADER.GIF
@@ -24,7 +25,7 @@ submitBtn.addEventListener('click', ()=>{
         loader.style.display = 'none';
         if( response.status == 200 ){    // EXECUTES WHEN LOGIN GETS SUCCESSFUL
             // REDIRECTING TO DASHBOARD
-            window.location.href = "/dashboard";
+            window.location.href = "/admin/dashboard";
         }
         else{       // EXECUTES WHEN LOGIN WAS UNSUCCESSFUL
             console.log(response);
