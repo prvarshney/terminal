@@ -25,7 +25,7 @@ submitBtn.addEventListener('click', ()=>{
         loader.style.display = 'none';
         if( response.status == 200 ){    // EXECUTES WHEN LOGIN GETS SUCCESSFUL
             // REDIRECTING TO DASHBOARD
-            window.location.href = "/admin/dashboard";
+            window.location.href = "/admin/queryTable";
         }
         else{       // EXECUTES WHEN LOGIN WAS UNSUCCESSFUL
             console.log(response);
