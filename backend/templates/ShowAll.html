@@ -12,20 +12,23 @@
               </div>
             </div>
             <div class="templatemo-content-widget no-padding">
+              
                 <div class="panel panel-default table-responsive" style="margin-top: 70px; ">
                   <table class="table table-striped table-bordered templatemo-user-table">
+                    <caption style="text-align: center;"><h2>{{ batch }}</h2></caption>
                     <thead>
+                     
                       <tr>
-                        <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
-                        <td><a href="" class="white-text templatemo-sort-by">Enrollment<span class="caret"></span></a></td>
+                        <td><a href="" class="white-text templatemo-sort-by">Sr. No.</a></td>
+                        <td><a href="" class="white-text templatemo-sort-by">Enrollment</a></td>
                       </tr>
                     </thead>
                     <tbody>
                       
-                        {% for enrollment in enrollments %}
+                        {% for i in range(len(enrollments)) %}
                         <tr>
-                          <td>1.</td>
-                        <td>{{ enrollment }}</td>
+                          <td>{{ i+1 }}</td>
+                        <td>{{ enrollments[i] }}<a href="" name="{{ enrollment }}" id="deleteBtn" class="templatemo-edit-btn remove-btn" style="margin-left: 50px;">Delete</a></td>
                       </tr>
                       {% endfor %}
                      

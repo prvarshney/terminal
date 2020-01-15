@@ -135,7 +135,7 @@ def display_forgot_password_page():
 def display_main_page():
     return render_template("dashboard.html")
 
-@app.route("/admin/dashboard/queryTable",methods=['GET'])
+@app.route("/admin/queryTable",methods=['GET'])
 @access_token_required
 def query_table():
     return render_template("QueryTable.html")
@@ -167,7 +167,7 @@ def display_all(programme,branch,section,year_of_pass):
             res['status'] = db_res['status']
             for document in db_res['res']:
                 res['enrollment'].append(document['enrollment'])
-            return render_template('ShowAll.html',enrollments=res['enrollment'])
+            return render_template('ShowAll.html',enrollments=res['enrollment'],len=len, batch=res['batch'])
         else:
             res['status'] = db_res['status']
             res['msg'] = 'query-unsuccessful'
