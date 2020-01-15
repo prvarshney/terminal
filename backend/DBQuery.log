@@ -673,3 +673,15 @@
 [ 15-01-2020 :: 15:47:00 ] [  INFO  ] batch_db Connected Successfully
 [ 15-01-2020 :: 15:47:03 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee61078d00>
 [ 15-01-2020 :: 15:47:03 ] [  INFO  ] 01420802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 17:39:02 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 17:39:04 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 17:58:14 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 17:58:16 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 18:38:14 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 18:38:17 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 18:41:31 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 18:41:33 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 19:05:22 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 19:05:25 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 19:07:26 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 19:07:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db

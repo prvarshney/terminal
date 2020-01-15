@@ -2,39 +2,38 @@
 {% extends 'base.html' %}
 	{% block head %}
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-		<title>Login</title>
+		<title>Terminal | Admin Login</title>
 	{% endblock %}
-
 	{% block body %}   
 		<div id="loader"></div>
 		<div class="templatemo-content-widget templatemo-login-widget white-bg">
 			<header class="text-center">
-	          <div class="square"></div>
-	          <h1>Admin Panel</h1>
-	        </header>
-	        <div class="templatemo-login-form">
-	        	<div class="form-group">
-	        		<div class="input-group">
-		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input type="text" class="form-control" id="userid" placeholder="js@dashboard.com" />           
-		          	</div>	
-	        	</div>
-	        	<div class="form-group">
-	        		<div class="input-group">
-		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input type="password" class="form-control" id="password" placeholder="******" />           
-		          	</div>	
-	        	</div>	          	
-	          	<div class="form-group">
-				    <div class="checkbox squaredTwo">
-				        <input type="checkbox" id="c1" name="cc" />
+			<!-- <div class="square"></div> -->
+			<h1> Terminal</h1>
+			</header>
+			<div class="templatemo-login-form">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
+						<input type="text" class="form-control" id="userid" placeholder="js@dashboard.com" />           
+					</div>	
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
+						<input type="password" class="form-control" id="password" placeholder="******" />           
+					</div>	
+				</div>	          	
+				<div class="form-group">
+					<div class="checkbox squaredTwo">
+						<input type="checkbox" id="c1" name="cc" />
 						<label for="c1" id="remember-me-status"><span></span>Remember me</label>
-				    </div>				    
+					</div>				    
 				</div>
 				<div class="form-group">
 					<button id="submit-btn" class="templatemo-blue-button width-100">Login</button>
 				</div>
-	        </div>
+			</div>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
 			<p>Forgotten your login details? <strong><a href="/admin/forgotPassword" class="blue-text">Get help with signing in.</a></strong></p>

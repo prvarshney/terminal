@@ -122,6 +122,7 @@ def unauthorized_loader_route( error_msg ):
 
 
 ## VIEW ROUTES --STARTS
+
 @app.route("/", methods=['GET'])
 def display_login_page():
     return render_template("login.html")
