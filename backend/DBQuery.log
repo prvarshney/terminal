@@ -428,3 +428,248 @@
 [ 15-01-2020 :: 01:48:49 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 15-01-2020 :: 01:48:49 ] [  INFO  ] batch_db Connected Successfully
 [ 15-01-2020 :: 01:48:53 ] [  INFO  ] jwj_jj_a_8229 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 13:45:41 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 13:45:44 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 13:46:24 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 13:46:27 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 13:46:27 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 13:46:29 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 13:47:03 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 13:47:06 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 13:47:06 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 13:47:08 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 13:50:40 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 13:50:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 13:50:43 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 13:50:46 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 13:51:41 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 13:51:44 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 13:51:44 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 13:51:46 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 13:52:21 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 13:52:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 13:52:23 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 13:52:26 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:01:42 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:01:45 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:01:45 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:01:47 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:04:04 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:04:06 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:04:06 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:04:09 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:05:28 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:05:31 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:05:31 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:05:34 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:05:35 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:05:38 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:05:38 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:05:41 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:07:27 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:07:30 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:07:30 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:07:32 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:07:43 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:07:45 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:07:45 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:07:48 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:08:14 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:08:18 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:08:18 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:08:20 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:11:44 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:11:47 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:11:47 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:11:49 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:12:39 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:12:41 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:12:41 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:12:44 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:13:36 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:13:39 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:13:39 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:13:42 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:14:08 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:14:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:14:11 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:14:13 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:17:57 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:17:59 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:17:59 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:18:02 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 14:18:41 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 14:18:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 14:18:43 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 14:18:46 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:13:08 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:13:10 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:13:10 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:13:13 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:16:14 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:16:17 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:16:17 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:16:20 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:16:57 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:17:00 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:17:00 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:17:02 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:18:19 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:18:21 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:18:21 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:18:24 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:18:41 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:18:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:18:43 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:18:46 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:19:34 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:19:36 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:19:36 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:19:39 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:20:12 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:20:14 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:20:14 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:20:18 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:21:26 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:21:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:21:28 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:21:31 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:21:45 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:21:48 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:21:48 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:21:50 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:22:29 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:22:32 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:22:32 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:22:34 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:23:51 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:23:54 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:23:54 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:23:56 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:24:24 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:24:27 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:24:27 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:24:30 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:25:58 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:26:01 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:26:01 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:26:03 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:26:21 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:26:24 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:26:24 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:26:26 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:26:54 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:26:57 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:26:57 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:26:59 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:28:42 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:28:44 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:28:45 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:28:47 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:33:08 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:33:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:33:11 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:33:13 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:33:35 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:33:38 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:33:38 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:33:40 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:33:50 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:33:52 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:33:53 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:33:55 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee618db980>
+[ 15-01-2020 :: 15:33:55 ] [  INFO  ] 00020802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:34:21 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:34:24 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:34:24 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:34:26 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:35:46 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:35:49 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:35:49 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:35:51 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:36:17 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:36:19 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:36:19 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:36:22 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee6441ed40>
+[ 15-01-2020 :: 15:36:22 ] [  INFO  ] 00220802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:37:46 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:37:49 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:37:49 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:37:51 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:38:27 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:38:30 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:38:30 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:38:33 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:38:40 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:38:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:38:43 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:38:45 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee61089b00>
+[ 15-01-2020 :: 15:38:45 ] [  INFO  ] 00720802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:40:30 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:40:32 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:40:32 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:40:35 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:40:40 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:40:43 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:40:43 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:40:45 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee6008da40>
+[ 15-01-2020 :: 15:40:45 ] [  INFO  ] 00520802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:41:20 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:41:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:41:23 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:41:26 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:41:34 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:41:37 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:41:37 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:41:40 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee618e27c0>
+[ 15-01-2020 :: 15:41:40 ] [  INFO  ] 00820802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:43:29 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:43:31 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:43:31 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:43:34 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:44:09 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:12 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:44:12 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:44:15 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:44:18 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:20 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:44:20 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:44:23 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee618dfec0>
+[ 15-01-2020 :: 15:44:23 ] [  INFO  ] 00920802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:44:34 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:36 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:44:36 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:44:39 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:44:55 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:57 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:58 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:44:58 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:44:58 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:59 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:44:59 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:44:59 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:45:00 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:45:00 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:45:00 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee618c3a00>
+[ 15-01-2020 :: 15:45:00 ] [  INFO  ] 00120802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:45:01 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:45:01 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:45:02 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee6108c280>
+[ 15-01-2020 :: 15:45:02 ] [  INFO  ] 00320802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:45:03 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee6108c280>
+[ 15-01-2020 :: 15:45:03 ] [  INFO  ] 00420802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:45:04 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee63c66f80>
+[ 15-01-2020 :: 15:45:04 ] [  INFO  ] 00620802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
+[ 15-01-2020 :: 15:45:14 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:45:16 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:45:16 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:45:19 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:46:49 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:46:51 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:46:52 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:46:54 ] [  INFO  ] mca_cse_d_2021 Collection Fetched From Batch_DB
+[ 15-01-2020 :: 15:46:58 ] [  INFO  ] admin_db Connected Successfully
+[ 15-01-2020 :: 15:47:00 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 15-01-2020 :: 15:47:00 ] [  INFO  ] batch_db Connected Successfully
+[ 15-01-2020 :: 15:47:03 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fee61078d00>
+[ 15-01-2020 :: 15:47:03 ] [  INFO  ] 01420802717 Enrollment Removed From mca_cse_d_2021 Collection in Batch_DB
