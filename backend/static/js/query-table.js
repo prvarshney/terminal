@@ -3,9 +3,13 @@ let branch = document.getElementById('branch');
 let section = document.getElementById('section');
 let yearOfPass = document.getElementById('year_of_pass');
 let showBtn = document.getElementById('queryBtn');
+let loader = document.getElementById('loader');
 
 showBtn.addEventListener('click', ()=>{
+    // LOADING LOADER.GIF
+    loader.style.display = "block";
     window.location.href = `/admin/dashboard/showAll/${programme.value}/${branch.value}/${section.value}/${yearOfPass.value}`;
+    // loader.style.display = "none";
     // console.log(queryValues);
     // fetch('/admin/show_all'+programme.value+branch.value+section.value+yearOfPass.value , {
     //     method : 'POST',

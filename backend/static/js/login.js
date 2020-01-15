@@ -5,7 +5,6 @@ let rememberMeStatus = document.getElementById('remember-me-status');
 let submitBtn = document.getElementById('submit-btn');
 let loader = document.getElementById('loader');
 
-
 // EVENT LISTENERS --START
 submitBtn.addEventListener('click', ()=>{
     // LOADING LOADER.GIF
@@ -32,4 +31,5 @@ submitBtn.addEventListener('click', ()=>{
         }
     })
 });
+
 //EVENT LISTENERS --END

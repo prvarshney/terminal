@@ -1,13 +1,14 @@
 {% extends 'vertical_nav.html' %}
 {% block content %}
+    <div id="loader"></div>
     <div class="templatemo-content col-1 light-gray-bg">  
         
             <div class="templatemo-top-nav-container">
               <div class="row">
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
                   <ul class="text-uppercase">
-                    <li><a href="" class="active">Dashboard</a></li>
-                    <li><a href="/" >Sign Out</a></li>
+                    <li><a href="/admin/dashboard" class="active">Dashboard</a></li>
+                    <li><a href="/admin/logout" >LogOut</a></li>
                   </ul>
                 </nav>
               </div>
@@ -21,7 +22,7 @@
                 <h3 class="text-uppercase " style="margin-top: 14px; color: #ffffff;">Add Batches</h3>
             </div> 
               <div class="col-1 "></div>
-              <div class="templatemo-content-widget card-hover white-bg col-1 text-center" id="remove-one" style="background-color: #1f2124;
+              <div class="templatemo-content-widget card-hover white-bg col-1 text-center" id="removeOne" style="background-color: #1f2124;
               opacity: 0.86;">
                 <img src={{ url_for('static', filename="images/delete-user.png")}} alt="Bicycle" class="img-circle img-thumbnail" style="width: 130px;">
                 <h3 class="text-uppercase" style="margin-top: 14px; color: #ffffff;">Remove</h3>
