@@ -484,12 +484,14 @@ def admin_batch_remove_all():
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN & AUTHORIZING USER
     user_id = get_access_token_identity()
+    print(user_id)
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
         ## FETCHING REQUEST OBJECT
         
         req = request.get_json()
+        print(req)
         ## QUERYING BATCH API
         batch = db.Batch(req['programme'],req['branch'],req['section'],req['year_of_pass'])
         db_res = batch.remove_all()
