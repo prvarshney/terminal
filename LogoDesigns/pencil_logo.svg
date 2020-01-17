@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="pencil_logo.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="-372.29241"
+     inkscape:cy="910.74302"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="false"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1054"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#39adb4;fill-opacity:1;stroke:none;stroke-width:0.23194301;stroke-opacity:1"
+       d="m -75.659735,-75.454882 -8.598955,15.656365 h 5.1e-4 c 0,0.0015 -5.1e-4,0.0031 -5.1e-4,0.0046 v 95.157905 c 0,3.660943 3.835132,6.608206 8.598955,6.608206 4.763823,0 8.598958,-2.947263 8.598958,-6.608206 v -95.158151 c 0,-0.0015 -5.15e-4,-0.0031 -5.15e-4,-0.0046 h 5.15e-4 z"
+       id="path852"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#39adb4;fill-opacity:1;stroke:none;stroke-width:0.32765046;stroke-opacity:1"
+       d="m -53.089295,-42.230585 v 82.920921 c 0,7.31017 7.58535,13.19541 17.008264,13.196932 h 0.0036 0.0078 c 0.110064,-4.3e-5 0.218592,-0.005 0.328145,-0.0064 v -82.352153 z"
+       id="rect824"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#39adb4;fill-opacity:1;stroke:none;stroke-width:0.33266509;stroke-opacity:1"
+       d="m -98.602828,-26.783764 -17.348292,13.872979 v 67.537159 c 0.10956,0.0015 0.21807,0.0066 0.32814,0.0066 h 0.008 0.004 c 9.42291,-0.0015 17.008262,-6.068324 17.008262,-13.603964 z"
+       id="path863"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#2a858b;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       d="m -76.017869,71.61235 a 42.65622,42.65622 0 0 0 -19.596219,4.782653 l 19.552811,33.775197 19.430338,-33.849611 a 42.65622,42.65622 0 0 0 -19.38693,-4.708239 z"
+       id="path879"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot890"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#39adb4;fill-opacity:1;stroke:none"
+       transform="matrix(0.4626193,0,0,0.4626193,55.653813,-112.54825)"><flowRegion
+         id="flowRegion892"
+         style="fill:#39adb4;fill-opacity:1;stroke:none"><rect
+           id="rect894"
+           width="890.95453"
+           height="144.24979"
+           x="-729.73419"
+           y="515.82208"
+           style="fill:#39adb4;fill-opacity:1;stroke:none" /></flowRegion><flowPara
+         id="flowPara896"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:100px;font-family:'RR Beaver';-inkscape-font-specification:'RR Beaver, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#39adb4;fill-opacity:1;stroke:none">Terminal</flowPara></flowRoot>  </g>
+</svg>
