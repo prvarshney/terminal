@@ -685,3 +685,98 @@
 [ 15-01-2020 :: 19:05:25 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 15-01-2020 :: 19:07:26 ] [  INFO  ] admin_db Connected Successfully
 [ 15-01-2020 :: 19:07:28 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 11:48:07 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 11:48:10 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 11:48:10 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 11:48:19 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f844079d188>
+[ 16-01-2020 :: 11:48:19 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 12:09:07 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 12:09:10 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 14:26:43 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 14:27:03 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 14:27:03 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 14:27:12 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:27:12 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f84407b4388>
+[ 16-01-2020 :: 14:27:12 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:27:12 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f84407b41c8>
+[ 16-01-2020 :: 14:27:12 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:29:38 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 14:29:42 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 14:29:42 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 14:29:53 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:29:53 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f84407a2388>
+[ 16-01-2020 :: 14:29:53 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:29:53 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f84407b0a48>
+[ 16-01-2020 :: 14:29:53 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:31:42 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 14:32:09 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 14:32:09 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 14:32:22 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:32:23 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8441a0a948>
+[ 16-01-2020 :: 14:32:23 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:32:23 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8441a08888>
+[ 16-01-2020 :: 14:32:23 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 14:59:52 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 14:59:56 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 14:59:56 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 15:00:04 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:00:05 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8440f8de08>
+[ 16-01-2020 :: 15:00:05 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:00:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8440f95088>
+[ 16-01-2020 :: 15:00:05 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:00:58 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 15:01:03 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 15:01:03 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 15:01:12 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:01:12 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f84419e9b08>
+[ 16-01-2020 :: 15:01:12 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:01:12 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8440f8a988>
+[ 16-01-2020 :: 15:01:12 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:01:44 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 15:01:47 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 15:01:47 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 15:01:55 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:01:56 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8440f99e48>
+[ 16-01-2020 :: 15:01:56 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:01:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f844079d188>
+[ 16-01-2020 :: 15:01:56 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:02:27 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 15:02:31 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 15:02:31 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 15:02:40 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:02:40 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8441a06b88>
+[ 16-01-2020 :: 15:02:40 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:02:41 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8440158a08>
+[ 16-01-2020 :: 15:02:41 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:03:50 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 15:03:54 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 15:03:54 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 15:04:04 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:04:04 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f84407a26c8>
+[ 16-01-2020 :: 15:04:04 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:04:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8440f99988>
+[ 16-01-2020 :: 15:04:05 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:04:33 ] [  INFO  ] admin_db Connected Successfully
+[ 16-01-2020 :: 15:04:37 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-01-2020 :: 15:04:37 ] [  INFO  ] otp_db Connected Successfully
+[ 16-01-2020 :: 15:04:46 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:04:46 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f84407b4488>
+[ 16-01-2020 :: 15:04:46 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 16-01-2020 :: 15:04:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f84407ac8c8>
+[ 16-01-2020 :: 15:04:47 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 17-01-2020 :: 10:13:34 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 10:13:39 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 10:13:41 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8440fa4848>
+[ 17-01-2020 :: 10:13:41 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 17-01-2020 :: 10:13:52 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 10:13:57 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 10:13:57 ] [  INFO  ] otp_db Connected Successfully
+[ 17-01-2020 :: 10:14:09 ] [  INFO  ] For Hash ID - -3082856545464823633 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 17-01-2020 :: 10:14:09 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f8440f94e48>
+[ 17-01-2020 :: 10:14:09 ] [  INFO  ] Hash_ID - -3082856545464823633 Removed Successfully from generated_otp Collection in otp_db
+[ 17-01-2020 :: 10:14:09 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f8440fa3408>
+[ 17-01-2020 :: 10:14:09 ] [  INFO  ] For Hash_ID - -3082856545464823633 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 17-01-2020 :: 10:24:03 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 10:24:07 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 10:24:08 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8440153988>
+[ 17-01-2020 :: 10:24:08 ] [  INFO  ] Password Updation Completed Successfully in admin_db
