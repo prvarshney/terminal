@@ -30,4 +30,5 @@ submitBtn.addEventListener('click', ()=>{
         console.log("Sorry,new Password and confirm Passwords didn't match.");
     }
 });
+
 //EVENT LISTENERS --END
