@@ -8,22 +8,26 @@
 		<div id="loader"></div>
 		<div class="templatemo-content-widget templatemo-login-widget white-bg">
 			<header class="text-center">
-			<!-- <div class="square"></div> -->
-			<h1> Terminal</h1>
+				<img src="{{ url_for('static',filename='images/logo.png') }}" height="175">
 			</header>
 			<div class="templatemo-login-form">
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-						<input type="text" class="form-control" id="userid" placeholder="js@dashboard.com" />           
-					</div>	
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="fa fa-user fa-fw"></i>
+						</span>
+					</div>
+					<input type="text" class="form-control" id="userid" placeholder="js@dashboard.com">
 				</div>
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-						<input type="password" class="form-control" id="password" placeholder="******" />           
-					</div>	
-				</div>	          	
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="fa fa-key fa-fw"></i>
+						</span>
+					</div>
+					<input type="password" class="form-control" id="password" placeholder="******" >
+				</div>
 				<div class="form-group">
 					<div class="checkbox squaredTwo">
 						<input type="checkbox" id="c1" name="cc" />

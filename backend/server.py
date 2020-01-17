@@ -134,7 +134,7 @@ def display_forgot_password_page():
 @app.route("/admin/dashboard",methods=['GET'])
 @access_token_required
 def display_main_page():
-    return render_template("dashboard.html")
+    return render_template("vertical_nav.html")
 
 @app.route("/admin/queryTable",methods=['GET'])
 @access_token_required

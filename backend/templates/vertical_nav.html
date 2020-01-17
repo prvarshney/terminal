@@ -4,19 +4,18 @@
 {% endblock %}
 {% block body %}
 
-<div class="templatemo-flex-row">
-  <div class="templatemo-sidebar">
+<div class="templatemo-flex-row row">
+  <div class="templatemo-sidebar col-4">
     <header class="templatemo-site-header" >
-      <div class="square"></div>
-      <h1>Terminal</h1>
+      <img src="{{ url_for('static',filename='images/logo1.png') }}" height="64" width="35" />
+      <h1 class="font-weight-bold ml-3">Terminal</h1>
     </header>
     <div class="profile-photo-container">
-      <img src="{{ url_for('static', filename='images/profile-photo.jpg') }}" alt="Profile Photo" class="img-responsive">
-      <div class="profile-photo-overlay"></div>
+      <!-- <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive"> -->
+      <!-- <div class="profile-photo-overlay"></div> -->
     </div>
-    
     <div class="mobile-menu-icon">
-        <i class="fa fa-bars"></i>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive">
     </div>
     <nav class="templatemo-left-nav ">
       <ul>
@@ -29,7 +28,9 @@
       </ul>
     </nav>
   </div> 
-{% block content %} 
-{% endblock %}
+  <div class="col-8">
+    {% block content %} 
+    {% endblock %}
+  </div>>
 </div>
 {% endblock %}
