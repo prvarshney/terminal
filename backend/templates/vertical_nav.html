@@ -3,33 +3,31 @@
   <title>Dashboard</title>
 {% endblock %}
 {% block body %}
-
-<div class="templatemo-flex-row row">
-  <div class="templatemo-sidebar col-4">
-    <header class="templatemo-site-header" >
-      <img src="{{ url_for('static',filename='images/logo1.png') }}" height="64" width="35" />
-      <h1 class="font-weight-bold ml-3">Terminal</h1>
-    </header>
-    <div class="profile-photo-container">
-      <!-- <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive"> -->
-      <!-- <div class="profile-photo-overlay"></div> -->
+  <div class="templatemo-flex-row row w-100 h-100">
+    <div class="templatemo-sidebar col-2 h-100 p-0 m-0">
+      <div class="position-fixed d-block h-100 bg-dark">
+        <header class="templatemo-site-header" >
+          <img src="{{ url_for('static',filename='images/logo1.png') }}" height="64" width="35" />
+          <h1 class="font-weight-bold ml-3">Terminal</h1>
+        </header>
+        <div class="profile-photo-container">
+        </div>
+        <div class="mobile-menu-icon">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive">
+        </div>
+        <nav class="templatemo-left-nav ">
+          <ul>
+            <li><a href="" class="active"><i class="fa fa-plus fa-fw"></i>Maintain Batches</a></li>
+            <li><a href="#" ><i class="fa fa-check fa-fw"></i>Verify I'd Card</a></li>
+            <li><a href=""><i class="fa fa-thumbs-up fa-fw"></i>Rate Us</a></li>
+            <li><a href=""><i class="fa fa-phone fa-fw"></i>Contact Us</a></li>
+            <li><a href="/admin/dashboard/changePassword"><i class="fa fa-key fa-fw"></i>Change Password</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <div class="mobile-menu-icon">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive">
+    <div class="col-10">
+      {% block content %}{% endblock %}
     </div>
-    <nav class="templatemo-left-nav ">
-      <ul>
-        <li><a href="" class="active"><i class="fa fa-plus fa-fw"></i>Add Batches</a></li>
-        <li><a href="#" ><i class="fa fa-check fa-fw"></i>Verify I'd Card</a></li>
-        <li><a href=""><i class="fa fa-thumbs-up fa-fw"></i>Rate Us</a></li>
-        <li><a href=""><i class="fa fa-phone fa-fw"></i>Contact Us</a></li>
-        <li><a href="/admin/dashboard/changePassword"><i class="fa fa-key fa-fw"></i>Change Password</a></li>
-      </ul>
-    </nav>
-  </div> 
-  <div class="col-8">
-    {% block content %} 
-    {% endblock %}
-  </div>>
-</div>
+  </div>
 {% endblock %}

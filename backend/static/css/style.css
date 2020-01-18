@@ -1,6 +1,7 @@
 
 * {	font-family: 'Open Sans', sans-serif; }
 body {	font-size: 13px; height: 100vh; }
+input:focus { outline:none; box-shadow:none; }
 body, .templatemo-left-nav { background: #1f2124; }
 h1, h2, h3 { margin: 0; }
 h2 { font-size: 1.6em; }
@@ -60,6 +61,7 @@ nav li {
 	background-color: #3275BB;
 	color: white;
 }
+.border-gray { border-color: #e9ecef; }
 .blue-bg .fa-times { background-color: #6792C0; }
 .blue-bg .fa-times:hover { background-color: #2C639C; }
 .light-gray-bg { background-color: #efefef; }
@@ -83,8 +85,10 @@ footer { padding: 15px; }
 /* 2. Left Column
 -----------------------------*/
 .templatemo-sidebar { 
-	width: 300px; 
-	background-color: #1f2124;
+	z-index: 99;
+}
+#eye-toggler {
+	cursor: pointer;	
 }
 .square {
 	width: 25px;
@@ -388,7 +392,7 @@ footer { padding: 15px; }
 	border: none;	
 	color: white;	
 }
-.templatemo-blue-button:hover {	background-color: #2A858B; }
+.templatemo-blue-button:hover {	background-color: #2A858B; color: #fff; }
 .templatemo-white-button {
 	background-color: white;
 	border: 1px solid #39ADB4;	

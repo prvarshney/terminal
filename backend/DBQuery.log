@@ -1097,3 +1097,38 @@
 [ 17-01-2020 :: 13:29:56 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 17-01-2020 :: 13:29:58 ] [  INFO  ] <pymongo.results.UpdateResult object at 0x7f8440159488>
 [ 17-01-2020 :: 13:29:58 ] [  INFO  ] Password Updation Completed Successfully in admin_db
+[ 17-01-2020 :: 21:03:08 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 21:03:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 21:46:20 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 21:46:23 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 21:46:23 ] [  INFO  ] batch_db Connected Successfully
+[ 17-01-2020 :: 21:46:26 ] [  INFO  ] btech_cse_a_2021 Collection Fetched From Batch_DB
+[ 17-01-2020 :: 21:46:54 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 21:46:57 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 21:46:57 ] [  INFO  ] batch_db Connected Successfully
+[ 17-01-2020 :: 21:46:59 ] [  INFO  ] btech_cse_a_2021 Collection Fetched From Batch_DB
+[ 17-01-2020 :: 21:47:34 ] [  INFO  ] admin_db Connected Successfully
+[ 17-01-2020 :: 21:47:36 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 17-01-2020 :: 21:47:36 ] [  INFO  ] batch_db Connected Successfully
+[ 17-01-2020 :: 21:47:39 ] [  INFO  ] btech_cse_a_2021 Collection Fetched From Batch_DB
+[ 18-01-2020 :: 11:33:12 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 11:33:15 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 11:33:15 ] [  INFO  ] batch_db Connected Successfully
+[ 18-01-2020 :: 11:33:17 ] [  INFO  ] btech_cse_a_2021 Collection Fetched From Batch_DB
+[ 18-01-2020 :: 11:33:31 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 11:33:34 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 16:19:52 ] [  ERROR ] Unable To Create Connection With admin_db
+[ 18-01-2020 :: 16:20:10 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 16:20:14 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 17:45:06 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 17:45:09 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 18:14:49 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 18:14:52 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 18:18:50 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 18:18:52 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 18:20:09 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 18:20:11 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 18:21:43 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 18:21:45 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 18-01-2020 :: 18:25:55 ] [  INFO  ] admin_db Connected Successfully
+[ 18-01-2020 :: 18:25:59 ] [  INFO  ] The Search Query Completed Successfully in admin_db
