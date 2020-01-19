@@ -6,6 +6,9 @@ let secondDiv = document.getElementById('secondDiv');
 let submitPasswordBtn = document.getElementById('submitPasswordBtn');
 let enterOtpBtn = document.getElementById('enterOtpBtn');
 let loader = document.getElementById('loader');
+let eyeTogglerNew = document.getElementById('eyeTogglerNew');
+let eyeTogglerConfirm = document.getElementById('eyeTogglerConfirm');
+let eyeTogglerStatus = false;
 
 userid.value = "";
 enterOtpBtn.value = "";
@@ -27,6 +30,38 @@ submitOtpBtn.addEventListener('click',()=>{
         }
     });
 });
+
+//SETTING EYE TOGGLER-
+eyeTogglerNew.addEventListener('click', ()=>{
+    if(!eyeTogglerStatus){
+        eyeTogglerStatus = true;
+        eyeTogglerNew.classList.remove('fa-eye-slash');
+        eyeTogglerNew.classList.add('fa-eye');
+        newPasswordBtn.type = 'text';
+    }
+    else{
+        eyeTogglerStatus = false;
+        eyeTogglerNew.classList.remove('fa-eye');
+        eyeTogglerNew.classList.add('fa-eye-slash');
+        newPasswordBtn.type = 'password';
+    }
+});
+
+eyeTogglerConfirm.addEventListener('click', ()=>{
+    if(!eyeTogglerStatus){
+        eyeTogglerStatus = true;
+        eyeTogglerConfirm.classList.remove('fa-eye-slash');
+        eyeTogglerConfirm.classList.add('fa-eye');
+        confirmPasswordBtn.type = "text";
+    }
+    else{
+        eyeTogglerStatus = false;
+        eyeTogglerConfirm.classList.remove('fa-eye');
+        eyeTogglerConfirm.classList.add('fa-eye-slash');
+        confirmPasswordBtn.type = "password";
+    }
+})
+
 
 submitPasswordBtn.addEventListener('click',()=>{
     // LOADING LOADER.GIF
