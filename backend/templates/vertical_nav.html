@@ -6,10 +6,11 @@
   <!-- PAGE CONTENT STARTS -->
     <div class="row w-100 h-100">
       <!-- VERTICAL NAVBAR START -->
-      <div class="col-4 col-lg-3 d-none d-md-block vertical-navbar">
-        <div class="postion-fixed h-100">
-          <header class="text-center">
-            <img class="mt-5" src="{{ url_for('static',filename='images/logo6.png') }}" width="150">
+      <div class="col-4 col-lg-3 ">
+        <div class="vertical-navbar">
+          <header class="text-center mt-5">
+            <i class="fas fa-bars fa-2x float-left mt-3 ml-4 d-md-none" id="vertical-navbar-closing-toggler"></i>
+            <img src="{{ url_for('static',filename='images/logo6.png') }}" width="150">
           </header>
           <div class="border-bottom mt-3"></div>
           <div class="mt-3 text-center">
@@ -27,7 +28,7 @@
           <ul class="text-white text-light mt-3">
             <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-plus fa-fw"></i>Maintain Batches</a></li>
             <li><a class="mt-1 py-4 border-0 rounded-pill" href="#" id="navbar-link"><i class="fa fa-lg mx-3 fa-check fa-fw"></i>Verify I'd Card</a></li>
-            <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-thumbs-up fa-fw"></i>Rate Us</a></li>
+            <li><a class="d-none d-md-block mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-thumbs-up fa-fw"></i>Rate Us</a></li>
             <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-phone fa-fw"></i>Contact Us</a></li>
             <li><a class="mt-1 py-4 border-0 rounded-pill" href="/admin/dashboard/changePassword" id="navbar-link"><i class="fa fa-lg mx-3 fa-key fa-fw"></i>Change Password</a></li>
             <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fas fa-lg mx-3 fa-pencil-alt fa-fw"></i>Update Profile</a></li>
@@ -37,16 +38,14 @@
       <!-- VERTICAL NAVBAR ENDS -->
       <div class="col-12 col-md-7 col-lg-8 col-xl-9 h-100">
         <!-- HORIZONTAL NAVBAR STARTS -->
-        <div class="row d-block bg-light">
-          <div class="col-12 d-block horizontal-navbar">
+        <div class="row d-block bg-light sticky-top">
+          <div class="col-12 d-block horizontal-navbar bg-light pb-2">
             <span class="d-block d-md-none ml-3 float-left text-blue">
-              <i class="fas fa-bars fa-lg" id="vertical-navbar-toggler"></i>
+              <i class="fas fa-bars fa-lg" id="vertical-navbar-opening-toggler"></i>
             </span>
-            
-            <span class="text-blue ml-2 d-inline"><strong>/ admin / Dashboard </strong></span>
+            <span class="text-blue ml-3 d-none d-md-inline"><strong>/ admin / Dashboard </strong></span>
             <a href="/admin/logout" class="d-inline">
               <span class="float-right text-blue"><strong>Logout</strong></span>
-              <!-- <i class="float-right text-blue fas fa-user-circle fa-3x"></i> -->
             </a>
           </div>
           </div> 
@@ -56,6 +55,7 @@
       </div>
     </div>
   <!-- PAGE CONTENT ENDS -->
+  <script src="{{ url_for('static',filename='js/vertical_nav.js') }}" type="text/javascript"></script>
 {% endblock %}
 
 
