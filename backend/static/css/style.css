@@ -78,7 +78,18 @@ h3 {
 	z-index: -1;
 }
 
+#submitBtn{
+	background-image: linear-gradient(to right, #27b3fb,#026ffb);	
+}
+
 #submit-btn{
+	background-image: linear-gradient(to right, #27b3fb,#026ffb);
+}
+#submitOtpBtn{
+	background-image: linear-gradient(to right, #27b3fb,#026ffb);
+}
+
+#submitPasswordBtn{
 	background-image: linear-gradient(to right, #27b3fb,#026ffb);
 }
 
