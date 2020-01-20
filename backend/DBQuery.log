@@ -253,3 +253,9 @@
 [ 20-01-2020 :: 23:07:41 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 20-01-2020 :: 23:07:41 ] [  INFO  ] provisional_student_db Connected Successfully
 [ 20-01-2020 :: 23:07:45 ] [  INFO  ] Provisional Student Database Collection Fetched From Batch_DB
+[ 20-01-2020 :: 23:34:47 ] [  INFO  ] admin_db Connected Successfully
+[ 20-01-2020 :: 23:34:51 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 20-01-2020 :: 23:35:01 ] [  INFO  ] admin_db Connected Successfully
+[ 20-01-2020 :: 23:35:04 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 20-01-2020 :: 23:35:04 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 20-01-2020 :: 23:35:08 ] [  INFO  ] Provisional Student Database Collection Fetched From Batch_DB
