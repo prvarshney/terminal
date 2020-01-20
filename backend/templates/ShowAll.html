@@ -1,6 +1,6 @@
 {% extends 'vertical_nav.html' %}
   {% block content %}
-    <div class="templatemo-content col-1 light-gray-bg">  
+    <div class="templatemo-content  light-gray-bg">  
             <div class="templatemo-top-nav-container">
               <div class="row">
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
@@ -13,9 +13,10 @@
             </div>
             <div class="templatemo-content-widget no-padding">
               
-                <div class="panel panel-default table-responsive" style="margin-top: 70px; ">
-                  <table class="table table-striped table-bordered templatemo-user-table">
-                    <caption style="text-align: center;" ><h2 id="batch-name">{{ batch }}</h2><a class="templatemo-edit-btn " id="delete-batch-btn" style="margin-left: 450px;">Delete Batch</a></caption>
+                <div class="panel panel-default " style="margin-top: 70px; ">
+                  <div class="row"><caption style="text-align: center;" class="ml-4 d-flex justify-content-start" ><h2 id="batch-name" class="ml-5">{{ batch }}</h2><a class="btn btn-primary d-flex justify-content-end" id="delete-batch-btn">Delete Batch</a></caption>
+                    </div>
+                  <table class="table templatemo-user-table">
                     <thead>
                       <tr>
                         <td><a href="" class="white-text templatemo-sort-by">Sr. No.</a></td>
@@ -26,7 +27,7 @@
                         {% for i in range(len(enrollments)) %}
                       <tr>
                         <td>{{ i+1 }}</td>
-                        <td>{{ enrollments[i] }}<a name="{{ enrollments[i] }}" class="templatemo-edit-btn remove-enrollments-btn" style="margin-left: 50px;">Delete</a></td>
+                        <td>{{ enrollments[i] }}<a name="{{ enrollments[i] }}" class="btn templatemo-edit-btn remove-enrollments-btn" style="margin-left: 50px;">Delete</a></td>
                       </tr>
                       {% endfor %}
                       <tr>       

@@ -421,6 +421,7 @@ def admin_batch_show_all():
             'batch':f"{req['programme']}_{req['branch']}_{req['section']}_{req['year_of_pass']}",
             'enrollment':[]
         }
+        print(db_res[enrollment])
         if db_res['status'] == 302:         ## RUNS WHEN SUCCESSFUL QUERY TAKES PLACE
             res['msg'] = 'query-successful'
             res['status'] = db_res['status']
