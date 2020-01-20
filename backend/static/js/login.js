@@ -3,9 +3,31 @@ let userid = document.getElementById('userid');
 let password = document.getElementById('password');
 let rememberMeStatus = document.getElementById('remember-me-status');
 let submitBtn = document.getElementById('submit-btn');
+let eyeToggler = document.getElementById('eye-toggler');
+let errorDisplayField = document.getElementById('error-display-field');
 let loader = document.getElementById('loader');
+let eyeTogglerStatus = false;
+
+userid.value = "";
+password.value = "";
 
 // EVENT LISTENERS --START
+eyeToggler.addEventListener('click', ()=>{
+    if ( !eyeTogglerStatus ){
+        eyeTogglerStatus = true;
+        eyeToggler.classList.remove('fa-eye-slash');
+        eyeToggler.classList.add('fa-eye');
+        password.type = 'text';
+    }
+    else{
+        eyeTogglerStatus = false;
+        eyeToggler.classList.remove('fa-eye');
+        eyeToggler.classList.add('fa-eye-slash');
+        password.type = 'password';
+    }
+});
+
+
 submitBtn.addEventListener('click', ()=>{
     // LOADING LOADER.GIF
     loader.style.display = "block";
@@ -27,7 +49,7 @@ submitBtn.addEventListener('click', ()=>{
             window.location.href = "/admin/queryTable";
         }
         else{       // EXECUTES WHEN LOGIN WAS UNSUCCESSFUL
-            console.log(response);
+            errorDisplayField.classList.remove('invisible');
         }
     })
 });
