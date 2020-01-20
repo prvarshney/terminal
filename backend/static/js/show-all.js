@@ -6,7 +6,7 @@ let section = batchName[2];
 let year_of_pass = batchName[3];
 let deleteAllBtn = document.getElementById('delete-batch-btn');
 
-
+console.log(batchName);       
 // EVENT LISTENERS ---START
 for(let itr = 0; itr < removeBtns.length ; itr++){
     removeBtns[itr].addEventListener('click', () => {
