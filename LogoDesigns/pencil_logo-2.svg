@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="pencil_logo-2.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient894">
+      <stop
+         style="stop-color:#27b3fb;stop-opacity:1;"
+         offset="0"
+         id="stop890" />
+      <stop
+         style="stop-color:#026ffb;stop-opacity:1"
+         offset="1"
+         id="stop892" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient894"
+       id="linearGradient902"
+       gradientUnits="userSpaceOnUse"
+       x1="-342.78958"
+       y1="597.58545"
+       x2="-83.507851"
+       y2="551.86261" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient894"
+       id="linearGradient8092"
+       gradientUnits="userSpaceOnUse"
+       x1="-342.78958"
+       y1="597.58545"
+       x2="-83.507851"
+       y2="551.86261" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient894"
+       id="linearGradient8094"
+       gradientUnits="userSpaceOnUse"
+       x1="-342.78958"
+       y1="597.58545"
+       x2="-83.507851"
+       y2="551.86261" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient894"
+       id="linearGradient8096"
+       gradientUnits="userSpaceOnUse"
+       x1="-342.78958"
+       y1="597.58545"
+       x2="-83.507851"
+       y2="551.86261" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.56969052"
+     inkscape:cx="370.73341"
+     inkscape:cy="898.97771"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="false"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1054"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot890"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient902);fill-opacity:1;stroke:none"
+       transform="matrix(0.83292241,0,0,0.83292241,409.98529,-426.45694)"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13"><flowRegion
+         id="flowRegion892"
+         style="fill:url(#linearGradient8094);fill-opacity:1;stroke:none"><rect
+           id="rect894"
+           width="890.95453"
+           height="144.24979"
+           x="-729.73419"
+           y="515.82208"
+           style="fill:url(#linearGradient8092);fill-opacity:1;stroke:none" /></flowRegion><flowPara
+         id="flowPara896"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:99.9983139px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:url(#linearGradient8096);fill-opacity:1;stroke:none">Terminal</flowPara></flowRoot>    <path
+       inkscape:connector-curvature="0"
+       style="fill:#27b3fb;fill-opacity:1;stroke:none;stroke-width:0.71437502;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -75.524905,87.29128 a 39.080318,39.080318 0 0 0 -22.555213,7.224882 l 22.555213,18.391128 22.105109,-18.761132 A 39.080318,39.080318 0 0 0 -75.524905,87.29128 Z"
+       id="path23270"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#27b3fb;fill-opacity:1;stroke:none;stroke-width:0.21858503;stroke-opacity:1"
+       d="m -75.524905,-19.394198 -8.598958,6.810954 v 74.115371 c 0,3.251406 3.835135,5.868895 8.598958,5.868895 4.763823,0 8.598958,-2.617489 8.598958,-5.868895 v -74.373236 z"
+       id="path852"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#27b3fb;fill-opacity:1;stroke:none;stroke-width:0.32765046;stroke-opacity:1"
+       d="M -52.95419,-2.1936968 V 66.119446 c 0,7.310168 7.58535,13.195088 17.008263,13.19661 h 0.0036 0.0078 c 0.110064,-4.3e-5 0.218591,-0.0048 0.328144,-0.0062 V 11.026168 Z"
+       id="rect824"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13" />
+    <path
+       style="fill:#27b3fb;fill-opacity:1;stroke:none;stroke-width:0.33266509;stroke-opacity:1"
+       d="m -98.743054,-1.335053 -17.348306,13.872979 v 67.537159 c 0.10956,0.0015 0.21807,0.0066 0.32814,0.0066 h 0.008 0.004 c 9.42291,-0.0015 17.008276,-6.068324 17.008276,-13.603964 z"
+       id="path863"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13" />
+    <path
+       style="fill:none;stroke:#27b3fb;stroke-width:0.47624999;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -115.81605,80.05528 40.291145,32.852 39.578949,-33.591108"
+       id="path23273"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13" />
+    <path
+       style="fill:none;stroke:#27b3fb;stroke-width:1.38853335;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -16.879252,-37.643718 V 130.17075"
+       id="path23307"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/mnt/Document/Projects/Terminal/backend/static/images/logo5.png"
+       inkscape:export-xdpi="182.13"
+       inkscape:export-ydpi="182.13" />
+  </g>
+</svg>

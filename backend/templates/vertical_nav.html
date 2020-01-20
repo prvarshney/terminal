@@ -3,33 +3,61 @@
   <title>Dashboard</title>
 {% endblock %}
 {% block body %}
-
-<div class="templatemo-flex-row row">
-  <div class="templatemo-sidebar col-4">
-    <header class="templatemo-site-header" >
-      <img src="{{ url_for('static',filename='images/logo1.png') }}" height="64" width="35" />
-      <h1 class="font-weight-bold ml-3">Terminal</h1>
-    </header>
-    <div class="profile-photo-container">
-      <!-- <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive"> -->
-      <!-- <div class="profile-photo-overlay"></div> -->
+  <!-- PAGE CONTENT STARTS -->
+    <div class="row w-100 h-100">
+      <!-- VERTICAL NAVBAR START -->
+      <div class="col-4 col-lg-3 ">
+        <div class="vertical-navbar">
+          <header class="text-center mt-5">
+            <i class="fas fa-bars fa-2x float-left mt-3 ml-4 d-md-none" id="vertical-navbar-closing-toggler"></i>
+            <img src="{{ url_for('static',filename='images/logo6.png') }}" width="150">
+          </header>
+          <div class="border-bottom mt-3"></div>
+          <div class="mt-3 text-center">
+            <i class="fas fa-user-circle text-white fa-7x d-block mb-4"></i>
+            <div class="text-left ml-3">
+              <span class="">Account-Type : </span>
+              <span class="font-100 font-weight-bold ml-1">Administrator</span>
+            </div class="text-left ml-3">
+            <div class="text-left ml-3">
+              <span class="">UserID : </span>
+              <span class="font-100 font-weight-bold ml-5">adm-123</span>
+            </div>
+          </div>
+          <div class="border-bottom mt-3"></div>
+          <ul class="text-white text-light mt-3">
+            <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-plus fa-fw"></i>Maintain Batches</a></li>
+            <li><a class="mt-1 py-4 border-0 rounded-pill" href="#" id="navbar-link"><i class="fa fa-lg mx-3 fa-check fa-fw"></i>Verify I'd Card</a></li>
+            <!-- <li><a class="d-none d-md-block mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-thumbs-up fa-fw"></i>Rate Us</a></li> -->
+            <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fa fa-lg mx-3 fa-phone fa-fw"></i>Contact Us</a></li>
+            <li><a class="mt-1 py-4 border-0 rounded-pill" href="/admin/dashboard/changePassword" id="navbar-link"><i class="fa fa-lg mx-3 fa-key fa-fw"></i>Change Password</a></li>
+            <!-- <li><a class="mt-1 py-4 border-0 rounded-pill" href="" id="navbar-link"><i class="fas fa-lg mx-3 fa-pencil-alt fa-fw"></i>Update Profile</a></li> -->
+          </ul>
+        </div>
+      </div>
+      <!-- VERTICAL NAVBAR ENDS -->
+      <div class="col-12 col-md-7 col-lg-8 col-xl-9 h-100">
+        <!-- HORIZONTAL NAVBAR STARTS -->
+        <div class="row d-block bg-light sticky-top">
+          <div class="col-12 d-block horizontal-navbar bg-light pb-2">
+            <span class="d-block d-md-none ml-3 float-left text-blue">
+              <i class="fas fa-bars fa-lg" id="vertical-navbar-opening-toggler"></i>
+            </span>
+            <span class="text-blue ml-3 d-none d-md-inline"><strong>/ admin / Dashboard </strong></span>
+            <a href="/admin/logout" class="d-inline">
+              <span class="float-right text-blue"><strong>Logout</strong></span>
+            </a>
+          </div>
+          </div> 
+        <!-- HORIZONTAL NAVBAR ENDS -->
+        {% block content %}{% endblock %}
+      </div>
+      </div>
     </div>
-    <div class="mobile-menu-icon">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-responsive">
-    </div>
-    <nav class="templatemo-left-nav ">
-      <ul>
-        <li><a href="" class="active"><i class="fa fa-plus fa-fw"></i>Add Batches</a></li>
-        <li><a href="#" ><i class="fa fa-check fa-fw"></i>Verify I'd Card</a></li>
-        <li><a href=""><i class="fa fa-thumbs-up fa-fw"></i>Rate Us</a></li>
-        <li><a href=""><i class="fa fa-phone fa-fw"></i>Contact Us</a></li>
-        <li><a href="/admin/dashboard/changePassword"><i class="fa fa-key fa-fw"></i>Change Password</a></li>
-      </ul>
-    </nav>
-  </div> 
-  <div class="col-8">
-    {% block content %} 
-    {% endblock %}
-  </div>>
-</div>
+  <!-- PAGE CONTENT ENDS -->
+  <script src="{{ url_for('static',filename='js/vertical_nav.js') }}" type="text/javascript"></script>
 {% endblock %}
+
+
+
+
