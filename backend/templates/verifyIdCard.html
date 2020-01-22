@@ -1,40 +1,30 @@
 {% extends 'vertical_nav.html' %}
   {% block content %}
     <div class="templatemo-content  light-gray-bg">  
-            <div class="templatemo-top-nav-container">
-              <div class="row">
-                <nav class="templatemo-top-nav col-lg-12 col-md-12">
-                  <ul class="text-uppercase">
-                    <li><a href="/admin/dashboard" class="active">Dashboard</a></li>
-                    <li><a href="/admin/logout" >Logout</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
             <div class="templatemo-content-widget no-padding">              
                 <div class="panel panel-default " style="margin-top: 70px; ">
                     <header class="text-center">
                         <h2 class="text-primary">VERIFY STUDENTS</h2>
                     </header>
-                  <table class="table templatemo-user-table">
+                  <table class="table table-striped templatemo-user-table">
                     <thead>
                       <tr>
-                        <td><a href="" class="white-text templatemo-sort-by">Sr. No.</a></td>
-                        <td><a href="" class="white-text templatemo-sort-by">Enrollment</a></td>
+                        <td><div class="white-text templatemo-sort-by">Sr. No.</div></td>
+                        <td><div class="white-text templatemo-sort-by">Enrollment</div></td>
                       </tr>
                     </thead>
                     <tbody>
                         {% for i in range(len(enrollments)) %}
                       <tr>
                         <td>{{ i+1 }}</td>
-                        <td>{{ enrollments[i] }}<a name="{{ enrollments[i] }}" class="btn templatemo-edit-btn verify-enrollments-btn" style="margin-left: 50px;">Verify</a></td>
+                        <td>{{ enrollments[i] }}<a href="/admin/dashboard/verifyIdCardOne/{{ enrollments[i] }}"  class="btn templatemo-edit-btn verify-enrollments-btn" style="margin-left: 50px;">Verify</a></td>
                       </tr>
                       {% endfor %}
                       <tr>       
                     </tbody>
                   </table>    
                 </div>                          
-              </div>          
+              </div>   
     </div>
     <script src="{{ url_for('static',filename='js/verifyIdCard.js') }}" type="text/javascript"></script>
 {% endblock %}
