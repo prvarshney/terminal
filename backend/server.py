@@ -443,11 +443,13 @@ def admin_batch_insert():
     ##   "enrollment":<LIST OF ENROLLMENT STRINGS THAT NEED TO BE INSERTED IN BATCH COMPRISES OF ABOVE KEYS>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN
+    print("bleepblop")
     user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
         req = request.get_json()
+        print(req)
         batch = db.Batch(req['programme'],req['branch'],req['section'],req['year_of_pass'])
         db_res = {}     ## DICTIONARY TO HOLD DATABASE RESPONSE FOR EACH ENROLLMENT INSERTION IN DATABASE
         for enrollment in req['enrollment']:

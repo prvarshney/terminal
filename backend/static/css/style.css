@@ -284,6 +284,10 @@ footer { padding: 15px; }
 }
 .templatemo-left-nav .fa { margin-right: 15px; }
 
+.sub-btn :hover{
+	background-color: #3275BB;
+}
+
 /* 3. Right Column
 ------------------------------*/
 .templatemo-top-nav-container {
@@ -537,11 +541,12 @@ input[type="radio"]:checked + label span {
 	border: 1px solid #39ADB4;
 	color: white;
 }
+
 .templatemo-link { color: black; }
 .templatemo-link:hover { color: #39ADB4; }
 .templatemo-overflow-hidden { overflow: hidden; }
 .templatemo-user-table thead {
-	background-color: #39ADB4;
+	background-color: #1694fb;
 	color: white;
 }
 .panel>.table-responsive:last-child>.table:last-child, .panel>.table:last-child {
