@@ -36,6 +36,7 @@ app.config['JWT_ACCESS_COOKIE_NAME'] = 'access_token_cookie'
 app.config['JWT_REFRESH_COOKIE_NAME'] = 'refresh_token_cookie'
 app.config['JWT_ACCESS_COOKIE_PATH'] = '/'
 app.config['JWT_REFRESH_COOKIE_PATH'] = '/'
+app.add_url_rule('/uploads/<path:filename>', endpoint='uploads',view_func=app.send_static_file)
 bcrypt = Bcrypt()
 jwt = JWTManager(app)
 
@@ -182,12 +183,9 @@ def display_all(programme,branch,section,year_of_pass):
 @access_token_required
 def display_verify_idcard_page():
     user_id = get_access_token_identity()
-    # user_id = 'adm-123'
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
     if db_res['status'] == 212:
-        ## FETCHING REQUEST OBJECT
-        req = request.get_json()
         ## QUERYING PROVISIONAL_STUDENT API
         provisional_student = db.Provisional_Student()
         db_res = provisional_student.show_all()
@@ -201,6 +199,44 @@ def display_verify_idcard_page():
             for document in db_res['res']:
                 res['enrollment'].append(document['enrollment'])
             return render_template('verifyIdCard.html',enrollments=res['enrollment'],len=len)
+        else:
+            res['status'] = db_res['status']
+            res['msg'] = 'query-unsuccessful'
+            return jsonify(res)
+    return jsonify({
+        'status':401,
+        'msg':'unauthorized user'
+    })
+
+@app.route("/admin/dashboard/verifyIdCardOne/<enrollment>",methods=['GET'])
+@access_token_required
+def display_verifyIdCardOne_page(enrollment):
+    user_id = get_access_token_identity()
+    admin = db.Admin()
+    db_res = admin.query('admin_id',user_id)
+    if db_res['status'] == 212:
+        ## QUERYING PROVISIONAL_STUDENT API
+        provisional_student = db.Provisional_Student()
+        db_res = provisional_student.query('enrollment',enrollment)    
+        ## BINDING DATABASE RESPONSE INTO JSON OBJECT
+        if db_res['status'] == 212:         ## RUNS WHEN SUCCESSFUL QUERY TAKES PLACE 
+            for document in db_res['res']:
+                res_one = {
+                    'enrollment': document['enrollment'],
+                    'rollno': document['rollno'],
+                    'name': document['name'],
+                    'phone_number': document['phone_number'],
+                    'father_name': document['father_name'],
+                    'year_of_join': document['year_of_join'],
+                    'year_of_pass': document['year_of_pass'],
+                    'programme': document['programme'],
+                    'branch': document['branch'],
+                    'section': document['section'],
+                    'identity_proof': document['identity_proof']                        
+                }
+            res_one['msg'] = 'query-successful'
+            res_one['status'] = db_res['status']   
+            return render_template("verifyIdCardOne.html", document=res_one )
         else:
             res['status'] = db_res['status']
             res['msg'] = 'query-unsuccessful'
