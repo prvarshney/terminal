@@ -1,36 +1,37 @@
 {% extends 'vertical_nav.html' %}
   {% block content %}
-    <div class="templatemo-content  light-gray-bg">  
-            <div class="templatemo-top-nav-container">
-              <div class="row">
-                <nav class="templatemo-top-nav col-lg-12 col-md-12">
-                  <ul class="text-uppercase">
-                    <li><a href="/admin/dashboard" class="active">Dashboard</a></li>
-                    <li><a href="/admin/logout" >Logout</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
+    <div class="templatemo-content ">  
             <div class="templatemo-content-widget no-padding">
-              
                 <div class="panel panel-default " style="margin-top: 70px; ">
-                  <div class="row"><caption style="text-align: center;" class="ml-4 d-flex justify-content-start" ><h2 id="batch-name" class="ml-5">{{ batch }}</h2><a class="btn btn-primary d-flex justify-content-end" id="delete-batch-btn">Delete Batch</a></caption>
-                    </div>
-                  <table class="table templatemo-user-table">
+                  <div class="row">
+                    <caption style="text-align:center;" class="ml-4 d-flex justify-content-start"><h2 id="batch-name" class="ml-5">{{ batch }}</h2>
+                    <a class="btn float-right pd-1" id="delete-batch-btn" style="background-color: #1694fb; margin-left: 652px; color: white;" >Delete Batch</a>
+                  </caption>
+                  </div>
+                  <table class="table table-striped templatemo-user-table"  >
                     <thead>
                       <tr>
                         <td><a href="" class="white-text templatemo-sort-by">Sr. No.</a></td>
                         <td><a href="" class="white-text templatemo-sort-by">Enrollment</a></td>
                       </tr>
                     </thead>
-                    <tbody>
-                        {% for i in range(len(enrollments)) %}
+                    <tbody id="batch-table-body">
+                      {% for i in range(len(enrollments)) %}
                       <tr>
                         <td>{{ i+1 }}</td>
                         <td>{{ enrollments[i] }}<a name="{{ enrollments[i] }}" class="btn templatemo-edit-btn remove-enrollments-btn" style="margin-left: 50px;">Delete</a></td>
                       </tr>
                       {% endfor %}
-                      <tr>       
+                      <tr>
+                        <td><button class="btn btn-light" type="button" id="submit-enrollment-btn" onclick="showValue();" style="color:white; background-color: #1694fb;"><i class="fa fa-plus"></i></button></td>     
+                        <td>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <input type="text" class="px-2" id="enrollment-insertion-field" placeholder="Enter Enrollment">
+                            </div>
+                         </div>
+                        </td>
+                    </tr> 
                     </tbody>
                   </table>    
                 </div>                          
