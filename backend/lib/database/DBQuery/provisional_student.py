@@ -156,6 +156,29 @@ class Provisional_Student:
             log(f'[  ERROR ] Failed to Update Hash_ID - {hash_id} With - {updation_param}:{updation_value} in {config.Provisional_Student_DB}')
             return 204
 
+    def show_all(self):
+        # USED TO DISPLAY A LIST OF ALL THE ENROLLED STUDENTS IN A CLASS
+        try:
+            res = self.collection.find({})
+            if res.count() > 0:
+                response = {
+                    'status':302,
+                    'res':res
+                }
+            else:
+                response = {
+                    'status':302,
+                    'res':{}
+                }
+            log('[  INFO  ] Provisional Student Database Collection Fetched From Batch_DB')
+        except:
+            response = {
+                'status':598,
+                'res':None
+            }
+            log(f'[  ERROR ] Unable To Fetch Provisonal Student Database Collection From Batch_DB')
+        return response
+
     def __del__(self):
         self.client.close()
 

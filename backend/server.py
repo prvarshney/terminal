@@ -178,6 +178,38 @@ def display_all(programme,branch,section,year_of_pass):
         'msg':'unauthorized user'
     })
 
+@app.route("/admin/dashboard/verifyIdCard",methods=['GET'])
+@access_token_required
+def display_verify_idcard_page():
+    user_id = get_access_token_identity()
+    # user_id = 'adm-123'
+    admin = db.Admin()
+    db_res = admin.query('admin_id',user_id)
+    if db_res['status'] == 212:
+        ## FETCHING REQUEST OBJECT
+        req = request.get_json()
+        ## QUERYING PROVISIONAL_STUDENT API
+        provisional_student = db.Provisional_Student()
+        db_res = provisional_student.show_all()
+        ## BINDING DATABASE RESPONSE INTO JSON OBJECT
+        res = {
+            'enrollment':[]
+        }
+        if db_res['status'] == 302:         ## RUNS WHEN SUCCESSFUL QUERY TAKES PLACE
+            res['msg'] = 'query-successful'
+            res['status'] = db_res['status']
+            for document in db_res['res']:
+                res['enrollment'].append(document['enrollment'])
+            return render_template('verifyIdCard.html',enrollments=res['enrollment'],len=len)
+        else:
+            res['status'] = db_res['status']
+            res['msg'] = 'query-unsuccessful'
+            return jsonify(res)
+    return jsonify({
+        'status':401,
+        'msg':'unauthorized user'
+    })
+
 @app.route("/admin/dashboard/changePassword",methods=['GET'])
 @access_token_required
 def display_reset_password_page():
@@ -1283,15 +1315,26 @@ def student_verify_phone():
                     provisional_student.update(hash_id,'phone_number_verification_status',True)
                     ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
                     otp_db.remove(hash_id,'PHONE_VERIFICATION')
-                    return jsonify({
-                        'status':200,
-                        'msg': 'phone number validated successfully'
-                    })
-                else:
-                    return jsonify({
-                        'status':401,
-                        'msg':'otp mismatch'
-                    })
+                    ## CHECKING WHETHER EMAIL AND PHONE NUMBER BOTH GOT VERIFIED
+                    db_res = provisional_faculty.query('hash_id',hash_id)
+                    if db_res['status'] == 212:
+                        for document in db_res['res']:
+                            if document['phone_number_verification_status'] and document['email_verification_status']:
+                                ## THIS BLOCK EXECUTES WHEN BOTH EMAIL AND PHONE NUMBERS GOT VERIFIED
+                                return jsonify(db_res)
+                                ## HENCE STUDENT DOCUMENT TRANSFERS FROM PROVISIONAL_DB TO SERVER.
+                                ## NOW REMOVING FACULTY DOCUMENT FROM PROVISIONAL DB
+                                # provisional_faculty.remove('hash_id',hash_id)
+                    
+                        return jsonify({
+                            'status':200,
+                            'msg': 'phone number validated successfully'
+                        })
+                    else:
+                        return jsonify({
+                            'status':401,
+                            'msg':'otp mismatch'
+                        })
     return jsonify({
         'status':404,
         'msg':'otp not found in database, please try to regenerate otp'
