@@ -18,11 +18,10 @@
         android:textAlignment="center"
         android:textSize="34sp"
         android:fontFamily="sans-serif"
-        android:textColor="@color/colorLight"
+        android:textColor="@color/colorAccent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/about_app" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/about_app"
@@ -38,15 +37,26 @@
         android:layout_marginRight="50dp"
         app:layout_constraintTop_toBottomOf="@+id/app_title"  />
 
+    <ImageView
+        android:id="@+id/banner_image"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:src="@drawable/banner_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_app"
+        app:layout_constraintBottom_toTopOf="@+id/tc_link"  />
+
     <TextView
         android:id="@+id/tc_link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-light"
-        android:text="Tap Agree and Continue to accept the Terms of Service."
+        android:text="Tap Agree and Continue to accept the Terms of Service and Privacy Policy."
+        android:textColorLink="@color/colorMatteGreen"
         android:textAlignment="center"
-        android:textColor="#fff"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:layout_marginLeft="34dp"
         android:layout_marginRight="34dp"
@@ -59,11 +69,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Agree and Continue"
+        android:padding="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/full_width_btn"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent" />
 
