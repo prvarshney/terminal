@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-light"
-        android:text="Tap Agree and Continue to accept the Terms of Service and Privacy Policy."
+        android:text="Tap Agree and Continue to accept the Terms of Service and Privacy Policy.\nAlready Signup? Login"
         android:textColorLink="@color/colorMatteGreen"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"

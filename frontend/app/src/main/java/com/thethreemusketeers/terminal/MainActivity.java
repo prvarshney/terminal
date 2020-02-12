@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         termsAndConditionLink = findViewById(R.id.tc_link);
 
         // creating termsAndConditionLink clickable
-        SpannableString termsAndCondition = new SpannableString("Tap \"Agree and Continue\" to accept the Terms of Service and Privacy Policy.");
+        SpannableString termsAndCondition = new SpannableString("Tap \"Agree and Continue\" to accept the Terms of Service and Privacy Policy.\nAlready Signup? Login");
         ClickableSpan termsAndConditionActivityLauncher = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
@@ -49,8 +49,21 @@ public class MainActivity extends AppCompatActivity {
                 ds.setUnderlineText(false);
             }
         };
+        ClickableSpan loginActivityLauncher = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                // launch login activity
+            }
+
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                ds.setColor(getResources().getColor(R.color.colorMatteGreen));
+                ds.setUnderlineText(false);
+            }
+        };
         termsAndCondition.setSpan(termsAndConditionActivityLauncher,39,55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndCondition.setSpan(privacyPolicyActivityLauncher,60,74, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        termsAndCondition.setSpan(loginActivityLauncher,92,97,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndConditionLink.setText(termsAndCondition);
     }
 }
