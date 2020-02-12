@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Terminal</string>
+    <string name="terms_condition_introduction">You and the company or business that you are authorized to represent (“you,” “your,” or “Company”) agree to these Terminals Terms of Service and all other applicable terms, policies, and documentation (collectively, “Business Terms”) by downloading or using apps, software, features, services, and APIs designed and developed for businesses (“Business Services”)."</string>
 </resources>
