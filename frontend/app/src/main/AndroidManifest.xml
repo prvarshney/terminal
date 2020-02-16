@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TermsAndConditionActivity"></activity>
+        <activity android:name=".CreateProfile1" android:screenOrientation="portrait"></activity>
+        <activity android:name=".TermsAndConditionActivity" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

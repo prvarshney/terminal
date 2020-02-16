@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         agreeAndContinueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // starting activity
+                startActivity(new Intent(MainActivity.this,CreateProfile1.class));
             }
         });
     }
