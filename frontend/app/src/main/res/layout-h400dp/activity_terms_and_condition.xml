@@ -46,7 +46,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="@string/terms_condition_introduction"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@+id/introduction" />
@@ -72,7 +72,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="@string/disclaimer"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@+id/disclaimer" />
@@ -98,7 +98,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="@string/miscellaneous"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@+id/miscellaneous" />
@@ -124,7 +124,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="@string/notices"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@+id/notice" />
@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:text="@string/governing_law_and_venue"
             android:textColor="@color/colorWhite"
             app:layout_constraintTop_toBottomOf="@+id/governing_law_and_venue"
