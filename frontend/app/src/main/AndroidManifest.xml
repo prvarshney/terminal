@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateProfile1" android:screenOrientation="portrait"></activity>
+        <activity android:name=".StudentLogin"></activity>
+        <activity
+            android:name=".CreateProfile1"
+            android:screenOrientation="portrait" />
         <activity android:name=".TermsAndConditionActivity" />
         <activity
             android:name=".MainActivity"
