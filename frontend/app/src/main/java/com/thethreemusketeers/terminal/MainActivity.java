@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 // launch login activity
+                startActivity(new Intent(MainActivity.this,StudentLogin.class));
             }
 
             @Override
