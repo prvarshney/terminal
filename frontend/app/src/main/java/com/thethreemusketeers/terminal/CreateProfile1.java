@@ -25,7 +25,7 @@ public class CreateProfile1 extends AppCompatActivity {
         accountTypeDropDown = findViewById(R.id.account_type_dropdown);
 
         // setting dropdown elements
-        String[] accountTypeDropDownElements = new String[]{"Account-Type","Student","Faculty"};
+        String[] accountTypeDropDownElements = new String[]{"Select Account-Type","Student (BPIT)","Faculty (BPIT)"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,accountTypeDropDownElements){
             @Override
             public boolean isEnabled(int position) {
