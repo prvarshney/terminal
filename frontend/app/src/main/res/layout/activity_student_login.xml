@@ -45,7 +45,7 @@
     <EditText
         android:id="@+id/userid"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:hint="Enrollment, like 05520802717"
         android:inputType="number"
         android:background="@drawable/input_fields"
@@ -61,26 +61,51 @@
         app:layout_constraintHorizontal_bias="0.0"
         />
 
-
-    <EditText
-        android:inputType="textPassword"
+    <LinearLayout
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Password"
+        android:layout_height="wrap_content"
         android:background="@drawable/input_fields"
-        android:maxLength="50"
+        android:orientation="horizontal"
+        android:weightSum="3"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/userid">
+
+
+    <EditText
+        android:id="@+id/password_edit_text"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Password"
+        android:maxLength="50"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bginput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userid"
         android:textColorHint="@color/colorPrimary"
-        android:paddingLeft="20dp"
         android:textColor="#FFF"
         app:layout_constraintHorizontal_bias="0.0"
+        android:layout_weight="1"
+
         />
+
+    <ImageView
+        android:id="@+id/password_eye"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:src="@drawable/password_eye"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:paddingLeft="40dp"
+        />
+    </LinearLayout>
 
     <Button
         android:id="@+id/login_btn"
