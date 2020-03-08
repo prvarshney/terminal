@@ -1647,5 +1647,5 @@ def student_mark_attendance(faculty_id,subject):
 
 if __name__ == '__main__':
     os.system(f"export PYTHONHASHSEED=0")
-    app.run(debug=True,port=5000,host="0.0.0.0")
+    app.run(debug=False)
     

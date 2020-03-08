@@ -4,3 +4,5 @@
 [ 20-01-2020 :: 19:22:55 ] [  INFO  ] The Search Query Completed Successfully in admin_db
 [ 20-01-2020 :: 19:22:55 ] [  INFO  ] batch_db Connected Successfully
 [ 20-01-2020 :: 19:22:58 ] [  INFO  ] btech_cse_A_2021 Collection Fetched From Batch_DB
+[ 08-03-2020 :: 19:57:27 ] [  INFO  ] admin_db Connected Successfully
+[ 08-03-2020 :: 19:57:29 ] [  INFO  ] The Search Query Completed Successfully in admin_db
