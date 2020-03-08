@@ -109,6 +109,7 @@
             android:spinnerMode="dropdown"
             android:paddingLeft="2dp"
             android:paddingTop="1dp"
+            android:backgroundTint="@color/colorWhite"
             android:popupBackground="@color/colorPrimaryDark" />
 
     </LinearLayout>

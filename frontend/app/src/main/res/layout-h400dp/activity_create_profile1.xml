@@ -107,6 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:spinnerMode="dropdown"
+            android:backgroundTint="@color/colorWhite"
             android:paddingLeft="2dp"
             android:paddingTop="1dp"
             android:popupBackground="@color/colorPrimaryDark" />

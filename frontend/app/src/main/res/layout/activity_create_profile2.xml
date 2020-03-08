@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".CreateProfile1">
+    tools:context=".CreateProfile2">
 
     <TextView
         android:id="@+id/activity_title"
@@ -47,18 +47,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-   <TextView
-       android:id="@+id/attention_required_on_username_editText"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="21dp"
-       android:layout_marginHorizontal="24dp"
-       android:fontFamily="sans-serif"
-       android:textSize="14sp"
-       android:text="* Required"
-       android:alpha="0"
-       android:textColor="@color/colorAccent"
-       app:layout_constraintTop_toBottomOf="@+id/user_avatar" />
+    <TextView
+        android:id="@+id/username_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginHorizontal="24dp"
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        android:text="Username"
+        android:alpha="1"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar" />
 
     <EditText
         android:id="@+id/username"
@@ -70,49 +70,39 @@
         android:layout_marginRight="24dp"
         android:padding="12dp"
         android:background="@drawable/input_fields"
-        android:hint="Your Fullname, like John Doe"
-        android:inputType="textCapWords"
+        android:hint="Create Username, like john_doe"
+        android:inputType="text"
         android:textColorHint="@color/colorPrimary"
         android:textColor="#FFF"
-        app:layout_constraintTop_toBottomOf="@+id/attention_required_on_username_editText"  />
+        app:layout_constraintTop_toBottomOf="@+id/username_label"  />
 
     <TextView
-        android:id="@+id/attention_required_on_accountType_spinner"
+        android:id="@+id/dob_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginHorizontal="24dp"
-        android:text="* Required"
-        android:alpha="0"
         android:fontFamily="sans-serif"
         android:textSize="14sp"
+        android:text="Date of Birth"
+        android:alpha="1"
         android:textColor="@color/colorAccent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <LinearLayout
-        android:id="@+id/dropdown_container"
+    <EditText
+        android:id="@+id/dob_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:padding="12dp"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginHorizontal="24dp"
         android:background="@drawable/input_fields"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attention_required_on_accountType_spinner" >
-
-        <Spinner
-            android:id="@+id/account_type_dropdown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:backgroundTint="@color/colorWhite"
-            android:paddingLeft="2dp"
-            android:paddingTop="1dp"
-            android:popupBackground="@color/colorPrimaryDark" />
-
-    </LinearLayout>
+        android:hint="Select your Birthday"
+        android:textColorHint="@color/colorPrimary"
+        android:focusable="false"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintTop_toBottomOf="@+id/dob_label" />
 
     <Button
         android:id="@+id/next_btn"
@@ -130,5 +120,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_avatar"
         app:layout_constraintVertical_bias="0.96" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

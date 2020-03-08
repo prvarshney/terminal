@@ -27,14 +27,14 @@ public class CreateProfile1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile1);
 
-        // fetching xml elements
+        // FETCHING XML ELEMENTS
         accountTypeDropDown = findViewById(R.id.account_type_dropdown);
         nextBtn = findViewById(R.id.next_btn);
         username = findViewById(R.id.username);
         attentionRequiredTowardsUsernameField = findViewById(R.id.attention_required_on_username_editText);
         attentionRequiredTowardsAccountTypeField = findViewById(R.id.attention_required_on_accountType_spinner);
 
-        // setting dropdown elements
+        // SETTING DROPDOWN ELEMENTS
         String[] accountTypeDropDownElements = new String[]{"Select Account-Type","Student (BPIT)","Faculty (BPIT)"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_dropdown ,accountTypeDropDownElements){
             @Override
@@ -44,7 +44,6 @@ public class CreateProfile1 extends AppCompatActivity {
                 else
                     return true;
             }
-
         };
         adapter.setDropDownViewResource(R.layout.spinner_text);
         accountTypeDropDown.setAdapter(adapter);
@@ -73,7 +72,7 @@ public class CreateProfile1 extends AppCompatActivity {
 
                 if( proceedingNextFlag ){
                     //proceeding to further
-                    startActivity(new Intent(CreateProfile1.this,MainActivity.class));
+                    startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
                 }
             }
         });
