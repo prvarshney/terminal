@@ -1,12 +1,17 @@
 package com.thethreemusketeers.terminal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextWatcher;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,6 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 
 import org.json.JSONObject;
 
@@ -32,6 +39,7 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
     EditText dobSelector;
     EditText username;
     TextView usernameLabel;
+    Boolean proceedingNextFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +73,12 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if( !s.equals("") ){
+                if( !s.equals("") ) {
                     // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED USERNAME
                     // EXISTS OR NOT
 
                     Map<String, String> postParameters = new HashMap<String, String>();
-                    postParameters.put("user_id",s.toString());
+                    postParameters.put("user_id", s.toString());
 
                     JsonObjectRequest requestObject = new JsonObjectRequest(
                             Request.Method.POST,
@@ -79,13 +87,50 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
-                                    usernameLabel.setText(response.toString());
+                                    Gson gson = new Gson();
+                                    MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
+                                    if( res.status == 206 ){
+                                        SpannableString respMsg = new SpannableString("Username\t(This username is unavailable to use)");
+                                        ClickableSpan respMsgString = new ClickableSpan() {
+                                            @Override
+                                            public void onClick(@NonNull View widget) {
+                                                // DOING NOTHING AS SUCH
+                                            }
+
+                                            @Override
+                                            public void updateDrawState(@NonNull TextPaint ds) {
+                                                ds.setColor(getResources().getColor(R.color.colorMatteGreen));
+                                                ds.setUnderlineText(false);
+                                            }
+                                        };
+                                        respMsg.setSpan(respMsgString,9,46, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        usernameLabel.setText(respMsg);
+                                        proceedingNextFlag = false;
+                                    }
+                                    else if( res.status == 200){
+                                        SpannableString respMsg = new SpannableString("Username\t(This username is available to use)");
+                                        ClickableSpan respMsgString = new ClickableSpan() {
+                                            @Override
+                                            public void onClick(@NonNull View widget) {
+                                                // DOING NOTHING AS SUCH
+                                            }
+
+                                            @Override
+                                            public void updateDrawState(@NonNull TextPaint ds) {
+                                                ds.setColor(getResources().getColor(R.color.colorMatteGreen));
+                                                ds.setUnderlineText(false);
+                                            }
+                                        };
+                                        respMsg.setSpan(respMsgString,9,44, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        usernameLabel.setText(respMsg);
+                                        proceedingNextFlag = true;
+                                    }
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Log.e("Response",error.toString());
+                                    Log.e("Response", error.toString());
                                 }
                             }
                     );
