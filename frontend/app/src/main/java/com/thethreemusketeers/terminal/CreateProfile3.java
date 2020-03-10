@@ -102,7 +102,7 @@ public class CreateProfile3 extends AppCompatActivity {
                     isContactNumberValidated = false;
                 }
                 if ( isEmailValidated && isContactNumberValidated )
-                    startActivity(new Intent(CreateProfile3.this, MainActivity.class));
+                    startActivity(new Intent(CreateProfile3.this, CreateProfile4.class));
             }
         });
     }
