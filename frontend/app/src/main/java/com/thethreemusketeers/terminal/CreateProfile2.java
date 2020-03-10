@@ -14,6 +14,7 @@ import android.text.TextPaint;
 import android.text.TextWatcher;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -163,7 +164,7 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                     attentionRequiredOnDOB.setAlpha(0);
                 // WHEN EVERYTHING IS OKAY WE PROCEED TO NEXT ACTIVITY
                 if( proceedingNextFlag )
-                    startActivity(new Intent(CreateProfile2.this, MainActivity.class));
+                    startActivity(new Intent(CreateProfile2.this, CreateProfile3.class));
             }
         });
     }
