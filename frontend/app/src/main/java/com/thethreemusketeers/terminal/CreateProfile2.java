@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableString;
@@ -14,6 +15,7 @@ import android.text.TextWatcher;
 import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,7 +40,9 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
 
     EditText dobSelector;
     EditText username;
-    TextView usernameLabel;
+    TextView attentionRequiredOnUserId;
+    TextView attentionRequiredOnDOB;
+    Button nextBtn;
     Boolean proceedingNextFlag = true;
 
     @Override
@@ -48,8 +52,10 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
 
         // FETCHING XML ELEMENTS
         username = findViewById(R.id.username);
-        usernameLabel = findViewById(R.id.username_label);
+        attentionRequiredOnUserId = findViewById(R.id.attention_required_on_userid_editText);
+        attentionRequiredOnDOB = findViewById(R.id.attention_required_on_dob);
         dobSelector = findViewById(R.id.dob_selector);
+        nextBtn = findViewById(R.id.activity2_next_btn);
 
         // SETTING DATEPICKER WITH DOB SELECTOR EDIT TEXT
         dobSelector.setOnClickListener(new View.OnClickListener() {
@@ -90,39 +96,12 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                                     Gson gson = new Gson();
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
                                     if( res.status == 206 ){
-                                        SpannableString respMsg = new SpannableString("Username\t(This username is unavailable to use)");
-                                        ClickableSpan respMsgString = new ClickableSpan() {
-                                            @Override
-                                            public void onClick(@NonNull View widget) {
-                                                // DOING NOTHING AS SUCH
-                                            }
-
-                                            @Override
-                                            public void updateDrawState(@NonNull TextPaint ds) {
-                                                ds.setColor(getResources().getColor(R.color.colorMatteGreen));
-                                                ds.setUnderlineText(false);
-                                            }
-                                        };
-                                        respMsg.setSpan(respMsgString,9,46, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        usernameLabel.setText(respMsg);
+                                        attentionRequiredOnUserId.setText("(This username is unavailable)");
+                                        attentionRequiredOnUserId.setAlpha(1);
                                         proceedingNextFlag = false;
                                     }
                                     else if( res.status == 200){
-                                        SpannableString respMsg = new SpannableString("Username\t(This username is available to use)");
-                                        ClickableSpan respMsgString = new ClickableSpan() {
-                                            @Override
-                                            public void onClick(@NonNull View widget) {
-                                                // DOING NOTHING AS SUCH
-                                            }
-
-                                            @Override
-                                            public void updateDrawState(@NonNull TextPaint ds) {
-                                                ds.setColor(getResources().getColor(R.color.colorMatteGreen));
-                                                ds.setUnderlineText(false);
-                                            }
-                                        };
-                                        respMsg.setSpan(respMsgString,9,44, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        usernameLabel.setText(respMsg);
+                                        attentionRequiredOnUserId.setAlpha(0);
                                         proceedingNextFlag = true;
                                     }
                                 }
@@ -141,6 +120,50 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
             @Override
             public void afterTextChanged(Editable s) {
 
+            }
+        });
+
+        // CHECKING FOR TEXTCHANGE ON DOB EDIT TEXT FIELD
+        dobSelector.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if ( !attentionRequiredOnDOB.getText().toString().equals("") ) {
+                    attentionRequiredOnDOB.setAlpha(0);
+                    proceedingNextFlag = true;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        // ADDING EVENT LISTENER ON NEXT BUTTON
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // CHECKING WHETHER USERNAME IS NOT EMPTY
+                if (username.getText().toString().equals("")) {
+                    proceedingNextFlag = false;
+                    attentionRequiredOnUserId.setText("* Required");
+                    attentionRequiredOnUserId.setAlpha(1);
+                }
+                // CHECKING WHETHER DATE OF BIRTH EDIT TEXT IS NOT EMPTY
+                if ( dobSelector.getText().toString().equals("") ) {
+                    proceedingNextFlag = false;
+                    attentionRequiredOnDOB.setAlpha(1);
+                }
+                else
+                    attentionRequiredOnDOB.setAlpha(0);
+                // WHEN EVERYTHING IS OKAY WE PROCEED TO NEXT ACTIVITY
+                if( proceedingNextFlag )
+                    startActivity(new Intent(CreateProfile2.this, MainActivity.class));
             }
         });
     }

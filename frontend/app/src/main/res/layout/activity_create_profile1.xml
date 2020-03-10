@@ -47,18 +47,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-   <TextView
-       android:id="@+id/attention_required_on_username_editText"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="21dp"
-       android:layout_marginHorizontal="24dp"
-       android:fontFamily="sans-serif"
-       android:textSize="14sp"
-       android:text="* Required"
-       android:alpha="0"
-       android:textColor="@color/colorAccent"
-       app:layout_constraintTop_toBottomOf="@+id/user_avatar" />
+    <LinearLayout
+        android:id="@+id/fullname_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="left"
+            android:text="Your Name"
+            android:alpha="1"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/attention_required_on_username_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="right"
+            android:text="* Required"
+            android:alpha="0"
+            android:textColor="@color/colorMatteGreen"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/username"
@@ -74,20 +97,44 @@
         android:inputType="textCapWords"
         android:textColorHint="@color/colorPrimary"
         android:textColor="#FFF"
-        app:layout_constraintTop_toBottomOf="@+id/attention_required_on_username_editText"  />
+        app:layout_constraintTop_toBottomOf="@+id/fullname_label"  />
 
-    <TextView
-        android:id="@+id/attention_required_on_accountType_spinner"
+    <LinearLayout
+        android:id="@+id/account_type_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="24dp"
-        android:text="* Required"
-        android:alpha="0"
-        android:fontFamily="sans-serif"
-        android:textSize="14sp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="Account-Type"
+            android:gravity="left"
+            android:alpha="1"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/attention_required_on_accountType_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="* Required"
+            android:gravity="right"
+            android:alpha="0"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:textColor="@color/colorMatteGreen"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/dropdown_container"
@@ -100,22 +147,22 @@
         android:background="@drawable/input_fields"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attention_required_on_accountType_spinner" >
+        app:layout_constraintTop_toBottomOf="@+id/account_type_label" >
 
         <Spinner
             android:id="@+id/account_type_dropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:spinnerMode="dropdown"
-            android:backgroundTint="@color/colorWhite"
             android:paddingLeft="2dp"
             android:paddingTop="1dp"
+            android:backgroundTint="@color/colorWhite"
             android:popupBackground="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/next_btn"
+        android:id="@+id/activity1_next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
