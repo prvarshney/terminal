@@ -44,7 +44,7 @@ jwt = JWTManager(app)
 
 ##  THIS METHOD USED TO DELIEVER OTP TO EMAIL ADDRESSES
 def send_email_otp(receiver,user_name,otp,function):
-    with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+    with smtplib.SMTP_SSL('smtp.mail.yahoo.com',465) as smtp:
         smtp.login(config.SENDER_EMAIL_ID,config.SENDER_EMAIL_PASSWORD)
         if function == 'EMAIL_VERIFICATION':
             subject = templates.EMAIL_VERIFICATION_SUBJECT
@@ -53,6 +53,7 @@ def send_email_otp(receiver,user_name,otp,function):
             subject = templates.EMAIL_RECOVER_PASSWORD_SUBJECT
             body = templates.EMAIL_RECOVER_PASSWORD_BODY
         msg = f"Subject:{subject}\n\n{body.replace('<user_name>',user_name).replace('<otp>',str(otp))}"
+        log("[  INFO  ] Sending EMAIL OTP")
         smtp.sendmail(config.SENDER_EMAIL_ID,receiver,msg)
 
 ##  THIS METHOD USED TO DELIEVER OTP TO THE CELLULAR MOBILE PHONE DEVICES
@@ -592,8 +593,8 @@ def admin_aboutus():
 ## FACULTY ROUTES --START
 @app.route("/faculty/register",methods=["POST"])
 def faculty_provisional_registration():
-    ## THIS ROUTE INPUTS FACULTY'S DETAILS AND THENapp.config['JWT_REFRESH_COOKIE_PATH']RIFIES IT WITH MOBILE AND THE EMAIL ADDRESS.
-    ## FORM MUST CONTAIN THE FOLLOWING KEYS:-
+    ## THIS ROUTE INPUTS FACULTY'S DETAILS AND THEN VERIFIES IT WITH MOBILE AND THE EMAIL ADDRESS.
+    ## JSON MUST CONTAIN THE FOLLOWING KEYS:-
     ## {
     ##  "faculty_id":<STRING>
     ## "name": <STRING>,
@@ -602,12 +603,15 @@ def faculty_provisional_registration():
     ## "password": <STRING>,
     ## "dob": <STRING IN DD/MM/YY FORMAT>
     ## }
-    faculty_id = request.form.get('faculty_id')
-    name = request.form.get('name')
-    phone_number = request.form.get('phone_number')
-    email = request.form.get('email')
-    password = request.form.get('password')
-    dob = request.form.get('dob')
+
+    ## FETCHING REQUEST OBJECT
+    req = request.get_json();
+    faculty_id = req['faculty_id']
+    name = req['name']
+    phone_number = req['phone_number']
+    email = req['email']
+    password = req['password']
+    dob = req['dob']
     ## PARSING NAME INTO F_NAME,M_NAME AND L_NAME
     ## E.G. SOMYA SINGHAL INTO: { 'f_name':'SOMYA', 'm_name':'', 'l_name':'SINGHAL' }
     name = name.split(' ')
