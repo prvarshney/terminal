@@ -1,8 +1,9 @@
+import os
 # This file contains all the configurations essential to connect to database and server
 # Use this file to store keys of database, server, etc.
 # And to apply that details import this file into your program as a module
 
-MongoDB_URI = "mongodb+srv://prashant:varshney@cluster0-jv09r.mongodb.net/test?retryWrites=true&w=majority"
+MongoDB_URI = os.environ["MongoDB_URI"]
 
 # Database Identifiers
 Database_Name = "atom_db"
@@ -27,7 +28,7 @@ Provisional_Faculty_Profile_Collection = "user_info"
 Admin_Profile_Collection = "user_info"
 OTP_COLLECTION = "generated_otp"
 
-SENDER_EMAIL_ID = "contactpspatom@gmail.com"
-SENDER_EMAIL_PASSWORD = "363755@psp"
+SENDER_EMAIL_ID = os.environ["SENDER_EMAIL_ID"]
+SENDER_EMAIL_PASSWORD = os.environ["SENDER_EMAIL_PASSWORD"]
 
-SENDER_SMS_AUTH = "tCP8Ao1as5GqyhzwnWU2pBNgO3b0jkIDEMvVm4XHLlKucxZefi0WJX8t5LeGSUMD47x3AEq6FRH9p1KN"
+SENDER_SMS_AUTH = os.environ["SENDER_SMS_AUTH"]

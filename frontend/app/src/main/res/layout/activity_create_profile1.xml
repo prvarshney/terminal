@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".CreateProfile1">
+
+    <TextView
+        android:id="@+id/activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Create Your Profile"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/about_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help other Students/Faculties know about yourself"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_title"  />
+
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/user_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/about_activity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/fullname_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="left"
+            android:text="Your Name"
+            android:alpha="1"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/attention_required_on_username_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:gravity="right"
+            android:text="* Required"
+            android:alpha="0"
+            android:textColor="@color/colorMatteGreen"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:padding="12dp"
+        android:background="@drawable/input_fields"
+        android:hint="Your Fullname, like John Doe"
+        android:inputType="textCapWords"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_label"  />
+
+    <LinearLayout
+        android:id="@+id/account_type_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="Account-Type"
+            android:gravity="left"
+            android:alpha="1"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/attention_required_on_accountType_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="* Required"
+            android:gravity="right"
+            android:alpha="0"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:textColor="@color/colorMatteGreen"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dropdown_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/input_fields"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_type_label" >
+
+        <Spinner
+            android:id="@+id/account_type_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:paddingLeft="2dp"
+            android:paddingTop="1dp"
+            android:backgroundTint="@color/colorWhite"
+            android:popupBackground="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity1_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/full_width_btn"
+        android:fontFamily="sans-serif"
+        android:text="Next"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        app:layout_constraintVertical_bias="0.96" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

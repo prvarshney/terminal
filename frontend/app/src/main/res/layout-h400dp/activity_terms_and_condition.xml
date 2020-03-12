@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".TermsAndConditionActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Terms and Conditions"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"  />
+
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Introduction"
+            android:fontFamily="sans-serif-light"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorMatteGreen"
+            app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+        <TextView
+            android:id="@+id/introduction_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="14sp"
+            android:text="@string/terms_condition_introduction"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/introduction" />
+
+        <TextView
+            android:id="@+id/disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Warranty Disclaimer"
+            android:fontFamily="sans-serif-light"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorMatteGreen"
+            app:layout_constraintTop_toBottomOf="@+id/introduction_article" />
+
+        <TextView
+            android:id="@+id/disclaimer_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="14sp"
+            android:text="@string/disclaimer"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/disclaimer" />
+
+        <TextView
+            android:id="@+id/miscellaneous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Miscellaneous"
+            android:fontFamily="sans-serif-light"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorMatteGreen"
+            app:layout_constraintTop_toBottomOf="@+id/disclaimer_article" />
+
+        <TextView
+            android:id="@+id/miscellaneous_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="14sp"
+            android:text="@string/miscellaneous"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/miscellaneous" />
+
+        <TextView
+            android:id="@+id/notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notices"
+            android:fontFamily="sans-serif-light"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorMatteGreen"
+            app:layout_constraintTop_toBottomOf="@+id/miscellaneous_article" />
+
+        <TextView
+            android:id="@+id/notice_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="14sp"
+            android:text="@string/notices"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/notice" />
+
+        <TextView
+            android:id="@+id/governing_law_and_venue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Governing Law and Venue"
+            android:fontFamily="sans-serif-light"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorMatteGreen"
+            app:layout_constraintTop_toBottomOf="@+id/notice_article" />
+
+        <TextView
+            android:id="@+id/governing_law_and_venue_article"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="14sp"
+            android:text="@string/governing_law_and_venue"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/governing_law_and_venue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

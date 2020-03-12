@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".CreateProfile2">
+
+    <TextView
+        android:id="@+id/activity_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Create Your Profile"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/about_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help other Students/Faculties know about yourself"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_title"  />
+
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/calendar"
+        app:layout_constraintTop_toBottomOf="@+id/about_activity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/username_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="Username"
+            android:gravity="left"
+            android:alpha="1"
+            android:layout_weight="2"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/attention_required_on_userid_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="(This username is unavailable)"
+            android:gravity="right"
+            android:alpha="0"
+            android:layout_weight="1"
+            android:textColor="@color/colorMatteGreen" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:padding="12dp"
+        android:background="@drawable/input_fields"
+        android:hint="Create Username, like john_doe"
+        android:inputType="text"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@+id/username_label"  />
+
+    <LinearLayout
+        android:id="@+id/dob_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/username" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="Date of Birth"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:alpha="1"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/attention_required_on_dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="* Required"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:alpha="0"
+            android:textColor="@color/colorMatteGreen" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/dob_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/input_fields"
+        android:hint="Select your Birthday"
+        android:textColorHint="@color/colorPrimary"
+        android:focusable="false"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintTop_toBottomOf="@+id/dob_label" />
+
+    <Button
+        android:id="@+id/activity2_next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/full_width_btn"
+        android:fontFamily="sans-serif"
+        android:text="Next"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        app:layout_constraintVertical_bias="0.96" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
