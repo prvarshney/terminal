@@ -3,6 +3,7 @@ package com.thethreemusketeers.terminal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 // launch new activity
+                startActivity(new Intent(MainActivity.this, FacultyLogin.class));
             }
 
             @Override
