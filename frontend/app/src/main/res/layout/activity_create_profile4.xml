@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".CreateProfile1">
+    tools:context=".CreateProfile4">
 
     <TextView
         android:id="@+id/activity_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Create Your Profile"
+        android:text="Secure Your Account"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="34sp"
@@ -27,7 +27,7 @@
         android:id="@+id/about_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Help other Students/Faculties know about yourself"
+        android:text="Create your password using 8 characters or more. It can be any combination of letters, numbers, and special characters."
         android:textAlignment="center"
         android:fontFamily="sans-serif-light"
         android:textColor="#fff"
@@ -38,22 +38,22 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_title"  />
 
     <ImageView
-        android:id="@+id/user_avatar"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:id="@+id/lock_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/user_avatar"
+        android:src="@drawable/lock"
         app:layout_constraintTop_toBottomOf="@+id/about_activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <LinearLayout
-        android:id="@+id/fullname_label"
+        android:id="@+id/password_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/lock_avatar" >
 
         <TextView
             android:layout_width="match_parent"
@@ -62,107 +62,97 @@
             android:layout_marginHorizontal="24dp"
             android:fontFamily="sans-serif"
             android:textSize="14sp"
+            android:text="Password"
             android:gravity="left"
-            android:text="Your Name"
             android:alpha="1"
-            android:textColor="@color/colorAccent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/attention_required_on_username_editText"
+            android:id="@+id/attention_required_on_password_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
             android:layout_marginHorizontal="24dp"
             android:fontFamily="sans-serif"
             android:textSize="14sp"
-            android:gravity="right"
             android:text="* Required"
+            android:gravity="right"
             android:alpha="0"
-            android:textColor="@color/colorMatteGreen"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textColor="@color/colorMatteGreen" />
+
     </LinearLayout>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/registration_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:padding="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="24dp"
         android:background="@drawable/input_fields"
-        android:hint="Your Fullname, like John Doe"
-        android:inputType="textCapWords"
+        android:hint="Create a Strong Password"
+        android:inputType="textPassword"
         android:textColorHint="@color/colorPrimary"
-        android:textColor="#FFF"
-        app:layout_constraintTop_toBottomOf="@+id/fullname_label"  />
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintTop_toBottomOf="@+id/password_label" />
 
     <LinearLayout
-        android:id="@+id/account_type_label"
+        android:id="@+id/confirm_password_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/username"
         android:orientation="horizontal"
-        android:weightSum="2" >
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/registration_password" >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="24dp"
-            android:text="Account-Type"
-            android:gravity="left"
-            android:alpha="1"
             android:fontFamily="sans-serif"
             android:textSize="14sp"
-            android:textColor="@color/colorAccent"
-            android:layout_weight="1" />
+            android:text="Confirm Password"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:alpha="1"
+            android:textColor="@color/colorAccent" />
 
         <TextView
-            android:id="@+id/attention_required_on_accountType_spinner"
+            android:id="@+id/attention_required_on_confirm_password_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
             android:text="* Required"
+            android:layout_weight="1"
             android:gravity="right"
             android:alpha="0"
-            android:fontFamily="sans-serif"
-            android:textSize="14sp"
-            android:textColor="@color/colorMatteGreen"
-            android:layout_weight="1" />
+            android:textColor="@color/colorMatteGreen" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/dropdown_container"
+    <EditText
+        android:id="@+id/registration_confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:padding="12dp"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginHorizontal="24dp"
         android:background="@drawable/input_fields"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_type_label" >
-
-        <Spinner
-            android:id="@+id/account_type_dropdown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:paddingLeft="2dp"
-            android:paddingTop="1dp"
-            android:backgroundTint="@color/colorWhite"
-            android:popupBackground="@color/colorPrimaryDark" />
-
-    </LinearLayout>
+        android:hint="Create a Strong Password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password_label" />
 
     <Button
-        android:id="@+id/activity1_next_btn"
+        android:id="@+id/activity4_next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -177,5 +167,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_avatar"
         app:layout_constraintVertical_bias="0.96" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

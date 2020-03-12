@@ -6,3 +6,171 @@
 [ 20-01-2020 :: 19:22:58 ] [  INFO  ] btech_cse_A_2021 Collection Fetched From Batch_DB
 [ 08-03-2020 :: 19:57:27 ] [  INFO  ] admin_db Connected Successfully
 [ 08-03-2020 :: 19:57:29 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 12-03-2020 :: 00:06:01 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:06:04 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f99369b08c0> 
+[ 12-03-2020 :: 00:06:04 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:06:04 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:06:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f99341689c0>
+[ 12-03-2020 :: 00:06:07 ] [  INFO  ] For Hash_ID - -7851847320538395460 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:06:07 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9937dfec00>
+[ 12-03-2020 :: 00:06:07 ] [  INFO  ] For Hash_ID - -7851847320538395460 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:10:20 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:10:23 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f70a7183ac0> 
+[ 12-03-2020 :: 00:10:23 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:10:23 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:10:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f70a719a540>
+[ 12-03-2020 :: 00:10:26 ] [  INFO  ] For Hash_ID - 5194132291523972980 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:10:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f70a8093900>
+[ 12-03-2020 :: 00:10:26 ] [  INFO  ] For Hash_ID - 5194132291523972980 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:12:03 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:12:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0b5e364880> 
+[ 12-03-2020 :: 00:12:06 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:12:06 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:12:08 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0b5e374bc0>
+[ 12-03-2020 :: 00:12:08 ] [  INFO  ] For Hash_ID - 3782486960827348381 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:12:09 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0b5c243f40>
+[ 12-03-2020 :: 00:12:09 ] [  INFO  ] For Hash_ID - 3782486960827348381 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:13:12 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:13:15 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fec618adc80> 
+[ 12-03-2020 :: 00:13:15 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:13:15 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:13:18 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fec618bfc80>
+[ 12-03-2020 :: 00:13:18 ] [  INFO  ] For Hash_ID - -4599156428984009938 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:13:18 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fec627f4e00>
+[ 12-03-2020 :: 00:13:18 ] [  INFO  ] For Hash_ID - -4599156428984009938 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:15:15 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:15:18 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2c7d8f7e00> 
+[ 12-03-2020 :: 00:15:18 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:15:18 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:15:20 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2c7d909480>
+[ 12-03-2020 :: 00:15:20 ] [  INFO  ] For Hash_ID - -9044450753028577620 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:15:21 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2c7d909cc0>
+[ 12-03-2020 :: 00:15:21 ] [  INFO  ] For Hash_ID - -9044450753028577620 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:17:16 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:17:19 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0fa281ff40> 
+[ 12-03-2020 :: 00:17:19 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:17:19 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:17:22 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0fa2831980>
+[ 12-03-2020 :: 00:17:22 ] [  INFO  ] For Hash_ID - -4487320611752756100 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:17:23 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0fa3736500>
+[ 12-03-2020 :: 00:17:23 ] [  INFO  ] For Hash_ID - -4487320611752756100 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:17:51 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:17:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5539bfb380> 
+[ 12-03-2020 :: 00:17:54 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:17:54 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:17:56 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5538411a80>
+[ 12-03-2020 :: 00:17:56 ] [  INFO  ] For Hash_ID - -6366872206733554711 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:17:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5538411980>
+[ 12-03-2020 :: 00:17:57 ] [  INFO  ] For Hash_ID - -6366872206733554711 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:21:09 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:21:12 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa57a65fd00> 
+[ 12-03-2020 :: 00:21:12 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:21:12 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:21:15 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa57852df80>
+[ 12-03-2020 :: 00:21:15 ] [  INFO  ] For Hash_ID - 4948125207783525482 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:21:16 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa57a65f5c0>
+[ 12-03-2020 :: 00:21:16 ] [  INFO  ] For Hash_ID - 4948125207783525482 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:23:25 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:23:29 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f675d3c9bc0> 
+[ 12-03-2020 :: 00:23:29 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:23:29 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:23:33 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f675e294680>
+[ 12-03-2020 :: 00:23:33 ] [  INFO  ] For Hash_ID - -187697455962388851 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:23:34 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f675d3c9c80>
+[ 12-03-2020 :: 00:23:34 ] [  INFO  ] For Hash_ID - -187697455962388851 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:23:35 ] [ INFO ] Sending EMAIL OTP
+[ 12-03-2020 :: 00:23:38 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 12-03-2020 :: 00:23:38 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:24:23 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:24:26 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f07d1609a40> 
+[ 12-03-2020 :: 00:24:26 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:24:26 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:24:29 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f07d04ec480>
+[ 12-03-2020 :: 00:24:29 ] [  INFO  ] For Hash_ID - 5883714169641356554 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:24:30 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f07d161afc0>
+[ 12-03-2020 :: 00:24:30 ] [  INFO  ] For Hash_ID - 5883714169641356554 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:24:31 ] [  INFO  ] Sending EMAIL OTP
+[ 12-03-2020 :: 00:24:33 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 12-03-2020 :: 00:24:33 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:28:37 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 00:28:40 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fde47ed1d00> 
+[ 12-03-2020 :: 00:28:40 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 00:28:40 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 00:28:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fde4a12b600>
+[ 12-03-2020 :: 00:28:43 ] [  INFO  ] For Hash_ID - -2416281153643496085 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 00:28:43 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fde4a12b600>
+[ 12-03-2020 :: 00:28:43 ] [  INFO  ] For Hash_ID - -2416281153643496085 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:21:00 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:21:03 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f932312fd80> 
+[ 12-03-2020 :: 01:21:03 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:21:03 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:21:05 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f932000d7c0>
+[ 12-03-2020 :: 01:21:05 ] [  INFO  ] For Hash_ID - -4032997726447151593 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:21:06 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9320011c40>
+[ 12-03-2020 :: 01:21:06 ] [  INFO  ] For Hash_ID - -4032997726447151593 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:21:07 ] [  INFO  ] Sending EMAIL OTP
+[ 12-03-2020 :: 01:23:25 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:23:25 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:23:28 ] [  INFO  ] For Hash ID - -4032997726447151593 Duplicate Entry Found At Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:23:28 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f9324c1e340>
+[ 12-03-2020 :: 01:23:28 ] [  INFO  ] Hash_ID - -4032997726447151593 Removed Successfully From Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:23:28 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9320011d00> 
+[ 12-03-2020 :: 01:23:28 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:23:28 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:23:31 ] [  INFO  ] For Hash ID - -4032997726447151593 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:23:31 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f932314d7c0>
+[ 12-03-2020 :: 01:23:31 ] [  INFO  ] Hash_ID - -4032997726447151593 Removed Successfully from generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f9320011f00>
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] For Hash_ID - -4032997726447151593 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] For Hash ID - -4032997726447151593 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f93200159c0>
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] Hash_ID - -4032997726447151593 Removed Successfully from generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f93254a1700>
+[ 12-03-2020 :: 01:23:32 ] [  INFO  ] For Hash_ID - -4032997726447151593 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:23:34 ] [  INFO  ] Sending EMAIL OTP
+[ 12-03-2020 :: 01:40:11 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:40:14 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2d0506dc40> 
+[ 12-03-2020 :: 01:40:14 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:40:14 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:40:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2d05084400>
+[ 12-03-2020 :: 01:40:17 ] [  INFO  ] For Hash_ID - -7848779469164859690 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:40:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f2d05f7ab00>
+[ 12-03-2020 :: 01:40:17 ] [  INFO  ] For Hash_ID - -7848779469164859690 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:42:21 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:42:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb45c245e00> 
+[ 12-03-2020 :: 01:42:24 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:42:24 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:42:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb45c12f280>
+[ 12-03-2020 :: 01:42:27 ] [  INFO  ] For Hash_ID - 1514398757264320818 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:42:28 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb45c12f2c0>
+[ 12-03-2020 :: 01:42:28 ] [  INFO  ] For Hash_ID - 1514398757264320818 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:46:44 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:46:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f384e512b80> 
+[ 12-03-2020 :: 01:46:47 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:46:47 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:46:50 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f384d61ac40>
+[ 12-03-2020 :: 01:46:50 ] [  INFO  ] For Hash_ID - 7856040218893617186 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:46:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f384c4ea880>
+[ 12-03-2020 :: 01:46:51 ] [  INFO  ] For Hash_ID - 7856040218893617186 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:52:11 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:52:14 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb82eff7540> 
+[ 12-03-2020 :: 01:52:14 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:52:14 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:52:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb82c6bea00>
+[ 12-03-2020 :: 01:52:17 ] [  INFO  ] For Hash_ID - 8118612416384438809 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:52:17 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb82c6c4400>
+[ 12-03-2020 :: 01:52:17 ] [  INFO  ] For Hash_ID - 8118612416384438809 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:52:18 ] [  INFO  ] Sending EMAIL OTP
+[ 12-03-2020 :: 01:52:20 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 12-03-2020 :: 01:52:20 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:59:41 ] [  INFO  ] provisional_faculty_db Connected Successfully
+[ 12-03-2020 :: 01:59:44 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5fe3da4fc0> 
+[ 12-03-2020 :: 01:59:44 ] [  INFO  ] Faculty_ID - pvarshney Successfully Inserted at Collection - user_info In Database - provisional_faculty_db
+[ 12-03-2020 :: 01:59:44 ] [  INFO  ] otp_db Connected Successfully
+[ 12-03-2020 :: 01:59:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5fe3da4400>
+[ 12-03-2020 :: 01:59:47 ] [  INFO  ] For Hash_ID - -2833573411216939435 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:59:47 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f5fe3d9e500>
+[ 12-03-2020 :: 01:59:47 ] [  INFO  ] For Hash_ID - -2833573411216939435 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 12-03-2020 :: 01:59:48 ] [  INFO  ] Sending EMAIL OTP
+[ 12-03-2020 :: 01:59:50 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 12-03-2020 :: 01:59:50 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db

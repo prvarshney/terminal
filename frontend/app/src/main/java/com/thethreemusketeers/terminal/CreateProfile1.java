@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -29,7 +31,7 @@ public class CreateProfile1 extends AppCompatActivity {
 
         // FETCHING XML ELEMENTS
         accountTypeDropDown = findViewById(R.id.account_type_dropdown);
-        nextBtn = findViewById(R.id.next_btn);
+        nextBtn = findViewById(R.id.activity1_next_btn);
         username = findViewById(R.id.username);
         attentionRequiredTowardsUsernameField = findViewById(R.id.attention_required_on_username_editText);
         attentionRequiredTowardsAccountTypeField = findViewById(R.id.attention_required_on_accountType_spinner);
@@ -41,18 +43,41 @@ public class CreateProfile1 extends AppCompatActivity {
             public boolean isEnabled(int position) {
                 if (position == 0)
                     return false;
-                else
+                else {
+                    attentionRequiredTowardsAccountTypeField.setAlpha(0);
                     return true;
+                }
             }
         };
         adapter.setDropDownViewResource(R.layout.spinner_text);
         accountTypeDropDown.setAdapter(adapter);
 
-        // setting event listeners
+        // SETTING EVENT LISTENERS
+        // THIS EVENT LISTENER OFF THE REQUIRED WARNING OVER COMPLETE USERNAME EDIT TEXT BOX
+        // WHEN THEIR IS SOME TEXT INSIDE EDIT TEXT BOX
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if( !s.equals("") )
+                    attentionRequiredTowardsUsernameField.setAlpha(0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        // THIS EVENT LISTENER ROUTES TO OTHER ACTIVITIES BASED ON THE ACCOUNT TYPE USER SELECTED
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // checking whether all fields are filled by userdata or not
+                // CHECKING WHETHER ALL FIELDS ARE FILED WITH USERDATA OR NOT
                 String usernameValue = username.getText().toString();
                 String accountType = accountTypeDropDown.getSelectedItem().toString();
                 Boolean proceedingNextFlag = true;
@@ -71,8 +96,12 @@ public class CreateProfile1 extends AppCompatActivity {
                     attentionRequiredTowardsAccountTypeField.setAlpha(0);
 
                 if( proceedingNextFlag ){
-                    //proceeding to further
-                    startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
+                    // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE2 ONLY WHEN USER IS A FACULTY
+                    if ( accountType.equals("Faculty (BPIT)") )
+                        startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
+                    // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE3 WHEN USER IS NOT A FACULTY
+                    else
+                        startActivity(new Intent(CreateProfile1.this,MainActivity.class));
                 }
             }
         });

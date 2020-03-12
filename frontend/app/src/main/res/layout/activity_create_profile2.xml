@@ -42,23 +42,47 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/user_avatar"
+        android:src="@drawable/calendar"
         app:layout_constraintTop_toBottomOf="@+id/about_activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/username_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginHorizontal="24dp"
-        android:fontFamily="sans-serif"
-        android:textSize="14sp"
-        android:text="Username"
-        android:alpha="1"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintTop_toBottomOf="@+id/user_avatar" />
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="Username"
+            android:gravity="left"
+            android:alpha="1"
+            android:layout_weight="2"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/attention_required_on_userid_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="(This username is unavailable)"
+            android:gravity="right"
+            android:alpha="0"
+            android:layout_weight="1"
+            android:textColor="@color/colorMatteGreen" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/username"
@@ -76,18 +100,42 @@
         android:textColor="#FFF"
         app:layout_constraintTop_toBottomOf="@+id/username_label"  />
 
-    <TextView
+    <LinearLayout
         android:id="@+id/dob_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="24dp"
-        android:fontFamily="sans-serif"
-        android:textSize="14sp"
-        android:text="Date of Birth"
-        android:alpha="1"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/username" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="Date of Birth"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:alpha="1"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/attention_required_on_dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="sans-serif"
+            android:textSize="14sp"
+            android:text="* Required"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:alpha="0"
+            android:textColor="@color/colorMatteGreen" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/dob_selector"
@@ -105,7 +153,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dob_label" />
 
     <Button
-        android:id="@+id/next_btn"
+        android:id="@+id/activity2_next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
