@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +69,26 @@ public class StudentLogin extends AppCompatActivity {
         };
         adapter.setDropDownViewResource(R.layout.spinner_text);
         accountTypeDropdown.setAdapter(adapter);
+        accountTypeDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long id)
+            {
+                switch(position)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        startActivity(new Intent(StudentLogin.this, MainActivity.class));
+                        break;
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0)
+            {
+
+            }
+        });
 
         //CHECK THE CREDENTAILS ENTERED BY THE USER.
         final RequestQueue requestQueue = Volley.newRequestQueue(this);

@@ -5,27 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".studentLogin">
+    tools:context=".StudentLogin">
 
-    <TextView
-        android:id="@+id/choiceLogin"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/dropdown_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="6dp"
-        android:textAlignment="center"
-        android:lineSpacingExtra="8dp"
-        android:text="Faculty"
-        android:textColor="#FFF"
-        android:textSize="15sp"
-        android:clickable="true"
-        android:onClick="faculty"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/dropdown_input"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Spinner
+            android:id="@+id/account_type_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:paddingLeft="2dp"
+            android:paddingTop="1dp"
+            android:backgroundTint="@color/colorWhite"
+            android:popupBackground="@color/colorPrimaryDark" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/app_title"
@@ -40,7 +45,7 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choiceLogin"/>
+        app:layout_constraintTop_toBottomOf="@+id/dropdown_container"/>
 
     <TextView
         android:id="@+id/attention_required_on_username_editText"
