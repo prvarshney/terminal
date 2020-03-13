@@ -96,6 +96,7 @@
         android:inputType="textPassword"
         android:textColorHint="@color/colorPrimary"
         android:textColor="@color/colorWhite"
+        android:textSize="18sp"
         android:fontFamily="sans-serif-light"
         app:layout_constraintTop_toBottomOf="@+id/password_label" />
 
@@ -145,6 +146,7 @@
         android:layout_marginHorizontal="24dp"
         android:background="@drawable/input_fields"
         android:hint="Create a Strong Password"
+        android:textSize="18sp"
         android:inputType="textPassword"
         android:textColorHint="@color/colorPrimary"
         android:textColor="@color/colorWhite"

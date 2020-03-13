@@ -59,6 +59,7 @@
         android:textColor="#FFF"
         android:paddingLeft="20dp"
         app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="18sp"
         />
 
     <LinearLayout
@@ -85,6 +86,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="0dp"
+        android:textSize="18sp"
         android:background="@drawable/bginput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
