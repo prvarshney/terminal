@@ -1,12 +1,19 @@
 package com.thethreemusketeers.terminal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,7 +43,7 @@ public class StudentLogin extends AppCompatActivity {
 
     Spinner accountTypeDropdown;
     EditText passwordEditText, userId ;
-    TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsPasswordTypeField,attentionRequiredTowardsInvalid;
+    TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsPasswordTypeField,attentionRequiredTowardsInvalid, forgotLink;
     ImageView passwordEye;
     Boolean eyeTogglerFlag = true, proceedingUsernameFlag=false, proceedingPasswordFlag=false;
     Button loginBtn;
@@ -47,6 +54,7 @@ public class StudentLogin extends AppCompatActivity {
         setContentView(R.layout.activity_student_login);
 
         //Fetching XML Elements
+        forgotLink = findViewById(R.id.forgot_link);
         accountTypeDropdown = findViewById(R.id.account_type_dropdown);
         passwordEditText = findViewById(R.id.password_edit_text);
         passwordEye = findViewById(R.id.password_eye);
@@ -89,6 +97,25 @@ public class StudentLogin extends AppCompatActivity {
 
             }
         });
+
+        //CLICKABLE SPAN
+        SpannableString forgotPassword = new SpannableString("Forgotten your login details? Get help with signing in.");
+        ClickableSpan clickableSpanForgotPassword = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                //launch forgot password activity
+                startActivity(new Intent(StudentLogin.this, MainActivity.class));
+            }
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                ds.setColor( getResources().getColor(R.color.colorMatteGreen));
+                ds.setUnderlineText(false);
+            }
+        };
+
+        forgotPassword.setSpan(clickableSpanForgotPassword,30,55,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        forgotLink.setText(forgotPassword);
+        forgotLink.setMovementMethod(LinkMovementMethod.getInstance());
 
         //CHECK THE CREDENTAILS ENTERED BY THE USER.
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
