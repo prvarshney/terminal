@@ -44,7 +44,7 @@ jwt = JWTManager(app)
 
 ##  THIS METHOD USED TO DELIEVER OTP TO EMAIL ADDRESSES
 def send_email_otp(receiver,user_name,otp,function):
-    with smtplib.SMTP_SSL('smtp.mail.yahoo.com',465) as smtp:
+    with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login(config.SENDER_EMAIL_ID,config.SENDER_EMAIL_PASSWORD)
         if function == 'EMAIL_VERIFICATION':
             subject = templates.EMAIL_VERIFICATION_SUBJECT

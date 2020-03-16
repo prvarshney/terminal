@@ -174,3 +174,12 @@
 [ 12-03-2020 :: 01:59:48 ] [  INFO  ] Sending EMAIL OTP
 [ 12-03-2020 :: 01:59:50 ] [  INFO  ] SMS API MSG - <Response [200]>
 [ 12-03-2020 :: 01:59:50 ] [  INFO  ] Closing Established Connection with Collection - user_info In Database - provisional_faculty_db
+[ 16-03-2020 :: 20:09:12 ] [  INFO  ] admin_db Connected Successfully
+[ 16-03-2020 :: 20:09:15 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-03-2020 :: 20:09:17 ] [  INFO  ] otp_db Connected Successfully
+[ 16-03-2020 :: 20:10:27 ] [  INFO  ] admin_db Connected Successfully
+[ 16-03-2020 :: 20:10:30 ] [  INFO  ] The Search Query Completed Successfully in admin_db
+[ 16-03-2020 :: 20:10:30 ] [  INFO  ] otp_db Connected Successfully
+[ 16-03-2020 :: 20:10:32 ] [  INFO  ] Sending EMAIL OTP
+[ 16-03-2020 :: 20:10:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fd9d8684300>
+[ 16-03-2020 :: 20:10:38 ] [  INFO  ] For Hash_ID - 1383183171965297323 OTP Inserted Successfully at generated_otp Collection in otp_db
