@@ -12,19 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FacultyLogin"></activity>
-        <activity android:name=".MainActivity">
         <activity android:name=".LoadingActivity"></activity>
         <activity android:name=".CreateProfile4" />
         <activity android:name=".CreateProfile3" />
         <activity android:name=".CreateProfile2" />
         <activity android:name=".StudentLogin" />
-        <activity
-            android:name=".CreateProfile1"
-            android:screenOrientation="portrait" />
+        <activity android:name=".CreateProfile1" />
         <activity android:name=".TermsAndConditionActivity" />
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
