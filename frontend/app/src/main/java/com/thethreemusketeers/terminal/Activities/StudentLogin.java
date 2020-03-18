@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.text.style.ClickableSpan;
@@ -28,6 +31,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusTokenResponse;
 import com.thethreemusketeers.terminal.R;
 
@@ -40,9 +44,9 @@ public class StudentLogin extends AppCompatActivity {
 
     Spinner accountTypeDropdown;
     EditText passwordEditText, userId ;
-    TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsPasswordTypeField,attentionRequiredTowardsInvalid, forgotLink;
+    TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsPasswordTypeField,attentionRequiredTowardsInvalid, forgotLink, signupLink;
     ImageView passwordEye;
-    Boolean eyeTogglerFlag = true, proceedingUsernameFlag=false, proceedingPasswordFlag=false;
+    Boolean eyeTogglerFlag = true, proceedingUsernameFlag=false, proceedingPasswordFlag=false, invalidAttemptFlag = false;
     Button loginBtn;
 
     @Override
@@ -52,6 +56,7 @@ public class StudentLogin extends AppCompatActivity {
 
         //Fetching XML Elements
         forgotLink = findViewById(R.id.forgot_link);
+        signupLink = findViewById(R.id.signup_link);
         accountTypeDropdown = findViewById(R.id.account_type_dropdown);
         passwordEditText = findViewById(R.id.password_edit_text);
         passwordEye = findViewById(R.id.password_eye);
@@ -59,7 +64,7 @@ public class StudentLogin extends AppCompatActivity {
         loginBtn = findViewById(R.id.login_btn);
         attentionRequiredTowardsUsernameField = findViewById(R.id.attention_required_on_username_editText);
         attentionRequiredTowardsPasswordTypeField = findViewById(R.id.attention_required_on_password_editText);
-        attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_on_userid_editText);
+        attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_on_username_editText);
 
         //SETTING DROPDOWN ELEMENTS
         String[] accountTypeDropdownElements = new String[]{"Change Account Type","Faculty"};
@@ -84,7 +89,7 @@ public class StudentLogin extends AppCompatActivity {
                     case 0:
                         break;
                     case 1:
-                        startActivity(new Intent(StudentLogin.this, MainActivity.class));
+                        startActivity(new Intent(StudentLogin.this, FacultyLogin.class));
                         break;
                 }
             }
@@ -97,6 +102,7 @@ public class StudentLogin extends AppCompatActivity {
 
         //CLICKABLE SPAN
         SpannableString forgotPassword = new SpannableString("Forgotten your login details? Get help with signin.");
+        SpannableString signup = new SpannableString("Don't have an account? Sign up.");
         ClickableSpan clickableSpanForgotPassword = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
@@ -107,22 +113,40 @@ public class StudentLogin extends AppCompatActivity {
             public void updateDrawState(@NonNull TextPaint ds) {
                 ds.setColor( getResources().getColor(R.color.colorMatteGreen));
                 ds.setUnderlineText(false);
+                ds.setTypeface(Typeface.DEFAULT_BOLD);
+            }
+        };
+
+        ClickableSpan clickableSpanSignup = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                // LAUNCH CREATE ACCOUNT ACTIVITY
+                startActivity(new Intent(StudentLogin.this,CreateProfile1.class));
+            }
+
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+                ds.setColor( getResources().getColor(R.color.colorMatteGreen));
+                ds.setUnderlineText(false);
+                ds.setTypeface(Typeface.DEFAULT_BOLD);
             }
         };
 
         forgotPassword.setSpan(clickableSpanForgotPassword,30,51,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        signup.setSpan(clickableSpanSignup,22,31,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         forgotLink.setText(forgotPassword);
         forgotLink.setMovementMethod(LinkMovementMethod.getInstance());
+        signupLink.setText(signup);
+        signupLink.setMovementMethod(LinkMovementMethod.getInstance());
 
-        //CHECK THE CREDENTAILS ENTERED BY THE USER.
+        // CHECK THE CREDENTAILS ENTERED BY THE USER.
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String ReqURL = "https://terminal-bpit.herokuapp.com/student/login";
+        final String ReqURL = Config.HostURL + "/student/login";
 
-        //setting event listeners
+        // SETTING EVENT LISTENERS
         passwordEye.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(eyeTogglerFlag){
                     passwordEditText.setTransformationMethod(null);
                     eyeTogglerFlag = false;
@@ -133,10 +157,51 @@ public class StudentLogin extends AppCompatActivity {
                     passwordEye.setImageResource(R.drawable.password_eye);
                 }
             }
-        })
-        );
+        }));
 
-        //setting event listeners
+        // ADDING TEXT WATCHER ON ENROLLMENT AND PASSWORD FIELD
+        userId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(invalidAttemptFlag){
+                    attentionRequiredTowardsInvalid.setAlpha(0);
+                    invalidAttemptFlag = false;
+                }
+                attentionRequiredTowardsUsernameField.setAlpha(0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        passwordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(invalidAttemptFlag){
+                    attentionRequiredTowardsInvalid.setAlpha(0);
+                    invalidAttemptFlag = false;
+                }
+                attentionRequiredTowardsPasswordTypeField.setAlpha(0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         loginBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,7 +212,6 @@ public class StudentLogin extends AppCompatActivity {
                 if(!passwordValue.equals("") && (!usernameValue.equals(""))){
                         // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
                         // EXISTS OR NOT
-
                     Map<String, String> postParameters = new HashMap<String, String>();
                         postParameters.put("password", passwordEditText.getText().toString());
                         postParameters.put("user_id",usernameValue);
@@ -162,8 +226,11 @@ public class StudentLogin extends AppCompatActivity {
                                         Gson gson = new Gson();
                                         MessageStatusTokenResponse res = gson.fromJson(response.toString(), MessageStatusTokenResponse.class);
                                         if (res.status == 401) {
-                                            attentionRequiredTowardsInvalid.setText("Invalid User Id/Password");
+                                            invalidAttemptFlag = true;
+                                            attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                                            attentionRequiredTowardsInvalid.setText("*Invalid Enrollment/Password, Check Again");
                                             attentionRequiredTowardsInvalid.setAlpha(1);
+                                            attentionRequiredTowardsPasswordTypeField.setAlpha(0);
                                             proceedingPasswordFlag = false;
                                             proceedingUsernameFlag = false;
                                         } else if (res.status == 200) {
@@ -185,6 +252,7 @@ public class StudentLogin extends AppCompatActivity {
                 else {
                     if (usernameValue.equals("")) {
                         attentionRequiredTowardsUsernameField.setAlpha(1);
+                        attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                         attentionRequiredTowardsUsernameField.setText("*Required");
                         proceedingUsernameFlag = false;
                     } else {

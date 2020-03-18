@@ -45,19 +45,7 @@ public class MainActivity extends AppCompatActivity {
             public void updateDrawState(@NonNull TextPaint ds) {
                 ds.setUnderlineText(false);
                 ds.setColor( getResources().getColor(R.color.colorMatteGreen));
-                ds.setFakeBoldText(true);
-            }
-        };
-        ClickableSpan privacyPolicyActivityLauncher = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                // START NEW ACTIVITY
-            }
-
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                ds.setColor(getResources().getColor(R.color.colorMatteGreen));
-                ds.setUnderlineText(false);
+                ds.setTypeface(Typeface.DEFAULT_BOLD);
             }
         };
         ClickableSpan loginActivityLauncher = new ClickableSpan() {
@@ -71,11 +59,11 @@ public class MainActivity extends AppCompatActivity {
             public void updateDrawState(@NonNull TextPaint ds) {
                 ds.setColor(getResources().getColor(R.color.colorMatteGreen));
                 ds.setUnderlineText(false);
+                ds.setTypeface(Typeface.DEFAULT_BOLD);
             }
         };
         StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
         termsAndCondition.setSpan(termsAndConditionActivityLauncher,39,55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        termsAndCondition.setSpan(privacyPolicyActivityLauncher,60,74, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndCondition.setSpan(loginActivityLauncher,92,97,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         termsAndConditionLink.setText(termsAndCondition);

@@ -23,6 +23,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.DatePickerFragment;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.R;
@@ -65,7 +66,7 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
         });
 
         // CHECKING AVAILABILITY OF USER ENTERED STRING AS A USERNAME
-        final String ReqURL = "https://terminal-bpit.herokuapp.com/faculty/check_availability";
+        final String ReqURL = Config.HostURL + "/faculty/check_availability";
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         // CHECKING FOR TEXTCHANGE ON USERNAME EDIT TEXT FIELD

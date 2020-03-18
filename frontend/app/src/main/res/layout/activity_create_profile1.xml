@@ -51,6 +51,7 @@
         android:id="@+id/fullname_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/user_avatar"
         android:orientation="horizontal"
         android:weightSum="2">
@@ -58,7 +59,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
             android:layout_marginHorizontal="24dp"
             android:fontFamily="sans-serif"
             android:textSize="14sp"
@@ -72,7 +72,6 @@
             android:id="@+id/attention_required_on_username_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
             android:layout_marginHorizontal="24dp"
             android:fontFamily="sans-serif"
             android:textSize="14sp"
@@ -144,6 +143,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/input_fields"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
