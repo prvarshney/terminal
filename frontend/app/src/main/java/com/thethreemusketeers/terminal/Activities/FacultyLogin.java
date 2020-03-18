@@ -1,4 +1,4 @@
-package com.thethreemusketeers.terminal;
+package com.thethreemusketeers.terminal.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +24,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusTokenResponse;
+import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
 
@@ -53,7 +53,7 @@ public class FacultyLogin extends AppCompatActivity {
         loginBtn = findViewById(R.id.login_btn);
         attentionRequiredTowardsFacultyId = findViewById(R.id.attention_required_on_facultyId);
         attentionRequiredTowardsFacultyPassword = findViewById(R.id.attention_required_on_facultyPassword);
-        attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_for_invalid);
+        attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_on_username_editText);
 
 
         SpannableString forgottenPassword = new SpannableString("Forgotten your details? Get help with signing in.");

@@ -1,18 +1,23 @@
-package com.thethreemusketeers.terminal;
+package com.thethreemusketeers.terminal.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.thethreemusketeers.terminal.R;
+import com.thethreemusketeers.terminal.TermsAndConditionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,16 +29,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // getting components from view
+        // GETTING COMPONENTS FROM LAYOUT
         termsAndConditionLink = findViewById(R.id.tc_link);
         agreeAndContinueBtn = findViewById(R.id.agree_btn);
 
-        // creating termsAndConditionLink clickable
+        // CREATING TERMSANDCONDITION LINK CLICKABLE
         SpannableString termsAndCondition = new SpannableString("Tap \"Agree and Continue\" to accept the Terms of Service and Privacy Policy.\nAlready Signup? Login");
         ClickableSpan termsAndConditionActivityLauncher = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                startActivity(new Intent(MainActivity.this,TermsAndConditionActivity.class));
+                startActivity(new Intent(MainActivity.this, TermsAndConditionActivity.class));
             }
 
             @Override
@@ -46,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ClickableSpan privacyPolicyActivityLauncher = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                // start new activity
+                // START NEW ACTIVITY
             }
 
             @Override
@@ -58,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         ClickableSpan loginActivityLauncher = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                // launch login activity
-                startActivity(new Intent(MainActivity.this,StudentLogin.class));
+                // LAUNCH LOGIN ACTIVITY
+                startActivity(new Intent(MainActivity.this, StudentLogin.class));
             }
 
             @Override
@@ -68,18 +73,20 @@ public class MainActivity extends AppCompatActivity {
                 ds.setUnderlineText(false);
             }
         };
+        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
         termsAndCondition.setSpan(termsAndConditionActivityLauncher,39,55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndCondition.setSpan(privacyPolicyActivityLauncher,60,74, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndCondition.setSpan(loginActivityLauncher,92,97,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         termsAndConditionLink.setText(termsAndCondition);
         termsAndConditionLink.setMovementMethod(LinkMovementMethod.getInstance());
 
-        // setting event listener on agree_btn
+        // SETTING EVENT LISTENER ON CLICK BUTTON
         agreeAndContinueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(MainActivity.this,CreateProfile1.class));
-                startActivity(new Intent( MainActivity.this,FacultyLogin.class));
+                startActivity(new Intent( MainActivity.this, CreateProfile1.class));
             }
         });
     }

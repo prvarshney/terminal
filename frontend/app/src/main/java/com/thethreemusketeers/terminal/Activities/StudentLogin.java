@@ -1,16 +1,13 @@
-package com.thethreemusketeers.terminal;
+package com.thethreemusketeers.terminal.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
-import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.text.style.ClickableSpan;
@@ -31,8 +28,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusTokenResponse;
+import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
 
@@ -62,10 +59,10 @@ public class StudentLogin extends AppCompatActivity {
         loginBtn = findViewById(R.id.login_btn);
         attentionRequiredTowardsUsernameField = findViewById(R.id.attention_required_on_username_editText);
         attentionRequiredTowardsPasswordTypeField = findViewById(R.id.attention_required_on_password_editText);
-        attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_for_invalid);
+        attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_on_userid_editText);
 
         //SETTING DROPDOWN ELEMENTS
-        String[] accountTypeDropdownElements = new String[]{"Student ( Change Account-Type)","Faculty"};
+        String[] accountTypeDropdownElements = new String[]{"Change Account Type","Faculty"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown, accountTypeDropdownElements){
             public boolean isEnabled(int position){
                 if(position==0){
@@ -99,7 +96,7 @@ public class StudentLogin extends AppCompatActivity {
         });
 
         //CLICKABLE SPAN
-        SpannableString forgotPassword = new SpannableString("Forgotten your login details? Get help with signing in.");
+        SpannableString forgotPassword = new SpannableString("Forgotten your login details? Get help with signin.");
         ClickableSpan clickableSpanForgotPassword = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
@@ -113,7 +110,7 @@ public class StudentLogin extends AppCompatActivity {
             }
         };
 
-        forgotPassword.setSpan(clickableSpanForgotPassword,30,55,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        forgotPassword.setSpan(clickableSpanForgotPassword,30,51,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         forgotLink.setText(forgotPassword);
         forgotLink.setMovementMethod(LinkMovementMethod.getInstance());
 

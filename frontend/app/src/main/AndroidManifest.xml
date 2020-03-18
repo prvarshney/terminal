@@ -11,19 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoadingActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateProfile1"></activity>
-        <activity android:name=".CreateProfile2"></activity>
-        <activity android:name=".CreateProfile3"></activity>
-        <activity android:name=".CreateProfile4"></activity>
+        <activity android:name=".Activities.CreateProfile1"></activity>
+        <activity android:name=".Activities.CreateProfile2"></activity>
+        <activity android:name=".Activities.CreateProfile3"></activity>
+        <activity android:name=".Activities.CreateProfile4"></activity>
         <activity android:name=".TermsAndConditionActivity"></activity>
-        <activity android:name=".StudentLogin"></activity>
-        <activity android:name=".FacultyLogin"></activity>
+        <activity
+            android:name=".Activities.StudentLogin"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name=".Activities.FacultyLogin"></activity>
     </application>
 
 </manifest>

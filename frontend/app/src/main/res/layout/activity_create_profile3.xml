@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".CreateProfile3">
+    tools:context=".Activities.CreateProfile3">
 
     <TextView
         android:id="@+id/activity_title"

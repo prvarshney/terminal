@@ -1,21 +1,19 @@
-package com.thethreemusketeers.terminal;
+package com.thethreemusketeers.terminal.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.thethreemusketeers.terminal.R;
 
 public class CreateProfile1 extends AppCompatActivity {
 
@@ -101,7 +99,7 @@ public class CreateProfile1 extends AppCompatActivity {
                         startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
                     // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE3 WHEN USER IS NOT A FACULTY
                     else
-                        startActivity(new Intent(CreateProfile1.this,MainActivity.class));
+                        startActivity(new Intent(CreateProfile1.this, MainActivity.class));
                 }
             }
         });

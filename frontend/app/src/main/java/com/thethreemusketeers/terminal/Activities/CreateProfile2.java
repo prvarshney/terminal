@@ -1,6 +1,5 @@
-package com.thethreemusketeers.terminal;
+package com.thethreemusketeers.terminal.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -8,13 +7,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.TextPaint;
 import android.text.TextWatcher;
-import android.text.style.ClickableSpan;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -29,7 +23,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import com.thethreemusketeers.terminal.DatePickerFragment;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
+import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
 

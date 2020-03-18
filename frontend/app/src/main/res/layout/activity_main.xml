@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <TextView
         android:id="@+id/app_title"
@@ -31,7 +31,7 @@
         android:textAlignment="center"
         android:fontFamily="sans-serif-light"
         android:textColor="#fff"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
@@ -40,7 +40,7 @@
     <ImageView
         android:id="@+id/banner_image"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="150dp"
         android:src="@drawable/banner_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textColorHighlight="@color/colorPrimaryDark"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:layout_marginLeft="34dp"
         android:layout_marginRight="34dp"
         app:layout_constraintBottom_toTopOf="@+id/agree_btn"
