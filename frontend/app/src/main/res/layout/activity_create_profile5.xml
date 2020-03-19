@@ -93,7 +93,7 @@
         android:layout_marginHorizontal="24dp"
         android:background="@drawable/input_fields"
         android:hint="One Time Password for Email"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:textColorHint="@color/colorPrimary"
         android:textColor="@color/colorWhite"
         android:textSize="18sp"
@@ -147,13 +147,14 @@
         android:background="@drawable/input_fields"
         android:hint="One Time Password for Phone"
         android:textSize="18sp"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:textColorHint="@color/colorPrimary"
         android:textColor="@color/colorWhite"
         android:fontFamily="sans-serif-light"
         app:layout_constraintTop_toBottomOf="@+id/sms_otp_label" />
 
     <TextView
+        android:id="@+id/resend_otp_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
@@ -167,7 +168,7 @@
         android:text="Doesn't Receive OTPs? Resend them." />
 
     <Button
-        android:id="@+id/activity4_next_btn"
+        android:id="@+id/activity5_next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"

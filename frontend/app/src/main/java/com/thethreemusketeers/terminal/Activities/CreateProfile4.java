@@ -178,7 +178,6 @@ public class CreateProfile4 extends AppCompatActivity {
                                 }
                             }
                     );
-
                     requestQueue.add(requestObject);
                 }
             }

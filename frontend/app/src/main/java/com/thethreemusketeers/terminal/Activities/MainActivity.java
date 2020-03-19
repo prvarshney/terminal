@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 ds.setTypeface(Typeface.DEFAULT_BOLD);
             }
         };
-        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
         termsAndCondition.setSpan(termsAndConditionActivityLauncher,39,55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndCondition.setSpan(loginActivityLauncher,92,97,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 

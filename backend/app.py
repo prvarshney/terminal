@@ -693,7 +693,7 @@ def faculty_verify_email():
     if db_res['status'] == 212:
         for document in db_res['res']:
             if document['function'] == 'EMAIL_VERIFICATION':
-                if int(document['otp']) == req['email_otp'] :
+                if int(document['otp']) == int(req['email_otp']) :
                     ## UPDATING PROVISIONAL_FACULTY_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
                     provisional_faculty = db.Provisional_Faculty()
                     provisional_faculty.update(hash_id,'email_verification_status',True)
@@ -748,7 +748,7 @@ def faculty_verify_phone():
     if db_res['status'] == 212:
         for document in db_res['res']:
             if document['function'] == 'PHONE_VERIFICATION':
-                if int(document['otp']) == req['sms_otp'] :
+                if int(document['otp']) == int(req['sms_otp']) :
                     ## UPDATING PROVISIONAL_FACULTY_DB AND VALIDATING EMAIL ADDRESS PROVIDED BY USER
                     provisional_faculty = db.Provisional_Faculty()
                     provisional_faculty.update(hash_id,'phone_number_verification_status',True)
