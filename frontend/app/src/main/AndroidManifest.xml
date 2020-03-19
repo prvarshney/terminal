@@ -3,6 +3,7 @@
     package="com.thethreemusketeers.terminal">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,25 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoadingActivity"></activity>
+        <activity android:name=".CreateProfile5"></activity>
+        <activity android:name=".LoadingActivity" />
         <activity
             android:name=".Activities.MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CreateProfile1"></activity>
-        <activity android:name=".Activities.CreateProfile2"></activity>
-        <activity android:name=".Activities.CreateProfile3"></activity>
-        <activity android:name=".Activities.CreateProfile4"></activity>
-        <activity android:name=".TermsAndConditionActivity"></activity>
+        <activity android:name=".Activities.CreateProfile1" />
+        <activity android:name=".Activities.CreateProfile2" />
+        <activity android:name=".Activities.CreateProfile3" />
+        <activity android:name=".Activities.CreateProfile4" />
+        <activity android:name=".TermsAndConditionActivity" />
         <activity
             android:name=".Activities.StudentLogin"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name=".Activities.FacultyLogin"></activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.FacultyLogin" />
     </application>
 
 </manifest>
