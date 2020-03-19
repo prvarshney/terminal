@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateProfile5"></activity>
+        <activity android:name=".Activities.CreateProfile5"></activity>
         <activity android:name=".LoadingActivity" />
         <activity
             android:name=".Activities.MainActivity"
