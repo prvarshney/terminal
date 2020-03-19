@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.R;
 
 public class CreateProfile1 extends AppCompatActivity {
@@ -95,11 +96,15 @@ public class CreateProfile1 extends AppCompatActivity {
 
                 if( proceedingNextFlag ){
                     // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE2 ONLY WHEN USER IS A FACULTY
-                    if ( accountType.equals("Faculty (BPIT)") )
+                    if ( accountType.equals("Faculty (BPIT)") ) {
+                        FacultyRegisterObject.name = usernameValue;
                         startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
+                    }
                     // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE3 WHEN USER IS NOT A FACULTY
-                    else
+                    else {
+                        FacultyRegisterObject.name = usernameValue;
                         startActivity(new Intent(CreateProfile1.this, MainActivity.class));
+                    }
                 }
             }
         });

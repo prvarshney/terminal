@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.R;
 
 public class CreateProfile3 extends AppCompatActivity {
@@ -42,7 +43,6 @@ public class CreateProfile3 extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if( s.toString().length() != 10 ) {
@@ -55,7 +55,6 @@ public class CreateProfile3 extends AppCompatActivity {
                     isContactNumberValidated = true;
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -67,7 +66,6 @@ public class CreateProfile3 extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if ( Patterns.EMAIL_ADDRESS.matcher(s).matches() ) {
@@ -80,7 +78,6 @@ public class CreateProfile3 extends AppCompatActivity {
                     isEmailValidated = false;
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -101,8 +98,11 @@ public class CreateProfile3 extends AppCompatActivity {
                     attentionReqOnEmailAddr.setText("* Required");
                     isContactNumberValidated = false;
                 }
-                if ( isEmailValidated && isContactNumberValidated )
-                    startActivity(new Intent(CreateProfile3.this, CreateProfile4.class));
+                if ( isEmailValidated && isContactNumberValidated ) {
+                    FacultyRegisterObject.phone_number = contactNumber.getText().toString();
+                    FacultyRegisterObject.email = emailAddr.getText().toString();
+                    startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
+                }
             }
         });
     }

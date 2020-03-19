@@ -7,13 +7,29 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.thethreemusketeers.terminal.Config;
+import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.R;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateProfile4 extends AppCompatActivity {
 
@@ -108,6 +124,9 @@ public class CreateProfile4 extends AppCompatActivity {
             }
         });
 
+        final String ReqURL = Config.HostURL + "/faculty/register";
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
+
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,9 +147,40 @@ public class CreateProfile4 extends AppCompatActivity {
                     isConfirmPasswordEmpty = false;
 
                 if( password.getText().toString().equals(confirmPassword.getText().toString()) && !isPasswordEmpty && !isConfirmPasswordEmpty ) {
-                    startActivity(new Intent(CreateProfile4.this,CreateProfile5.class));
-                }
+                    FacultyRegisterObject.password = password.getText().toString();
+                    // SENDING USER DETAILS FROM DIFFERENT ACTIVITIES TO SERVER
+                    // CREATING REQUEST OBJECT
+                    Map<String,String> postParameters = new HashMap<String, String>();
+                    postParameters.put("name",FacultyRegisterObject.name);
+                    postParameters.put("faculty_id",FacultyRegisterObject.faculty_id);
+                    postParameters.put("email",FacultyRegisterObject.email);
+                    postParameters.put("phone_number",FacultyRegisterObject.phone_number);
+                    postParameters.put("password",FacultyRegisterObject.password);
+                    postParameters.put("dob",FacultyRegisterObject.dob);
 
+                    JsonObjectRequest requestObject = new JsonObjectRequest(
+                            Request.Method.POST,
+                            ReqURL,
+                            new JSONObject(postParameters),
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Gson gson = new Gson();
+                                    MessageAndStatusResponse res = gson.fromJson(response.toString(),MessageAndStatusResponse.class);
+                                    Log.e("Response", "Hello");
+                                    startActivity(new Intent(CreateProfile4.this,CreateProfile5.class));
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("Response", error.toString());
+                                }
+                            }
+                    );
+
+                    requestQueue.add(requestObject);
+                }
             }
         });
     }

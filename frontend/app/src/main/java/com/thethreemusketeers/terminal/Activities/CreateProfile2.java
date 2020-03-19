@@ -25,6 +25,7 @@ import com.google.gson.Gson;
 
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.DatePickerFragment;
+import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.R;
 
@@ -161,8 +162,10 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                     attentionRequiredOnDOB.setAlpha(0);
                 }
                 // WHEN EVERYTHING IS OKAY WE PROCEED TO NEXT ACTIVITY
-                if( proceedingNextFlag && !isUserNameFieldEmpty && !isDOBFieldEmpty )
+                if( proceedingNextFlag && !isUserNameFieldEmpty && !isDOBFieldEmpty ) {
+                    FacultyRegisterObject.faculty_id = username.getText().toString();
                     startActivity(new Intent(CreateProfile2.this, CreateProfile3.class));
+                }
             }
         });
     }
@@ -173,10 +176,10 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        FacultyRegisterObject.dob = Integer.toString(dayOfMonth) + "/" + Integer.toString(month+1) + "/" + Integer.toString(year);
 
         // SETTING SELECTED DATE STRING TO THE EDIT TEXT
-        dobSelector.setText(currentDateString);
+        dobSelector.setText(FacultyRegisterObject.dob);
     }
 }
 
