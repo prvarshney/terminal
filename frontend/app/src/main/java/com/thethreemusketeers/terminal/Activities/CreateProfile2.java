@@ -42,7 +42,7 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
     TextView attentionRequiredOnUserId;
     TextView attentionRequiredOnDOB;
     Button nextBtn;
-    Boolean proceedingNextFlag = true;
+    Boolean proceedingNextFlag = false, isUserNameFieldEmpty = true, isDOBFieldEmpty = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +75,11 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if( !s.equals("") ) {
                     // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED USERNAME
                     // EXISTS OR NOT
-
                     Map<String, String> postParameters = new HashMap<String, String>();
                     postParameters.put("user_id", s.toString());
 
@@ -115,7 +113,6 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                     requestQueue.add(requestObject);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -128,15 +125,13 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if ( !attentionRequiredOnDOB.getText().toString().equals("") ) {
                     attentionRequiredOnDOB.setAlpha(0);
-                    proceedingNextFlag = true;
+                    isDOBFieldEmpty = false;
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -149,19 +144,24 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
             public void onClick(View v) {
                 // CHECKING WHETHER USERNAME IS NOT EMPTY
                 if (username.getText().toString().equals("")) {
-                    proceedingNextFlag = false;
+                    isUserNameFieldEmpty = true;
                     attentionRequiredOnUserId.setText("* Required");
                     attentionRequiredOnUserId.setAlpha(1);
                 }
+                else
+                    isUserNameFieldEmpty = false;
+
                 // CHECKING WHETHER DATE OF BIRTH EDIT TEXT IS NOT EMPTY
                 if ( dobSelector.getText().toString().equals("") ) {
-                    proceedingNextFlag = false;
+                    isDOBFieldEmpty = true;
                     attentionRequiredOnDOB.setAlpha(1);
                 }
-                else
+                else {
+                    isDOBFieldEmpty = false;
                     attentionRequiredOnDOB.setAlpha(0);
+                }
                 // WHEN EVERYTHING IS OKAY WE PROCEED TO NEXT ACTIVITY
-                if( proceedingNextFlag )
+                if( proceedingNextFlag && !isUserNameFieldEmpty && !isDOBFieldEmpty )
                     startActivity(new Intent(CreateProfile2.this, CreateProfile3.class));
             }
         });
