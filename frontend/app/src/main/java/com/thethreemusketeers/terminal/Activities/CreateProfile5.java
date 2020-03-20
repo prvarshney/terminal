@@ -171,8 +171,10 @@ public class CreateProfile5 extends AppCompatActivity {
                     );
 
                     // ADDING REQUEST OBJECTS IN REQUEST QUEUE
-                    requestQueue.add(requestObjectOfVerifyEmail);
-                    requestQueue.add(requestObjectOfVerifyPhone);
+                    if ( !isEmailVerified )
+                        requestQueue.add(requestObjectOfVerifyEmail);
+                    if ( !isPhoneNumberVerified )
+                        requestQueue.add(requestObjectOfVerifyPhone);
                 }
 
             }
