@@ -31,6 +31,7 @@
             android:name=".Activities.StudentLogin"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Activities.FacultyLogin" />
+        <activity android:name=".Activities.StudentLogin1" />
     </application>
 
 </manifest>
