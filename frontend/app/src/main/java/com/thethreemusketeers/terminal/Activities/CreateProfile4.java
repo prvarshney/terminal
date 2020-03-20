@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
+import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
@@ -33,7 +34,7 @@ import java.util.Map;
 
 public class CreateProfile4 extends AppCompatActivity {
 
-    Button nextBtn;
+    View nextBtn;
     EditText password, confirmPassword;
     TextView attentionReqOnPassword, attentionReqOnConfirmPassword;
     ImageView passwordEye, confirmPasswordEye;
@@ -148,6 +149,8 @@ public class CreateProfile4 extends AppCompatActivity {
 
                 if( password.getText().toString().equals(confirmPassword.getText().toString()) && !isPasswordEmpty && !isConfirmPasswordEmpty ) {
                     FacultyRegisterObject.password = password.getText().toString();
+                    final ProgressButton progressButton = new ProgressButton(CreateProfile4.this,nextBtn);
+                    progressButton.buttonProgressActivatedState("Please Wait...");
                     // SENDING USER DETAILS FROM DIFFERENT ACTIVITIES TO SERVER
                     // CREATING REQUEST OBJECT
                     Map<String,String> postParameters = new HashMap<String, String>();
@@ -166,8 +169,8 @@ public class CreateProfile4 extends AppCompatActivity {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     Gson gson = new Gson();
+                                    progressButton.buttonProgressStoppedState("NEXT");
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(),MessageAndStatusResponse.class);
-                                    Log.e("Response", "Hello");
                                     startActivity(new Intent(CreateProfile4.this,CreateProfile5.class));
                                 }
                             },
