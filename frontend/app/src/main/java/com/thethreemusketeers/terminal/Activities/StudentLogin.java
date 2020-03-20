@@ -107,7 +107,7 @@ public class StudentLogin extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 //launch forgot password activity
-                startActivity(new Intent(StudentLogin.this, StudentLogin1.class));
+                startActivity(new Intent(StudentLogin.this, StudentRecoverPassword.class));
             }
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
