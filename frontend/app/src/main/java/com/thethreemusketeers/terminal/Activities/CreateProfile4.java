@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -131,6 +132,7 @@ public class CreateProfile4 extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nextBtn.setClickable(false);
                 if ( password.getText().toString().equals("") ) {
                     attentionReqOnPassword.setText("*Required");
                     attentionReqOnPassword.setAlpha(1);
@@ -169,6 +171,7 @@ public class CreateProfile4 extends AppCompatActivity {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     Gson gson = new Gson();
+                                    nextBtn.setClickable(true);
                                     progressButton.buttonProgressStoppedState("NEXT");
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(),MessageAndStatusResponse.class);
                                     startActivity(new Intent(CreateProfile4.this,CreateProfile5.class));
@@ -181,8 +184,11 @@ public class CreateProfile4 extends AppCompatActivity {
                                 }
                             }
                     );
+                    requestObject.setRetryPolicy(new DefaultRetryPolicy(20000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                     requestQueue.add(requestObject);
                 }
+                else
+                    nextBtn.setClickable(true);
             }
         });
     }
