@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.CreateProfile5"></activity>
         <activity android:name=".LoadingActivity" />
         <activity
             android:name=".Activities.MainActivity"
@@ -26,12 +25,13 @@
         <activity android:name=".Activities.CreateProfile2" />
         <activity android:name=".Activities.CreateProfile3" />
         <activity android:name=".Activities.CreateProfile4" />
+        <activity android:name=".Activities.CreateProfile5" />
+        <activity android:name=".Activities.StudentRecoverPassword"></activity>
         <activity android:name=".TermsAndConditionActivity" />
         <activity
             android:name=".Activities.StudentLogin"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity android:name=".Activities.FacultyLogin" />
-        <activity android:name=".Activities.StudentLogin1" />
     </application>
 
 </manifest>
