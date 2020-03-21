@@ -21,6 +21,8 @@ StudyMaterial_DB = "studymaterial_db"
 Admin_DB = "admin_db"
 OTP_DB = 'otp_db'
 
+Uploads_DB = 'uploads'
+Identity_Proof_Collection = 'identity_proofs'
 Faculty_Profile_Collection = "user_info"
 Student_Profile_Collection = "user_info" 
 Provisional_Student_Profile_Collection = "user_info" 

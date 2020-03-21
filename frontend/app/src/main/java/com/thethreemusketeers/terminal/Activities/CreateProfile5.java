@@ -23,6 +23,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
+import com.thethreemusketeers.terminal.FacultyProfileCreationSuccess;
 import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.ProgressButton;
@@ -132,7 +133,7 @@ public class CreateProfile5 extends AppCompatActivity {
 
                                         // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
                                         if ( isEmailVerified && isPhoneNumberVerified ) 
-                                            startActivity( new Intent(CreateProfile5.this,MainActivity.class) );
+                                            startActivity( new Intent(CreateProfile5.this,FacultyProfileCreationSuccess.class) );
                                     }
                                     else if ( res.status == 401 ) {
                                         isEmailVerified = false;
@@ -164,7 +165,7 @@ public class CreateProfile5 extends AppCompatActivity {
 
                                         // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
                                         if ( isEmailVerified && isPhoneNumberVerified ) {
-                                            startActivity( new Intent(CreateProfile5.this,MainActivity.class) );
+                                            startActivity( new Intent(CreateProfile5.this, FacultyProfileCreationSuccess.class) );
                                         }
                                         else {
                                             progressButton.buttonProgressStoppedState("NEXT");

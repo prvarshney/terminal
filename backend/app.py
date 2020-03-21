@@ -444,7 +444,6 @@ def admin_batch_insert():
     ##   "enrollment":<LIST OF ENROLLMENT STRINGS THAT NEED TO BE INSERTED IN BATCH COMPRISES OF ABOVE KEYS>
     ## }
     ## CHECKING VALIDITY OF JWT TOKEN
-    print("bleepblop")
     user_id = get_access_token_identity()
     admin = db.Admin()
     db_res = admin.query('admin_id',user_id)
@@ -1231,8 +1230,7 @@ def student_provisional_registration():
             'm_name':' '.join(father_name[1:-1]),
             'l_name':father_name[-1]
         }
-    ## MODIFYING IDENTITY_PROOF FILENAME SO THAT NO TWO FILES WILL HAVE SAME NAME
-    identity_proof_filename = str(hash(''.join(identity_proof.filename.split('.')[:-1]) + datetime.now().strftime('%H%M%S'))) + '.' + identity_proof.filename.split('.')[-1] 
+    
     ## PARSING DOB INTO DICTIONARY OBJECT
     ## EG: 04/06/1998 INTO { 'DAY':'04','MONTH':'06','YEAR':'1998' }
     dob = dob.split('/')
@@ -1256,10 +1254,9 @@ def student_provisional_registration():
         dob=dob,
         temp_address=temp_addr,
         perm_address=perm_addr,
-        identity_proof=identity_proof_filename
+        identity_proof=identity_proof
     )
-    ## SAVING IDENTITY PROOF IN DATABASE FOR MANUAL VERIFICATION
-    identity_proof.save( os.path.join(os.getcwd(), 'uploads' , identity_proof_filename ))
+    
     ## GENERATING OTP FOR EMAIL AND PHONE NUMBER VERIFICATIONS
     email_otp = random.randrange(10000000,100000000)
     phone_otp = random.randrange(10000000,100000000)

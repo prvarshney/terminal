@@ -183,3 +183,100 @@
 [ 16-03-2020 :: 20:10:32 ] [  INFO  ] Sending EMAIL OTP
 [ 16-03-2020 :: 20:10:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fd9d8684300>
 [ 16-03-2020 :: 20:10:38 ] [  INFO  ] For Hash_ID - 1383183171965297323 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:13:29 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:13:42 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f43a9595a80>
+[ 21-03-2020 :: 19:13:42 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:14:20 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:14:32 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb3b30be140>
+[ 21-03-2020 :: 19:14:32 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:14:32 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:14:35 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb3b0f8a300>
+[ 21-03-2020 :: 19:14:35 ] [  INFO  ] For Hash_ID - -2195619022393374391 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:14:35 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fb3b4b74800>
+[ 21-03-2020 :: 19:14:35 ] [  INFO  ] For Hash_ID - -2195619022393374391 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:14:36 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:14:42 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 21-03-2020 :: 19:22:27 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:22:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f3d2e80b680>
+[ 21-03-2020 :: 19:22:38 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:22:38 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:22:41 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f3d2c01b400>
+[ 21-03-2020 :: 19:22:41 ] [  INFO  ] For Hash_ID - -4537575684152901552 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:22:42 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f3d2d950f00>
+[ 21-03-2020 :: 19:22:42 ] [  INFO  ] For Hash_ID - -4537575684152901552 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:22:43 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:22:47 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 21-03-2020 :: 19:22:58 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:23:01 ] [  INFO  ] For Hash ID - -4537575684152901552 Duplicate Entry Found at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:25:32 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:25:34 ] [  INFO  ] For Hash ID - -4537575684152901552 Duplicate Entry Found at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:25:43 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:25:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa615fce100>
+[ 21-03-2020 :: 19:25:54 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:25:54 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:25:57 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa6146c7540>
+[ 21-03-2020 :: 19:25:57 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:25:58 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa6146bfd40>
+[ 21-03-2020 :: 19:25:58 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:25:59 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:26:03 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 21-03-2020 :: 19:26:12 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:26:14 ] [  INFO  ] For Hash ID - 6672143582542839217 Duplicate Entry Found at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:26:15 ] [  INFO  ] None
+[ 21-03-2020 :: 19:26:15 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fa6146d1fc0>
+[ 21-03-2020 :: 19:26:15 ] [  INFO  ] Hash_ID - 6672143582542839217 Removed Successfully from user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:26:24 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa6146c7280>
+[ 21-03-2020 :: 19:26:24 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:26:24 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:26:26 ] [  INFO  ] For Hash ID - 6672143582542839217 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:26:27 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fa6146c7bc0>
+[ 21-03-2020 :: 19:26:27 ] [  INFO  ] Hash_ID - 6672143582542839217 Removed Successfully from generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:26:27 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa6146692c0>
+[ 21-03-2020 :: 19:26:27 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:26:28 ] [  INFO  ] For Hash ID - 6672143582542839217 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:26:28 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fa6146d7380>
+[ 21-03-2020 :: 19:26:28 ] [  INFO  ] Hash_ID - 6672143582542839217 Removed Successfully from generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:26:28 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa6146bfec0>
+[ 21-03-2020 :: 19:26:28 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:26:29 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:26:33 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 21-03-2020 :: 19:29:22 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:29:34 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa616878380>
+[ 21-03-2020 :: 19:29:34 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:29:34 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:29:37 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa615fefc00>
+[ 21-03-2020 :: 19:29:37 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:29:38 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa615ff6c80>
+[ 21-03-2020 :: 19:29:38 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:29:39 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:29:42 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 21-03-2020 :: 19:30:33 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:30:35 ] [  INFO  ] For Hash ID - 6672143582542839217 Duplicate Entry Found at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:30:36 ] [  INFO  ] None
+[ 21-03-2020 :: 19:30:36 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fa617a9c400>
+[ 21-03-2020 :: 19:30:36 ] [  INFO  ] Hash_ID - 6672143582542839217 Removed Successfully from user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:30:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa617a9ae40>
+[ 21-03-2020 :: 19:30:45 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:30:45 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:30:48 ] [  INFO  ] For Hash ID - 6672143582542839217 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:30:48 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fa614669040>
+[ 21-03-2020 :: 19:30:48 ] [  INFO  ] Hash_ID - 6672143582542839217 Removed Successfully from generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:30:48 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa6146692c0>
+[ 21-03-2020 :: 19:30:48 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:30:49 ] [  INFO  ] For Hash ID - 6672143582542839217 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:30:49 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7fa6146bfa40>
+[ 21-03-2020 :: 19:30:49 ] [  INFO  ] Hash_ID - 6672143582542839217 Removed Successfully from generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:30:49 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7fa614669780>
+[ 21-03-2020 :: 19:30:49 ] [  INFO  ] For Hash_ID - 6672143582542839217 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:30:50 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:30:54 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 21-03-2020 :: 19:46:13 ] [  INFO  ] provisional_student_db Connected Successfully
+[ 21-03-2020 :: 19:46:25 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0a03d48880>
+[ 21-03-2020 :: 19:46:25 ] [  INFO  ] Enrollment - 03620802717 Successfully Inserted at user_info Collection in provisional_student_db
+[ 21-03-2020 :: 19:46:25 ] [  INFO  ] otp_db Connected Successfully
+[ 21-03-2020 :: 19:46:28 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0a013982c0>
+[ 21-03-2020 :: 19:46:28 ] [  INFO  ] For Hash_ID - -752121232266885149 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:46:29 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f0a01388780>
+[ 21-03-2020 :: 19:46:29 ] [  INFO  ] For Hash_ID - -752121232266885149 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 21-03-2020 :: 19:46:30 ] [  INFO  ] Sending EMAIL OTP
+[ 21-03-2020 :: 19:46:34 ] [  INFO  ] SMS API MSG - <Response [200]>

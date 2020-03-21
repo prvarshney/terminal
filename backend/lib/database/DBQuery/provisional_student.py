@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from gridfs import GridFS
 from logger import log
 import sys
 import config
@@ -16,11 +17,14 @@ class Provisional_Student:
     def __init__(self):
         try:
             self.client = MongoClient(config.MongoDB_URI)
-            db = self.client[config.Provisional_Student_DB]
+            user_details_db = self.client[config.Provisional_Student_DB]
+            uploads_db = self.client[config.Uploads_DB]
             log(f'[  INFO  ] {config.Provisional_Student_DB} Connected Successfully')
         except:
             log(f'[  ERROR ] Unable To Create Connection With {config.Provisional_Student_DB}')
-        self.collection = db[config.Student_Profile_Collection]
+        self.collection = user_details_db[config.Student_Profile_Collection]
+        self.fs = GridFS(uploads_db,config.Identity_Proof_Collection)
+        
 
     def insert(self ,enrollment,rollno, name, phone_number, email,password, father_name, year_of_join,year_of_pass,programme,branch, section, gender, dob,
      temp_address, perm_address, identity_proof, phone_number_verification_status=False,email_verification_status=False):
@@ -45,7 +49,7 @@ class Provisional_Student:
         # DOB --> DICTIONARY
         # TEMP_ADDRESS --> STRING
         # PERM_ADDRESS --> STRING
-        # IDENTITY_PROOF --> STRING
+        # IDENTITY_PROOF --> BINARY FILE
         # PHONE_NUMBER_VERIFICATION_STATUS --> BOOLEAN
         # EMAIL_VERIFICATION_STATUS --> BOOLEAN
         #
@@ -61,6 +65,9 @@ class Provisional_Student:
         res = self.collection.find({ 'hash_id': hash_id })
         if res.count() > 0:
             log(f'[  INFO  ] For Hash ID - {hash_id} Duplicate Entry Found at {config.Provisional_Student_Profile_Collection} Collection in {config.Provisional_Student_DB}')
+            for document in res:
+                status = self.fs.delete(document["identity_proof"])
+                log(f'[  INFO  ] {status}')
             status = self.collection.delete_many({ 'hash_id':hash_id })
             log(f'[  INFO  ] {status}')
             log(f'[  INFO  ] Hash_ID - {hash_id} Removed Successfully from {config.Provisional_Student_Profile_Collection} Collection in {config.Provisional_Student_DB}')
@@ -82,7 +89,7 @@ class Provisional_Student:
                 "dob": dob,
                 "temp_address": temp_address,
                 "perm_address": perm_address,
-                "identity_proof":identity_proof,
+                "identity_proof":self.fs.put(identity_proof),
                 "phone_number_verification_status":phone_number_verification_status,
                 "email_verification_status":email_verification_status
             }
