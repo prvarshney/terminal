@@ -14,12 +14,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusEmailResponse;
 import com.thethreemusketeers.terminal.R;
+
+import org.json.JSONObject;
 
 public class StudentRecoverPassword<val> extends AppCompatActivity {
 
@@ -41,7 +44,6 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
 
         //CHECK THE CREDENTIALS ENTERED BY THE USER
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String ReqURL = Config.HostURL + "/student/forgot_password/<user_id>";
 
         nextBtn.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -51,16 +53,17 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                 if(!usernameValue.equals("")){
                      //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
                     // EXISTS OR NOT
-
-                    val stringRequest = new StringRequest(
+                    final String ReqURL = Config.HostURL + "/student/forgot_password/" + usernameValue;
+                    JsonObjectRequest requestObject = new JsonObjectRequest(
                             Request.Method.GET,
                             ReqURL,
-                            new Response.Listener<String>() {
+                            null,
+                            new Response.Listener<JSONObject>() {
                                 @Override
-                                public void onResponse(String response) {
+                                public void onResponse(JSONObject response) {
                                     Gson gson = new Gson();
                                     MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-                                    if(res.status == 206){
+                                    if (res.status == 206) {
                                         invalidAttemptFlag = true;
                                         attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                         attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
@@ -69,21 +72,17 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                                     } else if (res.status == 200) {
                                         attentionRequiredTowardsInvalid.setAlpha(0);
                                         startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
-
                                     }
                                 }
                             },
-                            new Response.ErrorListener(){
-
+                            new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Log.e("Response %s".format(error.toString()));
-//                                    textView.text = "ERROR: %s".format(error.toString())
-
+                                    Log.e("Response",error.toString());
                                 }
                             }
                     );
-                    requestQueue.add((Request<Object>) stringRequest);
+                    requestQueue.add(requestObject);
 
                 } else {
 
