@@ -79,7 +79,7 @@ public class CreateProfile5 extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProgressButton progressButton = new ProgressButton(CreateProfile5.this,nextBtn);
+                final ProgressButton progressButton = new ProgressButton(CreateProfile5.this,nextBtn);
                 progressButton.buttonProgressActivatedState("Please Wait...");
                 // CHECKING WHETHER INPUT FIELDS AREN'T EMPTY
                 if ( emailOTPEditText.getText().toString().equals("") ) {
@@ -165,6 +165,9 @@ public class CreateProfile5 extends AppCompatActivity {
                                         // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
                                         if ( isEmailVerified && isPhoneNumberVerified ) {
                                             startActivity( new Intent(CreateProfile5.this,MainActivity.class) );
+                                        }
+                                        else {
+                                            progressButton.buttonProgressStoppedState("NEXT");
                                         }
                                     }
                                     else if ( res.status == 401 ) {

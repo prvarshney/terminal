@@ -43,60 +43,6 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String ReqURL = Config.HostURL + "/student/forgot_password/<user_id>";
 
-        nextBtn.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String usernameValue = username.getText().toString();
 
-                if(!usernameValue.equals("")){
-                     //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
-                    // EXISTS OR NOT
-
-                    val stringRequest = new StringRequest(
-                            Request.Method.GET,
-                            ReqURL,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    Gson gson = new Gson();
-                                    MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-                                    if(res.status == 206){
-                                        invalidAttemptFlag = true;
-                                        attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                                        attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
-                                        attentionRequiredTowardsInvalid.setAlpha(1);
-                                        proceedingFlag = false;
-                                    } else if (res.status == 200) {
-                                        attentionRequiredTowardsInvalid.setAlpha(0);
-                                        startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
-
-                                    }
-                                }
-                            },
-                            new Response.ErrorListener(){
-
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("Response %s".format(error.toString()));
-//                                    textView.text = "ERROR: %s".format(error.toString())
-
-                                }
-                            }
-                    );
-                    requestQueue.add((Request<Object>) stringRequest);
-
-                } else {
-
-                    if (usernameValue.equals("")) {
-                        attentionRequiredTowardsUsernameField.setAlpha(1);
-                        attentionRequiredTowardsUsernameField.setText("*Required");
-                        proceedingFlag = false;
-                    } else {
-                        attentionRequiredTowardsUsernameField.setAlpha(0);
-                        proceedingFlag = true;
-                    }
-                }
-            }
-        }));
     }
 }
