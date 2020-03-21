@@ -167,17 +167,14 @@
         app:layout_constraintTop_toBottomOf="@+id/sms_otp"
         android:text="Doesn't Receive OTPs? Resend them." />
 
-    <Button
+    <include
         android:id="@+id/activity5_next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/full_width_btn"
-        android:fontFamily="sans-serif"
-        android:text="Next"
-        android:textColor="#fff"
+        layout="@layout/progress_button_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

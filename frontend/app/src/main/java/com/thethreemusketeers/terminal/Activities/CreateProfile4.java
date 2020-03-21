@@ -174,7 +174,8 @@ public class CreateProfile4 extends AppCompatActivity {
                                     nextBtn.setClickable(true);
                                     progressButton.buttonProgressStoppedState("NEXT");
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(),MessageAndStatusResponse.class);
-                                    startActivity(new Intent(CreateProfile4.this,CreateProfile5.class));
+                                    if ( res.status == 200 )
+                                        startActivity(new Intent(CreateProfile4.this,CreateProfile5.class));
                                 }
                             },
                             new Response.ErrorListener() {

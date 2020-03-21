@@ -3,6 +3,7 @@ package com.thethreemusketeers.terminal.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -24,6 +25,7 @@ import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
+import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
@@ -34,7 +36,7 @@ import java.util.Map;
 public class CreateProfile5 extends AppCompatActivity {
 
     TextView resendOTPTextView, attentionReqOnEmailOtpTextView, attentionReqOnSMSOtpTextView;
-    Button nextBtn;
+    View nextBtn;
     EditText emailOTPEditText, smsOTPEditText;
     Boolean isEmailVerified = false, isPhoneNumberVerified = false, isEmailOTPTextViewEmpty = true, isSMSOTPTextViewEmpty = true;
 
@@ -77,6 +79,8 @@ public class CreateProfile5 extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProgressButton progressButton = new ProgressButton(CreateProfile5.this,nextBtn);
+                progressButton.buttonProgressActivatedState("Please Wait...");
                 // CHECKING WHETHER INPUT FIELDS AREN'T EMPTY
                 if ( emailOTPEditText.getText().toString().equals("") ) {
                     isEmailOTPTextViewEmpty = true;
@@ -125,6 +129,10 @@ public class CreateProfile5 extends AppCompatActivity {
                                         isEmailVerified = true;
                                         attentionReqOnEmailOtpTextView.setText("*Verified");
                                         attentionReqOnEmailOtpTextView.setAlpha(1);
+
+                                        // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
+                                        if ( isEmailVerified && isPhoneNumberVerified ) 
+                                            startActivity( new Intent(CreateProfile5.this,MainActivity.class) );
                                     }
                                     else if ( res.status == 401 ) {
                                         isEmailVerified = false;
@@ -140,7 +148,6 @@ public class CreateProfile5 extends AppCompatActivity {
                                 }
                             }
                     );
-
                     JsonObjectRequest requestObjectOfVerifyPhone = new JsonObjectRequest(
                             Request.Method.POST,
                             phoneVerificationReqURL,
@@ -154,6 +161,11 @@ public class CreateProfile5 extends AppCompatActivity {
                                         isPhoneNumberVerified = true;
                                         attentionReqOnSMSOtpTextView.setText("*Verified");
                                         attentionReqOnSMSOtpTextView.setAlpha(1);
+
+                                        // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
+                                        if ( isEmailVerified && isPhoneNumberVerified ) {
+                                            startActivity( new Intent(CreateProfile5.this,MainActivity.class) );
+                                        }
                                     }
                                     else if ( res.status == 401 ) {
                                         isPhoneNumberVerified = false;
@@ -175,6 +187,9 @@ public class CreateProfile5 extends AppCompatActivity {
                         requestQueue.add(requestObjectOfVerifyEmail);
                     if ( !isPhoneNumberVerified )
                         requestQueue.add(requestObjectOfVerifyPhone);
+                }
+                else {
+                    progressButton.buttonProgressStoppedState("NEXT");
                 }
 
             }
