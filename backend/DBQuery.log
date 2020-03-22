@@ -340,3 +340,24 @@
 [ 22-03-2020 :: 16:40:33 ] [  INFO  ] Enrollment - 04420802717 Updated With - password:$2b$12$szds3EzdGuAxOvPzp3azlOpdT93BsJHA7obPtHwgpC5ZpFAWVo7.G in student_db
 [ 22-03-2020 :: 16:40:33 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f6a112dbec8>
 [ 22-03-2020 :: 16:40:33 ] [  INFO  ] Hash_ID - 7368931609723057390 Removed Successfully from generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:34:51 ] [  INFO  ] student_db Connected Successfully
+[ 23-03-2020 :: 00:34:51 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
+[ 23-03-2020 :: 00:34:55 ] [  INFO  ] otp_db Connected Successfully
+[ 23-03-2020 :: 00:35:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6cc013ce48>
+[ 23-03-2020 :: 00:35:02 ] [  INFO  ] For Hash_ID - -8008339554094739396 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:44:39 ] [  INFO  ] student_db Connected Successfully
+[ 23-03-2020 :: 00:44:39 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
+[ 23-03-2020 :: 00:44:44 ] [  INFO  ] otp_db Connected Successfully
+[ 23-03-2020 :: 00:44:51 ] [  INFO  ] For Hash ID - -8008339554094739396 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:44:51 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f6cc0147c48>
+[ 23-03-2020 :: 00:44:51 ] [  INFO  ] Hash_ID - -8008339554094739396 Removed Successfully from generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:44:51 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6cc0154508>
+[ 23-03-2020 :: 00:44:51 ] [  INFO  ] For Hash_ID - -8008339554094739396 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:45:11 ] [  INFO  ] student_db Connected Successfully
+[ 23-03-2020 :: 00:45:11 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
+[ 23-03-2020 :: 00:45:15 ] [  INFO  ] otp_db Connected Successfully
+[ 23-03-2020 :: 00:45:22 ] [  INFO  ] For Hash ID - -8008339554094739396 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:45:23 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f6cc1fa61c8>
+[ 23-03-2020 :: 00:45:23 ] [  INFO  ] Hash_ID - -8008339554094739396 Removed Successfully from generated_otp Collection in otp_db
+[ 23-03-2020 :: 00:45:23 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f6cc0147cc8>
+[ 23-03-2020 :: 00:45:23 ] [  INFO  ] For Hash_ID - -8008339554094739396 OTP Inserted Successfully at generated_otp Collection in otp_db

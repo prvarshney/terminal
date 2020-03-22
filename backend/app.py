@@ -1496,31 +1496,27 @@ def student_forgot_password_generate_otp(user_id):
     db_res = student.query('enrollment',user_id)
     if db_res['status'] == 212:
         otp_db = db.OTP()
-        user_email_ids = []
-        user_name = {}
         for res in db_res['res']:
-            user_email_ids = res['email_ids']
-            user_name = res['student_name']
+            user_email_id = res['email']
+            user_name = res['name']
         ## GENERATING OTP
         generated_otp = random.randrange(11111111,100000000)
         ## SENDING OTP TO THE USER THROUGH EMAIL
         send_email_otp(
-            receiver = user_email_ids,
+            receiver = user_email_id,
             user_name = user_name['f_name'],
             otp = generated_otp,
             function='RECOVER_PASSWORD'
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(
-            user_id = user_id,
-            otp = generated_otp
+            hash_id=hash( user_id+'FORGOT_PASSWORD_HASH' ),
+            otp=generated_otp,
+            function='RECOVER_PASSWORD'
         )
         ## MASKING EMAILS TO GENERATE REQUIRED RESPONSE
-        for index in range(len(user_email_ids)):
-            string = user_email_ids[index]
         ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
-        string = string[:4] + 'X' * len(string[4:string.find('@')]) + string[string.find('@'):]
-        user_email_ids[index] = string
+        user_email_id = user_email_id[:4] + 'X' * len(user_email_id[4:user_email_id.find('@')]) + user_email_id[user_email_id.find('@'):]
         ## RETURNING RESPONSE
         return jsonify({
             'status':200,
@@ -1532,6 +1528,45 @@ def student_forgot_password_generate_otp(user_id):
             'status':'206',
             'msg':'Invalid user_id'
         })
+
+@app.route("/student/recover_password/verify_otp",methods=['POST'])
+def student_forgot_password_verify_otp():
+    ## ROUTE TO VERIFY RECOVER PASSWORD OTP DELIEVERED WITH GIVEN OTP
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##   "user_id":<STRING>,
+    ##   "otp":<INTEGER>
+    ##   "new_password":<STRING>
+    ## }
+    req = request.get_json()
+    ## ESTABLISHING CONNECTION WITH OTP_DB
+    otp_db = db.OTP()
+    db_res = otp_db.query('hash_id',hash( req['user_id']+'FORGOT_PASSWORD_HASH' ))
+    if db_res['status'] == 212 :    # EXECUTES WHEN GIVEN USER_ID HASH AVAILABLE IN OTP_DB
+        stored_otp = None
+        for document in db_res['res']:
+            stored_otp = document['otp']
+        if req['otp'] == stored_otp:       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
+            ## CHANGING PASSWORD OF THE GIVEN USER
+            student = db.Student()
+            db_res = student.update( req['user_id'],'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
+            if db_res == 301:
+                ## REMOVING OTP STORED IN OTP_DB
+                otp_db.remove( hash( req['user_id']+'FORGOT_PASSWORD_HASH' ),function='RECOVER_PASSWORD' )
+                return jsonify({
+                    'status':db_res,
+                    'msg':'password changes successfully'
+                })
+            else:   ## EXECUTES WHEN UPDATION FAILED AT DATABASE ENDS DUE TO NETWORK PROBLEM
+                return jsonify({
+                    'status':db_res,
+                    'msg':'failed to reset password, retry'
+                })
+    ## EXECUTES WHEN EITHER OTP DOESN'T AVAILABLE IN OTP_DB OR OTP GIVEN IS INVALID
+    return jsonify({
+        'status':401,
+        'msg':'invalid userid/otp combination'
+    })
 
 ## ROUTE TO VIEW ATTENDANCE OF A STUDENT
 @app.route('/student/view_attendance',methods=['POST'])
