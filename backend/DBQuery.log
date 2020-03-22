@@ -280,3 +280,17 @@
 [ 21-03-2020 :: 19:46:29 ] [  INFO  ] For Hash_ID - -752121232266885149 OTP Inserted Successfully at generated_otp Collection in otp_db
 [ 21-03-2020 :: 19:46:30 ] [  INFO  ] Sending EMAIL OTP
 [ 21-03-2020 :: 19:46:34 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 22-03-2020 :: 13:10:40 ] [  INFO  ] current_batches_db Connected Successfully
+[ 22-03-2020 :: 13:10:45 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f70be29c708>
+[ 22-03-2020 :: 13:10:45 ] [  INFO  ] Batch - {'subject': 'communication-skills', 'semster': 1, 'batch': 'mtech_ece_a_2023', '_id': ObjectId('5e77167cf31bc6c624d3ac24')} inserted at Collection - f038bpit in Database - current_batches_db
+[ 22-03-2020 :: 13:10:46 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f70be29c948>
+[ 22-03-2020 :: 13:10:46 ] [  INFO  ] Batch - {'subject': 'artificial-intelligence', 'semster': 1, 'batch': 'mtech_it_d_2024', '_id': ObjectId('5e77167df31bc6c624d3ac25')} inserted at Collection - f038bpit in Database - current_batches_db
+[ 22-03-2020 :: 13:10:46 ] [  ERROR ] Batch - {'subject': 'communication-skills', 'semster': 1, 'batch': 'mtech_ece_a_2023'} Is Already Present at Collection - f038bpit in Database - current_batches_db
+[ 22-03-2020 :: 13:10:46 ] [  INFO  ] Showing all Batches from Collection - f038bpit in Database - current_batches_db
+[ 22-03-2020 :: 13:10:48 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f70be29c9c8>
+[ 22-03-2020 :: 13:10:48 ] [  INFO  ] Batch - {'subject': 'communication-skills', 'semster': 1, 'batch': 'mtech_ece_a_2023'} has been removed successfully from Collection - f038bpit in Database - current_batches_db
+[ 22-03-2020 :: 13:10:49 ] [  INFO  ] Collection - f038bpit dropped from Database - current_batches_db
+[ 22-03-2020 :: 13:10:50 ] [  INFO  ] student_db Connected Successfully
+[ 22-03-2020 :: 13:10:54 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f70bc204588>
+[ 22-03-2020 :: 13:10:54 ] [  ERROR ] Enrollment - 04420802717 Successfully Inserted at user_info Collection in student_db
+[ 22-03-2020 :: 13:10:55 ] [  ERROR ] Enrollment - 04420802717 Insertion at user_info Collection in student_db failed - Duplicate Entry Found

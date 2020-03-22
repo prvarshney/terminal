@@ -43,7 +43,13 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
 
         //CHECK THE CREDENTIALS ENTERED BY THE USER
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        if(!usernameValue.equals("")){
+
+        nextBtn.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+             String usernameValue = username.getText().toString();
+            if(!usernameValue.equals("")){
                 //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
             // EXISTS OR NOT
             final String ReqURL = Config.HostURL + "/student/forgot_password/" + usernameValue;
@@ -56,16 +62,17 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             Gson gson = new Gson();
                             MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-                            if (res.status == 206) {
-//                                        invalidAttemptFlag = true;
-                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
-                                attentionRequiredTowardsInvalid.setAlpha(1);
-//                                        proceedingFlag = false;
-                            } else if (res.status == 200) {
-                                attentionRequiredTowardsInvalid.setAlpha(0);
-                                startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
-                            }
+                            startActivity(new Intent(StudentRecoverPassword.this, StudentRecoverPassword1.class));
+//                            if (res.status == 206) {
+////                                        invalidAttemptFlag = true;
+//                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+//                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
+//                                attentionRequiredTowardsInvalid.setAlpha(1);
+////                                        proceedingFlag = false;
+//                            } else if (res.status == 200) {
+//                                attentionRequiredTowardsInvalid.setAlpha(0);
+//                                startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
+//                            }
                         }
                     },
                     new Response.ErrorListener() {
@@ -81,10 +88,10 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
             if (usernameValue.equals("")) {
                 attentionRequiredTowardsUsernameField.setAlpha(1);
                 attentionRequiredTowardsUsernameField.setText("*Required");
-//                        proceedingFlag = false;
+                        proceedingFlag = false;
             } else {
                 attentionRequiredTowardsUsernameField.setAlpha(0);
-//                        proceedingFlag = true;
+                        proceedingFlag = true;
             }
         }
     }
