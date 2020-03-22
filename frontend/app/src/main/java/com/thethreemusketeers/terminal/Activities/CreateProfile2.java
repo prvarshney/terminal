@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -27,6 +28,7 @@ import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.DatePickerFragment;
 import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
+import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
@@ -42,7 +44,7 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
     EditText username;
     TextView attentionRequiredOnUserId;
     TextView attentionRequiredOnDOB;
-    Button nextBtn;
+    View nextBtn;
     Boolean proceedingNextFlag = false, isUserNameFieldEmpty = true, isDOBFieldEmpty = true;
 
     @Override
@@ -165,6 +167,46 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                 if( proceedingNextFlag && !isUserNameFieldEmpty && !isDOBFieldEmpty ) {
                     FacultyRegisterObject.faculty_id = username.getText().toString();
                     startActivity(new Intent(CreateProfile2.this, CreateProfile3.class));
+                }
+
+                if ( !proceedingNextFlag && !isUserNameFieldEmpty && !isDOBFieldEmpty ) {
+                    final ProgressButton progressButton = new ProgressButton(CreateProfile2.this, nextBtn);
+                    progressButton.buttonProgressActivatedState("Please Wait...");
+                    // SENDING USERNAME AGAIN TO THE SERVER AND CHECK FOR AVAILABILITY
+                    Map<String, String> postParameters = new HashMap<String, String>();
+                    postParameters.put("user_id", username.getText().toString());
+
+                    JsonObjectRequest requestObject = new JsonObjectRequest(
+                            Request.Method.POST,
+                            ReqURL,
+                            new JSONObject(postParameters),
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Gson gson = new Gson();
+                                    MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
+                                    progressButton.buttonProgressStoppedState("NEXT");
+                                    if( res.status == 206 ){
+                                        attentionRequiredOnUserId.setText("(This username is unavailable)");
+                                        attentionRequiredOnUserId.setAlpha(1);
+                                        proceedingNextFlag = false;
+                                    }
+                                    else if( res.status == 200){
+                                        attentionRequiredOnUserId.setAlpha(0);
+                                        proceedingNextFlag = true;
+                                        startActivity(new Intent(CreateProfile2.this, CreateProfile3.class));
+                                    }
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.e("Response", error.toString());
+                                }
+                            }
+                    );
+                    requestQueue.add(requestObject);
+
                 }
             }
         });

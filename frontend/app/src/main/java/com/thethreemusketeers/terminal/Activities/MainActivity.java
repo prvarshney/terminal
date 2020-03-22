@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.thethreemusketeers.terminal.FacultyProfileCreationSuccess;
 import com.thethreemusketeers.terminal.R;
 import com.thethreemusketeers.terminal.TermsAndConditionActivity;
 
@@ -62,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 ds.setTypeface(Typeface.DEFAULT_BOLD);
             }
         };
-        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
         termsAndCondition.setSpan(termsAndConditionActivityLauncher,39,55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         termsAndCondition.setSpan(loginActivityLauncher,92,97,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         agreeAndContinueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this,CreateProfile1.class));
                 startActivity(new Intent( MainActivity.this, CreateProfile1.class));
             }
         });

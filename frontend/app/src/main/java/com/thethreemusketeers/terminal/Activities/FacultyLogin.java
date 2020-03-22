@@ -13,8 +13,11 @@ import android.text.TextWatcher;
 import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -34,6 +37,7 @@ import java.util.Map;
 
 public class FacultyLogin extends AppCompatActivity {
 
+    Spinner accountTypeDropdown;
     TextView forgotPasswordLink , signUpLink;
     EditText facultyId , facultyPassword;
     Button loginBtn;
@@ -46,6 +50,7 @@ public class FacultyLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_login);
+        accountTypeDropdown = findViewById(R.id.accountType_dropdown);
         forgotPasswordLink = findViewById(R.id.forgot_password);
         signUpLink = findViewById(R.id.sign_up);
         facultyId = findViewById(R.id.facultyId);
@@ -54,6 +59,40 @@ public class FacultyLogin extends AppCompatActivity {
         attentionRequiredTowardsFacultyId = findViewById(R.id.attention_required_on_facultyId);
         attentionRequiredTowardsFacultyPassword = findViewById(R.id.attention_required_on_facultyPassword);
         attentionRequiredTowardsInvalid = findViewById(R.id.attention_required_on_username_editText);
+
+        //SETTING DROPDOWN ELEMENTS
+        String[] accountTypeDropdownElements = new String[]{"Change Account Type","Student"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_dropdown, accountTypeDropdownElements){
+            public boolean isEnabled(int position){
+                if(position==0){
+                    return  false;
+                } else {
+                    return true;
+                }
+            }
+        };
+        adapter.setDropDownViewResource(R.layout.spinner_text);
+        accountTypeDropdown.setAdapter(adapter);
+        accountTypeDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long id)
+            {
+                switch(position)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        startActivity(new Intent(FacultyLogin.this, StudentLogin.class));
+                        break;
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0)
+            {
+
+            }
+        });
 
 
         SpannableString forgottenPassword = new SpannableString("Forgotten your details? Get help with signing in.");

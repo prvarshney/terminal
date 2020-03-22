@@ -190,17 +190,14 @@
 
     </LinearLayout>
 
-    <Button
+    <include
         android:id="@+id/activity4_next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/full_width_btn"
-        android:fontFamily="sans-serif"
-        android:text="Next"
-        android:textColor="#fff"
+        android:layout_marginBottom="16dp"
+        layout="@layout/progress_button_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

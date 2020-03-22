@@ -43,58 +43,51 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
 
         //CHECK THE CREDENTIALS ENTERED BY THE USER
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-
-        nextBtn.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String usernameValue = username.getText().toString();
-
-                if(!usernameValue.equals("")){
-                     //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
-                    // EXISTS OR NOT
-                    final String ReqURL = Config.HostURL + "/student/forgot_password/" + usernameValue;
-                    JsonObjectRequest requestObject = new JsonObjectRequest(
-                            Request.Method.GET,
-                            ReqURL,
-                            null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    Gson gson = new Gson();
-                                    MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-                                    if (res.status == 206) {
+        if(!usernameValue.equals("")){
+                //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
+            // EXISTS OR NOT
+            final String ReqURL = Config.HostURL + "/student/forgot_password/" + usernameValue;
+            JsonObjectRequest requestObject = new JsonObjectRequest(
+                    Request.Method.GET,
+                    ReqURL,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Gson gson = new Gson();
+                            MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
+                            if (res.status == 206) {
 //                                        invalidAttemptFlag = true;
-                                        attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                                        attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
-                                        attentionRequiredTowardsInvalid.setAlpha(1);
+                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
+                                attentionRequiredTowardsInvalid.setAlpha(1);
 //                                        proceedingFlag = false;
-                                    } else if (res.status == 200) {
-                                        attentionRequiredTowardsInvalid.setAlpha(0);
-                                        startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
-                                    }
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    Log.e("Response",error.toString());
-                                }
+                            } else if (res.status == 200) {
+                                attentionRequiredTowardsInvalid.setAlpha(0);
+                                startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
                             }
-                    );
-                    requestQueue.add(requestObject);
-
-                } else {
-
-                    if (usernameValue.equals("")) {
-                        attentionRequiredTowardsUsernameField.setAlpha(1);
-                        attentionRequiredTowardsUsernameField.setText("*Required");
-//                        proceedingFlag = false;
-                    } else {
-                        attentionRequiredTowardsUsernameField.setAlpha(0);
-//                        proceedingFlag = true;
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("Response",error.toString());
+                        }
                     }
-                }
+            );
+            requestQueue.add(requestObject);
+        }
+        else {
+            if (usernameValue.equals("")) {
+                attentionRequiredTowardsUsernameField.setAlpha(1);
+                attentionRequiredTowardsUsernameField.setText("*Required");
+//                        proceedingFlag = false;
+            } else {
+                attentionRequiredTowardsUsernameField.setAlpha(0);
+//                        proceedingFlag = true;
             }
-        }));
+        }
+    }
+    }));
     }
 }
