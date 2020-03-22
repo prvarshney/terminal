@@ -17,3 +17,4 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
         setContentView(R.layout.activity_student_recover_password1);
     }
 }
+
