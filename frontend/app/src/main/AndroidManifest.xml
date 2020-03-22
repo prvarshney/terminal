@@ -33,6 +33,7 @@
             android:name=".Activities.StudentLogin"
             android:screenOrientation="portrait" />
         <activity android:name=".Activities.FacultyLogin" />
+        <activity android:name=".Activities.StudentRecoverPassword1" />
     </application>
 
 </manifest>
