@@ -23,7 +23,7 @@
         <ImageView
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/logo5" />
+            android:src="@drawable/logo7" />
 
         <TextView
             android:id="@+id/textView2"
@@ -57,7 +57,7 @@
         android:layout_height="18dp"
         android:indeterminate="true"
         android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/colorWhite"
+        android:indeterminateTint="@color/colorMatteGreen"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
