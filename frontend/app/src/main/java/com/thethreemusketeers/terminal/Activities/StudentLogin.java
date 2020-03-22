@@ -121,7 +121,7 @@ public class StudentLogin extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 // LAUNCH CREATE ACCOUNT ACTIVITY
-                startActivity(new Intent(StudentLogin.this,MainActivity.class));
+                startActivity(new Intent(StudentLogin.this,StudentRecoverPassword1.class));
             }
 
             @Override
