@@ -15,7 +15,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
@@ -64,11 +63,11 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                                     Gson gson = new Gson();
                                     MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
                                     if (res.status == 206) {
-                                        invalidAttemptFlag = true;
+//                                        invalidAttemptFlag = true;
                                         attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                         attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
                                         attentionRequiredTowardsInvalid.setAlpha(1);
-                                        proceedingFlag = false;
+//                                        proceedingFlag = false;
                                     } else if (res.status == 200) {
                                         attentionRequiredTowardsInvalid.setAlpha(0);
                                         startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
@@ -89,10 +88,10 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                     if (usernameValue.equals("")) {
                         attentionRequiredTowardsUsernameField.setAlpha(1);
                         attentionRequiredTowardsUsernameField.setText("*Required");
-                        proceedingFlag = false;
+//                        proceedingFlag = false;
                     } else {
                         attentionRequiredTowardsUsernameField.setAlpha(0);
-                        proceedingFlag = true;
+//                        proceedingFlag = true;
                     }
                 }
             }

@@ -1,5 +1,6 @@
 import sys
 import os
+# from lib import config
 ## APPENDING SYS PATH TO ACCESS LIB MODULES FROM ANYWHERE
 sys.path.append( os.path.join( os.getcwd(),'lib') )
 sys.path.append( os.path.join( os.getcwd(),'backend','lib') )
