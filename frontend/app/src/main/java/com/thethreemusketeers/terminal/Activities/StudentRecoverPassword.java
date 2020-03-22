@@ -62,17 +62,16 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             Gson gson = new Gson();
                             MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-                            startActivity(new Intent(StudentRecoverPassword.this, StudentRecoverPassword1.class));
-//                            if (res.status == 206) {
-////                                        invalidAttemptFlag = true;
-//                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-//                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
-//                                attentionRequiredTowardsInvalid.setAlpha(1);
-////                                        proceedingFlag = false;
-//                            } else if (res.status == 200) {
-//                                attentionRequiredTowardsInvalid.setAlpha(0);
-//                                startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
-//                            }
+                            if (res.status == 206) {
+                                invalidAttemptFlag = true;
+                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
+                                attentionRequiredTowardsInvalid.setAlpha(1);
+                                proceedingFlag = false;
+                            } else if (res.status == 200) {
+                                attentionRequiredTowardsInvalid.setAlpha(0);
+                                startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
+                            }
                         }
                     },
                     new Response.ErrorListener() {
