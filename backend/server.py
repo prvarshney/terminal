@@ -1485,59 +1485,6 @@ def student_aboutus():
         'msg':'for the community by the community',
         'status':'200'
     })
-
-# @app.route("/student/forgot_password/<user_id>",methods=['GET'])
-# def student_forgot_password_generate_otp(user_id):
-#     ## ROUTE TO GENERATE FORGOT PASSWORD OTP FOR A PARTICULAR USESR_ID
-#     ## INPUT IS ACCEPTED THROUGH URLENCODED VARIABLES I.E user_id
-#     ## ESTABILISHING CONNECTION WITH STUDENT_DB
-#     student = db.Student()
-#     db_res = student.query('enrollment',user_id)
-#     if db_res['status'] == 212:     # EXECUTES WHEN GIVEN USER_ID AVAILABLE IN THE DATABASE
-#         otp_db = db.OTP()
-#         ## GENERATING OTP
-#         generated_otp = random.randrange(11111111,100000000)
-#         for document in db_res['res']:
-#             user_email_id = document['email']
-#             user_phone_number = document['phone_numbers']
-#             user_name = document['name']['f_name']
-#             ## SENDING OTP TO THE USER THROUGH EMAIL
-#             send_email_otp(
-#                 receiver=user_email_id,
-#                 user_name=user_name,
-#                 otp=generated_otp,
-#                 function='RECOVER_PASSWORD'
-#             )
-#             ## SENDING OTP THROUGH MOBILE NUMBER
-#             send_sms_otp(
-#                 receiver=user_phone_number,
-#                 user_name=user_name,
-#                 otp=generated_otp,
-#                 function='RECOVER_PASSWORD'
-#             )
-#             ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
-#             otp_db.insert(
-#                 hash_id=hash( user_id+'FORGOT_PASSWORD_HASH' ),
-#                 otp=generated_otp,
-#                 function='RECOVER_PASSWORD'
-#             )
-#             ## MASKING EMAIL TO GENERATE REQUIRED RESPONSE
-#             ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
-#             user_email_id = user_email_id[:4] + 'X' * len(user_email_id[4:user_email_id.find('@')]) + user_email_id[user_email_id.find('@'):]
-#             user_phone_number = str(user_phone_number)  # CONVERTING FROM INT64 TO STRING 
-#             user_phone_number = user_phone_number[:4] + 'X' * len(user_phone_number[4:])
-#             ## RETURNING RESPONSE
-#             return jsonify({
-#                 'status':200,
-#                 'msg':'otp sent to the registered email id and phone number',
-#                 'email_id':user_email_id,
-#                 'phone_number':user_phone_number
-#             })
-#     else:
-#         return jsonify({
-#             "status":206,
-#             "msg" :"invalid user id"
-#         })
     
 ## ROUTE TO GENERATE OTP FOR A PARTICULAR USER ID
 @app.route("/student/forgot_password/<user_id>",methods = ['GET'])
@@ -1548,31 +1495,27 @@ def student_forgot_password_generate_otp(user_id):
     db_res = student.query('enrollment',user_id)
     if db_res['status'] == 212:
         otp_db = db.OTP()
-        user_email_ids = []
-        user_name = {}
         for res in db_res['res']:
-            user_email_ids = res['email_ids']
-            user_name = res['student_name']
+            user_email_id = res['email']
+            user_name = res['name']
         ## GENERATING OTP
         generated_otp = random.randrange(11111111,100000000)
         ## SENDING OTP TO THE USER THROUGH EMAIL
         send_email_otp(
-            receiver = user_email_ids,
+            receiver = user_email_id,
             user_name = user_name['f_name'],
             otp = generated_otp,
             function='RECOVER_PASSWORD'
         )
         ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
         otp_db.insert(
-            user_id = user_id,
-            otp = generated_otp
+            hash_id=hash( user_id+'FORGOT_PASSWORD_HASH' ),
+            otp=generated_otp,
+            function='RECOVER_PASSWORD'
         )
         ## MASKING EMAILS TO GENERATE REQUIRED RESPONSE
-        for index in range(len(user_email_ids)):
-            string = user_email_ids[index]
         ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
-        string = string[:4] + 'X' * len(string[4:string.find('@')]) + string[string.find('@'):]
-        user_email_ids[index] = string
+        user_email_id = user_email_id[:4] + 'X' * len(user_email_id[4:user_email_id.find('@')]) + user_email_id[user_email_id.find('@'):]
         ## RETURNING RESPONSE
         return jsonify({
             'status':200,
