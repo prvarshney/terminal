@@ -62,15 +62,18 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             Gson gson = new Gson();
                             MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-                            if (res.status == 206) {
+//                            attentionRequiredTowardsUsernameField.setText(res.status);
+//                            attentionRequiredTowardsUsernameField.setAlpha(1);
+                            if (res.status == 200) {
+                                attentionRequiredTowardsInvalid.setAlpha(0);
+                                invalidAttemptFlag = false;
+                                startActivity(new Intent(StudentRecoverPassword.this, StudentRecoverPassword1.class));
+                            } else if(res.status == 206){
                                 invalidAttemptFlag = true;
-                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment, Check Again");
+                                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+                                attentionRequiredTowardsInvalid.setText("*Invalid Enrollment.");
                                 attentionRequiredTowardsInvalid.setAlpha(1);
                                 proceedingFlag = false;
-                            } else if (res.status == 200) {
-                                attentionRequiredTowardsInvalid.setAlpha(0);
-                                startActivity(new Intent(StudentRecoverPassword.this, CreateProfile1.class));
                             }
                         }
                     },
@@ -86,7 +89,9 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
         else {
             if (usernameValue.equals("")) {
                 attentionRequiredTowardsUsernameField.setAlpha(1);
+                attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 attentionRequiredTowardsUsernameField.setText("*Required");
+                attentionRequiredTowardsUsernameField.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
                         proceedingFlag = false;
             } else {
                 attentionRequiredTowardsUsernameField.setAlpha(0);
