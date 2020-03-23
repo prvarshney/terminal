@@ -24,7 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.FacultyProfileCreationSuccess;
-import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
@@ -106,15 +106,15 @@ public class CreateProfile5 extends AppCompatActivity {
 
                     // CREATING REQUEST OBJECT FOR EMAIL VERIFICATION LINK AND PHONE VERIFICATION LINK
                     Map<String,String> postParametersOfVerifyEmail = new HashMap<String,String>();
-                    postParametersOfVerifyEmail.put("email_id", FacultyRegisterObject.email);
-                    postParametersOfVerifyEmail.put("faculty_id", FacultyRegisterObject.faculty_id);
-                    postParametersOfVerifyEmail.put("phone_number", FacultyRegisterObject.phone_number);
+                    postParametersOfVerifyEmail.put("email_id", UserRegisterObject.email);
+                    postParametersOfVerifyEmail.put("faculty_id", UserRegisterObject.faculty_id);
+                    postParametersOfVerifyEmail.put("phone_number", UserRegisterObject.phone_number);
                     postParametersOfVerifyEmail.put("email_otp", emailOTPEditText.getText().toString());
 
                     Map<String,String> postParametersOfVerifySMS = new HashMap<String,String>();
-                    postParametersOfVerifySMS.put("email_id",FacultyRegisterObject.email);
-                    postParametersOfVerifySMS.put("faculty_id",FacultyRegisterObject.faculty_id);
-                    postParametersOfVerifySMS.put("phone_number",FacultyRegisterObject.phone_number);
+                    postParametersOfVerifySMS.put("email_id",UserRegisterObject.email);
+                    postParametersOfVerifySMS.put("faculty_id",UserRegisterObject.faculty_id);
+                    postParametersOfVerifySMS.put("phone_number",UserRegisterObject.phone_number);
                     postParametersOfVerifySMS.put("sms_otp",smsOTPEditText.getText().toString());
 
                     JsonObjectRequest requestObjectOfVerifyEmail = new JsonObjectRequest(

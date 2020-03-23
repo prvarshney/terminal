@@ -13,11 +13,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.R;
 
 public class CreateProfile1 extends AppCompatActivity {
 
+    // DECLARING VARIABLES
     Spinner accountTypeDropDown;
     Button nextBtn;
     EditText username;
@@ -48,63 +49,63 @@ public class CreateProfile1 extends AppCompatActivity {
                 }
             }
         };
-        adapter.setDropDownViewResource(R.layout.spinner_text);
+        adapter.setDropDownViewResource(R.layout.spinner_text_layout_for_create_profile1);
         accountTypeDropDown.setAdapter(adapter);
 
         // SETTING EVENT LISTENERS
-        // THIS EVENT LISTENER OFF THE REQUIRED WARNING OVER COMPLETE USERNAME EDIT TEXT BOX
+        // THIS EVENT LISTENER OFF THE REQUIRED WARNING OVER FULL NAME EDIT TEXT BOX
         // WHEN THEIR IS SOME TEXT INSIDE EDIT TEXT BOX
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if( !s.equals("") )
                     attentionRequiredTowardsUsernameField.setAlpha(0);
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
             }
         });
 
-        // THIS EVENT LISTENER ROUTES TO OTHER ACTIVITIES BASED ON THE ACCOUNT TYPE USER SELECTED
+        // THIS EVENT LISTENER RECORDS USER INPUT AND ROUTES TO OTHER ACTIVITIY
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // CHECKING WHETHER ALL FIELDS ARE FILED WITH USERDATA OR NOT
                 String usernameValue = username.getText().toString();
                 String accountType = accountTypeDropDown.getSelectedItem().toString();
-                Boolean proceedingNextFlag = true;
+                Boolean isUsernameValid, isAccountTypeValid;
+                // VALIDATING USERNAME FIELD
                 if(usernameValue.equals("")) {
                     attentionRequiredTowardsUsernameField.setAlpha(1);
-                    proceedingNextFlag = false;
+                    isUsernameValid = false;
                 }
-                else
+                else {
                     attentionRequiredTowardsUsernameField.setAlpha(0);
-
+                    isUsernameValid = true;
+                }
+                // CHECKING WHETHER ACCOUNT-TYPE FIELD IS SELECTED OR NOT
                 if(accountType.equals("Select Account-Type")) {
                     attentionRequiredTowardsAccountTypeField.setAlpha(1);
-                    proceedingNextFlag = false;
+                    isAccountTypeValid = false;
                 }
-                else
+                else {
                     attentionRequiredTowardsAccountTypeField.setAlpha(0);
-
-                if( proceedingNextFlag ){
-                    // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE2 ONLY WHEN USER IS A FACULTY
-                    if ( accountType.equals("Faculty (BPIT)") ) {
-                        FacultyRegisterObject.name = usernameValue;
-                        startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
-                    }
-                    // PROCEEDING FURTHER TO ACTIVITY_CREATE_PROFILE3 WHEN USER IS NOT A FACULTY
-                    else {
-                        FacultyRegisterObject.name = usernameValue;
-                        startActivity(new Intent(CreateProfile1.this, MainActivity.class));
-                    }
+                    isAccountTypeValid = true;
+                }
+                // EXECUTES WHEN BOTH FIELDS ARE VALIDATED
+                if( isUsernameValid && isAccountTypeValid ){
+                    // STORING USER INPUT VALUES IN USER_REGISTER_OBJECT (STATIC)
+                    if ( accountType.equals("Faculty (BPIT)") )
+                        UserRegisterObject.account_type = getString(R.string.account_type_faculty);
+                    else if ( accountType.equals("Student (BPIT)") )
+                        UserRegisterObject.account_type = getString(R.string.account_type_student);
+                    UserRegisterObject.name = usernameValue;
+                    startActivity(new Intent(CreateProfile1.this,CreateProfile2.class));
                 }
             }
         });

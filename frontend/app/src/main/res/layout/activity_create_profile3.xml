@@ -35,6 +35,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_title"  />
 
     <ImageView
@@ -48,129 +50,197 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <LinearLayout
-        android:id="@+id/phone_number_label"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_avatar" >
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:fontFamily="sans-serif"
-            android:textSize="14sp"
-            android:text="Contact Number"
-            android:gravity="left"
-            android:alpha="1"
-            android:layout_weight="1"
-            android:textColor="@color/colorAccent" />
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/attention_required_on_contact_number_editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:fontFamily="sans-serif"
-            android:textSize="14sp"
-            android:text="* Required"
-            android:gravity="right"
-            android:alpha="0"
-            android:layout_weight="1"
-            android:textColor="@color/colorMatteGreen" />
+            <LinearLayout
+                android:id="@+id/phone_number_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="left"
+                    android:text="Contact Number"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/attention_required_on_contact_number_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_weight="1"
+                    android:alpha="0"
+                    android:fontFamily="sans-serif"
+                    android:gravity="right"
+                    android:text="* Required"
+                    android:textColor="@color/colorMatteGreen"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/contact_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/input_fields"
+                android:fontFamily="sans-serif-light"
+                android:hint="Your Contact Number"
+                android:inputType="numberSigned"
+                android:maxLength="10"
+                android:padding="12dp"
+                android:textColor="#FFF"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/phone_number_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/contact_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:padding="12dp"
-        android:textSize="18sp"
-        android:background="@drawable/input_fields"
-        android:hint="Your Contact Number"
-        android:maxLength="10"
-        android:inputType="numberSigned"
-        android:textColorHint="@color/colorPrimary"
-        android:textColor="#FFF"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number_label"  />
+            <LinearLayout
+                android:id="@+id/email_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintTop_toBottomOf="@id/contact_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="left"
+                    android:text="Email"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/attention_required_on_email_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:alpha="0"
+                    android:fontFamily="sans-serif"
+                    android:gravity="right"
+                    android:text="* Required"
+                    android:textColor="@color/colorMatteGreen"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/email_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@+id/contact_number" >
+            <EditText
+                android:id="@+id/email_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/input_fields"
+                android:fontFamily="sans-serif-light"
+                android:hint="Your Email Address"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/email_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="24dp"
-            android:fontFamily="sans-serif"
-            android:textSize="14sp"
-            android:text="Email"
-            android:gravity="left"
-            android:layout_weight="1"
-            android:alpha="1"
-            android:textColor="@color/colorAccent" />
+            <LinearLayout
+                android:id="@+id/class_rollno_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintTop_toBottomOf="@id/email_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:alpha="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="left"
+                    android:text="Class Roll No."
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/attention_required_on_class_rollno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:alpha="0"
+                    android:fontFamily="sans-serif"
+                    android:gravity="right"
+                    android:text="* Required"
+                    android:textColor="@color/colorMatteGreen"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/attention_required_on_email_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="24dp"
-            android:fontFamily="sans-serif"
-            android:textSize="14sp"
-            android:text="* Required"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:alpha="0"
-            android:textColor="@color/colorMatteGreen" />
+            <EditText
+                android:id="@+id/class_rollno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/input_fields"
+                android:fontFamily="sans-serif-light"
+                android:hint="Your Class Roll Number"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/class_rollno_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/email_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginHorizontal="24dp"
-        android:background="@drawable/input_fields"
-        android:hint="Your Email Address"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/colorPrimary"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        android:fontFamily="sans-serif-light"
-        app:layout_constraintTop_toBottomOf="@+id/email_label" />
-
-    <Button
-        android:id="@+id/activity3_next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/full_width_btn"
-        android:fontFamily="sans-serif"
-        android:text="Next"
-        android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
-        app:layout_constraintVertical_bias="0.96" />
-
+            <Button
+                android:id="@+id/activity3_next_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/full_width_btn"
+                android:fontFamily="sans-serif"
+                android:text="Next"
+                android:textColor="#fff"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/class_rollno"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
