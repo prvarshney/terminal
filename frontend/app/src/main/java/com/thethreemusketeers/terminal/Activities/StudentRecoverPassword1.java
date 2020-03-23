@@ -99,15 +99,15 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String otpValue = otpField.getText().toString();
-                String newPasswordValue = newPasswordEditText.getText().toString();
-                String confirmPasswordValue = confirmPasswordEditText.getText().toString();
+                final String newPasswordValue = newPasswordEditText.getText().toString();
+                final String confirmPasswordValue = confirmPasswordEditText.getText().toString();
 
-                if(!otpValue.equals("") && !newPasswordValue.equals("") && !confirmPasswordValue.equals("")){
+                if(!otpValue.equals("") && !newPasswordValue.equals("") && !confirmPasswordValue.equals("") && (newPasswordValue.equals(confirmPasswordValue))){
                     // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
                     // EXISTS OR NOT
                     Map<String, String> postParameters = new HashMap<>();
                     postParameters.put("user_id", StudentForgotPasswordObject.userid);
-                    postParameters.put("otp", otpField.getText().toString());
+                    postParameters.put("otp", otpValue);
                     postParameters.put("new_password",newPasswordValue);
 
                     JsonObjectRequest requestObject = new JsonObjectRequest(
@@ -117,18 +117,19 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
+                                    attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
                                     Gson gson = new Gson();
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
                                     if (res.status == 401 || res.status==204 ) {
-                                        invalidAttemptFlag = true;
+//                                        invalidAttemptFlag = true;
                                         attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                         attentionRequiredTowardsInvalid.setText("*Invalid OTP Combination");
                                         attentionRequiredTowardsInvalid.setAlpha(1);
-                                        proceedingFlag = false;
+//                                        proceedingFlag = false;
                                     } else if (res.status == 301) {
                                         attentionRequiredTowardsInvalid.setAlpha(0);
-                                        invalidAttemptFlag = false;
-                                        startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
+//                                            invalidAttemptFlag = false;
+                                            startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
                                     }
                                 }
                             },
@@ -139,35 +140,36 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                 }
                             }
                     );
-                }
-
-                if(otpValue.equals("")){
-                    attentionRequiredTowardsOtpField.setAlpha(1);
-//                    attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-                    attentionRequiredTowardsOtpField.setText("*Required");
-                    proceedingFlag = false;
-                } else{
-                    attentionRequiredTowardsOtpField.setAlpha(0);
-//                    proceedingFlag = true;
-                }
-                if(newPasswordValue.equals("")){
-                    attentionRequiredTowardsNewPasswordField.setAlpha(1);
-                    attentionRequiredTowardsNewPasswordField.setText("*Required");
-                    proceedingFlag = false;
+                    requestQueue.add(requestObject);
                 } else {
-                    attentionRequiredTowardsNewPasswordField.setAlpha(0);
-//                    proceedingFlag = true;
-                }
-                if(confirmPasswordValue.equals("")){
-                    attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
-                    attentionRequiredTowardsConfirmPasswordField.setText("*Required");
-                    proceedingFlag = false;
-                } else {
-                    attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
-//                    proceedingFlag = true;
-                }
-                if(proceedingFlag){
-                    startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
+                    if (otpValue.equals("")) {
+                        attentionRequiredTowardsOtpField.setAlpha(1);
+                        attentionRequiredTowardsOtpField.setText("*Required");
+//                    proceedingFlag = false;
+                    } else {
+                        attentionRequiredTowardsOtpField.setAlpha(0);
+                    }
+                    if (newPasswordValue.equals("")) {
+                        attentionRequiredTowardsNewPasswordField.setAlpha(1);
+                        attentionRequiredTowardsNewPasswordField.setText("*Required");
+//                    proceedingFlag = false;
+                    } else {
+                        attentionRequiredTowardsNewPasswordField.setAlpha(0);
+                    }
+                    if (confirmPasswordValue.equals("")) {
+                        attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
+                        attentionRequiredTowardsConfirmPasswordField.setText("*Required");
+//                    proceedingFlag = false;
+                    } else {
+                        attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
+                    }
+                    if(!newPasswordValue.equals(confirmPasswordValue)){
+//                                            invalidAttemptFlag = true;
+                        attentionRequiredTowardsConfirmPasswordField.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                        attentionRequiredTowardsConfirmPasswordField.setText("*Password Mismatch");
+                        attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
+//                                            proceedingFlag = false;
+                    }
                 }
             }
         }));
