@@ -119,7 +119,7 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                 public void onResponse(JSONObject response) {
                                     Gson gson = new Gson();
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
-                                    if (res.status == 401 ) {
+                                    if (res.status == 401 || res.status==204 ) {
                                         invalidAttemptFlag = true;
                                         attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                         attentionRequiredTowardsInvalid.setText("*Invalid OTP Combination");
