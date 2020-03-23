@@ -2,6 +2,8 @@ package com.thethreemusketeers.terminal.Activities;
 
 import android.os.Bundle;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +39,8 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
     Button saveChangesBtn;
     ImageView newPasswordEye, confirmPasswordEye;
     Boolean newEyeTogglerFlag = true, confirmEyeTogglerFlag = true;
-    Boolean proceedingFlag = false, invalidAttemptFlag = false;
+    Boolean mismatchFlag = false, invalidAttemptFlag = false;
+    Boolean isOtpEmptyFlag = false, isNewPasswordEmptyFlag = false, isConfirmPasswordEmpty = false;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -90,6 +93,63 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
             }
         }));
 
+        // ADDING TEXT WATCHER ON OTP, New PASSWORD AND CONFIRM PASSWORD FIELD
+        otpField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(invalidAttemptFlag){
+                    attentionRequiredTowardsInvalid.setAlpha(0);
+                    invalidAttemptFlag = false;
+                }
+                if(isOtpEmptyFlag){
+                    attentionRequiredTowardsOtpField.setAlpha(0);
+                    isOtpEmptyFlag = false;
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        newPasswordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(isNewPasswordEmptyFlag){
+                    attentionRequiredTowardsNewPasswordField.setAlpha(0);
+                    isNewPasswordEmptyFlag = false;
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        confirmPasswordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(mismatchFlag){
+                    attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
+                    mismatchFlag = false;
+                }
+                if(isConfirmPasswordEmpty){
+                    attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
+                    isConfirmPasswordEmpty = false;
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
         // CHECK THE CREDENTAILS ENTERED BY THE USER.
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
         final String ReqURL = Config.HostURL + "/student/recover_password/verify_otp";
@@ -121,14 +181,13 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                     Gson gson = new Gson();
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
                                     if (res.status == 401 || res.status==204 ) {
-//                                        invalidAttemptFlag = true;
+                                        invalidAttemptFlag = true;
                                         attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                         attentionRequiredTowardsInvalid.setText("*Invalid OTP Combination");
                                         attentionRequiredTowardsInvalid.setAlpha(1);
-//                                        proceedingFlag = false;
                                     } else if (res.status == 301) {
                                         attentionRequiredTowardsInvalid.setAlpha(0);
-//                                            invalidAttemptFlag = false;
+                                            invalidAttemptFlag = false;
                                             startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
                                     }
                                 }
@@ -145,26 +204,26 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                     if (otpValue.equals("")) {
                         attentionRequiredTowardsOtpField.setAlpha(1);
                         attentionRequiredTowardsOtpField.setText("*Required");
-//                    proceedingFlag = false;
+                        isOtpEmptyFlag = true;
                     } else {
                         attentionRequiredTowardsOtpField.setAlpha(0);
                     }
                     if (newPasswordValue.equals("")) {
                         attentionRequiredTowardsNewPasswordField.setAlpha(1);
                         attentionRequiredTowardsNewPasswordField.setText("*Required");
-//                    proceedingFlag = false;
+                        isNewPasswordEmptyFlag = true;
                     } else {
                         attentionRequiredTowardsNewPasswordField.setAlpha(0);
                     }
                     if (confirmPasswordValue.equals("")) {
                         attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
                         attentionRequiredTowardsConfirmPasswordField.setText("*Required");
-//                    proceedingFlag = false;
+                        isConfirmPasswordEmpty = true;
                     } else {
                         attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
                     }
                     if(!newPasswordValue.equals(confirmPasswordValue)){
-//                                            invalidAttemptFlag = true;
+                        mismatchFlag = true;
                         attentionRequiredTowardsConfirmPasswordField.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                         attentionRequiredTowardsConfirmPasswordField.setText("*Password Mismatch");
                         attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
