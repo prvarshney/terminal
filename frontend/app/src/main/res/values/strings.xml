@@ -33,4 +33,10 @@
         Unless a mutually executed agreement between Company and us states otherwise, these Business Terms make up the entire agreement between Company and us regarding our Business
         Services and supersede any prior written or oral agreements.
     </string>
+    <string name="user_credentials_file_key">com.thethreemusketeers.terminal.user_credentials</string>
+    <string name="login_status">login_status</string>
+    <string name="user_id">user_id</string>
+    <string name="access_token">access_token</string>
+    <string name="refresh_token">refresh_token</string>
+    <string name="account_type">account_type</string>
 </resources>
