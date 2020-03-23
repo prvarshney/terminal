@@ -1498,6 +1498,7 @@ def student_forgot_password_generate_otp(user_id):
         otp_db = db.OTP()
         for res in db_res['res']:
             user_email_id = res['email']
+            user_phone_number = res['phone_numbers']
             user_name = res['name']
             ## GENERATING OTP
             generated_otp = random.randrange(11111111,100000000)
@@ -1506,6 +1507,13 @@ def student_forgot_password_generate_otp(user_id):
                 receiver = user_email_id,
                 user_name = user_name['f_name'],
                 otp = generated_otp,
+                function='RECOVER_PASSWORD'
+            )
+            ## SENDING OTP THROUGH MOBILE NUMBER
+            send_sms_otp(
+                receiver=user_phone_number,
+                user_name = user_name['f_name'],
+                otp=generated_otp,
                 function='RECOVER_PASSWORD'
             )
             ## INSERTING GENERATED OTP IN OTP_DB FOR AUTHORIZATION
@@ -1517,11 +1525,14 @@ def student_forgot_password_generate_otp(user_id):
             ## MASKING EMAILS TO GENERATE REQUIRED RESPONSE
             ## MASKING STRING WITH 'X' AFTER FIRST 4 CHARACTERS AND BEFORE '@' SYMBOL
             user_email_id = user_email_id[:4] + 'X' * len(user_email_id[4:user_email_id.find('@')]) + user_email_id[user_email_id.find('@'):]
+            user_phone_number = str(user_phone_number)  # CONVERTING FROM INT64 TO STRING 
+            user_phone_number = user_phone_number[:4] + 'X' * len(user_phone_number[4:])
             ## RETURNING RESPONSE
             return jsonify({
                 'status':200,
                 'msg':'otp sent to the registered email_ids',
-                'email_ids':'user_email_ids'
+                'email_ids':user_email_id,
+                'phone_number':user_phone_number
             })
     else:
         return jsonify({

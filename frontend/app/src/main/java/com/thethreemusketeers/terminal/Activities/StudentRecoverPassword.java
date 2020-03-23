@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +31,7 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
     EditText username;
     TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsInvalid;
     Button nextBtn;
-    Boolean proceedingFlag = false, invalidAttemptFlag= false;
+    Boolean isUsernameEmptyFlag = false, invalidAttemptFlag= false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,29 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
         //CHECK THE CREDENTIALS ENTERED BY THE USER
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
 
+        // ADDING TEXT WATCHER ON USERNAME FIELD
+
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(isUsernameEmptyFlag){
+                    attentionRequiredTowardsUsernameField.setAlpha(0);
+                    isUsernameEmptyFlag = false;
+                }
+                if(invalidAttemptFlag){
+                    attentionRequiredTowardsInvalid.setAlpha(0);
+                    invalidAttemptFlag = false;
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        // CLICK EVENT LISTENER
         nextBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,8 +88,6 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             Gson gson = new Gson();
                             MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
-//                            attentionRequiredTowardsUsernameField.setText(res.status);
-//                            attentionRequiredTowardsUsernameField.setAlpha(1);
                             if (res.status == 200) {
                                 attentionRequiredTowardsInvalid.setAlpha(0);
                                 invalidAttemptFlag = false;
@@ -75,7 +98,6 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                                 attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                                 attentionRequiredTowardsInvalid.setText("*Invalid Enrollment.");
                                 attentionRequiredTowardsInvalid.setAlpha(1);
-                                proceedingFlag = false;
                             }
                         }
                     },
@@ -94,10 +116,9 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                 attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                 attentionRequiredTowardsUsernameField.setText("*Required");
                 attentionRequiredTowardsUsernameField.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                        proceedingFlag = false;
+                isUsernameEmptyFlag = true;
             } else {
                 attentionRequiredTowardsUsernameField.setAlpha(0);
-                        proceedingFlag = true;
             }
         }
     }
