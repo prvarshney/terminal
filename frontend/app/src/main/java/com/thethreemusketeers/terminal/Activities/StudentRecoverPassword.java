@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
+import com.thethreemusketeers.terminal.JSONRequestObject.StudentForgotPasswordObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusEmailResponse;
 import com.thethreemusketeers.terminal.R;
 
@@ -48,7 +49,7 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-             String usernameValue = username.getText().toString();
+             final String usernameValue = username.getText().toString();
             if(!usernameValue.equals("")){
                 //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
             // EXISTS OR NOT
@@ -67,6 +68,7 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                             if (res.status == 200) {
                                 attentionRequiredTowardsInvalid.setAlpha(0);
                                 invalidAttemptFlag = false;
+                                StudentForgotPasswordObject.userid = usernameValue;
                                 startActivity(new Intent(StudentRecoverPassword.this, StudentRecoverPassword1.class));
                             } else if(res.status == 206){
                                 invalidAttemptFlag = true;
