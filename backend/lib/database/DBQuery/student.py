@@ -99,7 +99,7 @@ class Student:
 				}
 			else:
 				response = {
-					'status':212,
+					'status':206,
 					'res': {}
 				}
 		except:
