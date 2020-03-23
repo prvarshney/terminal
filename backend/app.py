@@ -1546,7 +1546,7 @@ def student_forgot_password_verify_otp():
         stored_otp = None
         for document in db_res['res']:
             stored_otp = document['otp']
-        if req['otp'] == stored_otp:       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
+        if int(req['otp']) == int(stored_otp):       ## EXECUTES WHEN ALL CONDITIONS FULL FILLED TO RESET PASSWORD
             ## CHANGING PASSWORD OF THE GIVEN USER
             student = db.Student()
             db_res = student.update( req['user_id'],'password',bcrypt.generate_password_hash(req['new_password']).decode('utf-8') )
@@ -1559,7 +1559,7 @@ def student_forgot_password_verify_otp():
                 })
             else:   ## EXECUTES WHEN UPDATION FAILED AT DATABASE ENDS DUE TO NETWORK PROBLEM
                 return jsonify({
-                    'status':db_res,
+                    'status':204,
                     'msg':'failed to reset password, retry'
                 })
     ## EXECUTES WHEN EITHER OTP DOESN'T AVAILABLE IN OTP_DB OR OTP GIVEN IS INVALID
