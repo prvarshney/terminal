@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.Dashboard"></activity>
         <activity android:name=".Activities.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".FacultyProfileCreationSuccess" />
-        <activity android:name=".LoadingActivity" />
         <activity
             android:name=".Activities.MainActivity"
             android:screenOrientation="portrait">

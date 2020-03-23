@@ -1,7 +1,6 @@
 package com.thethreemusketeers.terminal.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,10 +27,17 @@ public class Launcher extends AppCompatActivity {
                 public void run() {
                     startActivity(new Intent(Launcher.this, MainActivity.class));
                 }
-            },2000);
+            },1500);
         }
         else {
             // CONNECTING WITH SERVER TO FETCH DASHBOARD
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(Launcher.this, Dashboard.class));
+                }
+            },2000);
         }
     }
 }
