@@ -99,8 +99,8 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String otpValue = otpField.getText().toString();
-                String newPasswordValue = newPasswordEditText.getText().toString();
-                String confirmPasswordValue = confirmPasswordEditText.getText().toString();
+                final String newPasswordValue = newPasswordEditText.getText().toString();
+                final String confirmPasswordValue = confirmPasswordEditText.getText().toString();
 
                 if(!otpValue.equals("") && !newPasswordValue.equals("") && !confirmPasswordValue.equals("")){
                     // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
@@ -127,8 +127,18 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                         proceedingFlag = false;
                                     } else if (res.status == 301) {
                                         attentionRequiredTowardsInvalid.setAlpha(0);
-                                        invalidAttemptFlag = false;
-                                        startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
+                                        if(newPasswordValue.equals(confirmPasswordValue)){
+                                            attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
+                                            invalidAttemptFlag = false;
+                                            startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
+                                        } else {
+                                            invalidAttemptFlag = true;
+                                            attentionRequiredTowardsConfirmPasswordField.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                                            attentionRequiredTowardsConfirmPasswordField.setText("*Password Mismatch");
+                                            attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
+                                            proceedingFlag = false;
+                                        }
+
                                     }
                                 }
                             },
@@ -139,16 +149,15 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                 }
                             }
                     );
+                    requestQueue.add(requestObject);
                 }
 
                 if(otpValue.equals("")){
                     attentionRequiredTowardsOtpField.setAlpha(1);
-//                    attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
                     attentionRequiredTowardsOtpField.setText("*Required");
                     proceedingFlag = false;
                 } else{
                     attentionRequiredTowardsOtpField.setAlpha(0);
-//                    proceedingFlag = true;
                 }
                 if(newPasswordValue.equals("")){
                     attentionRequiredTowardsNewPasswordField.setAlpha(1);
@@ -156,7 +165,6 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                     proceedingFlag = false;
                 } else {
                     attentionRequiredTowardsNewPasswordField.setAlpha(0);
-//                    proceedingFlag = true;
                 }
                 if(confirmPasswordValue.equals("")){
                     attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
@@ -164,7 +172,6 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                     proceedingFlag = false;
                 } else {
                     attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
-//                    proceedingFlag = true;
                 }
                 if(proceedingFlag){
                     startActivity(new Intent(StudentRecoverPassword1.this, MainActivity.class));
