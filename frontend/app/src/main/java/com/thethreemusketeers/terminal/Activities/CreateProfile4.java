@@ -23,7 +23,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
-import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
@@ -150,18 +150,18 @@ public class CreateProfile4 extends AppCompatActivity {
                     isConfirmPasswordEmpty = false;
 
                 if( password.getText().toString().equals(confirmPassword.getText().toString()) && !isPasswordEmpty && !isConfirmPasswordEmpty ) {
-                    FacultyRegisterObject.password = password.getText().toString();
+                    UserRegisterObject.password = password.getText().toString();
                     final ProgressButton progressButton = new ProgressButton(CreateProfile4.this,nextBtn);
                     progressButton.buttonProgressActivatedState("Please Wait...");
                     // SENDING USER DETAILS FROM DIFFERENT ACTIVITIES TO SERVER
                     // CREATING REQUEST OBJECT
                     Map<String,String> postParameters = new HashMap<String, String>();
-                    postParameters.put("name",FacultyRegisterObject.name);
-                    postParameters.put("faculty_id",FacultyRegisterObject.faculty_id);
-                    postParameters.put("email",FacultyRegisterObject.email);
-                    postParameters.put("phone_number",FacultyRegisterObject.phone_number);
-                    postParameters.put("password",FacultyRegisterObject.password);
-                    postParameters.put("dob",FacultyRegisterObject.dob);
+                    postParameters.put("name",UserRegisterObject.name);
+                    postParameters.put("faculty_id",UserRegisterObject.faculty_id);
+                    postParameters.put("email",UserRegisterObject.email);
+                    postParameters.put("phone_number",UserRegisterObject.phone_number);
+                    postParameters.put("password",UserRegisterObject.password);
+                    postParameters.put("dob",UserRegisterObject.dob);
 
                     JsonObjectRequest requestObject = new JsonObjectRequest(
                             Request.Method.POST,

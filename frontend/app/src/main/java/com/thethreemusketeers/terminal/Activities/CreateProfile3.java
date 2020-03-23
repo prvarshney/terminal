@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.R;
 
 public class CreateProfile3 extends AppCompatActivity {
@@ -99,8 +99,8 @@ public class CreateProfile3 extends AppCompatActivity {
                     isContactNumberValidated = false;
                 }
                 if ( isEmailValidated && isContactNumberValidated ) {
-                    FacultyRegisterObject.phone_number = contactNumber.getText().toString();
-                    FacultyRegisterObject.email = emailAddr.getText().toString();
+                    UserRegisterObject.phone_number = contactNumber.getText().toString();
+                    UserRegisterObject.email = emailAddr.getText().toString();
                     startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
                 }
             }
