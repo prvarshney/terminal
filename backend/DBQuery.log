@@ -385,3 +385,24 @@
 [ 23-03-2020 :: 21:17:32 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
 [ 23-03-2020 :: 21:17:36 ] [  INFO  ] otp_db Connected Successfully
 [ 23-03-2020 :: 21:17:38 ] [  INFO  ] Sending EMAIL OTP
+[ 23-03-2020 :: 21:46:03 ] [  INFO  ] student_db Connected Successfully
+[ 23-03-2020 :: 21:46:03 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
+[ 23-03-2020 :: 21:46:07 ] [  INFO  ] otp_db Connected Successfully
+[ 23-03-2020 :: 21:46:09 ] [  INFO  ] Sending EMAIL OTP
+[ 23-03-2020 :: 21:50:51 ] [  INFO  ] student_db Connected Successfully
+[ 23-03-2020 :: 21:50:51 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
+[ 23-03-2020 :: 21:50:54 ] [  INFO  ] otp_db Connected Successfully
+[ 23-03-2020 :: 21:50:56 ] [  INFO  ] Sending EMAIL OTP
+[ 23-03-2020 :: 21:51:00 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 23-03-2020 :: 21:51:02 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f36c47c1a88>
+[ 23-03-2020 :: 21:51:02 ] [  INFO  ] For Hash_ID - -9091840425904142251 OTP Inserted Successfully at generated_otp Collection in otp_db
+[ 23-03-2020 :: 21:51:43 ] [  INFO  ] student_db Connected Successfully
+[ 23-03-2020 :: 21:51:43 ] [  INFO  ] The Search Query With enrollment:04420802717 Accomplished Successfully in student_db
+[ 23-03-2020 :: 21:51:46 ] [  INFO  ] otp_db Connected Successfully
+[ 23-03-2020 :: 21:51:48 ] [  INFO  ] Sending EMAIL OTP
+[ 23-03-2020 :: 21:51:52 ] [  INFO  ] SMS API MSG - <Response [200]>
+[ 23-03-2020 :: 21:51:54 ] [  INFO  ] For Hash ID - -9091840425904142251 Duplicate Entry Found at generated_otp Collection in otp_db
+[ 23-03-2020 :: 21:51:55 ] [  INFO  ] <pymongo.results.DeleteResult object at 0x7f36c683c988>
+[ 23-03-2020 :: 21:51:55 ] [  INFO  ] Hash_ID - -9091840425904142251 Removed Successfully from generated_otp Collection in otp_db
+[ 23-03-2020 :: 21:51:55 ] [  INFO  ] <pymongo.results.InsertOneResult object at 0x7f36c4766508>
+[ 23-03-2020 :: 21:51:55 ] [  INFO  ] For Hash_ID - -9091840425904142251 OTP Inserted Successfully at generated_otp Collection in otp_db

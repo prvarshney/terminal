@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,6 +25,7 @@ import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONRequestObject.StudentForgotPasswordObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
+import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
 import org.json.JSONObject;
 
@@ -36,7 +38,7 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
     EditText otpField, newPasswordEditText, confirmPasswordEditText;
     TextView attentionRequiredTowardsOtpField, attentionRequiredTowardsNewPasswordField, attentionRequiredTowardsConfirmPasswordField;
     TextView attentionRequiredTowardsInvalid;
-    Button saveChangesBtn;
+    View saveChangesBtn;
     ImageView newPasswordEye, confirmPasswordEye;
     Boolean newEyeTogglerFlag = true, confirmEyeTogglerFlag = true;
     Boolean mismatchFlag = false, invalidAttemptFlag = false;
@@ -158,11 +160,15 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
         saveChangesBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                saveChangesBtn.setClickable(false);
                 String otpValue = otpField.getText().toString();
                 final String newPasswordValue = newPasswordEditText.getText().toString();
                 final String confirmPasswordValue = confirmPasswordEditText.getText().toString();
 
                 if(!otpValue.equals("") && !newPasswordValue.equals("") && !confirmPasswordValue.equals("") && (newPasswordValue.equals(confirmPasswordValue))){
+                    final ProgressButton progressButton = new ProgressButton(StudentRecoverPassword1.this,saveChangesBtn);
+                    progressButton.buttonProgressActivatedState("Please Wait...");
+
                     // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
                     // EXISTS OR NOT
                     Map<String, String> postParameters = new HashMap<>();
@@ -179,6 +185,8 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                 public void onResponse(JSONObject response) {
                                     attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
                                     Gson gson = new Gson();
+//                                    saveChangesBtn.setClickable(true);
+                                    progressButton.buttonProgressStoppedState("SAVE CHANGES");
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
                                     if (res.status == 401 || res.status==204 ) {
                                         invalidAttemptFlag = true;
@@ -199,6 +207,7 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                 }
                             }
                     );
+                    requestObject.setRetryPolicy(new DefaultRetryPolicy(20000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                     requestQueue.add(requestObject);
                 } else {
                     if (otpValue.equals("")) {
