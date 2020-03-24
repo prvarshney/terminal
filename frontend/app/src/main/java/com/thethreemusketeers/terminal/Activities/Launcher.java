@@ -27,7 +27,7 @@ public class Launcher extends AppCompatActivity {
                 public void run() {
                     startActivity(new Intent(Launcher.this, MainActivity.class));
                 }
-            },1500);
+            },2000);
         }
         else {
             // CONNECTING WITH SERVER TO FETCH DASHBOARD
