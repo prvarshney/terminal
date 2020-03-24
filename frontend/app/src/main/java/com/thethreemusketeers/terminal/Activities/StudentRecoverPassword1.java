@@ -160,7 +160,7 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
         saveChangesBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                saveChangesBtn.setClickable(false);
+                saveChangesBtn.setClickable(false);
                 String otpValue = otpField.getText().toString();
                 final String newPasswordValue = newPasswordEditText.getText().toString();
                 final String confirmPasswordValue = confirmPasswordEditText.getText().toString();
@@ -185,7 +185,7 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                                 public void onResponse(JSONObject response) {
                                     attentionRequiredTowardsConfirmPasswordField.setAlpha(0);
                                     Gson gson = new Gson();
-//                                    saveChangesBtn.setClickable(true);
+                                    saveChangesBtn.setClickable(true);
                                     progressButton.buttonProgressStoppedState("SAVE CHANGES");
                                     MessageAndStatusResponse res = gson.fromJson(response.toString(), MessageAndStatusResponse.class);
                                     if (res.status == 401 || res.status==204 ) {
@@ -210,6 +210,7 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                     requestObject.setRetryPolicy(new DefaultRetryPolicy(20000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                     requestQueue.add(requestObject);
                 } else {
+                    saveChangesBtn.setClickable(true);
                     if (otpValue.equals("")) {
                         attentionRequiredTowardsOtpField.setAlpha(1);
                         attentionRequiredTowardsOtpField.setText("*Required");
@@ -236,7 +237,6 @@ public class StudentRecoverPassword1 extends AppCompatActivity {
                         attentionRequiredTowardsConfirmPasswordField.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                         attentionRequiredTowardsConfirmPasswordField.setText("*Password Mismatch");
                         attentionRequiredTowardsConfirmPasswordField.setAlpha(1);
-//                                            proceedingFlag = false;
                     }
                 }
             }

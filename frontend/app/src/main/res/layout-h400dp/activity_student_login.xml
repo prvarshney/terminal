@@ -136,22 +136,19 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:padding="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/full_width_btn"
-            android:textColor="#fff"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+        <include
+        android:id="@+id/login_btn"
+        layout="@layout/progress_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/full_width_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
         <TextView
             android:id="@+id/forgot_link"
