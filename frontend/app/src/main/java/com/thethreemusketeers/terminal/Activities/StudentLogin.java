@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -33,6 +34,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusTokenResponse;
+import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
@@ -47,7 +49,7 @@ public class StudentLogin extends AppCompatActivity {
     TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsPasswordTypeField,attentionRequiredTowardsInvalid, forgotLink, signupLink;
     ImageView passwordEye;
     Boolean eyeTogglerFlag = true, proceedingUsernameFlag=false, proceedingPasswordFlag=false, invalidAttemptFlag = false;
-    Button loginBtn;
+    View loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -205,11 +207,13 @@ public class StudentLogin extends AppCompatActivity {
         loginBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                loginBtn.setClickable(false);
                  String usernameValue = userId.getText().toString();
                  String passwordValue = passwordEditText.getText().toString();
 
                 if(!passwordValue.equals("") && (!usernameValue.equals(""))){
+                    final ProgressButton progressButton = new ProgressButton(StudentLogin.this, loginBtn);
+                    progressButton.buttonProgressActivatedState("Please Wait...");
                         // SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
                         // EXISTS OR NOT
                     Map<String, String> postParameters = new HashMap<String, String>();
@@ -224,6 +228,8 @@ public class StudentLogin extends AppCompatActivity {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         Gson gson = new Gson();
+                                        loginBtn.setClickable(true);
+                                        progressButton.buttonProgressStoppedState("Login");
                                         MessageStatusTokenResponse res = gson.fromJson(response.toString(), MessageStatusTokenResponse.class);
                                         if (res.status == 401) {
                                             invalidAttemptFlag = true;
@@ -247,9 +253,11 @@ public class StudentLogin extends AppCompatActivity {
                                     }
                                 }
                         );
-                        requestQueue.add(requestObject);
+                    requestObject.setRetryPolicy(new DefaultRetryPolicy(20000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                    requestQueue.add(requestObject);
                     }
                 else {
+                    loginBtn.setClickable(true);
                     if (usernameValue.equals("")) {
                         attentionRequiredTowardsUsernameField.setAlpha(1);
                         attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
@@ -271,6 +279,14 @@ public class StudentLogin extends AppCompatActivity {
             }
         }));
 
-
     }
+
+public static boolean isValidPassword(String password){
+        if ( password.length() >= 8 ) {
+            return true;
+        }
+        else
+            return false;
+    }
+
 }

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +23,7 @@ import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.JSONRequestObject.StudentForgotPasswordObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageStatusEmailResponse;
+import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
 
 import org.json.JSONObject;
@@ -30,7 +32,7 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
 
     EditText username;
     TextView attentionRequiredTowardsUsernameField, attentionRequiredTowardsInvalid;
-    Button nextBtn;
+    View nextBtn;
     Boolean isUsernameEmptyFlag = false, invalidAttemptFlag= false;
 
     @Override
@@ -73,9 +75,11 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
         nextBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+             nextBtn.setClickable(false);
              final String usernameValue = username.getText().toString();
             if(!usernameValue.equals("")){
+                final ProgressButton progressButton = new ProgressButton(StudentRecoverPassword.this, nextBtn);
+                progressButton.buttonProgressActivatedState("Please Wait...");
                 //SENDING POST REQ TO THE SERVER TO CHECK WHETHER USER SELECTED PASSWORD
             // EXISTS OR NOT
             final String ReqURL = Config.HostURL + "/student/forgot_password/" + usernameValue;
@@ -87,6 +91,8 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             Gson gson = new Gson();
+                            nextBtn.setClickable(true);
+                            progressButton.buttonProgressStoppedState("NEXT");
                             MessageStatusEmailResponse res = gson.fromJson(response.toString(), MessageStatusEmailResponse.class);
                             if (res.status == 200) {
                                 attentionRequiredTowardsInvalid.setAlpha(0);
@@ -108,9 +114,11 @@ public class StudentRecoverPassword<val> extends AppCompatActivity {
                         }
                     }
             );
-            requestQueue.add(requestObject);
+                requestObject.setRetryPolicy(new DefaultRetryPolicy(20000,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                requestQueue.add(requestObject);
         }
         else {
+            nextBtn.setClickable(true);
             if (usernameValue.equals("")) {
                 attentionRequiredTowardsUsernameField.setAlpha(1);
                 attentionRequiredTowardsInvalid.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
