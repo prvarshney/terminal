@@ -23,7 +23,7 @@
         <ImageView
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:src="@drawable/logo7" />
+            android:src="@drawable/ic_terminal_logo" />
 
         <TextView
             android:id="@+id/textView2"

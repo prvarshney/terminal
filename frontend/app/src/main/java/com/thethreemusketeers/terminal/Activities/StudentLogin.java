@@ -20,7 +20,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -112,7 +111,7 @@ public class StudentLogin extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 //launch forgot password activity
-                startActivity(new Intent(StudentLogin.this, StudentRecoverPassword.class));
+                startActivity(new Intent(StudentLogin.this, StudentRecoverPassword1.class));
             }
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
@@ -126,7 +125,7 @@ public class StudentLogin extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 // LAUNCH CREATE ACCOUNT ACTIVITY
-                startActivity(new Intent(StudentLogin.this,StudentRecoverPassword1.class));
+                startActivity(new Intent(StudentLogin.this, StudentRecoverPassword2.class));
             }
 
             @Override
@@ -155,11 +154,11 @@ public class StudentLogin extends AppCompatActivity {
                 if(eyeTogglerFlag){
                     passwordEditText.setTransformationMethod(null);
                     eyeTogglerFlag = false;
-                    passwordEye.setImageResource(R.drawable.password_eye_crossed);
+                    passwordEye.setImageResource(R.drawable.ic_password_eye_crossed_image);
                 } else{
                     passwordEditText.setTransformationMethod(new PasswordTransformationMethod());
                     eyeTogglerFlag = true;
-                    passwordEye.setImageResource(R.drawable.password_eye);
+                    passwordEye.setImageResource(R.drawable.ic_password_eye_image);
                 }
             }
         }));

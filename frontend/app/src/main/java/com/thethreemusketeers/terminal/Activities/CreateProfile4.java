@@ -9,7 +9,6 @@ import android.text.TextWatcher;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -99,12 +98,12 @@ public class CreateProfile4 extends AppCompatActivity {
             public void onClick(View v) {
                 if (isPasswordVisible) {
                     password.setTransformationMethod(new PasswordTransformationMethod());
-                    passwordEye.setImageResource(R.drawable.password_eye);
+                    passwordEye.setImageResource(R.drawable.ic_password_eye_image);
                     isPasswordVisible = false;
                 }
                 else {
                     password.setTransformationMethod(null);
-                    passwordEye.setImageResource(R.drawable.password_eye_crossed);
+                    passwordEye.setImageResource(R.drawable.ic_password_eye_crossed_image);
                     isPasswordVisible = true;
                 }
             }
@@ -116,12 +115,12 @@ public class CreateProfile4 extends AppCompatActivity {
                 if (isConfirmPasswordVisible) {
                     confirmPassword.setTransformationMethod(new PasswordTransformationMethod());
                     isConfirmPasswordVisible = false;
-                    confirmPasswordEye.setImageResource(R.drawable.password_eye);
+                    confirmPasswordEye.setImageResource(R.drawable.ic_password_eye_image);
                 }
                 else {
                     confirmPassword.setTransformationMethod(null);
                     isConfirmPasswordVisible = true;
-                    confirmPasswordEye.setImageResource(R.drawable.password_eye_crossed);
+                    confirmPasswordEye.setImageResource(R.drawable.ic_password_eye_crossed_image);
                 }
             }
         });
@@ -158,7 +157,7 @@ public class CreateProfile4 extends AppCompatActivity {
                     Map<String,String> postParameters = new HashMap<String, String>();
                     postParameters.put("name",UserRegisterObject.name);
                     postParameters.put("faculty_id",UserRegisterObject.faculty_id);
-                    postParameters.put("email",UserRegisterObject.email);
+                    postParameters.put("ic_sent_mail_image",UserRegisterObject.email);
                     postParameters.put("phone_number",UserRegisterObject.phone_number);
                     postParameters.put("password",UserRegisterObject.password);
                     postParameters.put("dob",UserRegisterObject.dob);

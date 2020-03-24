@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -38,7 +37,7 @@ public class UploadIdentityProof extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                previewImageView.setImageResource( R.drawable.idcard_template );
+                previewImageView.setImageResource( R.drawable.ic_idcard_image);
             }
         });
     }

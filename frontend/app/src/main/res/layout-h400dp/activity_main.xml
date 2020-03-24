@@ -41,7 +41,7 @@
         android:id="@+id/banner_image"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:src="@drawable/banner_image"
+        android:src="@drawable/ic_main_activity_banner_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_app"

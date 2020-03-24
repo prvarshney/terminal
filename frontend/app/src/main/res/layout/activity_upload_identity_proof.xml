@@ -54,7 +54,7 @@
             android:layout_marginHorizontal="24dp"
             android:alpha="1"
             android:scaleType="fitCenter"
-            android:src="@drawable/idcard_template" />
+            android:src="@drawable/ic_idcard_image" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                 android:layout_marginHorizontal="8dp"
                 android:background="@drawable/white_colored_round_btn"
                 android:padding="16dp"
-                android:src="@drawable/ic_edit_black_24dp" />
+                android:src="@drawable/ic_edit_accent_24dp" />
 
             <ImageView
                 android:id="@+id/image_remove_btn"

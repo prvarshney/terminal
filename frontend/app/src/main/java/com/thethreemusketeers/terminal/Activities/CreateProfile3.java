@@ -100,8 +100,10 @@ public class CreateProfile3 extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.equals(""))
+                if ( s.equals("") ) {
                     attentionReqOnEmailAddr.setAlpha(0);
+                    isEmailValidated = false;
+                }
                 else if ( Patterns.EMAIL_ADDRESS.matcher(s).matches() ) {
                     attentionReqOnEmailAddr.setAlpha(0);
                     isEmailValidated = true;
@@ -226,7 +228,7 @@ public class CreateProfile3 extends AppCompatActivity {
                         startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
                     }
                     else {
-                        Toast toast = Toast.makeText(CreateProfile3.this,"Please fill all the required fields",Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(CreateProfile3.this,"Please fill all the required fields correctly",Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL,0,0);
                         toast.show();
                     }
