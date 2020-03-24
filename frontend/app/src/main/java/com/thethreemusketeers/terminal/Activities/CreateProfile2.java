@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +27,7 @@ import com.google.gson.Gson;
 
 import com.thethreemusketeers.terminal.Config;
 import com.thethreemusketeers.terminal.DatePickerFragment;
-import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.ProgressButton;
 import com.thethreemusketeers.terminal.R;
@@ -40,12 +41,15 @@ import java.util.Map;
 
 public class CreateProfile2 extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
+    // DECLARING VARIABLES
     EditText dobSelector;
     EditText username;
     TextView attentionRequiredOnUserId;
     TextView attentionRequiredOnDOB;
+    TextView usernameHeader;
     View nextBtn;
     Boolean proceedingNextFlag = false, isUserNameFieldEmpty = true, isDOBFieldEmpty = true;
+    String ReqURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +58,27 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
 
         // FETCHING XML ELEMENTS
         username = findViewById(R.id.username);
+        usernameHeader = findViewById(R.id.username_header);
         attentionRequiredOnUserId = findViewById(R.id.attention_required_on_userid_editText);
         attentionRequiredOnDOB = findViewById(R.id.attention_required_on_dob);
         dobSelector = findViewById(R.id.dob_selector);
         nextBtn = findViewById(R.id.activity2_next_btn);
+
+        // PRESENTING LAYOUT FOR USER ACCORDING TO THE ACCOUNT-TYPE HE/SHE SELECTED EARLIER
+        if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) ) {
+            // CUSTOMIZING LAYOUT FOR STUDENT
+            usernameHeader.setText("Enrollment");
+            username.setHint("University Allotted Enrollment");
+            username.setInputType(InputType.TYPE_CLASS_NUMBER);
+            ReqURL = Config.HostURL + "/faculty/check_availability";
+        }
+        else if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)) ) {
+            // CUSTOMIZING LAYOUT FOR FACULTY
+            usernameHeader.setText("Username");
+            username.setHint("Create Username, like john_doe");
+            username.setInputType(InputType.TYPE_CLASS_TEXT);
+            ReqURL = Config.HostURL + "/faculty/check_availability";
+        }
 
         // SETTING DATEPICKER WITH DOB SELECTOR EDIT TEXT
         dobSelector.setOnClickListener(new View.OnClickListener() {
@@ -68,10 +89,8 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
             }
         });
 
-        // CHECKING AVAILABILITY OF USER ENTERED STRING AS A USERNAME
-        final String ReqURL = Config.HostURL + "/faculty/check_availability";
+        // RequestQueue FOR CHECKING AVAILABILITY OF USER ENTERED STRING AS A USERNAME
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         // CHECKING FOR TEXTCHANGE ON USERNAME EDIT TEXT FIELD
         username.addTextChangedListener(new TextWatcher() {
             @Override
@@ -165,7 +184,10 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                 }
                 // WHEN EVERYTHING IS OKAY WE PROCEED TO NEXT ACTIVITY
                 if( proceedingNextFlag && !isUserNameFieldEmpty && !isDOBFieldEmpty ) {
-                    FacultyRegisterObject.faculty_id = username.getText().toString();
+                    if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)) )
+                        UserRegisterObject.faculty_id = username.getText().toString();
+                    else if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) )
+                        UserRegisterObject.enrollment = username.getText().toString();
                     startActivity(new Intent(CreateProfile2.this, CreateProfile3.class));
                 }
 
@@ -206,7 +228,6 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
                             }
                     );
                     requestQueue.add(requestObject);
-
                 }
             }
         });
@@ -218,10 +239,10 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        FacultyRegisterObject.dob = Integer.toString(dayOfMonth) + "/" + Integer.toString(month+1) + "/" + Integer.toString(year);
+        UserRegisterObject.dob = Integer.toString(dayOfMonth) + "/" + Integer.toString(month+1) + "/" + Integer.toString(year);
 
         // SETTING SELECTED DATE STRING TO THE EDIT TEXT
-        dobSelector.setText(FacultyRegisterObject.dob);
+        dobSelector.setText(UserRegisterObject.dob);
     }
 }
 

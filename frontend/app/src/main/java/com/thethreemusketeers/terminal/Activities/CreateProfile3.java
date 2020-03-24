@@ -7,22 +7,56 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.thethreemusketeers.terminal.JSONRequestObject.FacultyRegisterObject;
+import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.R;
 
 public class CreateProfile3 extends AppCompatActivity {
 
     Button nextButton;
+    LinearLayout studentRegisFields;
     EditText contactNumber;
     EditText emailAddr;
+    EditText rollNo;
+    EditText fatherName;
+    EditText yearOfJoin;
+    EditText yearOfPass;
+    EditText programme;
+    EditText branch;
+    EditText section;
+    EditText gender;
+    EditText tempAddr;
+    EditText permAddr;
     TextView attentionReqOnContactNumber;
     TextView attentionReqOnEmailAddr;
-    boolean isEmailValidated, isContactNumberValidated;
+    TextView attentionReqOnRollNo;
+    TextView attentionReqOnFatherName;
+    TextView attentionReqOnYOJ;
+    TextView attentionReqOnYOP;
+    TextView attentionReqOnProgramme;
+    TextView attentionReqOnBranch;
+    TextView attentionReqOnSection;
+    TextView attentionReqOnGender;
+    TextView attentionReqOnTempAddress;
+    TextView attentionReqOnPermAddress;
+    boolean isEmailValidated = false, isContactNumberValidated = false;
+    boolean isRollNoEmpty = true;
+    boolean isFatherNameEmpty = true;
+    boolean isYOJEmpty = true;
+    boolean isYOPEmpty = true;
+    boolean isProgrammeEmpty = true;
+    boolean isBranchEmpty = true;
+    boolean isSectionEmpty = true;
+    boolean isGenderEmpty = true;
+    boolean isTempAddrEmpty = true;
+    boolean isPermAddrEmpty = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,35 +65,43 @@ public class CreateProfile3 extends AppCompatActivity {
 
         // FETCHING COMPONENTS FROM XML FILE
         nextButton = findViewById(R.id.activity3_next_btn);
+        studentRegisFields = findViewById(R.id.student_registration_fields);
         contactNumber = findViewById(R.id.contact_number);
         emailAddr = findViewById(R.id.email_address);
+        rollNo = findViewById(R.id.class_rollno);
+        fatherName = findViewById(R.id.fathername);
+        yearOfJoin = findViewById(R.id.year_of_join);
+        yearOfPass = findViewById(R.id.year_of_pass);
+        programme = findViewById(R.id.programme);
+        branch = findViewById(R.id.branch);
+        section = findViewById(R.id.section);
+        gender = findViewById(R.id.gender);
+        tempAddr = findViewById(R.id.temporary_address);
+        permAddr = findViewById(R.id.permanent_address);
+
         attentionReqOnContactNumber = findViewById(R.id.attention_required_on_contact_number_editText);
         attentionReqOnEmailAddr = findViewById(R.id.attention_required_on_email_address);
+        attentionReqOnRollNo = findViewById(R.id.attention_required_on_class_rollno);
+        attentionReqOnFatherName = findViewById(R.id.attention_required_on_fathername);
+        attentionReqOnYOJ = findViewById(R.id.attention_required_on_year_of_join);
+        attentionReqOnYOP = findViewById(R.id.attention_required_on_year_of_pass);
+        attentionReqOnProgramme = findViewById(R.id.attention_required_on_programme);
+        attentionReqOnBranch = findViewById(R.id.attention_required_on_branch);
+        attentionReqOnSection = findViewById(R.id.attention_required_on_section);
+        attentionReqOnGender = findViewById(R.id.attention_required_on_gender);
+        attentionReqOnTempAddress = findViewById(R.id.attention_required_on_temporary_address_label);
+        attentionReqOnPermAddress = findViewById(R.id.attention_required_on_permanent_address_label);
+
+        // PRESENTING USER INTERFACE BASED ON THE ACCOUNT-TYPE USER SELECTED
+        if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)) ){
+            studentRegisFields.setVisibility(View.GONE);
+        }
+        else if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) ) {
+            studentRegisFields.setVisibility((View.VISIBLE));
+        }
 
         // CREATING EVENT LISTENERS
-        // SETTING TEXT CHANGE LISTENER ON CONTACT NUMBER FIELD
-        contactNumber.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if( s.toString().length() != 10 ) {
-                    attentionReqOnContactNumber.setAlpha(1);
-                    attentionReqOnContactNumber.setText("(Invalid)");
-                    isContactNumberValidated = false;
-                }
-                else {
-                    attentionReqOnContactNumber.setAlpha(0);
-                    isContactNumberValidated = true;
-                }
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         // SETTING TEXT CHANGE LISTENER ON EMAIL ADDRESS FIELD
         emailAddr.addTextChangedListener(new TextWatcher() {
             @Override
@@ -68,7 +110,9 @@ public class CreateProfile3 extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if ( Patterns.EMAIL_ADDRESS.matcher(s).matches() ) {
+                if (s.equals(""))
+                    attentionReqOnEmailAddr.setAlpha(0);
+                else if ( Patterns.EMAIL_ADDRESS.matcher(s).matches() ) {
                     attentionReqOnEmailAddr.setAlpha(0);
                     isEmailValidated = true;
                 }
@@ -93,16 +137,167 @@ public class CreateProfile3 extends AppCompatActivity {
                     attentionReqOnContactNumber.setText("* Required");
                     isContactNumberValidated = false;
                 }
+                else {
+                    attentionReqOnContactNumber.setAlpha(0);
+                    attentionReqOnContactNumber.setText("* Required");
+                    isContactNumberValidated = true;
+                }
+
                 if( emailAddr.getText().toString().equals("") ) {
                     attentionReqOnEmailAddr.setAlpha(1);
                     attentionReqOnEmailAddr.setText("* Required");
                     isContactNumberValidated = false;
                 }
-                if ( isEmailValidated && isContactNumberValidated ) {
-                    FacultyRegisterObject.phone_number = contactNumber.getText().toString();
-                    FacultyRegisterObject.email = emailAddr.getText().toString();
-                    startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
+
+                if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)) ) {
+                    if ( isEmailValidated && isContactNumberValidated ) {
+                        UserRegisterObject.phone_number = contactNumber.getText().toString();
+                        UserRegisterObject.email = emailAddr.getText().toString();
+                        startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
+                    }
+                    else {
+                        Toast toast = Toast.makeText(CreateProfile3.this,"Please fill all the required fields correctly",Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL,0,0);
+                        toast.show();
+                    }
                 }
+
+                else if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) ) {
+                    if( rollNo.getText().toString().equals("") ) {
+                        attentionReqOnRollNo.setAlpha(1);
+                        attentionReqOnRollNo.setText("* Required");
+                        isRollNoEmpty = true;
+                    }
+                    else {
+                        attentionReqOnRollNo.setAlpha(0);
+                        attentionReqOnRollNo.setText("* Required");
+                        isRollNoEmpty = false;
+                    }
+
+                    if( fatherName.getText().toString().equals("") ) {
+                        attentionReqOnFatherName.setAlpha(1);
+                        attentionReqOnFatherName.setText("* Required");
+                        isFatherNameEmpty = true;
+                    }
+                    else {
+                        attentionReqOnFatherName.setAlpha(0);
+                        attentionReqOnFatherName.setText("* Required");
+                        isFatherNameEmpty = false;
+                    }
+
+                    if( yearOfJoin.getText().toString().equals("") ) {
+                        attentionReqOnYOJ.setAlpha(1);
+                        attentionReqOnYOJ.setText("* Required");
+                        isYOJEmpty = true;
+                    }
+                    else {
+                        attentionReqOnYOJ.setAlpha(0);
+                        attentionReqOnYOJ.setText("* Required");
+                        isYOJEmpty = false;
+                    }
+
+                    if( yearOfPass.getText().toString().equals("") ) {
+                        attentionReqOnYOP.setAlpha(1);
+                        attentionReqOnYOP.setText("* Required");
+                        isYOPEmpty = true;
+                    }
+                    else {
+                        attentionReqOnYOP.setAlpha(0);
+                        attentionReqOnYOP.setText("* Required");
+                        isYOPEmpty = false;
+                    }
+
+                    if( programme.getText().toString().equals("") ) {
+                        attentionReqOnProgramme.setAlpha(1);
+                        attentionReqOnProgramme.setText("* Required");
+                        isProgrammeEmpty = true;
+                    }
+                    else {
+                        attentionReqOnProgramme.setAlpha(0);
+                        attentionReqOnProgramme.setText("* Required");
+                        isProgrammeEmpty = false;
+                    }
+
+                    if( branch.getText().toString().equals("") ) {
+                        attentionReqOnBranch.setAlpha(1);
+                        attentionReqOnBranch.setText("* Required");
+                        isBranchEmpty = true;
+                    }
+                    else {
+                        attentionReqOnBranch.setAlpha(0);
+                        attentionReqOnBranch.setText("* Required");
+                        isBranchEmpty = false;
+                    }
+
+                    if( section.getText().toString().equals("") ) {
+                        attentionReqOnSection.setAlpha(1);
+                        attentionReqOnSection.setText("* Required");
+                        isSectionEmpty = true;
+                    }
+                    else {
+                        attentionReqOnSection.setAlpha(0);
+                        attentionReqOnSection.setText("* Required");
+                        isSectionEmpty = false;
+                    }
+
+                    if( gender.getText().toString().equals("") ) {
+                        attentionReqOnGender.setAlpha(1);
+                        attentionReqOnGender.setText("* Required");
+                        isGenderEmpty = true;
+                    }
+                    else {
+                        attentionReqOnGender.setAlpha(0);
+                        attentionReqOnGender.setText("* Required");
+                        isGenderEmpty = false;
+                    }
+
+                    if( tempAddr.getText().toString().equals("") ) {
+                        attentionReqOnTempAddress.setAlpha(1);
+                        attentionReqOnTempAddress.setText("* Required");
+                        isTempAddrEmpty = true;
+                    }
+                    else {
+                        attentionReqOnTempAddress.setAlpha(0);
+                        attentionReqOnTempAddress.setText("* Required");
+                        isTempAddrEmpty = false;
+                    }
+
+                    if( permAddr.getText().toString().equals("") ) {
+                        attentionReqOnPermAddress.setAlpha(1);
+                        attentionReqOnPermAddress.setText("* Required");
+                        isPermAddrEmpty = true;
+                    }
+                    else {
+                        attentionReqOnPermAddress.setAlpha(0);
+                        attentionReqOnPermAddress.setText("* Required");
+                        isPermAddrEmpty = false;
+                    }
+
+                    if ( isEmailValidated && isContactNumberValidated && !isRollNoEmpty
+                            && !isFatherNameEmpty && !isYOJEmpty && !isYOPEmpty && !isProgrammeEmpty
+                            && !isBranchEmpty && !isSectionEmpty && !isGenderEmpty
+                            && !isTempAddrEmpty && !isPermAddrEmpty) {
+                        UserRegisterObject.phone_number = contactNumber.getText().toString();
+                        UserRegisterObject.email = emailAddr.getText().toString();
+                        UserRegisterObject.rollno = rollNo.getText().toString();
+                        UserRegisterObject.father_name = fatherName.getText().toString();
+                        UserRegisterObject.year_of_join = yearOfJoin.getText().toString();
+                        UserRegisterObject.year_of_pass = yearOfPass.getText().toString();
+                        UserRegisterObject.programme = programme.getText().toString();
+                        UserRegisterObject.branch = branch.getText().toString();
+                        UserRegisterObject.section = section.getText().toString();
+                        UserRegisterObject.gender = gender.getText().toString();
+                        UserRegisterObject.temp_addr = tempAddr.getText().toString();
+                        UserRegisterObject.perm_addr = permAddr.getText().toString();
+                        startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
+                    }
+                    else {
+                        Toast toast = Toast.makeText(CreateProfile3.this,"Please fill all the required fields",Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL,0,0);
+                        toast.show();
+                    }
+                }
+
             }
         });
     }

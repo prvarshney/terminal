@@ -3,7 +3,9 @@ package com.thethreemusketeers.terminal.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
@@ -50,6 +52,7 @@ public class StudentLogin extends AppCompatActivity {
     ImageView passwordEye;
     Boolean eyeTogglerFlag = true, proceedingUsernameFlag=false, proceedingPasswordFlag=false, invalidAttemptFlag = false;
     View loginBtn;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,7 +170,6 @@ public class StudentLogin extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(invalidAttemptFlag){
@@ -176,19 +178,16 @@ public class StudentLogin extends AppCompatActivity {
                 }
                 attentionRequiredTowardsUsernameField.setAlpha(0);
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
             }
         });
-
         passwordEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(invalidAttemptFlag){
@@ -197,7 +196,6 @@ public class StudentLogin extends AppCompatActivity {
                 }
                 attentionRequiredTowardsPasswordTypeField.setAlpha(0);
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
@@ -207,9 +205,9 @@ public class StudentLogin extends AppCompatActivity {
         loginBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginBtn.setClickable(false);
-                 String usernameValue = userId.getText().toString();
-                 String passwordValue = passwordEditText.getText().toString();
+
+                 final String usernameValue = userId.getText().toString();
+                 final String passwordValue = passwordEditText.getText().toString();
 
                 if(!passwordValue.equals("") && (!usernameValue.equals(""))){
                     final ProgressButton progressButton = new ProgressButton(StudentLogin.this, loginBtn);
@@ -240,9 +238,19 @@ public class StudentLogin extends AppCompatActivity {
                                             proceedingPasswordFlag = false;
                                             proceedingUsernameFlag = false;
                                         } else if (res.status == 200) {
-                                            attentionRequiredTowardsInvalid.setAlpha(0);
-                                            startActivity(new Intent(StudentLogin.this, MainActivity.class));
+                                            // WRITING LOGIN CREDENTIALS, ACCESS_TOKEN, REFRESH_TOKEN, ACCOUNT_TYPE IN SHARED_PREFRENCE FILE
+                                            SharedPreferences sharedPref = context.getSharedPreferences( getString(R.string.user_credentials_file_key),Context.MODE_PRIVATE );
+                                            SharedPreferences.Editor sharedPrefEditor = sharedPref.edit();
+                                            sharedPrefEditor.putString( getString(R.string.user_id),usernameValue );
+                                            sharedPrefEditor.putString( getString(R.string.password),passwordValue );
+                                            sharedPrefEditor.putString( getString(R.string.account_type),getString(R.string.account_type_student) );
+                                            sharedPrefEditor.putBoolean( getString(R.string.login_status),true );
+                                            sharedPrefEditor.putString( getString(R.string.access_token),res.access_token );
+                                            sharedPrefEditor.putString( getString(R.string.refresh_token),res.refresh_token );
+                                            sharedPrefEditor.commit();
 
+                                            attentionRequiredTowardsInvalid.setAlpha(0);
+                                            startActivity(new Intent(StudentLogin.this, Dashboard.class));
                                         }
                                     }
                                 },
@@ -274,8 +282,6 @@ public class StudentLogin extends AppCompatActivity {
                         attentionRequiredTowardsPasswordTypeField.setAlpha(0);
                     }
                 }
-
-
             }
         }));
 
