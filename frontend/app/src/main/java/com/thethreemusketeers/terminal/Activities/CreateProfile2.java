@@ -73,7 +73,7 @@ public class CreateProfile2 extends AppCompatActivity implements DatePickerDialo
             usernameHeader.setText("Enrollment");
             username.setHint("University Allotted Enrollment No.");
             username.setInputType(InputType.TYPE_CLASS_NUMBER);
-            ReqURL = Config.HostURL + "/faculty/check_availability";
+            ReqURL = Config.HostURL + "/student/check_availability";
         }
         else if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)) ) {
             // CUSTOMIZING LAYOUT FOR FACULTY

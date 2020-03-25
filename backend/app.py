@@ -1158,6 +1158,28 @@ def fetch_students_list(batch_name):
 ## FACULTY ROUTES --END
 
 ## STUDENT ROUTES --START
+@app.route("/student/check_availability",methods=['POST'])
+def student_check_userid_availability():
+    ## JSON POST MUST CONTAIN KEYS :-
+    ## {
+    ##     "user_id":<ENROLLMENT>,
+    ## }
+    req = request.get_json()
+    user_id = req['user_id']
+    ## ESTABLISHING CONNECTION WITH STUDENT_DB
+    student = db.Student()
+    db_res = student.query('enrollment',user_id)
+    if db_res['status'] == 212: # EXECUTES WHEN SUCH ENROLLMENT AVAILABLE IN STUDENT_DB
+        return jsonify({
+            'status':206,
+            'msg':'given enrollment is already in database'
+        })
+    else:
+        return jsonify({
+            'status':200,
+            'msg':'given enrollment is available to use'
+        })
+
 @app.route("/student/register",methods=["POST"])
 def student_provisional_registration():
     ## THIS ROUTE INPUTS USER_DETAILS AND BINARY IMAGE OF ID CARD AND STORE THAT IN PROVISIONAL STUDENT RECORD DATABASE
