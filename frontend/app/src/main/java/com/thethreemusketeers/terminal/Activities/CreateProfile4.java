@@ -34,6 +34,7 @@ import java.util.Map;
 
 public class CreateProfile4 extends AppCompatActivity {
 
+    // DECLARING VARIABLES
     View nextBtn;
     EditText password, confirmPassword;
     TextView attentionReqOnPassword, attentionReqOnConfirmPassword;
@@ -62,8 +63,25 @@ public class CreateProfile4 extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if( !password.getText().toString().equals("") )
+                // DISABLING ATTENTION REQUIRED FIELD WHEN FIELD IS COMPLETE EMPTY
+                if( s.toString().equals("") )
                     attentionReqOnPassword.setAlpha(0);
+
+                // CHECKING THE VALUE OF FIELD PASSWORD WITH CONFIRM PASSWORD FIELD LIVELY
+                // ONLY WHEN CONFIRM PASSWORD FIELD ISN'T EMPTY
+                else if ( !confirmPassword.getText().toString().equals("") ) {
+                    // RUNS WHEN USER FILED CONFIRM PASSWORD FIELD FIRST AND THEN FILLING
+                    // PASSWORD FIELD
+                    if ( !s.toString().equals(confirmPassword.getText().toString()) ) {
+                        attentionReqOnPassword.setText("*Mismatch");
+                        attentionReqOnPassword.setAlpha(1);
+                    }
+                    // DISABLING WARNING FROM BOTH FIELDS IF BOTH ARE EQUAL
+                    else if ( confirmPassword.getText().toString().equals(s.toString()) ) {
+                        attentionReqOnConfirmPassword.setAlpha(0);
+                        attentionReqOnPassword.setAlpha(0);
+                    }
+                }
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -78,12 +96,20 @@ public class CreateProfile4 extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if( !password.getText().toString().equals(confirmPassword.getText().toString()) ){
+                // DISABLING ATTENTION REQUIRED FIELD WHEN FIELD IS COMPLETE EMPTY
+                if( s.toString().equals("") )
+                    attentionReqOnPassword.setAlpha(0);
+
+                // RUNS WHEN PASSWORD FILED ISN'T EMPTY AND PASSWORD FIELD AND CONFIRM PASSWORD FIELD
+                // BOTH HAVE DIFFERENT VALUES
+                else if( !password.getText().toString().equals("") && !password.getText().toString().equals(s.toString()) ){
                     attentionReqOnConfirmPassword.setAlpha(1);
                     attentionReqOnConfirmPassword.setText("*Mismatch");
                 }
-                else {
+                // DISABLING WARNING FROM BOTH FIELDS IF BOTH ARE EQUAL
+                else if ( password.getText().toString().equals(s.toString()) ) {
                     attentionReqOnConfirmPassword.setAlpha(0);
+                    attentionReqOnPassword.setAlpha(0);
                 }
             }
             @Override
@@ -125,8 +151,12 @@ public class CreateProfile4 extends AppCompatActivity {
             }
         });
 
-        final String ReqURL = Config.HostURL + "/faculty/register";
+        // PREPARING TO SEND USER ENTERED DETAILS TO SERVER WITH DIFFERENT ROUTES BASED ON ACCOUNT
+        // TYPE USER SELECTED
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final String ReqURL = UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty))
+                    ? Config.HostURL + "/faculty/register"
+                    : Config.HostURL + "/student/register" ;
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

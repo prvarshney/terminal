@@ -1202,7 +1202,7 @@ def student_provisional_registration():
     ##   "dob": <STRING IN DD/MM/YYYY FORMAT>,
     ##   "temp_addr": <STRING>,
     ##   "perm_addr": <STRING>,
-    ##   "identity_proof": <JPEG OR JPG IMAGE>
+    ##   "image": <JPEG OR JPG IMAGE>
     ## }
     enrollment = request.form.get('enrollment')
     rollno = request.form.get('rollno')

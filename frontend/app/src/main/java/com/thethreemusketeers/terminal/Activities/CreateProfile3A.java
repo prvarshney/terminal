@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.thethreemusketeers.terminal.R;
 
-public class UploadIdentityProof extends AppCompatActivity {
+public class CreateProfile3A extends AppCompatActivity {
 
     ImageView uploadBtn, deleteBtn, previewImageView;
     final int GALLERY_REQUEST_CODE = 1000;
@@ -19,7 +19,7 @@ public class UploadIdentityProof extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload_identity_proof);
+        setContentView(R.layout.activity_create_profile3a);
 
         // FETCHING ELEMENTS FROM XML DESIGN
         uploadBtn = findViewById(R.id.image_upload_btn);
