@@ -5,11 +5,10 @@ import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-public class FacultyProfileCreationSuccess extends AppCompatActivity {
+public class ProfileCreationSuccess extends AppCompatActivity {
 
     ImageView checkMark;
     AnimatedVectorDrawable avd;
@@ -18,7 +17,7 @@ public class FacultyProfileCreationSuccess extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty_profile_creation_success);
+        setContentView(R.layout.activity_profile_creation_success);
 
         // FETCHING COMPONENTS FROM XML PAGE
         checkMark = findViewById(R.id.check_mark);

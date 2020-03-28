@@ -19,4 +19,5 @@ public class UserRegisterObject {
     public static String email;
     public static String password;
     public static String dob;
+    public static String image;
 }

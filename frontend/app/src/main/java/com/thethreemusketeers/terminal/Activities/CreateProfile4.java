@@ -185,12 +185,34 @@ public class CreateProfile4 extends AppCompatActivity {
                     // SENDING USER DETAILS FROM DIFFERENT ACTIVITIES TO SERVER
                     // CREATING REQUEST OBJECT
                     Map<String,String> postParameters = new HashMap<String, String>();
-                    postParameters.put("name",UserRegisterObject.name);
-                    postParameters.put("faculty_id",UserRegisterObject.faculty_id);
-                    postParameters.put("ic_sent_mail_image",UserRegisterObject.email);
-                    postParameters.put("phone_number",UserRegisterObject.phone_number);
-                    postParameters.put("password",UserRegisterObject.password);
-                    postParameters.put("dob",UserRegisterObject.dob);
+                    // PUTTING KEYS AND VALUE ACCORDING TO THE ACCOUNT TYPE USER CREATING ACCOUNT FOR
+                    if(UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty))) {
+                        postParameters.put("name",UserRegisterObject.name);
+                        postParameters.put("faculty_id",UserRegisterObject.faculty_id);
+                        postParameters.put("email",UserRegisterObject.email);
+                        postParameters.put("phone_number",UserRegisterObject.phone_number);
+                        postParameters.put("password",UserRegisterObject.password);
+                        postParameters.put("dob",UserRegisterObject.dob);
+                    }
+                    else if( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) ) {
+                        postParameters.put("name",UserRegisterObject.name);
+                        postParameters.put("enrollment",UserRegisterObject.enrollment);
+                        postParameters.put("email",UserRegisterObject.email);
+                        postParameters.put("phone_number",UserRegisterObject.phone_number);
+                        postParameters.put("password",UserRegisterObject.password);
+                        postParameters.put("dob",UserRegisterObject.dob);
+                        postParameters.put("rollno",UserRegisterObject.rollno);
+                        postParameters.put("father_name",UserRegisterObject.father_name);
+                        postParameters.put("year_of_pass",UserRegisterObject.year_of_pass);
+                        postParameters.put("year_of_join",UserRegisterObject.year_of_join);
+                        postParameters.put("programme",UserRegisterObject.programme);
+                        postParameters.put("branch",UserRegisterObject.branch);
+                        postParameters.put("section",UserRegisterObject.section);
+                        postParameters.put("gender",UserRegisterObject.gender);
+                        postParameters.put("temp_addr",UserRegisterObject.temp_addr);
+                        postParameters.put("perm_addr",UserRegisterObject.perm_addr);
+                        postParameters.put("image",UserRegisterObject.image);
+                    }
 
                     JsonObjectRequest requestObject = new JsonObjectRequest(
                             Request.Method.POST,
