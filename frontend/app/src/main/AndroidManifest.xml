@@ -14,7 +14,7 @@
         android:roundIcon="@drawable/ic_app_launcher_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.UploadIdentityProof"></activity>
+        <activity android:name=".Activities.CreateProfile3A"></activity>
         <activity android:name=".Activities.Dashboard" />
         <activity android:name=".Activities.Launcher">
             <intent-filter>
@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FacultyProfileCreationSuccess" />
+        <activity android:name=".ProfileCreationSuccess" />
         <activity
             android:name=".Activities.MainActivity"
             android:screenOrientation="portrait">

@@ -34,6 +34,7 @@ import java.util.Map;
 
 public class CreateProfile4 extends AppCompatActivity {
 
+    // DECLARING VARIABLES
     View nextBtn;
     EditText password, confirmPassword;
     TextView attentionReqOnPassword, attentionReqOnConfirmPassword;
@@ -62,8 +63,25 @@ public class CreateProfile4 extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if( !password.getText().toString().equals("") )
+                // DISABLING ATTENTION REQUIRED FIELD WHEN FIELD IS COMPLETE EMPTY
+                if( s.toString().equals("") )
                     attentionReqOnPassword.setAlpha(0);
+
+                // CHECKING THE VALUE OF FIELD PASSWORD WITH CONFIRM PASSWORD FIELD LIVELY
+                // ONLY WHEN CONFIRM PASSWORD FIELD ISN'T EMPTY
+                else if ( !confirmPassword.getText().toString().equals("") ) {
+                    // RUNS WHEN USER FILED CONFIRM PASSWORD FIELD FIRST AND THEN FILLING
+                    // PASSWORD FIELD
+                    if ( !s.toString().equals(confirmPassword.getText().toString()) ) {
+                        attentionReqOnPassword.setText("*Mismatch");
+                        attentionReqOnPassword.setAlpha(1);
+                    }
+                    // DISABLING WARNING FROM BOTH FIELDS IF BOTH ARE EQUAL
+                    else if ( confirmPassword.getText().toString().equals(s.toString()) ) {
+                        attentionReqOnConfirmPassword.setAlpha(0);
+                        attentionReqOnPassword.setAlpha(0);
+                    }
+                }
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -78,12 +96,20 @@ public class CreateProfile4 extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if( !password.getText().toString().equals(confirmPassword.getText().toString()) ){
+                // DISABLING ATTENTION REQUIRED FIELD WHEN FIELD IS COMPLETE EMPTY
+                if( s.toString().equals("") )
+                    attentionReqOnPassword.setAlpha(0);
+
+                // RUNS WHEN PASSWORD FILED ISN'T EMPTY AND PASSWORD FIELD AND CONFIRM PASSWORD FIELD
+                // BOTH HAVE DIFFERENT VALUES
+                else if( !password.getText().toString().equals("") && !password.getText().toString().equals(s.toString()) ){
                     attentionReqOnConfirmPassword.setAlpha(1);
                     attentionReqOnConfirmPassword.setText("*Mismatch");
                 }
-                else {
+                // DISABLING WARNING FROM BOTH FIELDS IF BOTH ARE EQUAL
+                else if ( password.getText().toString().equals(s.toString()) ) {
                     attentionReqOnConfirmPassword.setAlpha(0);
+                    attentionReqOnPassword.setAlpha(0);
                 }
             }
             @Override
@@ -125,8 +151,12 @@ public class CreateProfile4 extends AppCompatActivity {
             }
         });
 
-        final String ReqURL = Config.HostURL + "/faculty/register";
+        // PREPARING TO SEND USER ENTERED DETAILS TO SERVER WITH DIFFERENT ROUTES BASED ON ACCOUNT
+        // TYPE USER SELECTED
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final String ReqURL = UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty))
+                    ? Config.HostURL + "/faculty/register"
+                    : Config.HostURL + "/student/register" ;
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,12 +185,34 @@ public class CreateProfile4 extends AppCompatActivity {
                     // SENDING USER DETAILS FROM DIFFERENT ACTIVITIES TO SERVER
                     // CREATING REQUEST OBJECT
                     Map<String,String> postParameters = new HashMap<String, String>();
-                    postParameters.put("name",UserRegisterObject.name);
-                    postParameters.put("faculty_id",UserRegisterObject.faculty_id);
-                    postParameters.put("ic_sent_mail_image",UserRegisterObject.email);
-                    postParameters.put("phone_number",UserRegisterObject.phone_number);
-                    postParameters.put("password",UserRegisterObject.password);
-                    postParameters.put("dob",UserRegisterObject.dob);
+                    // PUTTING KEYS AND VALUE ACCORDING TO THE ACCOUNT TYPE USER CREATING ACCOUNT FOR
+                    if(UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty))) {
+                        postParameters.put("name",UserRegisterObject.name);
+                        postParameters.put("faculty_id",UserRegisterObject.faculty_id);
+                        postParameters.put("email",UserRegisterObject.email);
+                        postParameters.put("phone_number",UserRegisterObject.phone_number);
+                        postParameters.put("password",UserRegisterObject.password);
+                        postParameters.put("dob",UserRegisterObject.dob);
+                    }
+                    else if( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) ) {
+                        postParameters.put("name",UserRegisterObject.name);
+                        postParameters.put("enrollment",UserRegisterObject.enrollment);
+                        postParameters.put("email",UserRegisterObject.email);
+                        postParameters.put("phone_number",UserRegisterObject.phone_number);
+                        postParameters.put("password",UserRegisterObject.password);
+                        postParameters.put("dob",UserRegisterObject.dob);
+                        postParameters.put("rollno",UserRegisterObject.rollno);
+                        postParameters.put("father_name",UserRegisterObject.father_name);
+                        postParameters.put("year_of_pass",UserRegisterObject.year_of_pass);
+                        postParameters.put("year_of_join",UserRegisterObject.year_of_join);
+                        postParameters.put("programme",UserRegisterObject.programme);
+                        postParameters.put("branch",UserRegisterObject.branch);
+                        postParameters.put("section",UserRegisterObject.section);
+                        postParameters.put("gender",UserRegisterObject.gender);
+                        postParameters.put("temp_addr",UserRegisterObject.temp_addr);
+                        postParameters.put("perm_addr",UserRegisterObject.perm_addr);
+                        postParameters.put("image",UserRegisterObject.image);
+                    }
 
                     JsonObjectRequest requestObject = new JsonObjectRequest(
                             Request.Method.POST,

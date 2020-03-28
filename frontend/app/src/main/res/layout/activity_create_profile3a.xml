@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".Activities.UploadIdentityProof">
+    tools:context=".Activities.CreateProfile3A">
 
     <TextView
         android:id="@+id/activity_title"
@@ -84,7 +84,7 @@
     </LinearLayout>
 
     <include
-        android:id="@+id/activity5_next_btn"
+        android:id="@+id/activity3a_next_btn"
         layout="@layout/progress_button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

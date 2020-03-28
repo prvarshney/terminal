@@ -11,7 +11,6 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,7 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.thethreemusketeers.terminal.Config;
-import com.thethreemusketeers.terminal.FacultyProfileCreationSuccess;
+import com.thethreemusketeers.terminal.ProfileCreationSuccess;
 import com.thethreemusketeers.terminal.JSONRequestObject.UserRegisterObject;
 import com.thethreemusketeers.terminal.JSONResponseObject.MessageAndStatusResponse;
 import com.thethreemusketeers.terminal.ProgressButton;
@@ -36,6 +35,7 @@ import java.util.Map;
 
 public class CreateProfile5 extends AppCompatActivity {
 
+    // DECLARING VARIABLES AND OBJECTS
     TextView resendOTPTextView, attentionReqOnEmailOtpTextView, attentionReqOnSMSOtpTextView;
     View nextBtn;
     EditText emailOTPEditText, smsOTPEditText;
@@ -71,18 +71,26 @@ public class CreateProfile5 extends AppCompatActivity {
         resendOTPText.setSpan(otpResendLink,21,34, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         resendOTPTextView.setText(resendOTPText);
 
-        // ADDING EVENT LISTENERS
+        // ADDING EVENT LISTENERS ON CLICKABLE ITEMS
         // CREATING REQUEST QUEUE
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final String emailVerificationReqURL = Config.HostURL + "/faculty/verify_email";
-        final String phoneVerificationReqURL = Config.HostURL + "/faculty/verify_phone";
+        // CREATING EMAIL VERIFICATION REQUEST URLS BASED ON ACCOUNT TYPE
+        final String emailVerificationReqURL =  (UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)))
+                ? Config.HostURL + "/faculty/verify_email"
+                : Config.HostURL + "/student/verify_email";
+        // CREATING PHONE VERIFICATION REQUEST URLS BASED ON ACCOUNT TYPE
+        final String phoneVerificationReqURL = (UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)))
+                ? Config.HostURL + "/faculty/verify_phone"
+                : Config.HostURL + "/student/verify_phone";
 
+        // ADDING EVENT LISTENER ON NEXT BUTTON
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // CHANGING STATE OF PROGRESS BUTTON FROM NEXT TO PLEASE WAIT
                 final ProgressButton progressButton = new ProgressButton(CreateProfile5.this,nextBtn);
                 progressButton.buttonProgressActivatedState("Please Wait...");
-                // CHECKING WHETHER INPUT FIELDS AREN'T EMPTY
+                // CHECKING EMAIL OTP INPUT FIELD ISN'T EMPTY
                 if ( emailOTPEditText.getText().toString().equals("") ) {
                     isEmailOTPTextViewEmpty = true;
                     attentionReqOnEmailOtpTextView.setText("*Required");
@@ -92,6 +100,7 @@ public class CreateProfile5 extends AppCompatActivity {
                     isEmailOTPTextViewEmpty = false;
                     attentionReqOnEmailOtpTextView.setAlpha(0);
                 }
+                // CHECKING SMS OTP INPUT FIELD ISN'T EMPTY
                 if ( smsOTPEditText.getText().toString().equals("") ) {
                     isSMSOTPTextViewEmpty = true;
                     attentionReqOnSMSOtpTextView.setText("*Required");
@@ -102,21 +111,32 @@ public class CreateProfile5 extends AppCompatActivity {
                     attentionReqOnSMSOtpTextView.setAlpha(0);
                 }
 
+                // EXECUTES WHEN BOTH OTP FIELDS AREN'T EMPTY
                 if ( !isEmailOTPTextViewEmpty && !isSMSOTPTextViewEmpty ) {
-
-                    // CREATING REQUEST OBJECT FOR EMAIL VERIFICATION LINK AND PHONE VERIFICATION LINK
+                    // CREATING REQUEST OBJECT FOR EMAIL VERIFICATION LINK
                     Map<String,String> postParametersOfVerifyEmail = new HashMap<String,String>();
                     postParametersOfVerifyEmail.put("email_id", UserRegisterObject.email);
-                    postParametersOfVerifyEmail.put("faculty_id", UserRegisterObject.faculty_id);
                     postParametersOfVerifyEmail.put("phone_number", UserRegisterObject.phone_number);
                     postParametersOfVerifyEmail.put("email_otp", emailOTPEditText.getText().toString());
 
+                    // CREATING REQUEST OBJECT FOR PHONE VERIFICATION LINK
                     Map<String,String> postParametersOfVerifySMS = new HashMap<String,String>();
                     postParametersOfVerifySMS.put("email_id",UserRegisterObject.email);
-                    postParametersOfVerifySMS.put("faculty_id",UserRegisterObject.faculty_id);
                     postParametersOfVerifySMS.put("phone_number",UserRegisterObject.phone_number);
                     postParametersOfVerifySMS.put("sms_otp",smsOTPEditText.getText().toString());
 
+                    // IF ACCOUNT-TYPE IS FACULTY INSERTING HIS/HER FACULTY_ID
+                    if (UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty))) {
+                        postParametersOfVerifyEmail.put("faculty_id", UserRegisterObject.faculty_id);
+                        postParametersOfVerifySMS.put("faculty_id",UserRegisterObject.faculty_id);
+                    }
+                    // IF ACCOUNT-TYPE IS STUDENT INSERTING HIS/HER ENROLLMENT
+                    else if(UserRegisterObject.account_type.equals(getString(R.string.account_type_student))) {
+                        postParametersOfVerifyEmail.put("enrollment", UserRegisterObject.enrollment);
+                        postParametersOfVerifySMS.put("enrollment",UserRegisterObject.enrollment);
+                    }
+
+                    // JSON REQUEST OBJECT FOR EMAIL VERIFICATION ROUTE
                     JsonObjectRequest requestObjectOfVerifyEmail = new JsonObjectRequest(
                             Request.Method.POST,
                             emailVerificationReqURL,
@@ -133,12 +153,13 @@ public class CreateProfile5 extends AppCompatActivity {
 
                                         // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
                                         if ( isEmailVerified && isPhoneNumberVerified ) 
-                                            startActivity( new Intent(CreateProfile5.this,FacultyProfileCreationSuccess.class) );
+                                            startActivity( new Intent(CreateProfile5.this, ProfileCreationSuccess.class) );
                                     }
                                     else if ( res.status == 401 ) {
                                         isEmailVerified = false;
                                         attentionReqOnEmailOtpTextView.setText("*Invalid");
                                         attentionReqOnEmailOtpTextView.setAlpha(1);
+                                        progressButton.buttonProgressStoppedState("NEXT");
                                     }
                                 }
                             },
@@ -149,6 +170,8 @@ public class CreateProfile5 extends AppCompatActivity {
                                 }
                             }
                     );
+
+                    // JSON REQUEST OBJECT FOR PHONE VERIFICATION LINK
                     JsonObjectRequest requestObjectOfVerifyPhone = new JsonObjectRequest(
                             Request.Method.POST,
                             phoneVerificationReqURL,
@@ -165,7 +188,7 @@ public class CreateProfile5 extends AppCompatActivity {
 
                                         // STARTING NEW ACTIVITY WHEN BOTH FIELDS ARE VERIFIED
                                         if ( isEmailVerified && isPhoneNumberVerified ) {
-                                            startActivity( new Intent(CreateProfile5.this, FacultyProfileCreationSuccess.class) );
+                                            startActivity( new Intent(CreateProfile5.this, ProfileCreationSuccess.class) );
                                         }
                                         else {
                                             progressButton.buttonProgressStoppedState("NEXT");
@@ -175,6 +198,7 @@ public class CreateProfile5 extends AppCompatActivity {
                                         isPhoneNumberVerified = false;
                                         attentionReqOnSMSOtpTextView.setText("*Invalid");
                                         attentionReqOnSMSOtpTextView.setAlpha(1);
+                                        progressButton.buttonProgressStoppedState("NEXT");
                                     }
                                 }
                             },

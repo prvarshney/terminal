@@ -11,12 +11,10 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.thethreemusketeers.terminal.FacultyProfileCreationSuccess;
 import com.thethreemusketeers.terminal.R;
 import com.thethreemusketeers.terminal.TermsAndConditionActivity;
 

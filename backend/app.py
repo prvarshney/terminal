@@ -1,4 +1,5 @@
 import sys
+import base64
 import os
 ## APPENDING SYS PATH TO ACCESS LIB MODULES FROM ANYWHERE
 sys.path.append( os.path.join( os.getcwd(),'lib') )
@@ -1184,7 +1185,7 @@ def student_check_userid_availability():
 def student_provisional_registration():
     ## THIS ROUTE INPUTS USER_DETAILS AND BINARY IMAGE OF ID CARD AND STORE THAT IN PROVISIONAL STUDENT RECORD DATABASE
     ## AT THE SAME TIME IT SENDS OTP TO CONTACT EMAIL ADDRESS AND PHONE NUMBERS
-    ## FORM MUST CONTAINS THE FOLLOWING KEYS :-
+    ## JSON MUST CONTAINS THE FOLLOWING KEYS :-
     ## {
     ##   "enrollment": <STRING>,
     ##   "rollno": <STRING>,
@@ -1202,25 +1203,30 @@ def student_provisional_registration():
     ##   "dob": <STRING IN DD/MM/YYYY FORMAT>,
     ##   "temp_addr": <STRING>,
     ##   "perm_addr": <STRING>,
-    ##   "identity_proof": <JPEG OR JPG IMAGE>
+    ##   "image": <BASE64 ENCODED BINARY IMAGE IN STRING FORMAT>
     ## }
-    enrollment = request.form.get('enrollment')
-    rollno = request.form.get('rollno')
-    name = request.form.get('name')
-    phone_number = request.form.get('phone_number')
-    email = request.form.get('email')
-    password = request.form.get('password')
-    father_name = request.form.get('father_name')
-    year_of_join = request.form.get('year_of_join')
-    year_of_pass = request.form.get('year_of_pass')
-    programme = request.form.get('programme')
-    branch = request.form.get('branch')
-    section = request.form.get('section')
-    gender = request.form.get('gender')
-    dob = request.form.get('dob')
-    temp_addr = request.form.get('temp_addr')
-    perm_addr = request.form.get('perm_addr')
-    identity_proof = request.files['image']
+    req = request.get_json()
+    enrollment = req['enrollment']
+    rollno = req['rollno']
+    name = req['name']
+    phone_number = req['phone_number']
+    email = req['email']
+    password = req['password']
+    father_name = req['father_name']
+    year_of_join = req['year_of_join']
+    year_of_pass = req['year_of_pass']
+    programme = req['programme']
+    branch = req['branch']
+    section = req['section']
+    gender = req['gender']
+    dob = req['dob']
+    temp_addr = req['temp_addr']
+    perm_addr = req['perm_addr']
+    identity_proof = req['image']
+
+    ## DECODING BASE64 FILE BACK TO BINARY FORMAT
+    identity_proof = base64.b64decode(identity_proof)
+
 
     ## PARSING NAME INTO F_NAME, M_NAME AND L_NAME
     ## EG: PRASHANT VARSHNEY INTO { 'f_name':'PRASHANT','m_name':'','l_name':'VARSHNEY' }
@@ -1257,6 +1263,9 @@ def student_provisional_registration():
     ## EG: 04/06/1998 INTO { 'DAY':'04','MONTH':'06','YEAR':'1998' }
     dob = dob.split('/')
     dob = { 'day':dob[0],'month':dob[1],'year':dob[2] }
+
+    ## CONVERTING BASE64 ENCODED IMAGE BACK TO BINARY FORMAT
+    
     ## STORING THESE VALUES IN PROVISONAL_STUDENT_DATABASE
     provisional_student = db.Provisional_Student()
     provisional_student.insert(
@@ -1375,7 +1384,7 @@ def student_verify_phone():
                     ## REMOVING EMAIL VERIFICATION OTP FROM OTP_DB
                     otp_db.remove(hash_id,'PHONE_VERIFICATION')
                     ## CHECKING WHETHER EMAIL AND PHONE NUMBER BOTH GOT VERIFIED
-                    db_res = provisional_faculty.query('hash_id',hash_id)
+                    db_res = provisional_student.query('hash_id',hash_id)
                     if db_res['status'] == 212:
                         for document in db_res['res']:
                             if document['phone_number_verification_status'] and document['email_verification_status']:

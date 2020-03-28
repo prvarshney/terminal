@@ -119,11 +119,12 @@ public class CreateProfile3 extends AppCompatActivity {
 
             }
         });
+
         // SETTING EVENT LISTENER ON NEXT BUTTON
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // CHECKING WHETHER CONTACT NUMBER IS VALID OR NOT
+                // CHECKING WHETHER CONTACT NUMBER ISN'T EMPTY
                 if( contactNumber.getText().toString().equals("") ) {
                     attentionReqOnContactNumber.setAlpha(1);
                     attentionReqOnContactNumber.setText("* Required");
@@ -134,14 +135,15 @@ public class CreateProfile3 extends AppCompatActivity {
                     attentionReqOnContactNumber.setText("* Required");
                     isContactNumberValidated = true;
                 }
-
+                // CHECKING WHETHER CONTACT NUMBER IS VALID OR NOT
                 if( emailAddr.getText().toString().equals("") ) {
                     attentionReqOnEmailAddr.setAlpha(1);
                     attentionReqOnEmailAddr.setText("* Required");
                     isContactNumberValidated = false;
                 }
-
+                // EXECUTES WHEN USER ACCOUNT TYPE IS FACULTY
                 if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_faculty)) ) {
+                    // EXECUTES WHEN EMAIL ADDRESS AND CONTACT NUMBER IS VALID/AREN'T EMPTY
                     if ( isEmailValidated && isContactNumberValidated ) {
                         UserRegisterObject.phone_number = contactNumber.getText().toString();
                         UserRegisterObject.email = emailAddr.getText().toString();
@@ -154,7 +156,9 @@ public class CreateProfile3 extends AppCompatActivity {
                     }
                 }
 
+                // EXECUTES WHEN USER ACCOUNT TYPE IS STUDENT
                 else if ( UserRegisterObject.account_type.equals(getString(R.string.account_type_student)) ) {
+                    // CHECKING WHETHER YEAR OF JOIN ISN'T EMPTY
                     if( yearOfJoin.getText().toString().equals("") ) {
                         attentionReqOnYOJ.setAlpha(1);
                         attentionReqOnYOJ.setText("* Required");
@@ -166,6 +170,7 @@ public class CreateProfile3 extends AppCompatActivity {
                         isYOJEmpty = false;
                     }
 
+                    // CHECKING WHETHER YEAR OF PASS ISN'T EMPTY
                     if( yearOfPass.getText().toString().equals("") ) {
                         attentionReqOnYOP.setAlpha(1);
                         attentionReqOnYOP.setText("* Required");
@@ -177,6 +182,7 @@ public class CreateProfile3 extends AppCompatActivity {
                         isYOPEmpty = false;
                     }
 
+                    // CHECKING WHETHER PROGRAMME ISN'T EMPTY
                     if( programme.getText().toString().equals("") ) {
                         attentionReqOnProgramme.setAlpha(1);
                         attentionReqOnProgramme.setText("* Required");
@@ -188,6 +194,7 @@ public class CreateProfile3 extends AppCompatActivity {
                         isProgrammeEmpty = false;
                     }
 
+                    // CHECKING WHETHER BRANCH ISN'T EMPTY
                     if( branch.getText().toString().equals("") ) {
                         attentionReqOnBranch.setAlpha(1);
                         attentionReqOnBranch.setText("* Required");
@@ -199,6 +206,7 @@ public class CreateProfile3 extends AppCompatActivity {
                         isBranchEmpty = false;
                     }
 
+                    // CHECKING WHETHER SECTION ISN'T EMPTY
                     if( section.getText().toString().equals("") ) {
                         attentionReqOnSection.setAlpha(1);
                         attentionReqOnSection.setText("* Required");
@@ -210,6 +218,7 @@ public class CreateProfile3 extends AppCompatActivity {
                         isSectionEmpty = false;
                     }
 
+                    // EXECUTES WHEN ALL FIELDS AREN'T EMPTY AND VALID
                     if ( isEmailValidated && isContactNumberValidated && !isYOJEmpty && !isYOPEmpty
                             && !isProgrammeEmpty && !isBranchEmpty && !isSectionEmpty ) {
                         UserRegisterObject.phone_number = contactNumber.getText().toString();
@@ -225,7 +234,8 @@ public class CreateProfile3 extends AppCompatActivity {
                         UserRegisterObject.gender = "";
                         UserRegisterObject.temp_addr = "";
                         UserRegisterObject.perm_addr = "";
-                        startActivity(new Intent(CreateProfile3.this,CreateProfile4.class));
+                        // ROUTING TO IDENTITY PROOF IMAGE INPUT ACTIVITY
+                        startActivity(new Intent(CreateProfile3.this,CreateProfile3A.class));
                     }
                     else {
                         Toast toast = Toast.makeText(CreateProfile3.this,"Please fill all the required fields correctly",Toast.LENGTH_SHORT);
